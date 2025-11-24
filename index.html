@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MWT - Moltaqa World Travel & Tourism</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --orange: #c69228;
+      --green: #95c11f;
+      --blue: #0b3c6d;
+      --bg-soft: #f5f7fa;
+      --text-dark: #222;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-soft);
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    header {
+      background: var(--orange);
+      color: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,.15);
+      padding: 0.6rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      cursor: pointer;
+    }
+    .logo-wrap img {
+      height: 46px;
+      border-radius: 6px;
+      object-fit: contain;
+      background: #fff;
+    }
+    .logo-text-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .logo-text-sub {
+      font-size: .75rem;
+      color: #f3e6c9;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: .92rem;
+      font-weight: 500;
+      align-items: center;
+    }
+    .nav-link {
+      position: relative;
+      cursor: pointer;
+      color: #fbead1;
+    }
+    .nav-link.active {
+      color: #fff;
+    }
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      align-items: center;
+    }
+    .lang-pill {
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.5);
+      cursor: pointer;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      color: #fff;
+    }
+    .lang-pill span.flag {
+      font-size: .8rem;
+    }
+    .lang-pill span.code {
+      font-weight: 600;
+    }
+    .lang-pill.active {
+      background: #fff;
+      color: var(--orange);
+      border-color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 1.4rem auto 2rem;
+      padding: 0 1rem;
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .hero {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+    .hero img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,.4), rgba(11,60,109,.9));
+    }
+    .hero-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.6rem;
+    }
+    .hero-content {
+      max-width: 620px;
+      color: #fff;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(198,146,40,.9);
+      color: #fff;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 600;
+      margin-bottom: .6rem;
+    }
+    .hero h1 {
+      font-size: 1.9rem;
+      margin-bottom: .4rem;
+    }
+    .hero p {
+      font-size: .95rem;
+      opacity: .9;
+      margin-bottom: 1rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.4rem;
+      border: none;
+      cursor: pointer;
+      font-size: .86rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(0,0,0,.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.45);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.8);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,.1);
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 1.2rem 0 0.6rem;
+      color: var(--blue);
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+      gap: 1rem;
+    }
+    .offer-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      border-left: 5px solid var(--orange);
+    }
+    .offer-title { font-weight: 600; font-size: .98rem; }
+    .offer-dates { font-size: .82rem; color: #777; margin-top: .1rem; }
+    .offer-price { margin-top: .3rem; font-weight: 700; color: var(--orange); }
+
+    .carousel {
+      overflow-x: auto;
+      padding-bottom: 0.4rem;
+    }
+    .carousel-inner {
+      display: flex;
+      gap: .8rem;
+      min-width: 100%;
+    }
+    .carousel-item {
+      flex: 0 0 220px;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+    .carousel-item img {
+      height: 130px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .carousel-title {
+      padding: 0.5rem 0.7rem 0.7rem;
+      font-size: .82rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+      margin-bottom: 0.8rem;
+    }
+    .card img {
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+      height: 190px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+      gap: 1rem;
+    }
+    .service-icon { font-size: 1.3rem; color: var(--blue); margin-bottom: .3rem; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+      margin-bottom: .6rem;
+      font-size: .84rem;
+    }
+    input, textarea {
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      padding: .45rem .6rem;
+      font-size: .86rem;
+      font-family: inherit;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid #eee;
+      padding: 1.1rem 1rem;
+      font-size: .78rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      display: flex;
+      gap: .6rem;
+      align-items: center;
+    }
+    .footer-logo img { height: 40px; border-radius: 6px; background:#fff; }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .header-inner { justify-content: space-between; }
+      .hero img { height: 260px; }
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(0,0,0,.35);
+      z-index: 50;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap" onclick="showPage('home')">
+      <img src="images/logo.jpg" alt="MWT logo" />
+      <div>
+        <div class="logo-text-title">MWT</div>
+        <div class="logo-text-sub">Moltaqa World Travel &amp; Tourism</div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-link active" data-page-link="home" onclick="showPage('home')" id="t-nav-home">Accueil</div>
+      <div class="nav-link" data-page-link="tours" onclick="showPage('tours')" id="t-nav-tours">Tours</div>
+      <div class="nav-link" data-page-link="services" onclick="showPage('services')" id="t-nav-services">Services</div>
+      <div class="nav-link" data-page-link="contact" onclick="showPage('contact')" id="t-nav-contact">Contact</div>
+    </nav>
+    <div class="lang-switch">
+      <div class="lang-pill active" data-lang="fr" onclick="switchLang('fr')"><span class="flag">🇫🇷</span><span class="code">FR</span></div>
+      <div class="lang-pill" data-lang="es" onclick="switchLang('es')"><span class="flag">🇪🇸</span><span class="code">ES</span></div>
+      <div class="lang-pill" data-lang="en" onclick="switchLang('en')"><span class="flag">🇬🇧</span><span class="code">EN</span></div>
+      <div class="lang-pill" data-lang="ar" onclick="switchLang('ar')"><span class="flag">🇸🇦</span><span class="code">AR</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ACCUEIL -->
+  <section class="page active" id="page-home">
+    <div class="hero">
+      <img src="images/omra.jpg" alt="Hero Omra">
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>MWT · Moltaqa World Travel &amp; Tourism</span>
+          </div>
+          <h1 id="t-hero-title">Les couleurs les plus belles du voyage</h1>
+          <p id="t-hero-p1">Omra, Haj, Sahara algérien, études en Espagne et en Angleterre, avec un accompagnement complet depuis Alicante.</p>
+          <p id="t-hero-p2"></p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="showPage('tours')" id="t-hero-btn1">Voir les offres Omra</button>
+            <button class="btn btn-outline" onclick="showPage('tours')" id="t-hero-btn2">Découvrir tous les tours</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="t-omra-title">Offres Omra</h2>
+    <div class="offers-grid">
+      <div class="offer-card">
+        <div class="offer-title" id="t-omra1-title">Omra 25 décembre — 3 janvier</div>
+        <div class="offer-dates" id="t-omra1-dates">25/12 — 03/01</div>
+        <div class="offer-price" id="t-omra1-price">1595€</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-title" id="t-omra2-title">Omra 20 janvier — 3 février</div>
+        <div class="offer-dates" id="t-omra2-dates">20/01 — 03/02</div>
+        <div class="offer-price" id="t-omra2-price">1395€</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-title" id="t-omra3-title">Omra du Ramadan</div>
+        <div class="offer-dates" id="t-omra3-dates">Inscriptions ouvertes (dates à confirmer)</div>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="t-products-title">Nos produits phares</h2>
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <img src="images/omra.jpg" alt="Omra">
+          <div class="carousel-title" id="t-car-omra">Omra</div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/hajj.jpg" alt="Hajj">
+          <div class="carousel-title" id="t-car-hajj">Hajj</div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/sahara.jpg" alt="Sahara">
+          <div class="carousel-title" id="t-car-sahara">Sahara algérien</div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/study.jpg" alt="Études">
+          <div class="carousel-title" id="t-car-study">Études Espagne &amp; UK</div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/services.jpg" alt="Services">
+          <div class="carousel-title" id="t-car-services">Services de l'agence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOURS -->
+  <section class="page" id="page-tours">
+    <h2 class="section-title" id="t-tours-title">Tours &amp; voyages</h2>
+    <div class="card">
+      <img src="images/omra.jpg" alt="Omra 25 décembre — 3 janvier">
+      <h3 id="t-tours-omra1-title">Omra 25 décembre — 3 janvier</h3>
+      <p id="t-tours-omra1-desc">Hébergement 4*, guides francophones et arabophones, transferts inclus.</p>
+    </div>
+    <div class="card">
+      <img src="images/omra.jpg" alt="Omra 20 janvier — 3 février">
+      <h3 id="t-tours-omra2-title">Omra 20 janvier — 3 février</h3>
+      <p id="t-tours-omra2-desc">Programme équilibré entre temps libre et visites, assistance visa possible.</p>
+    </div>
+    <div class="card">
+      <img src="images/omra.jpg" alt="Omra du Ramadan">
+      <h3 id="t-tours-omra3-title">Omra du Ramadan</h3>
+      <p id="t-tours-omra3-desc">Pré-inscription ouverte, priorité aux premiers inscrits.</p>
+    </div>
+    <div class="card">
+      <img src="images/hajj.jpg" alt="Haj 2026">
+      <h3 id="t-tours-hajj-title">Haj 2026</h3>
+      <p id="t-tours-hajj-desc">Pré-inscriptions pour Haj 2026, accompagnement complet depuis l'Espagne.</p>
+    </div>
+    <div class="card">
+      <img src="images/sahara.jpg" alt="Sahara algérien">
+      <h3 id="t-tours-sahara-title">Tours du Sahara algérien</h3>
+      <p id="t-tours-sahara-desc">Circuits désert, oasis, culture et patrimoine pour individuels et groupes.</p>
+    </div>
+    <div class="card">
+      <img src="images/sahara.jpg" alt="Algérie">
+      <h3 id="t-tours-algeria-title">Voyages nostalgiques en Algérie</h3>
+      <p id="t-tours-algeria-desc">Programmes sur mesure pour la diaspora, visite des villes d'origine.</p>
+    </div>
+    <div class="card">
+      <img src="images/sahara.jpg" alt="Andalousie">
+      <h3 id="t-tours-andalucia-title">Voyage en Andalousie — Héritage de l'Islam</h3>
+      <p id="t-tours-andalucia-desc">Cordoue, Séville, Grenade... visites guidées des sites historiques.</p>
+    </div>
+    <div class="card">
+      <img src="images/study.jpg" alt="Études en Angleterre">
+      <h3 id="t-tours-uk-title">Études en Angleterre</h3>
+      <p id="t-tours-uk-desc">Conseil et inscription dans des écoles et universités partenaires.</p>
+    </div>
+    <div class="card">
+      <img src="images/study.jpg" alt="Études en Espagne">
+      <h3 id="t-tours-es-title">Études en Espagne</h3>
+      <p id="t-tours-es-desc">Accompagnement pour les démarches d'inscription, logement et intégration.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="page" id="page-services">
+    <h2 class="section-title" id="t-services-title">Services &amp; partenaires</h2>
+    <div class="services-grid">
+      <div class="card">
+        <img src="images/services.jpg" alt="Télécom">
+        <div class="service-icon">📱</div>
+        <h3 id="t-serv-telecom-title">Partenaires télécom</h3>
+        <p id="t-serv-telecom-desc">Lebara, Orange, MasMovil — cartes SIM, recharges et offres pour vos voyages.</p>
+      </div>
+      <div class="card">
+        <img src="images/hajj.jpg" alt="Transfert d'argent">
+        <div class="service-icon">💸</div>
+        <h3 id="t-serv-transfer-title">Transfert d'argent</h3>
+        <p id="t-serv-transfer-desc">Western Union, Ria — transferts sécurisés vers le monde entier.</p>
+      </div>
+      <div class="card">
+        <img src="images/services.jpg" alt="Garde bagages">
+        <div class="service-icon">🧳</div>
+        <h3 id="t-serv-luggage-title">Garde-bagages</h3>
+        <p id="t-serv-luggage-desc">Service sécurisé de consigne de bagages à l'agence.</p>
+      </div>
+      <div class="card">
+        <img src="images/study.jpg" alt="Visa">
+        <div class="service-icon">🛂</div>
+        <h3 id="t-serv-visa-title">Assistance visa</h3>
+        <p id="t-serv-visa-desc">Aide, conseils et préparation de dossier pour vos demandes de visa.</p>
+      </div>
+      <div class="card">
+        <img src="images/services.jpg" alt="Billetterie">
+        <div class="service-icon">✈️</div>
+        <h3 id="t-serv-tickets-title">Billetterie complète</h3>
+        <p id="t-serv-tickets-desc">Billets terrestres, maritimes et aériens, multi-compagnies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page" id="page-contact">
+    <h2 class="section-title" id="t-contact-title">Contact</h2>
+    <div class="card">
+      <form onsubmit="event.preventDefault(); alert('Formulaire envoyé (démo).');">
+        <div class="form-group">
+          <label id="t-contact-name">Nom</label>
+          <input type="text" required />
+        </div>
+        <div class="form-group">
+          <label id="t-contact-firstname">Prénom</label>
+          <input type="text" required />
+        </div>
+        <div class="form-group">
+          <label id="t-contact-nationality">Nationalité</label>
+          <input type="text" />
+        </div>
+        <div class="form-group">
+          <label id="t-contact-residence">Résidence</label>
+          <input type="text" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" required />
+        </div>
+        <div class="form-group">
+          <label id="t-contact-phone">Téléphone</label>
+          <input type="text" />
+        </div>
+        <div class="form-group">
+          <label id="t-contact-message">Message</label>
+          <textarea></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit" id="t-contact-send">Envoyer</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/logo.jpg" alt="MWT logo" />
+      <div>
+        <div style="font-weight:600;">MWT - Moltaqa World Travel &amp; Tourism</div>
+        <div>
+          📍
+          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003+Alicante"
+             target="_blank"
+             style="color:inherit;text-decoration:underline;">
+            Calle Italia 9, 03003, Alicante
+          </a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>📞 <a href="tel:865556666" style="color:inherit;">865556666</a></div>
+      <div>📱 <a href="https://wa.me/34600672423" target="_blank" style="color:inherit;text-decoration:underline;">WhatsApp: 600672423</a></div>
+      <div>✉️ <a href="mailto:info@mwt-world.com" style="color:inherit;">info@mwt-world.com</a></div>
+      <div>🏢 Agence: CV-Mm-2212-A</div>
+      <div>🧾 CIF: B42572768</div>
+    </div>
+    <div>
+      <div style="font-weight:600;">🕒 Horaires</div>
+      <div>Lun–Ven : 10h–14h / 17h–20h</div>
+      <div>Samedi : 10h–14h30</div>
+      <div>Dimanche : Fermé</div>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/34600672423" target="_blank" aria-label="WhatsApp">
+  💬
+</a>
+
+<script>
+  const translations = {
+    fr: {
+      navHome: "Accueil",
+      navTours: "Tours",
+      navServices: "Services",
+      navContact: "Contact",
+      heroTitle: "Les couleurs les plus belles du voyage",
+      heroP1: "Omra, Haj, Sahara algérien, études en Espagne et en Angleterre, avec un accompagnement complet depuis Alicante.",
+      heroP2: "",
+      heroBtn1: "Voir les offres Omra",
+      heroBtn2: "Découvrir tous les tours",
+      omraTitle: "Offres Omra",
+      productsTitle: "Nos produits phares",
+      carOmra: "Omra",
+      carHajj: "Hajj",
+      carSahara: "Sahara algérien",
+      carStudy: "Études Espagne & UK",
+      carServices: "Services de l'agence",
+      toursTitle: "Tours & voyages",
+      contactTitle: "Contact",
+      contactName: "Nom",
+      contactFirstname: "Prénom",
+      contactNationality: "Nationalité",
+      contactResidence: "Résidence",
+      contactPhone: "Téléphone",
+      contactMessage: "Message",
+      contactSend: "Envoyer"
+    },
+    es: {
+      navHome: "Inicio",
+      navTours: "Tours",
+      navServices: "Servicios",
+      navContact: "Contacto",
+      heroTitle: "Los colores más bellos del viaje",
+      heroP1: "Omra, Hajj, Sahara argelino, estudios en España y en Inglaterra, con acompañamiento completo desde Alicante.",
+      heroP2: "",
+      heroBtn1: "Ver ofertas de Omra",
+      heroBtn2: "Ver todos los tours",
+      omraTitle: "Ofertas de Omra",
+      productsTitle: "Productos estrella",
+      carOmra: "Omra",
+      carHajj: "Hajj",
+      carSahara: "Sahara argelino",
+      carStudy: "Estudios España & UK",
+      carServices: "Servicios de la agencia",
+      toursTitle: "Tours & viajes",
+      contactTitle: "Contacto",
+      contactName: "Nombre",
+      contactFirstname: "Apellido",
+      contactNationality: "Nacionalidad",
+      contactResidence: "Residencia",
+      contactPhone: "Teléfono",
+      contactMessage: "Mensaje",
+      contactSend: "Enviar"
+    },
+    en: {
+      navHome: "Home",
+      navTours: "Tours",
+      navServices: "Services",
+      navContact: "Contact",
+      heroTitle: "The most beautiful colors of travel",
+      heroP1: "Umrah, Hajj, Algerian Sahara, studies in Spain and the UK, with full support from Alicante.",
+      heroP2: "",
+      heroBtn1: "View Umrah offers",
+      heroBtn2: "See all tours",
+      omraTitle: "Umrah offers",
+      productsTitle: "Key products",
+      carOmra: "Umrah",
+      carHajj: "Hajj",
+      carSahara: "Algerian Sahara",
+      carStudy: "Studies Spain & UK",
+      carServices: "Agency services",
+      toursTitle: "Tours & trips",
+      contactTitle: "Contact",
+      contactName: "Last name",
+      contactFirstname: "First name",
+      contactNationality: "Nationality",
+      contactResidence: "Residence",
+      contactPhone: "Phone",
+      contactMessage: "Message",
+      contactSend: "Send"
+    },
+    ar: {
+      navHome: "الرئيسية",
+      navTours: "الرحلات",
+      navServices: "الخدمات",
+      navContact: "اتصل بنا",
+      heroTitle: "أجمل ألوان السفر",
+      heroP1: "عمرة، حج، صحراء الجزائر، ودراسات في إسبانيا وإنجلترا مع مرافقة كاملة من أليكانتي.",
+      heroP2: "",
+      heroBtn1: "عرض برامج العمرة",
+      heroBtn2: "اكتشف جميع الرحلات",
+      omraTitle: "برامج العمرة",
+      productsTitle: "خدماتنا الرئيسية",
+      carOmra: "عمرة",
+      carHajj: "حج",
+      carSahara: "صحراء الجزائر",
+      carStudy: "الدراسة في إسبانيا وإنجلترا",
+      carServices: "خدمات الوكالة",
+      toursTitle: "الرحلات والبرامج",
+      contactTitle: "اتصل بنا",
+      contactName: "الاسم",
+      contactFirstname: "اللقب",
+      contactNationality: "الجنسية",
+      contactResidence: "الإقامة",
+      contactPhone: "الهاتف",
+      contactMessage: "الرسالة",
+      contactSend: "إرسال"
+    }
+  };
+
+  function applyTranslations(lang) {
+    const t = translations[lang];
+    if (!t) return;
+    document.getElementById("t-nav-home").textContent = t.navHome;
+    document.getElementById("t-nav-tours").textContent = t.navTours;
+    document.getElementById("t-nav-services").textContent = t.navServices;
+    document.getElementById("t-nav-contact").textContent = t.navContact;
+    document.getElementById("t-hero-title").textContent = t.heroTitle;
+    document.getElementById("t-hero-p1").textContent = t.heroP1;
+    document.getElementById("t-hero-p2").textContent = t.heroP2;
+    document.getElementById("t-hero-btn1").textContent = t.heroBtn1;
+    document.getElementById("t-hero-btn2").textContent = t.heroBtn2;
+    document.getElementById("t-omra-title").textContent = t.omraTitle;
+    document.getElementById("t-products-title").textContent = t.productsTitle;
+    document.getElementById("t-car-omra").textContent = t.carOmra;
+    document.getElementById("t-car-hajj").textContent = t.carHajj;
+    document.getElementById("t-car-sahara").textContent = t.carSahara;
+    document.getElementById("t-car-study").textContent = t.carStudy;
+    document.getElementById("t-car-services").textContent = t.carServices;
+    document.getElementById("t-tours-title").textContent = t.toursTitle;
+    document.getElementById("t-contact-title").textContent = t.contactTitle;
+    document.getElementById("t-contact-name").textContent = t.contactName;
+    document.getElementById("t-contact-firstname").textContent = t.contactFirstname;
+    document.getElementById("t-contact-nationality").textContent = t.contactNationality;
+    document.getElementById("t-contact-residence").textContent = t.contactResidence;
+    document.getElementById("t-contact-phone").textContent = t.contactPhone;
+    document.getElementById("t-contact-message").textContent = t.contactMessage;
+    document.getElementById("t-contact-send").textContent = t.contactSend;
+    document.body.dir = (lang === "ar") ? "rtl" : "ltr";
+  }
+
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-pill').forEach(pill => {
+      pill.classList.toggle('active', pill.getAttribute('data-lang') === lang);
+    });
+    applyTranslations(lang);
+  }
+
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(sec => {
+      sec.classList.toggle('active', sec.id === 'page-' + page);
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.toggle('active', link.getAttribute('data-page-link') === page);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // init
+  applyTranslations("fr");
+</script>
+</body>
+</html>
