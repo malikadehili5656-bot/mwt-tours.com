@@ -7,23 +7,28 @@
   <style>
     :root {
       --orange: #c69228;
-      --green: #95c11f;
-      --blue: #0b3c6d;
+      --green: #A6C34C;  /* Vert MWT */
+      --blue: #409AD6;   /* Bleu MWT */
       --bg-soft: #f5f7fa;
       --text-dark: #222;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg-soft);
       color: var(--text-dark);
       line-height: 1.5;
     }
+
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
+    /* HEADER */
+
     header {
-      background: var(--orange);
+      background: var(--green);
       color: #fff;
       box-shadow: 0 1px 4px rgba(0,0,0,.15);
       padding: 0.6rem 1rem;
@@ -31,6 +36,7 @@
       top: 0;
       z-index: 20;
     }
+
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -40,26 +46,30 @@
       gap: 1rem;
       flex-wrap: wrap;
     }
+
     .logo-wrap {
       display: flex;
       align-items: center;
       gap: .6rem;
       cursor: pointer;
     }
+
     .logo-wrap img {
       height: 46px;
       border-radius: 6px;
       object-fit: contain;
       background: #fff;
     }
+
     .logo-text-title {
       font-weight: 700;
       font-size: 1.1rem;
       color: #fff;
     }
+
     .logo-text-sub {
       font-size: .75rem;
-      color: #f3e6c9;
+      color: #f3ffe0;
     }
 
     nav {
@@ -69,14 +79,17 @@
       font-weight: 500;
       align-items: center;
     }
+
     .nav-link {
       position: relative;
       cursor: pointer;
-      color: #fbead1;
+      color: #f2ffe4;
     }
+
     .nav-link.active {
       color: #fff;
     }
+
     .nav-link.active::after {
       content: "";
       position: absolute;
@@ -85,7 +98,7 @@
       bottom: -4px;
       height: 2px;
       border-radius: 999px;
-      background: var(--green);
+      background: var(--blue);
     }
 
     .lang-switch {
@@ -94,10 +107,11 @@
       font-size: 0.75rem;
       align-items: center;
     }
+
     .lang-pill {
       padding: 0.12rem 0.45rem;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.5);
+      border: 1px solid rgba(255,255,255,.6);
       cursor: pointer;
       background: transparent;
       display: inline-flex;
@@ -105,15 +119,18 @@
       gap: 0.2rem;
       color: #fff;
     }
+
     .lang-pill span.flag {
       font-size: .8rem;
     }
+
     .lang-pill span.code {
       font-weight: 600;
     }
+
     .lang-pill.active {
       background: #fff;
-      color: var(--orange);
+      color: var(--green);
       border-color: #fff;
     }
 
@@ -126,6 +143,8 @@
     .page { display: none; }
     .page.active { display: block; }
 
+    /* HERO */
+
     .hero {
       position: relative;
       border-radius: 22px;
@@ -133,16 +152,19 @@
       margin-bottom: 1.8rem;
       box-shadow: 0 18px 40px rgba(0,0,0,.35);
     }
+
     .hero img {
       width: 100%;
       height: 320px;
       object-fit: cover;
     }
+
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,.4), rgba(11,60,109,.9));
+      background: linear-gradient(135deg, rgba(0,0,0,.45), rgba(64,154,214,.95));
     }
+
     .hero-inner {
       position: absolute;
       inset: 0;
@@ -151,16 +173,18 @@
       justify-content: center;
       padding: 1.6rem;
     }
+
     .hero-content {
       max-width: 620px;
       color: #fff;
       text-align: center;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      background: rgba(198,146,40,.9);
+      background: rgba(166,195,76,.95);
       color: #fff;
       padding: 0.2rem 0.8rem;
       border-radius: 999px;
@@ -168,21 +192,25 @@
       font-weight: 600;
       margin-bottom: .6rem;
     }
+
     .hero h1 {
       font-size: 1.9rem;
       margin-bottom: .4rem;
     }
+
     .hero p {
       font-size: .95rem;
       opacity: .9;
       margin-bottom: 1rem;
     }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
       justify-content: center;
     }
+
     .btn {
       border-radius: 999px;
       padding: 0.55rem 1.4rem;
@@ -193,58 +221,140 @@
       display: inline-flex;
       align-items: center;
       gap: .35rem;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
     }
+
     .btn-primary {
-      background: var(--orange);
+      background: var(--blue);
       color: #fff;
       box-shadow: 0 8px 18px rgba(0,0,0,.35);
     }
+
     .btn-primary:hover {
       transform: translateY(-1px);
       box-shadow: 0 10px 26px rgba(0,0,0,.45);
     }
+
     .btn-outline {
       background: transparent;
       color: #fff;
       border: 1px solid rgba(255,255,255,.8);
     }
+
     .btn-outline:hover {
-      background: rgba(255,255,255,.1);
+      background: rgba(255,255,255,.12);
+    }
+
+    .btn-small {
+      padding: 0.35rem 0.9rem;
+      font-size: .8rem;
+      border-radius: 999px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--blue);
+      color: var(--blue);
+    }
+
+    .btn-ghost:hover {
+      background: var(--blue);
+      color: #fff;
     }
 
     .section-title {
       font-size: 1.3rem;
       font-weight: 600;
-      margin: 1.2rem 0 0.6rem;
+      margin: 1.6rem 0 0.6rem;
       color: var(--blue);
     }
+
+    /* Hajj 2026 banner */
+
+    .hajj-banner {
+      background: linear-gradient(135deg, #13294b, #409AD6);
+      color: #fff;
+      border-radius: 18px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    }
+
+    .hajj-banner-main {
+      flex: 1 1 220px;
+    }
+
+    .hajj-banner-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .hajj-banner-sub {
+      font-size: .9rem;
+      opacity: .92;
+    }
+
+    .hajj-banner-badge {
+      display: inline-block;
+      margin-top: .4rem;
+      background: rgba(166,195,76,.95);
+      padding: 0.15rem .7rem;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    .hajj-banner-cta {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    /* Omra offers */
 
     .offers-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
       gap: 1rem;
     }
+
     .offer-card {
       background: #fff;
       border-radius: 16px;
       padding: 1rem 1.1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,.08);
-      border-left: 5px solid var(--orange);
+      border-top: 4px solid var(--green);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
     }
+
     .offer-title { font-weight: 600; font-size: .98rem; }
     .offer-dates { font-size: .82rem; color: #777; margin-top: .1rem; }
-    .offer-price { margin-top: .3rem; font-weight: 700; color: var(--orange); }
+    .offer-price { margin-top: .3rem; font-weight: 700; color: var(--blue); }
+
+    .offer-actions {
+      margin-top: .5rem;
+    }
+
+    /* Carousel produits phares */
 
     .carousel {
       overflow-x: auto;
       padding-bottom: 0.4rem;
     }
+
     .carousel-inner {
       display: flex;
       gap: .8rem;
       min-width: 100%;
     }
+
     .carousel-item {
       flex: 0 0 220px;
       border-radius: 16px;
@@ -252,17 +362,22 @@
       box-shadow: 0 2px 8px rgba(0,0,0,.08);
       overflow: hidden;
     }
+
     .carousel-item img {
       height: 130px;
       width: 100%;
       object-fit: cover;
+      background: #dde7f3;
     }
+
     .carousel-title {
       padding: 0.5rem 0.7rem 0.7rem;
       font-size: .82rem;
       font-weight: 500;
       text-align: center;
     }
+
+    /* Cartes tours / services */
 
     .card {
       background: #fff;
@@ -271,19 +386,25 @@
       box-shadow: 0 2px 8px rgba(0,0,0,.05);
       margin-bottom: 0.8rem;
     }
+
     .card img {
       border-radius: 12px;
       margin-bottom: 0.5rem;
       height: 190px;
       object-fit: cover;
       width: 100%;
+      background: #dde7f3;
     }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
       gap: 1rem;
     }
+
     .service-icon { font-size: 1.3rem; color: var(--blue); margin-bottom: .3rem; }
+
+    /* Formulaire */
 
     .form-group {
       display: flex;
@@ -292,6 +413,7 @@
       margin-bottom: .6rem;
       font-size: .84rem;
     }
+
     input, textarea {
       border-radius: 10px;
       border: 1px solid #ddd;
@@ -299,14 +421,19 @@
       font-size: .86rem;
       font-family: inherit;
     }
+
     textarea { resize: vertical; min-height: 80px; }
 
+    /* FOOTER */
+
     footer {
-      background: #fff;
-      border-top: 1px solid #eee;
-      padding: 1.1rem 1rem;
+      background: var(--blue);
+      color: #f6fbff;
+      padding: 1.3rem 1rem;
       font-size: .78rem;
+      margin-top: 2rem;
     }
+
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -316,18 +443,46 @@
       align-items: flex-start;
       justify-content: space-between;
     }
+
     .footer-logo {
       display: flex;
       gap: .6rem;
       align-items: center;
     }
+
     .footer-logo img { height: 40px; border-radius: 6px; background:#fff; }
+
+    .footer-block-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-line {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      margin-bottom: .18rem;
+    }
+
+    .footer-line span.icon {
+      width: 1.1rem;
+      text-align: center;
+    }
+
+    .footer-link {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
 
     @media (max-width: 768px) {
       nav { display: none; }
       .header-inner { justify-content: space-between; }
       .hero img { height: 260px; }
+      .hajj-banner { flex-direction: column; align-items: flex-start; }
+      .hajj-banner-cta { width: 100%; justify-content: flex-start; }
     }
+
+    /* WhatsApp flottant */
 
     .whatsapp-float {
       position: fixed;
@@ -378,6 +533,7 @@
   <!-- ACCUEIL -->
   <section class="page active" id="page-home">
     <div class="hero">
+      <!-- image provisoire, tu pourras la remplacer -->
       <img src="images/omra.jpg" alt="Hero Omra">
       <div class="hero-overlay"></div>
       <div class="hero-inner">
@@ -396,21 +552,42 @@
       </div>
     </div>
 
+    <!-- Bannière Hajj 2026 -->
+    <div class="hajj-banner">
+      <div class="hajj-banner-main">
+        <div class="hajj-banner-title" id="t-hajj-banner-title">Hajj 2026 – Inscriptions ouvertes</div>
+        <div class="hajj-banner-sub" id="t-hajj-banner-sub">Réservez votre place dès maintenant, accompagnement complet depuis l'Espagne.</div>
+        <div class="hajj-banner-badge" id="t-hajj-banner-badge">Nombre de places limité</div>
+      </div>
+      <div class="hajj-banner-cta">
+        <button class="btn btn-primary btn-small" id="t-hajj-banner-cta">S’inscrire au Hajj 2026</button>
+      </div>
+    </div>
+
     <h2 class="section-title" id="t-omra-title">Offres Omra</h2>
     <div class="offers-grid">
       <div class="offer-card">
         <div class="offer-title" id="t-omra1-title">Omra 25 décembre — 3 janvier</div>
         <div class="offer-dates" id="t-omra1-dates">25/12 — 03/01</div>
         <div class="offer-price" id="t-omra1-price">1595€</div>
+        <div class="offer-actions">
+          <button class="btn btn-ghost btn-small offer-cta">S’inscrire</button>
+        </div>
       </div>
       <div class="offer-card">
         <div class="offer-title" id="t-omra2-title">Omra 20 janvier — 3 février</div>
         <div class="offer-dates" id="t-omra2-dates">20/01 — 03/02</div>
         <div class="offer-price" id="t-omra2-price">1395€</div>
+        <div class="offer-actions">
+          <button class="btn btn-ghost btn-small offer-cta">S’inscrire</button>
+        </div>
       </div>
       <div class="offer-card">
         <div class="offer-title" id="t-omra3-title">Omra du Ramadan</div>
         <div class="offer-dates" id="t-omra3-dates">Inscriptions ouvertes (dates à confirmer)</div>
+        <div class="offer-actions">
+          <button class="btn btn-ghost btn-small offer-cta">S’inscrire</button>
+        </div>
       </div>
     </div>
 
@@ -460,7 +637,7 @@
       <p id="t-tours-omra3-desc">Pré-inscription ouverte, priorité aux premiers inscrits.</p>
     </div>
     <div class="card">
-      <img src="images/hajj.jpg" alt="Haj 2026">
+      <img src="images/hajj.jpg" alt="Hajj 2026">
       <h3 id="t-tours-hajj-title">Haj 2026</h3>
       <p id="t-tours-hajj-desc">Pré-inscriptions pour Haj 2026, accompagnement complet depuis l'Espagne.</p>
     </div>
@@ -470,7 +647,7 @@
       <p id="t-tours-sahara-desc">Circuits désert, oasis, culture et patrimoine pour individuels et groupes.</p>
     </div>
     <div class="card">
-      <img src="images/sahara.jpg" alt="Algérie">
+      <img src="images/sahara.jpg" alt="Algérie nostalgie">
       <h3 id="t-tours-algeria-title">Voyages nostalgiques en Algérie</h3>
       <p id="t-tours-algeria-desc">Programmes sur mesure pour la diaspora, visite des villes d'origine.</p>
     </div>
@@ -525,6 +702,18 @@
         <h3 id="t-serv-tickets-title">Billetterie complète</h3>
         <p id="t-serv-tickets-desc">Billets terrestres, maritimes et aériens, multi-compagnies.</p>
       </div>
+      <div class="card">
+        <img src="images/services.jpg" alt="Location de voiture">
+        <div class="service-icon">🚗</div>
+        <h3 id="t-serv-car-title">Location de voiture</h3>
+        <p id="t-serv-car-desc">Organisation de location de voiture avec nos partenaires locaux et internationaux.</p>
+      </div>
+      <div class="card">
+        <img src="images/services.jpg" alt="Hébergement & hôtels">
+        <div class="service-icon">🏨</div>
+        <h3 id="t-serv-hotel-title">Hébergement &amp; hôtels</h3>
+        <p id="t-serv-hotel-desc">Réservation d'hôtels et d'appartements adaptés à vos besoins et à votre budget.</p>
+      </div>
     </div>
   </section>
 
@@ -573,25 +762,43 @@
       <img src="images/logo.jpg" alt="MWT logo" />
       <div>
         <div style="font-weight:600;">MWT - Moltaqa World Travel &amp; Tourism</div>
-        <div>
-          📍
-          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003+Alicante"
+        <div class="footer-line">
+          <span class="icon">📍</span>
+          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante"
              target="_blank"
-             style="color:inherit;text-decoration:underline;">
+             class="footer-link">
             Calle Italia 9, 03003, Alicante
           </a>
         </div>
       </div>
     </div>
+
     <div>
-      <div>📞 <a href="tel:865556666" style="color:inherit;">865556666</a></div>
-      <div>📱 <a href="https://wa.me/34600672423" target="_blank" style="color:inherit;text-decoration:underline;">WhatsApp: 600672423</a></div>
-      <div>✉️ <a href="mailto:info@mwt-world.com" style="color:inherit;">info@mwt-world.com</a></div>
-      <div>🏢 Agence: CV-Mm-2212-A</div>
-      <div>🧾 CIF: B42572768</div>
+      <div class="footer-block-title">Contact</div>
+      <div class="footer-line">
+        <span class="icon">📞</span>
+        <a href="tel:865556666" class="footer-link">865556666</a>
+      </div>
+      <div class="footer-line">
+        <span class="icon">📱</span>
+        <a href="https://wa.me/34600672423" target="_blank" class="footer-link">WhatsApp : 600672423</a>
+      </div>
+      <div class="footer-line">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@mwt-world.com" class="footer-link">info@mwt-world.com</a>
+      </div>
+      <div class="footer-line">
+        <span class="icon">🏢</span>
+        <span>Agence : CV-Mm-2212-A</span>
+      </div>
+      <div class="footer-line">
+        <span class="icon">🧾</span>
+        <span>CIF : B42572768</span>
+      </div>
     </div>
+
     <div>
-      <div style="font-weight:600;">🕒 Horaires</div>
+      <div class="footer-block-title">Horaires</div>
       <div>Lun–Ven : 10h–14h / 17h–20h</div>
       <div>Samedi : 10h–14h30</div>
       <div>Dimanche : Fermé</div>
@@ -615,7 +822,12 @@
       heroP2: "",
       heroBtn1: "Voir les offres Omra",
       heroBtn2: "Découvrir tous les tours",
+      hajjBannerTitle: "Hajj 2026 – Inscriptions ouvertes",
+      hajjBannerSub: "Réservez votre place dès maintenant, accompagnement complet depuis l'Espagne.",
+      hajjBannerBadge: "Nombre de places limité",
+      hajjBannerCta: "S’inscrire au Hajj 2026",
       omraTitle: "Offres Omra",
+      omraCta: "S’inscrire",
       productsTitle: "Nos produits phares",
       carOmra: "Omra",
       carHajj: "Hajj",
@@ -630,7 +842,22 @@
       contactResidence: "Résidence",
       contactPhone: "Téléphone",
       contactMessage: "Message",
-      contactSend: "Envoyer"
+      contactSend: "Envoyer",
+      servicesTitle: "Services & partenaires",
+      servTelecomTitle: "Partenaires télécom",
+      servTelecomDesc: "Lebara, Orange, MasMovil — cartes SIM, recharges et offres pour vos voyages.",
+      servTransferTitle: "Transfert d'argent",
+      servTransferDesc: "Western Union, Ria — transferts sécurisés vers le monde entier.",
+      servLuggageTitle: "Garde-bagages",
+      servLuggageDesc: "Service sécurisé de consigne de bagages à l'agence.",
+      servVisaTitle: "Assistance visa",
+      servVisaDesc: "Aide, conseils et préparation de dossier pour vos demandes de visa.",
+      servTicketsTitle: "Billetterie complète",
+      servTicketsDesc: "Billets terrestres, maritimes et aériens, multi-compagnies.",
+      servCarTitle: "Location de voiture",
+      servCarDesc: "Organisation de location de voiture avec nos partenaires locaux et internationaux.",
+      servHotelTitle: "Hébergement & hôtels",
+      servHotelDesc: "Réservation d'hôtels et d'appartements adaptés à vos besoins et à votre budget."
     },
     es: {
       navHome: "Inicio",
@@ -642,7 +869,12 @@
       heroP2: "",
       heroBtn1: "Ver ofertas de Omra",
       heroBtn2: "Ver todos los tours",
+      hajjBannerTitle: "Hajj 2026 – Apertura de inscripciones",
+      hajjBannerSub: "Reserva tu plaza ahora, acompañamiento completo desde España.",
+      hajjBannerBadge: "Plazas limitadas",
+      hajjBannerCta: "Inscribirse al Hajj 2026",
       omraTitle: "Ofertas de Omra",
+      omraCta: "Inscribirse",
       productsTitle: "Productos estrella",
       carOmra: "Omra",
       carHajj: "Hajj",
@@ -657,7 +889,22 @@
       contactResidence: "Residencia",
       contactPhone: "Teléfono",
       contactMessage: "Mensaje",
-      contactSend: "Enviar"
+      contactSend: "Enviar",
+      servicesTitle: "Servicios & socios",
+      servTelecomTitle: "Socios de telefonía",
+      servTelecomDesc: "Lebara, Orange, MasMovil: tarjetas SIM, recargas y ofertas para tus viajes.",
+      servTransferTitle: "Envío de dinero",
+      servTransferDesc: "Western Union, Ria: envíos seguros a todo el mundo.",
+      servLuggageTitle: "Guardaequipajes",
+      servLuggageDesc: "Servicio seguro de consigna de equipaje en la agencia.",
+      servVisaTitle: "Asistencia de visado",
+      servVisaDesc: "Ayuda, consejos y preparación de expediente para tus solicitudes de visado.",
+      servTicketsTitle: "Billetaje completo",
+      servTicketsDesc: "Billetes terrestres, marítimos y aéreos, multi-compañías.",
+      servCarTitle: "Alquiler de coche",
+      servCarDesc: "Organización de alquiler de coche con nuestros socios locales e internacionales.",
+      servHotelTitle: "Alojamiento & hoteles",
+      servHotelDesc: "Reserva de hoteles y apartamentos adaptados a tus necesidades y presupuesto."
     },
     en: {
       navHome: "Home",
@@ -669,7 +916,12 @@
       heroP2: "",
       heroBtn1: "View Umrah offers",
       heroBtn2: "See all tours",
+      hajjBannerTitle: "Hajj 2026 – Registrations open",
+      hajjBannerSub: "Book your place now, full support from Spain.",
+      hajjBannerBadge: "Limited seats",
+      hajjBannerCta: "Register for Hajj 2026",
       omraTitle: "Umrah offers",
+      omraCta: "Register",
       productsTitle: "Key products",
       carOmra: "Umrah",
       carHajj: "Hajj",
@@ -684,7 +936,22 @@
       contactResidence: "Residence",
       contactPhone: "Phone",
       contactMessage: "Message",
-      contactSend: "Send"
+      contactSend: "Send",
+      servicesTitle: "Services & partners",
+      servTelecomTitle: "Telecom partners",
+      servTelecomDesc: "Lebara, Orange, MasMovil – SIM cards, top-ups and travel offers.",
+      servTransferTitle: "Money transfer",
+      servTransferDesc: "Western Union, Ria – secure transfers worldwide.",
+      servLuggageTitle: "Luggage storage",
+      servLuggageDesc: "Secure luggage storage service at the agency.",
+      servVisaTitle: "Visa assistance",
+      servVisaDesc: "Help, advice and file preparation for your visa applications.",
+      servTicketsTitle: "Full ticketing",
+      servTicketsDesc: "Land, sea and air tickets with multiple companies.",
+      servCarTitle: "Car rental",
+      servCarDesc: "Car rental organisation with our local and international partners.",
+      servHotelTitle: "Accommodation & hotels",
+      servHotelDesc: "Hotel and apartment booking adapted to your needs and budget."
     },
     ar: {
       navHome: "الرئيسية",
@@ -696,7 +963,12 @@
       heroP2: "",
       heroBtn1: "عرض برامج العمرة",
       heroBtn2: "اكتشف جميع الرحلات",
+      hajjBannerTitle: "حج 2026 – فتح باب التسجيل",
+      hajjBannerSub: "احجز مكانك الآن مع مرافقة كاملة من إسبانيا.",
+      hajjBannerBadge: "أماكن محدودة",
+      hajjBannerCta: "التسجيل لحج 2026",
       omraTitle: "برامج العمرة",
+      omraCta: "التسجيل",
       productsTitle: "خدماتنا الرئيسية",
       carOmra: "عمرة",
       carHajj: "حج",
@@ -711,38 +983,91 @@
       contactResidence: "الإقامة",
       contactPhone: "الهاتف",
       contactMessage: "الرسالة",
-      contactSend: "إرسال"
+      contactSend: "إرسال",
+      servicesTitle: "الخدمات والشركاء",
+      servTelecomTitle: "شركاء الاتصالات",
+      servTelecomDesc: "ليبارا، أورانج، ماس موفيل – شرائح اتصال، تعبئة وعروض للسفر.",
+      servTransferTitle: "تحويل الأموال",
+      servTransferDesc: "ويسترن يونيون، ريا – تحويلات آمنة إلى جميع أنحاء العالم.",
+      servLuggageTitle: "حفظ الأمتعة",
+      servLuggageDesc: "خدمة حفظ الأمتعة بأمان في الوكالة.",
+      servVisaTitle: "مساعدة في التأشيرة",
+      servVisaDesc: "مساعدة ونصائح وتجهيز الملف لطلب التأشيرة.",
+      servTicketsTitle: "حجوزات النقل",
+      servTicketsDesc: "تذاكر برية، بحرية وجوية مع عدة شركات.",
+      servCarTitle: "تأجير السيارات",
+      servCarDesc: "تنظيم تأجير السيارات مع شركائنا المحليين والدوليين.",
+      servHotelTitle: "الإقامة والفنادق",
+      servHotelDesc: "حجوزات الفنادق والشقق حسب احتياجاتك وميزانيتك."
     }
   };
+
+  function safeSetText(id, text) {
+    const el = document.getElementById(id);
+    if (el && typeof text === "string") el.textContent = text;
+  }
 
   function applyTranslations(lang) {
     const t = translations[lang];
     if (!t) return;
-    document.getElementById("t-nav-home").textContent = t.navHome;
-    document.getElementById("t-nav-tours").textContent = t.navTours;
-    document.getElementById("t-nav-services").textContent = t.navServices;
-    document.getElementById("t-nav-contact").textContent = t.navContact;
-    document.getElementById("t-hero-title").textContent = t.heroTitle;
-    document.getElementById("t-hero-p1").textContent = t.heroP1;
-    document.getElementById("t-hero-p2").textContent = t.heroP2;
-    document.getElementById("t-hero-btn1").textContent = t.heroBtn1;
-    document.getElementById("t-hero-btn2").textContent = t.heroBtn2;
-    document.getElementById("t-omra-title").textContent = t.omraTitle;
-    document.getElementById("t-products-title").textContent = t.productsTitle;
-    document.getElementById("t-car-omra").textContent = t.carOmra;
-    document.getElementById("t-car-hajj").textContent = t.carHajj;
-    document.getElementById("t-car-sahara").textContent = t.carSahara;
-    document.getElementById("t-car-study").textContent = t.carStudy;
-    document.getElementById("t-car-services").textContent = t.carServices;
-    document.getElementById("t-tours-title").textContent = t.toursTitle;
-    document.getElementById("t-contact-title").textContent = t.contactTitle;
-    document.getElementById("t-contact-name").textContent = t.contactName;
-    document.getElementById("t-contact-firstname").textContent = t.contactFirstname;
-    document.getElementById("t-contact-nationality").textContent = t.contactNationality;
-    document.getElementById("t-contact-residence").textContent = t.contactResidence;
-    document.getElementById("t-contact-phone").textContent = t.contactPhone;
-    document.getElementById("t-contact-message").textContent = t.contactMessage;
-    document.getElementById("t-contact-send").textContent = t.contactSend;
+
+    safeSetText("t-nav-home", t.navHome);
+    safeSetText("t-nav-tours", t.navTours);
+    safeSetText("t-nav-services", t.navServices);
+    safeSetText("t-nav-contact", t.navContact);
+
+    safeSetText("t-hero-title", t.heroTitle);
+    safeSetText("t-hero-p1", t.heroP1);
+    safeSetText("t-hero-p2", t.heroP2);
+    safeSetText("t-hero-btn1", t.heroBtn1);
+    safeSetText("t-hero-btn2", t.heroBtn2);
+
+    safeSetText("t-hajj-banner-title", t.hajjBannerTitle);
+    safeSetText("t-hajj-banner-sub", t.hajjBannerSub);
+    safeSetText("t-hajj-banner-badge", t.hajjBannerBadge);
+    safeSetText("t-hajj-banner-cta", t.hajjBannerCta);
+
+    safeSetText("t-omra-title", t.omraTitle);
+    safeSetText("t-products-title", t.productsTitle);
+
+    safeSetText("t-car-omra", t.carOmra);
+    safeSetText("t-car-hajj", t.carHajj);
+    safeSetText("t-car-sahara", t.carSahara);
+    safeSetText("t-car-study", t.carStudy);
+    safeSetText("t-car-services", t.carServices);
+
+    safeSetText("t-tours-title", t.toursTitle);
+
+    safeSetText("t-contact-title", t.contactTitle);
+    safeSetText("t-contact-name", t.contactName);
+    safeSetText("t-contact-firstname", t.contactFirstname);
+    safeSetText("t-contact-nationality", t.contactNationality);
+    safeSetText("t-contact-residence", t.contactResidence);
+    safeSetText("t-contact-phone", t.contactPhone);
+    safeSetText("t-contact-message", t.contactMessage);
+    safeSetText("t-contact-send", t.contactSend);
+
+    safeSetText("t-services-title", t.servicesTitle);
+    safeSetText("t-serv-telecom-title", t.servTelecomTitle);
+    safeSetText("t-serv-telecom-desc", t.servTelecomDesc);
+    safeSetText("t-serv-transfer-title", t.servTransferTitle);
+    safeSetText("t-serv-transfer-desc", t.servTransferDesc);
+    safeSetText("t-serv-luggage-title", t.servLuggageTitle);
+    safeSetText("t-serv-luggage-desc", t.servLuggageDesc);
+    safeSetText("t-serv-visa-title", t.servVisaTitle);
+    safeSetText("t-serv-visa-desc", t.servVisaDesc);
+    safeSetText("t-serv-tickets-title", t.servTicketsTitle);
+    safeSetText("t-serv-tickets-desc", t.servTicketsDesc);
+    safeSetText("t-serv-car-title", t.servCarTitle);
+    safeSetText("t-serv-car-desc", t.servCarDesc);
+    safeSetText("t-serv-hotel-title", t.servHotelTitle);
+    safeSetText("t-serv-hotel-desc", t.servHotelDesc);
+
+    // boutons "S'inscrire" Omra
+    document.querySelectorAll(".offer-cta").forEach(btn => {
+      btn.textContent = t.omraCta;
+    });
+
     document.body.dir = (lang === "ar") ? "rtl" : "ltr";
   }
 
