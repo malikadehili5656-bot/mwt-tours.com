@@ -61,9 +61,8 @@ header{
 .logo-wrap img{
   height:48px;
   object-fit:contain;
-  background:transparent;
-  mix-blend-mode:lighten; /* 👈 Évite le carré blanc */
-  border-radius:0;
+  background:transparent; /* normal */
+  mix-blend-mode:normal;  /* 👈 on retire le mélange */
 }
 }
 .logo-wrap img{
