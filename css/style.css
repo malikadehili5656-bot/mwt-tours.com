@@ -22,9 +22,10 @@ header{
   position:fixed;
   top:0;left:0;right:0;
   z-index:30;
-  background:linear-gradient(to bottom,rgba(0,0,0,.7),rgba(0,0,0,.3));
+  background:linear-gradient(90deg, #A6C34C, #409AD6); /* dégradé vert → bleu */
   color:#fff;
-  padding:.5rem 1rem;
+  padding:.7rem 1.3rem;
+  backdrop-filter: blur(6px);
 }
 .header-inner{
   max-width:1200px;
@@ -44,9 +45,10 @@ body.rtl .header-inner{flex-direction:row-reverse;}
 }
 .logo-wrap img{
   height:50px;
-  border-radius:8px;
-  background:#fff;
+  border-radius:10px;
+  background:transparent;
   object-fit:contain;
+  mix-blend-mode: lighten; /* logo fondu */
 }
 .logo-text-title{
   font-weight:700;
@@ -215,10 +217,6 @@ main{
   flex-direction:column;
   gap:.4rem;
 }
-.offer-title{font-weight:600;}
-.offer-dates{font-size:.9rem;color:#555;}
-.offer-price{font-size:1.1rem;font-weight:700;color:var(--orange);}
-.offer-actions{margin-top:.3rem;}
 
 /* BUTTONS */
 .btn{
@@ -285,29 +283,21 @@ main{
   object-fit:cover;
   margin-bottom:.7rem;
 }
+
+/* 🔥 Réduction uniquement pour TOURS */
+#page-tours .card img{
+  height:130px !important;
+}
+
 .card h3{font-size:1.05rem;margin-bottom:.25rem;}
 .card p{font-size:.9rem;color:#555;}
 
+/* SERVICES GRID */
 .services-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:1rem;
 }
-.service-icon{
-  font-size:1.4rem;
-  margin:.3rem 0;
-}
-
-/* CONTACT */
-.form-group{margin-bottom:.7rem;display:flex;flex-direction:column;gap:.2rem;}
-input,textarea{
-  padding:.45rem .6rem;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:.9rem;
-  font-family:inherit;
-}
-textarea{min-height:80px;resize:vertical;}
 
 /* FOOTER */
 footer{
@@ -325,19 +315,42 @@ footer{
   justify-content:space-between;
   font-size:.9rem;
 }
-.footer-logo{
-  display:flex;
-  gap:.7rem;
-}
 .footer-logo img{
   height:48px;
   border-radius:8px;
   background:#fff;
 }
-.footer-title{font-weight:700;margin-bottom:.2rem;}
-.footer-block-title{font-weight:700;margin-bottom:.3rem;}
-.footer-line{display:flex;align-items:center;gap:.35rem;margin-bottom:.2rem;}
-.footer-link{text-decoration:underline;text-decoration-thickness:1px;}
+
+/* 🔵🟣 Réseaux sociaux */
+.footer-socials {
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-icon img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.social-icon:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+.social-icon.facebook img {
+  background: #409AD6;
+  padding: 6px;
+}
+
+.social-icon.instagram img {
+  background: radial-gradient(circle at 30% 30%, #feda77, #dd2a7b, #8134af, #515bd4);
+  padding: 6px;
+}
 
 /* WHATSAPP FLOAT */
 .whatsapp-float{
@@ -367,3 +380,4 @@ footer{
   .hero-offer-card{min-width:200px;width:88%;}
   .carousel-item{min-width:65%;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
+}
