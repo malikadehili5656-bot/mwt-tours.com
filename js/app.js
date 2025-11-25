@@ -368,7 +368,7 @@ function switchLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Navigation via carrousel
+  // Navigation via carrousel (clic = change de page)
   document.querySelectorAll('.carousel-item').forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.getAttribute('data-target');
@@ -385,45 +385,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Langue par défaut
   applyTranslations('fr');
+
+  // === CARROUSSEL AUTOMATIQUE ===
+  const carouselInner = document.querySelector('.carousel-inner');
+  if (carouselInner) {
+    const firstItem = carouselInner.querySelector('.carousel-item');
+    if (firstItem) {
+      const itemWidth = firstItem.offsetWidth + 16; // largeur + gap
+      let scrollPos = 0;
+
+      function autoSlideCarousel() {
+        const maxScroll = carouselInner.scrollWidth - carouselInner.clientWidth;
+        scrollPos += itemWidth;
+
+        if (scrollPos > maxScroll + 10) {
+          scrollPos = 0;
+        }
+
+        carouselInner.scrollTo({
+          left: scrollPos,
+          behavior: 'smooth'
+        });
+      }
+
+      setInterval(autoSlideCarousel, 3000); // toutes les 3s
+    }
+  }
 });
-/* === CAROUSEL FIX === */
-document.querySelectorAll(".carousel-item").forEach(item => {
-    item.addEventListener("click", function () {
-        const target = this.dataset.target;
-        if (target) showPage(target);
-    });
-});
-
-const carousel = document.querySelector(".carousel-inner");
-
-// Activation du scroll fluide (mobile & desktop)
-let isDown = false;
-let startX;
-let scrollLeft;
-
-if (carousel) {
-    carousel.addEventListener("mousedown", (e) => {
-        isDown = true;
-        carousel.classList.add("grabbing");
-        startX = e.pageX - carousel.offsetLeft;
-        scrollLeft = carousel.scrollLeft;
-    });
-
-    carousel.addEventListener("mouseleave", () => {
-        isDown = false;
-        carousel.classList.remove("grabbing");
-    });
-
-    carousel.addEventListener("mouseup", () => {
-        isDown = false;
-        carousel.classList.remove("grabbing");
-    });
-
-    carousel.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 1.5; 
-        carousel.scrollLeft = scrollLeft - walk;
-    });
-}
