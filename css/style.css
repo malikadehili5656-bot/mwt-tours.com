@@ -22,10 +22,11 @@ header{
   position:fixed;
   top:0;left:0;right:0;
   z-index:30;
-  background:linear-gradient(90deg, var(--green), var(--blue));
+  background: linear-gradient(90deg, var(--orange), var(--green)); /* orange → vert */
   color:#fff;
   padding:.7rem 1.3rem;
-  backdrop-filter:blur(6px);
+  backdrop-filter: blur(6px);
+}
 }
 .header-inner{
   max-width:1200px;
