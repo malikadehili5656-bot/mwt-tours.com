@@ -60,9 +60,8 @@ header{
 
 .logo-wrap img{
   height:48px;
+  width:auto;
   object-fit:contain;
-  background:transparent; /* normal */
-  mix-blend-mode:normal;  /* 👈 on retire le mélange */
 }
 }
 .logo-wrap img{
