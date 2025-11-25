@@ -22,7 +22,10 @@ header{
   position:fixed;
   top:0;left:0;right:0;
   z-index:30;
-  background:linear-gradient(90deg, #A6C34C, #409AD6); /* dégradé vert → bleu */
+
+  /* 🔥 Nouveau dégradé vert → bleu */
+  background:linear-gradient(90deg, #A6C34C, #409AD6);
+
   color:#fff;
   padding:.7rem 1.3rem;
   backdrop-filter: blur(6px);
@@ -37,19 +40,23 @@ header{
   flex-wrap:wrap;
 }
 body.rtl .header-inner{flex-direction:row-reverse;}
+
 .logo-wrap{
   display:flex;
   align-items:center;
   gap:.6rem;
   cursor:pointer;
 }
+
+/* 🔥 Logo fondu */
 .logo-wrap img{
   height:50px;
   border-radius:10px;
   background:transparent;
   object-fit:contain;
-  mix-blend-mode: lighten; /* logo fondu */
+  mix-blend-mode: lighten;
 }
+
 .logo-text-title{
   font-weight:700;
   font-size:1.2rem;
@@ -58,6 +65,7 @@ body.rtl .header-inner{flex-direction:row-reverse;}
   font-size:.75rem;
   opacity:.9;
 }
+
 nav{
   display:flex;
   gap:1.4rem;
@@ -75,6 +83,7 @@ nav{
   height:3px;border-radius:999px;
   background:var(--orange);
 }
+
 .lang-switch{
   display:flex;
   gap:.3rem;
@@ -100,7 +109,7 @@ main{
   max-width:1200px;
   margin:0 auto 2rem;
   padding:0 1rem;
-  padding-top:90px; /* header */
+  padding-top:90px;
 }
 .page{display:none;}
 .page.active{display:block;}
@@ -143,6 +152,7 @@ main{
   flex-wrap:wrap;
   justify-content:center;
 }
+
 .hero-offer-card{
   background:rgba(255,255,255,.96);
   border-radius:18px;
@@ -153,22 +163,9 @@ main{
   pointer-events:auto;
   border-top:4px solid var(--green);
 }
-.hero-offer-dates{
-  font-size:.95rem;
-  font-weight:600;
-  margin-bottom:.4rem;
-}
-.hero-offer-price{
-  font-size:1.3rem;
-  font-weight:800;
-  color:var(--orange);
-}
-.hero-offer-sub{
-  font-size:.9rem;
-  font-weight:600;
-  color:var(--orange);
-  margin-bottom:.4rem;
-}
+.hero-offer-dates{font-size:.95rem;font-weight:600;margin-bottom:.4rem;}
+.hero-offer-price{font-size:1.3rem;font-weight:800;color:var(--orange);}
+.hero-offer-sub{font-size:.9rem;font-weight:600;color:var(--orange);margin-bottom:.4rem;}
 .hero-offer-cta{
   margin-top:.2rem;
   background:var(--blue);
@@ -180,6 +177,7 @@ main{
   font-weight:600;
   cursor:pointer;
 }
+
 .hero-hajj-banner{
   background:#fff;
   border-radius:22px;
@@ -202,11 +200,13 @@ main{
   margin:1.2rem 0 .6rem;
   color:var(--orange);
 }
+
 .offers-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:1rem;
 }
+
 .offer-card{
   background:#fff;
   border-radius:16px;
@@ -217,6 +217,11 @@ main{
   flex-direction:column;
   gap:.4rem;
 }
+
+.offer-title{font-weight:600;}
+.offer-dates{font-size:.9rem;color:#555;}
+.offer-price{font-size:1.1rem;font-weight:700;color:var(--orange);}
+.offer-actions{margin-top:.3rem;}
 
 /* BUTTONS */
 .btn{
@@ -268,7 +273,7 @@ main{
   font-weight:600;
 }
 
-/* CARDS (TOURS / SERVICES / CONTACT) */
+/* CARDS */
 .card{
   background:#fff;
   border-radius:18px;
@@ -284,7 +289,7 @@ main{
   margin-bottom:.7rem;
 }
 
-/* 🔥 Réduction uniquement pour TOURS */
+/* 🟩 Réduction des images uniquement sur la page Tours */
 #page-tours .card img{
   height:130px !important;
 }
@@ -292,12 +297,27 @@ main{
 .card h3{font-size:1.05rem;margin-bottom:.25rem;}
 .card p{font-size:.9rem;color:#555;}
 
-/* SERVICES GRID */
+/* SERVICES */
 .services-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:1rem;
 }
+.service-icon{
+  font-size:1.4rem;
+  margin:.3rem 0;
+}
+
+/* CONTACT */
+.form-group{margin-bottom:.7rem;display:flex;flex-direction:column;gap:.2rem;}
+input,textarea{
+  padding:.45rem .6rem;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:.9rem;
+  font-family:inherit;
+}
+textarea{min-height:80px;resize:vertical;}
 
 /* FOOTER */
 footer{
@@ -315,13 +335,21 @@ footer{
   justify-content:space-between;
   font-size:.9rem;
 }
+.footer-logo{
+  display:flex;
+  gap:.7rem;
+}
 .footer-logo img{
   height:48px;
   border-radius:8px;
   background:#fff;
 }
+.footer-title{font-weight:700;margin-bottom:.2rem;}
+.footer-block-title{font-weight:700;margin-bottom:.3rem;}
+.footer-line{display:flex;align-items:center;gap:.35rem;margin-bottom:.2rem;}
+.footer-link{text-decoration:underline;text-decoration-thickness:1px;}
 
-/* 🔵🟣 Réseaux sociaux */
+/* 🔵 Réseaux sociaux */
 .footer-socials {
   margin-top: 1.2rem;
   display: flex;
@@ -343,8 +371,8 @@ footer{
 }
 
 .social-icon.facebook img {
-  background: #409AD6;
-  padding: 6px;
+  background:#409AD6;
+  padding:6px;
 }
 
 .social-icon.instagram img {
