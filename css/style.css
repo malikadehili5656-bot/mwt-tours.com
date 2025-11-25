@@ -461,3 +461,22 @@ footer{
   object-fit:cover;
   border-radius:14px;
 }
+.footer-social-block {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  min-width: 160px; /* Force une vraie colonne */
+}
+
+.footer-social-item {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+.footer-social-item:hover {
+  text-decoration: underline;
+}
