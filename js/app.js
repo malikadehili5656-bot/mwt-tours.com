@@ -116,9 +116,8 @@ const translations = {
     't-car-services': 'Servicios de la agencia',
 
     't-tours-title': 'Viajes y programas',
-    't-tours-omra1-title': 'Omra – Viaje religioso',
-    't-tours-omra1-desc': 'Programa completo de Omra con acompañamiento y servicios esenciales.',
-    't-tours-omra3-desc': 'Preinscripción abierta, prioridad a los primeros inscritos.',
+    't-tours-omra1-title': 'Viaje Omra',
+    't-tours-omra1-desc': 'Información e inscripción en la agencia.',
     't-tours-hajj-title': 'Hajj 2026',
     't-tours-hajj-desc': 'Preinscripciones para Hajj 2026, acompañamiento completo desde España.',
     't-tours-sahara-title': 'Tours por el Sáhara argelino',
