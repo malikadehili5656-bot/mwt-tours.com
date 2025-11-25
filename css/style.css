@@ -38,11 +38,13 @@ header{
   flex-wrap:wrap;
 }
 body.rtl .header-inner{flex-direction:row-reverse;}
-.logo-wrap{
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  cursor:pointer;
+.logo-wrap img{
+  height:50px;
+  border-radius:8px;
+  background:transparent;
+  object-fit:contain;
+  mix-blend-mode: lighten;
+}
 }
 .logo-wrap img{
   height:52px;
