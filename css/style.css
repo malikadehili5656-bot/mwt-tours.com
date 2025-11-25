@@ -17,25 +17,7 @@ body.rtl{direction:rtl;}
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
 
-/* HEADER */
-header{
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:30;
-  background: linear-gradient(90deg, var(--orange), var(--green)); /* orange → vert */
-  color:#fff;
-  padding:.7rem 1.3rem;
-  backdrop-filter: blur(6px);
-}
-}
-.header-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
-  flex-wrap:wrap;
+
 }
 body.rtl .header-inner{flex-direction:row-reverse;}
 .logo-wrap img{
@@ -44,6 +26,40 @@ body.rtl .header-inner{flex-direction:row-reverse;}
   background:transparent;
   object-fit:contain;
   mix-blend-mode: lighten;
+}
+/* HEADER FIX GRADIENT + ALIGNMENT */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:30;
+  background:linear-gradient(90deg, var(--orange), var(--green));
+  color:#fff;
+  padding:.7rem 1.3rem;
+  backdrop-filter: blur(6px);
+}
+.header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between; /* 👈 ESSENTIEL */
+  gap:1rem;
+  flex-wrap:nowrap; /* 👈 Empêche les langues de passer sous le logo */
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  cursor:pointer;
+}
+
+.logo-wrap img{
+  height:48px;
+  object-fit:contain;
+  background:transparent;
+  mix-blend-mode:lighten; /* 👈 Évite le carré blanc */
+  border-radius:0;
 }
 }
 .logo-wrap img{
