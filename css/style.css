@@ -46,7 +46,11 @@ header{
   gap:1rem;
   flex-wrap:nowrap; /* 👈 Empêche les langues de passer sous le logo */
 }
-
+.lang-switch{
+  display:flex;
+  gap:.3rem;
+  white-space:nowrap; /* 👈 Empêche les langues de passer à la ligne */
+}
 .logo-wrap{
   display:flex;
   align-items:center;
