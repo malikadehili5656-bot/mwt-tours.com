@@ -2,509 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>MWT - Moltaqa World Travel & Tourism</title>
+  <title>MWT - Moltaqa World Travel &amp; Tourism</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --orange: #c69228;
-      --green: #A6C34C;  /* Vert MWT */
-      --blue: #409AD6;   /* Bleu MWT */
-      --bg-soft: #f5f7fa;
-      --text-dark: #222;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg-soft);
-      color: var(--text-dark);
-      line-height: 1.5;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    /* HEADER */
-
-    header {
-      background: var(--green);
-      color: #fff;
-      box-shadow: 0 1px 4px rgba(0,0,0,.15);
-      padding: 0.6rem 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      cursor: pointer;
-    }
-
-    .logo-wrap img {
-      height: 46px;
-      border-radius: 6px;
-      object-fit: contain;
-      background: #fff;
-    }
-
-    .logo-text-title {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #fff;
-    }
-
-    .logo-text-sub {
-      font-size: .75rem;
-      color: #f3ffe0;
-    }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      font-size: .92rem;
-      font-weight: 500;
-      align-items: center;
-    }
-
-    .nav-link {
-      position: relative;
-      cursor: pointer;
-      color: #f2ffe4;
-    }
-
-    .nav-link.active {
-      color: #fff;
-    }
-
-    .nav-link.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -4px;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--blue);
-    }
-
-    .lang-switch {
-      display: flex;
-      gap: 0.3rem;
-      font-size: 0.75rem;
-      align-items: center;
-    }
-
-    .lang-pill {
-      padding: 0.12rem 0.45rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.6);
-      cursor: pointer;
-      background: transparent;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.2rem;
-      color: #fff;
-    }
-
-    .lang-pill span.flag {
-      font-size: .8rem;
-    }
-
-    .lang-pill span.code {
-      font-weight: 600;
-    }
-
-    .lang-pill.active {
-      background: #fff;
-      color: var(--green);
-      border-color: #fff;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 1.4rem auto 2rem;
-      padding: 0 1rem;
-    }
-
-    .page { display: none; }
-    .page.active { display: block; }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      border-radius: 22px;
-      overflow: hidden;
-      margin-bottom: 1.8rem;
-      box-shadow: 0 18px 40px rgba(0,0,0,.35);
-    }
-
-    .hero img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,.45), rgba(64,154,214,.95));
-    }
-
-    .hero-inner {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.6rem;
-    }
-
-    .hero-content {
-      max-width: 620px;
-      color: #fff;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      background: rgba(166,195,76,.95);
-      color: #fff;
-      padding: 0.2rem 0.8rem;
-      border-radius: 999px;
-      font-size: .75rem;
-      font-weight: 600;
-      margin-bottom: .6rem;
-    }
-
-    .hero h1 {
-      font-size: 1.9rem;
-      margin-bottom: .4rem;
-    }
-
-    .hero p {
-      font-size: .95rem;
-      opacity: .9;
-      margin-bottom: 1rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: center;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 0.55rem 1.4rem;
-      border: none;
-      cursor: pointer;
-      font-size: .86rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
-    }
-
-    .btn-primary {
-      background: var(--blue);
-      color: #fff;
-      box-shadow: 0 8px 18px rgba(0,0,0,.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(0,0,0,.45);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.8);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,.12);
-    }
-
-    .btn-small {
-      padding: 0.35rem 0.9rem;
-      font-size: .8rem;
-      border-radius: 999px;
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid var(--blue);
-      color: var(--blue);
-    }
-
-    .btn-ghost:hover {
-      background: var(--blue);
-      color: #fff;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 1.6rem 0 0.6rem;
-      color: var(--blue);
-    }
-
-    /* Hajj 2026 banner */
-
-    .hajj-banner {
-      background: linear-gradient(135deg, #13294b, #409AD6);
-      color: #fff;
-      border-radius: 18px;
-      padding: 1.2rem 1.4rem;
-      margin-bottom: 1.3rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.8rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,.25);
-    }
-
-    .hajj-banner-main {
-      flex: 1 1 220px;
-    }
-
-    .hajj-banner-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-
-    .hajj-banner-sub {
-      font-size: .9rem;
-      opacity: .92;
-    }
-
-    .hajj-banner-badge {
-      display: inline-block;
-      margin-top: .4rem;
-      background: rgba(166,195,76,.95);
-      padding: 0.15rem .7rem;
-      border-radius: 999px;
-      font-size: .75rem;
-      font-weight: 600;
-    }
-
-    .hajj-banner-cta {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-
-    /* Omra offers */
-
-    .offers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-      gap: 1rem;
-    }
-
-    .offer-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1rem 1.1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,.08);
-      border-top: 4px solid var(--green);
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .offer-title { font-weight: 600; font-size: .98rem; }
-    .offer-dates { font-size: .82rem; color: #777; margin-top: .1rem; }
-    .offer-price { margin-top: .3rem; font-weight: 700; color: var(--blue); }
-
-    .offer-actions {
-      margin-top: .5rem;
-    }
-
-    /* Carousel produits phares */
-
-    .carousel {
-      overflow-x: auto;
-      padding-bottom: 0.4rem;
-    }
-
-    .carousel-inner {
-      display: flex;
-      gap: .8rem;
-      min-width: 100%;
-    }
-
-    .carousel-item {
-      flex: 0 0 220px;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,.08);
-      overflow: hidden;
-    }
-
-    .carousel-item img {
-      height: 130px;
-      width: 100%;
-      object-fit: cover;
-      background: #dde7f3;
-    }
-
-    .carousel-title {
-      padding: 0.5rem 0.7rem 0.7rem;
-      font-size: .82rem;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    /* Cartes tours / services */
-
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1rem 1.1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,.05);
-      margin-bottom: 0.8rem;
-    }
-
-    .card img {
-      border-radius: 12px;
-      margin-bottom: 0.5rem;
-      height: 190px;
-      object-fit: cover;
-      width: 100%;
-      background: #dde7f3;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-      gap: 1rem;
-    }
-
-    .service-icon { font-size: 1.3rem; color: var(--blue); margin-bottom: .3rem; }
-
-    /* Formulaire */
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: .25rem;
-      margin-bottom: .6rem;
-      font-size: .84rem;
-    }
-
-    input, textarea {
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: .45rem .6rem;
-      font-size: .86rem;
-      font-family: inherit;
-    }
-
-    textarea { resize: vertical; min-height: 80px; }
-
-    /* FOOTER */
-
-    footer {
-      background: var(--blue);
-      color: #f6fbff;
-      padding: 1.3rem 1rem;
-      font-size: .78rem;
-      margin-top: 2rem;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-
-    .footer-logo {
-      display: flex;
-      gap: .6rem;
-      align-items: center;
-    }
-
-    .footer-logo img { height: 40px; border-radius: 6px; background:#fff; }
-
-    .footer-block-title {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .footer-line {
-      display: flex;
-      align-items: center;
-      gap: .35rem;
-      margin-bottom: .18rem;
-    }
-
-    .footer-line span.icon {
-      width: 1.1rem;
-      text-align: center;
-    }
-
-    .footer-link {
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    @media (max-width: 768px) {
-      nav { display: none; }
-      .header-inner { justify-content: space-between; }
-      .hero img { height: 260px; }
-      .hajj-banner { flex-direction: column; align-items: flex-start; }
-      .hajj-banner-cta { width: 100%; justify-content: flex-start; }
-    }
-
-    /* WhatsApp flottant */
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 18px;
-      right: 18px;
-      background: #25D366;
-      color: #fff;
-      border-radius: 50%;
-      width: 54px;
-      height: 54px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      text-decoration: none;
-      box-shadow: 0 3px 10px rgba(0,0,0,.35);
-      z-index: 50;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
 <header>
   <div class="header-inner">
     <div class="logo-wrap" onclick="showPage('home')">
@@ -532,227 +34,249 @@
 <main>
   <!-- ACCUEIL -->
   <section class="page active" id="page-home">
+    <!-- HERO -->
     <div class="hero">
-      <!-- image provisoire, tu pourras la remplacer -->
-      <img src="images/omra.jpg" alt="Hero Omra">
+      <img src="images/omra.jpg" class="hero-image" alt="Omra &amp; Hajj" />
       <div class="hero-overlay"></div>
+
       <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span>MWT · Moltaqa World Travel &amp; Tourism</span>
+        <div class="hero-cards-wrapper">
+          <!-- 3 CARTES OMRA -->
+          <div class="hero-cards-row">
+            <div class="hero-offer-card">
+              <div class="hero-offer-dates" id="t-omra1-card-dates">25 December<br>to 3 January</div>
+              <div class="hero-offer-price" id="t-omra1-card-price">1595€</div>
+              <button class="hero-offer-cta hero-to-contact" id="t-omra-card-cta-1">S’inscrire</button>
+            </div>
+
+            <div class="hero-offer-card">
+              <div class="hero-offer-dates" id="t-omra2-card-dates">20 January<br>to 3 February</div>
+              <div class="hero-offer-price" id="t-omra2-card-price">1395€</div>
+              <button class="hero-offer-cta hero-to-contact" id="t-omra-card-cta-2">S’inscrire</button>
+            </div>
+
+            <div class="hero-offer-card">
+              <div class="hero-offer-dates" id="t-omra3-card-dates">Omra du<br>Ramadan</div>
+              <div class="hero-offer-sub" id="t-omra3-card-sub">Inscription ouverte</div>
+              <button class="hero-offer-cta hero-to-contact" id="t-omra-card-cta-3">S’inscrire</button>
+            </div>
           </div>
-          <h1 id="t-hero-title">Les couleurs les plus belles du voyage</h1>
-          <p id="t-hero-p1">Omra, Haj, Sahara algérien, études en Espagne et en Angleterre, avec un accompagnement complet depuis Alicante.</p>
-          <p id="t-hero-p2"></p>
-          <div class="hero-actions">
-            <button class="btn btn-primary" onclick="showPage('tours')" id="t-hero-btn1">Voir les offres Omra</button>
-            <button class="btn btn-outline" onclick="showPage('tours')" id="t-hero-btn2">Découvrir tous les tours</button>
+
+          <!-- BANNIÈRE HAJJ 2026 (CLIQUE → CONTACT) -->
+          <div class="hero-hajj-banner hero-to-contact" id="hajj-banner">
+            <div class="hero-hajj-text" id="t-hajj-banner-title">Inscription Hajj 2026</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Bannière Hajj 2026 -->
-    <div class="hajj-banner">
-      <div class="hajj-banner-main">
-        <div class="hajj-banner-title" id="t-hajj-banner-title">Hajj 2026 – Inscriptions ouvertes</div>
-        <div class="hajj-banner-sub" id="t-hajj-banner-sub">Réservez votre place dès maintenant, accompagnement complet depuis l'Espagne.</div>
-        <div class="hajj-banner-badge" id="t-hajj-banner-badge">Nombre de places limité</div>
+    <!-- OFFRES + CARROUSEL -->
+    <section class="content-section">
+      <h2 class="section-title" id="t-omra-title">Offres Omra</h2>
+      <div class="offers-grid">
+        <div class="offer-card">
+          <div class="offer-title" id="t-omra1-title">Omra 25 décembre — 3 janvier</div>
+          <div class="offer-dates" id="t-omra1-dates">25/12 — 03/01</div>
+          <div class="offer-price" id="t-omra1-price">1595€</div>
+          <div class="offer-actions">
+            <button class="btn btn-ghost btn-small hero-to-contact offer-cta" id="t-omra1-cta">S’inscrire</button>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-title" id="t-omra2-title">Omra 20 janvier — 3 février</div>
+          <div class="offer-dates" id="t-omra2-dates">20/01 — 03/02</div>
+          <div class="offer-price" id="t-omra2-price">1395€</div>
+          <div class="offer-actions">
+            <button class="btn btn-ghost btn-small hero-to-contact offer-cta" id="t-omra2-cta">S’inscrire</button>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-title" id="t-omra3-title">Omra du Ramadan</div>
+          <div class="offer-dates" id="t-omra3-dates">Inscriptions ouvertes (dates à confirmer)</div>
+          <div class="offer-actions">
+            <button class="btn btn-ghost btn-small hero-to-contact offer-cta" id="t-omra3-cta">S’inscrire</button>
+          </div>
+        </div>
       </div>
-      <div class="hajj-banner-cta">
-        <button class="btn btn-primary btn-small" id="t-hajj-banner-cta">S’inscrire au Hajj 2026</button>
-      </div>
-    </div>
 
-    <h2 class="section-title" id="t-omra-title">Offres Omra</h2>
-    <div class="offers-grid">
-      <div class="offer-card">
-        <div class="offer-title" id="t-omra1-title">Omra 25 décembre — 3 janvier</div>
-        <div class="offer-dates" id="t-omra1-dates">25/12 — 03/01</div>
-        <div class="offer-price" id="t-omra1-price">1595€</div>
-        <div class="offer-actions">
-          <button class="btn btn-ghost btn-small offer-cta">S’inscrire</button>
+      <h2 class="section-title" id="t-products-title">Nos produits phares</h2>
+      <div class="carousel">
+        <div class="carousel-inner">
+          <button class="carousel-item" data-target="tours">
+            <img src="images/omra.jpg" alt="Omra">
+            <div class="carousel-title" id="t-car-omra">Omra</div>
+          </button>
+          <button class="carousel-item hero-to-contact">
+            <img src="images/hajj.jpg" alt="Hajj">
+            <div class="carousel-title" id="t-car-hajj">Hajj 2026</div>
+          </button>
+          <button class="carousel-item" data-target="tours">
+            <img src="images/sahara.jpg" alt="Sahara">
+            <div class="carousel-title" id="t-car-sahara">Sahara algérien</div>
+          </button>
+          <button class="carousel-item" data-target="tours">
+            <img src="images/study-uk.jpg" alt="Études">
+            <div class="carousel-title" id="t-car-study">Études Espagne &amp; UK</div>
+          </button>
+          <button class="carousel-item" data-target="services">
+            <img src="images/service-hotel.jpg" alt="Services">
+            <div class="carousel-title" id="t-car-services">Services de l'agence</div>
+          </button>
         </div>
       </div>
-      <div class="offer-card">
-        <div class="offer-title" id="t-omra2-title">Omra 20 janvier — 3 février</div>
-        <div class="offer-dates" id="t-omra2-dates">20/01 — 03/02</div>
-        <div class="offer-price" id="t-omra2-price">1395€</div>
-        <div class="offer-actions">
-          <button class="btn btn-ghost btn-small offer-cta">S’inscrire</button>
-        </div>
-      </div>
-      <div class="offer-card">
-        <div class="offer-title" id="t-omra3-title">Omra du Ramadan</div>
-        <div class="offer-dates" id="t-omra3-dates">Inscriptions ouvertes (dates à confirmer)</div>
-        <div class="offer-actions">
-          <button class="btn btn-ghost btn-small offer-cta">S’inscrire</button>
-        </div>
-      </div>
-    </div>
-
-    <h2 class="section-title" id="t-products-title">Nos produits phares</h2>
-    <div class="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item">
-          <img src="images/omra.jpg" alt="Omra">
-          <div class="carousel-title" id="t-car-omra">Omra</div>
-        </div>
-        <div class="carousel-item">
-          <img src="images/hajj.jpg" alt="Hajj">
-          <div class="carousel-title" id="t-car-hajj">Hajj</div>
-        </div>
-        <div class="carousel-item">
-          <img src="images/sahara.jpg" alt="Sahara">
-          <div class="carousel-title" id="t-car-sahara">Sahara algérien</div>
-        </div>
-        <div class="carousel-item">
-          <img src="images/study.jpg" alt="Études">
-          <div class="carousel-title" id="t-car-study">Études Espagne &amp; UK</div>
-        </div>
-        <div class="carousel-item">
-          <img src="images/services.jpg" alt="Services">
-          <div class="carousel-title" id="t-car-services">Services de l'agence</div>
-        </div>
-      </div>
-    </div>
+    </section>
   </section>
 
   <!-- TOURS -->
   <section class="page" id="page-tours">
-    <h2 class="section-title" id="t-tours-title">Tours &amp; voyages</h2>
-    <div class="card">
-      <img src="images/omra.jpg" alt="Omra 25 décembre — 3 janvier">
-      <h3 id="t-tours-omra1-title">Omra 25 décembre — 3 janvier</h3>
-      <p id="t-tours-omra1-desc">Hébergement 4*, guides francophones et arabophones, transferts inclus.</p>
-    </div>
-    <div class="card">
-      <img src="images/omra.jpg" alt="Omra 20 janvier — 3 février">
-      <h3 id="t-tours-omra2-title">Omra 20 janvier — 3 février</h3>
-      <p id="t-tours-omra2-desc">Programme équilibré entre temps libre et visites, assistance visa possible.</p>
-    </div>
-    <div class="card">
-      <img src="images/omra.jpg" alt="Omra du Ramadan">
-      <h3 id="t-tours-omra3-title">Omra du Ramadan</h3>
-      <p id="t-tours-omra3-desc">Pré-inscription ouverte, priorité aux premiers inscrits.</p>
-    </div>
-    <div class="card">
-      <img src="images/hajj.jpg" alt="Hajj 2026">
-      <h3 id="t-tours-hajj-title">Haj 2026</h3>
-      <p id="t-tours-hajj-desc">Pré-inscriptions pour Haj 2026, accompagnement complet depuis l'Espagne.</p>
-    </div>
-    <div class="card">
-      <img src="images/sahara.jpg" alt="Sahara algérien">
-      <h3 id="t-tours-sahara-title">Tours du Sahara algérien</h3>
-      <p id="t-tours-sahara-desc">Circuits désert, oasis, culture et patrimoine pour individuels et groupes.</p>
-    </div>
-    <div class="card">
-      <img src="images/sahara.jpg" alt="Algérie nostalgie">
-      <h3 id="t-tours-algeria-title">Voyages nostalgiques en Algérie</h3>
-      <p id="t-tours-algeria-desc">Programmes sur mesure pour la diaspora, visite des villes d'origine.</p>
-    </div>
-    <div class="card">
-      <img src="images/sahara.jpg" alt="Andalousie">
-      <h3 id="t-tours-andalucia-title">Voyage en Andalousie — Héritage de l'Islam</h3>
-      <p id="t-tours-andalucia-desc">Cordoue, Séville, Grenade... visites guidées des sites historiques.</p>
-    </div>
-    <div class="card">
-      <img src="images/study.jpg" alt="Études en Angleterre">
-      <h3 id="t-tours-uk-title">Études en Angleterre</h3>
-      <p id="t-tours-uk-desc">Conseil et inscription dans des écoles et universités partenaires.</p>
-    </div>
-    <div class="card">
-      <img src="images/study.jpg" alt="Études en Espagne">
-      <h3 id="t-tours-es-title">Études en Espagne</h3>
-      <p id="t-tours-es-desc">Accompagnement pour les démarches d'inscription, logement et intégration.</p>
-    </div>
+    <section class="content-section">
+      <h2 class="section-title" id="t-tours-title">Tours &amp; voyages</h2>
+
+      <div class="card">
+        <img src="images/omra.jpg" alt="Omra 25 décembre — 3 janvier">
+        <h3 id="t-tours-omra1-title">Omra 25 décembre — 3 janvier</h3>
+        <p id="t-tours-omra1-desc">Hébergement 4*, guides francophones et arabophones, transferts inclus.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/omra.jpg" alt="Omra 20 janvier — 3 février">
+        <h3 id="t-tours-omra2-title">Omra 20 janvier — 3 février</h3>
+        <p id="t-tours-omra2-desc">Programme équilibré entre temps libre et visites, assistance visa possible.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/omra.jpg" alt="Omra du Ramadan">
+        <h3 id="t-tours-omra3-title">Omra du Ramadan</h3>
+        <p id="t-tours-omra3-desc">Pré-inscription ouverte, priorité aux premiers inscrits.</p>
+      </div>
+
+      <div class="card hero-to-contact">
+        <img src="images/hajj.jpg" alt="Hajj 2026">
+        <h3 id="t-tours-hajj-title">Haj 2026</h3>
+        <p id="t-tours-hajj-desc">Pré-inscriptions pour Haj 2026, accompagnement complet depuis l'Espagne.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/sahara.jpg" alt="Sahara algérien">
+        <h3 id="t-tours-sahara-title">Tours du Sahara algérien</h3>
+        <p id="t-tours-sahara-desc">Circuits désert, oasis, culture et patrimoine pour individuels et groupes.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/algeria.jpg" alt="Algérie nostalgie">
+        <h3 id="t-tours-algeria-title">Voyages nostalgiques en Algérie</h3>
+        <p id="t-tours-algeria-desc">Programmes sur mesure pour la diaspora, visite des villes d'origine.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/andalucia.jpg" alt="Andalousie">
+        <h3 id="t-tours-andalucia-title">Voyage en Andalousie — Héritage de l'Islam</h3>
+        <p id="t-tours-andalucia-desc">Cordoue, Séville, Grenade... visites guidées des sites historiques.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/study-uk.jpg" alt="Études en Angleterre">
+        <h3 id="t-tours-uk-title">Études en Angleterre</h3>
+        <p id="t-tours-uk-desc">Conseil et inscription dans des écoles et universités partenaires.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/study-es.jpg" alt="Études en Espagne">
+        <h3 id="t-tours-es-title">Études en Espagne</h3>
+        <p id="t-tours-es-desc">Accompagnement pour les démarches d'inscription, logement et intégration.</p>
+      </div>
+    </section>
   </section>
 
   <!-- SERVICES -->
   <section class="page" id="page-services">
-    <h2 class="section-title" id="t-services-title">Services &amp; partenaires</h2>
-    <div class="services-grid">
-      <div class="card">
-        <img src="images/services.jpg" alt="Télécom">
-        <div class="service-icon">📱</div>
-        <h3 id="t-serv-telecom-title">Partenaires télécom</h3>
-        <p id="t-serv-telecom-desc">Lebara, Orange, MasMovil — cartes SIM, recharges et offres pour vos voyages.</p>
+    <section class="content-section">
+      <h2 class="section-title" id="t-services-title">Services &amp; partenaires</h2>
+      <div class="services-grid">
+        <div class="card">
+          <img src="images/service-telecom.jpg" alt="Télécom">
+          <div class="service-icon">📱</div>
+          <h3 id="t-serv-telecom-title">Partenaires télécom</h3>
+          <p id="t-serv-telecom-desc">Lebara, Orange, MasMovil — cartes SIM, recharges et offres pour vos voyages.</p>
+        </div>
+        <div class="card">
+          <img src="images/service-transfer.jpg" alt="Transfert d'argent">
+          <div class="service-icon">💸</div>
+          <h3 id="t-serv-transfer-title">Transfert d'argent</h3>
+          <p id="t-serv-transfer-desc">Western Union, Ria — transferts sécurisés vers le monde entier.</p>
+        </div>
+        <div class="card">
+          <img src="images/service-luggage.jpg" alt="Garde bagages">
+          <div class="service-icon">🧳</div>
+          <h3 id="t-serv-luggage-title">Garde-bagages</h3>
+          <p id="t-serv-luggage-desc">Service sécurisé de consigne de bagages à l'agence.</p>
+        </div>
+        <div class="card">
+          <img src="images/service-visa.jpg" alt="Visa">
+          <div class="service-icon">🛂</div>
+          <h3 id="t-serv-visa-title">Assistance visa</h3>
+          <p id="t-serv-visa-desc">Aide, conseils et préparation de dossier pour vos demandes de visa.</p>
+        </div>
+        <div class="card">
+          <img src="images/service-tickets.jpg" alt="Billetterie">
+          <div class="service-icon">✈️</div>
+          <h3 id="t-serv-tickets-title">Billetterie complète</h3>
+          <p id="t-serv-tickets-desc">Billets terrestres, maritimes et aériens, multi-compagnies.</p>
+        </div>
+        <div class="card">
+          <img src="images/service-car.jpg" alt="Location de voiture">
+          <div class="service-icon">🚗</div>
+          <h3 id="t-serv-car-title">Location de voiture</h3>
+          <p id="t-serv-car-desc">Organisation de location de voiture avec nos partenaires locaux et internationaux.</p>
+        </div>
+        <div class="card">
+          <img src="images/service-hotel.jpg" alt="Hébergement & hôtels">
+          <div class="service-icon">🏨</div>
+          <h3 id="t-serv-hotel-title">Hébergement &amp; hôtels</h3>
+          <p id="t-serv-hotel-desc">Réservation d'hôtels et d'appartements adaptés à vos besoins et à votre budget.</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="images/hajj.jpg" alt="Transfert d'argent">
-        <div class="service-icon">💸</div>
-        <h3 id="t-serv-transfer-title">Transfert d'argent</h3>
-        <p id="t-serv-transfer-desc">Western Union, Ria — transferts sécurisés vers le monde entier.</p>
-      </div>
-      <div class="card">
-        <img src="images/services.jpg" alt="Garde bagages">
-        <div class="service-icon">🧳</div>
-        <h3 id="t-serv-luggage-title">Garde-bagages</h3>
-        <p id="t-serv-luggage-desc">Service sécurisé de consigne de bagages à l'agence.</p>
-      </div>
-      <div class="card">
-        <img src="images/study.jpg" alt="Visa">
-        <div class="service-icon">🛂</div>
-        <h3 id="t-serv-visa-title">Assistance visa</h3>
-        <p id="t-serv-visa-desc">Aide, conseils et préparation de dossier pour vos demandes de visa.</p>
-      </div>
-      <div class="card">
-        <img src="images/services.jpg" alt="Billetterie">
-        <div class="service-icon">✈️</div>
-        <h3 id="t-serv-tickets-title">Billetterie complète</h3>
-        <p id="t-serv-tickets-desc">Billets terrestres, maritimes et aériens, multi-compagnies.</p>
-      </div>
-      <div class="card">
-        <img src="images/services.jpg" alt="Location de voiture">
-        <div class="service-icon">🚗</div>
-        <h3 id="t-serv-car-title">Location de voiture</h3>
-        <p id="t-serv-car-desc">Organisation de location de voiture avec nos partenaires locaux et internationaux.</p>
-      </div>
-      <div class="card">
-        <img src="images/services.jpg" alt="Hébergement & hôtels">
-        <div class="service-icon">🏨</div>
-        <h3 id="t-serv-hotel-title">Hébergement &amp; hôtels</h3>
-        <p id="t-serv-hotel-desc">Réservation d'hôtels et d'appartements adaptés à vos besoins et à votre budget.</p>
-      </div>
-    </div>
+    </section>
   </section>
 
   <!-- CONTACT -->
   <section class="page" id="page-contact">
-    <h2 class="section-title" id="t-contact-title">Contact</h2>
-    <div class="card">
-      <form onsubmit="event.preventDefault(); alert('Formulaire envoyé (démo).');">
-        <div class="form-group">
-          <label id="t-contact-name">Nom</label>
-          <input type="text" required />
-        </div>
-        <div class="form-group">
-          <label id="t-contact-firstname">Prénom</label>
-          <input type="text" required />
-        </div>
-        <div class="form-group">
-          <label id="t-contact-nationality">Nationalité</label>
-          <input type="text" />
-        </div>
-        <div class="form-group">
-          <label id="t-contact-residence">Résidence</label>
-          <input type="text" />
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" required />
-        </div>
-        <div class="form-group">
-          <label id="t-contact-phone">Téléphone</label>
-          <input type="text" />
-        </div>
-        <div class="form-group">
-          <label id="t-contact-message">Message</label>
-          <textarea></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit" id="t-contact-send">Envoyer</button>
-      </form>
-    </div>
+    <section class="content-section">
+      <h2 class="section-title" id="t-contact-title">Contact</h2>
+      <div class="card">
+        <form onsubmit="event.preventDefault(); alert('Formulaire envoyé (démo).');">
+          <div class="form-group">
+            <label id="t-contact-name">Nom</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label id="t-contact-firstname">Prénom</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label id="t-contact-nationality">Nationalité</label>
+            <input type="text" />
+          </div>
+          <div class="form-group">
+            <label id="t-contact-residence">Résidence</label>
+            <input type="text" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" required />
+          </div>
+          <div class="form-group">
+            <label id="t-contact-phone">Téléphone</label>
+            <input type="text" />
+          </div>
+          <div class="form-group">
+            <label id="t-contact-message">Message</label>
+            <textarea></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" id="t-contact-send">Envoyer</button>
+        </form>
+      </div>
+    </section>
   </section>
 </main>
 
@@ -761,7 +285,7 @@
     <div class="footer-logo">
       <img src="images/logo.jpg" alt="MWT logo" />
       <div>
-        <div style="font-weight:600;">MWT - Moltaqa World Travel &amp; Tourism</div>
+        <div class="footer-title">MWT - Moltaqa World Travel &amp; Tourism</div>
         <div class="footer-line">
           <span class="icon">📍</span>
           <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante"
@@ -810,286 +334,6 @@
   💬
 </a>
 
-<script>
-  const translations = {
-    fr: {
-      navHome: "Accueil",
-      navTours: "Tours",
-      navServices: "Services",
-      navContact: "Contact",
-      heroTitle: "Les couleurs les plus belles du voyage",
-      heroP1: "Omra, Haj, Sahara algérien, études en Espagne et en Angleterre, avec un accompagnement complet depuis Alicante.",
-      heroP2: "",
-      heroBtn1: "Voir les offres Omra",
-      heroBtn2: "Découvrir tous les tours",
-      hajjBannerTitle: "Hajj 2026 – Inscriptions ouvertes",
-      hajjBannerSub: "Réservez votre place dès maintenant, accompagnement complet depuis l'Espagne.",
-      hajjBannerBadge: "Nombre de places limité",
-      hajjBannerCta: "S’inscrire au Hajj 2026",
-      omraTitle: "Offres Omra",
-      omraCta: "S’inscrire",
-      productsTitle: "Nos produits phares",
-      carOmra: "Omra",
-      carHajj: "Hajj",
-      carSahara: "Sahara algérien",
-      carStudy: "Études Espagne & UK",
-      carServices: "Services de l'agence",
-      toursTitle: "Tours & voyages",
-      contactTitle: "Contact",
-      contactName: "Nom",
-      contactFirstname: "Prénom",
-      contactNationality: "Nationalité",
-      contactResidence: "Résidence",
-      contactPhone: "Téléphone",
-      contactMessage: "Message",
-      contactSend: "Envoyer",
-      servicesTitle: "Services & partenaires",
-      servTelecomTitle: "Partenaires télécom",
-      servTelecomDesc: "Lebara, Orange, MasMovil — cartes SIM, recharges et offres pour vos voyages.",
-      servTransferTitle: "Transfert d'argent",
-      servTransferDesc: "Western Union, Ria — transferts sécurisés vers le monde entier.",
-      servLuggageTitle: "Garde-bagages",
-      servLuggageDesc: "Service sécurisé de consigne de bagages à l'agence.",
-      servVisaTitle: "Assistance visa",
-      servVisaDesc: "Aide, conseils et préparation de dossier pour vos demandes de visa.",
-      servTicketsTitle: "Billetterie complète",
-      servTicketsDesc: "Billets terrestres, maritimes et aériens, multi-compagnies.",
-      servCarTitle: "Location de voiture",
-      servCarDesc: "Organisation de location de voiture avec nos partenaires locaux et internationaux.",
-      servHotelTitle: "Hébergement & hôtels",
-      servHotelDesc: "Réservation d'hôtels et d'appartements adaptés à vos besoins et à votre budget."
-    },
-    es: {
-      navHome: "Inicio",
-      navTours: "Tours",
-      navServices: "Servicios",
-      navContact: "Contacto",
-      heroTitle: "Los colores más bellos del viaje",
-      heroP1: "Omra, Hajj, Sahara argelino, estudios en España y en Inglaterra, con acompañamiento completo desde Alicante.",
-      heroP2: "",
-      heroBtn1: "Ver ofertas de Omra",
-      heroBtn2: "Ver todos los tours",
-      hajjBannerTitle: "Hajj 2026 – Apertura de inscripciones",
-      hajjBannerSub: "Reserva tu plaza ahora, acompañamiento completo desde España.",
-      hajjBannerBadge: "Plazas limitadas",
-      hajjBannerCta: "Inscribirse al Hajj 2026",
-      omraTitle: "Ofertas de Omra",
-      omraCta: "Inscribirse",
-      productsTitle: "Productos estrella",
-      carOmra: "Omra",
-      carHajj: "Hajj",
-      carSahara: "Sahara argelino",
-      carStudy: "Estudios España & UK",
-      carServices: "Servicios de la agencia",
-      toursTitle: "Tours & viajes",
-      contactTitle: "Contacto",
-      contactName: "Nombre",
-      contactFirstname: "Apellido",
-      contactNationality: "Nacionalidad",
-      contactResidence: "Residencia",
-      contactPhone: "Teléfono",
-      contactMessage: "Mensaje",
-      contactSend: "Enviar",
-      servicesTitle: "Servicios & socios",
-      servTelecomTitle: "Socios de telefonía",
-      servTelecomDesc: "Lebara, Orange, MasMovil: tarjetas SIM, recargas y ofertas para tus viajes.",
-      servTransferTitle: "Envío de dinero",
-      servTransferDesc: "Western Union, Ria: envíos seguros a todo el mundo.",
-      servLuggageTitle: "Guardaequipajes",
-      servLuggageDesc: "Servicio seguro de consigna de equipaje en la agencia.",
-      servVisaTitle: "Asistencia de visado",
-      servVisaDesc: "Ayuda, consejos y preparación de expediente para tus solicitudes de visado.",
-      servTicketsTitle: "Billetaje completo",
-      servTicketsDesc: "Billetes terrestres, marítimos y aéreos, multi-compañías.",
-      servCarTitle: "Alquiler de coche",
-      servCarDesc: "Organización de alquiler de coche con nuestros socios locales e internacionales.",
-      servHotelTitle: "Alojamiento & hoteles",
-      servHotelDesc: "Reserva de hoteles y apartamentos adaptados a tus necesidades y presupuesto."
-    },
-    en: {
-      navHome: "Home",
-      navTours: "Tours",
-      navServices: "Services",
-      navContact: "Contact",
-      heroTitle: "The most beautiful colors of travel",
-      heroP1: "Umrah, Hajj, Algerian Sahara, studies in Spain and the UK, with full support from Alicante.",
-      heroP2: "",
-      heroBtn1: "View Umrah offers",
-      heroBtn2: "See all tours",
-      hajjBannerTitle: "Hajj 2026 – Registrations open",
-      hajjBannerSub: "Book your place now, full support from Spain.",
-      hajjBannerBadge: "Limited seats",
-      hajjBannerCta: "Register for Hajj 2026",
-      omraTitle: "Umrah offers",
-      omraCta: "Register",
-      productsTitle: "Key products",
-      carOmra: "Umrah",
-      carHajj: "Hajj",
-      carSahara: "Algerian Sahara",
-      carStudy: "Studies Spain & UK",
-      carServices: "Agency services",
-      toursTitle: "Tours & trips",
-      contactTitle: "Contact",
-      contactName: "Last name",
-      contactFirstname: "First name",
-      contactNationality: "Nationality",
-      contactResidence: "Residence",
-      contactPhone: "Phone",
-      contactMessage: "Message",
-      contactSend: "Send",
-      servicesTitle: "Services & partners",
-      servTelecomTitle: "Telecom partners",
-      servTelecomDesc: "Lebara, Orange, MasMovil – SIM cards, top-ups and travel offers.",
-      servTransferTitle: "Money transfer",
-      servTransferDesc: "Western Union, Ria – secure transfers worldwide.",
-      servLuggageTitle: "Luggage storage",
-      servLuggageDesc: "Secure luggage storage service at the agency.",
-      servVisaTitle: "Visa assistance",
-      servVisaDesc: "Help, advice and file preparation for your visa applications.",
-      servTicketsTitle: "Full ticketing",
-      servTicketsDesc: "Land, sea and air tickets with multiple companies.",
-      servCarTitle: "Car rental",
-      servCarDesc: "Car rental organisation with our local and international partners.",
-      servHotelTitle: "Accommodation & hotels",
-      servHotelDesc: "Hotel and apartment booking adapted to your needs and budget."
-    },
-    ar: {
-      navHome: "الرئيسية",
-      navTours: "الرحلات",
-      navServices: "الخدمات",
-      navContact: "اتصل بنا",
-      heroTitle: "أجمل ألوان السفر",
-      heroP1: "عمرة، حج، صحراء الجزائر، ودراسات في إسبانيا وإنجلترا مع مرافقة كاملة من أليكانتي.",
-      heroP2: "",
-      heroBtn1: "عرض برامج العمرة",
-      heroBtn2: "اكتشف جميع الرحلات",
-      hajjBannerTitle: "حج 2026 – فتح باب التسجيل",
-      hajjBannerSub: "احجز مكانك الآن مع مرافقة كاملة من إسبانيا.",
-      hajjBannerBadge: "أماكن محدودة",
-      hajjBannerCta: "التسجيل لحج 2026",
-      omraTitle: "برامج العمرة",
-      omraCta: "التسجيل",
-      productsTitle: "خدماتنا الرئيسية",
-      carOmra: "عمرة",
-      carHajj: "حج",
-      carSahara: "صحراء الجزائر",
-      carStudy: "الدراسة في إسبانيا وإنجلترا",
-      carServices: "خدمات الوكالة",
-      toursTitle: "الرحلات والبرامج",
-      contactTitle: "اتصل بنا",
-      contactName: "الاسم",
-      contactFirstname: "اللقب",
-      contactNationality: "الجنسية",
-      contactResidence: "الإقامة",
-      contactPhone: "الهاتف",
-      contactMessage: "الرسالة",
-      contactSend: "إرسال",
-      servicesTitle: "الخدمات والشركاء",
-      servTelecomTitle: "شركاء الاتصالات",
-      servTelecomDesc: "ليبارا، أورانج، ماس موفيل – شرائح اتصال، تعبئة وعروض للسفر.",
-      servTransferTitle: "تحويل الأموال",
-      servTransferDesc: "ويسترن يونيون، ريا – تحويلات آمنة إلى جميع أنحاء العالم.",
-      servLuggageTitle: "حفظ الأمتعة",
-      servLuggageDesc: "خدمة حفظ الأمتعة بأمان في الوكالة.",
-      servVisaTitle: "مساعدة في التأشيرة",
-      servVisaDesc: "مساعدة ونصائح وتجهيز الملف لطلب التأشيرة.",
-      servTicketsTitle: "حجوزات النقل",
-      servTicketsDesc: "تذاكر برية، بحرية وجوية مع عدة شركات.",
-      servCarTitle: "تأجير السيارات",
-      servCarDesc: "تنظيم تأجير السيارات مع شركائنا المحليين والدوليين.",
-      servHotelTitle: "الإقامة والفنادق",
-      servHotelDesc: "حجوزات الفنادق والشقق حسب احتياجاتك وميزانيتك."
-    }
-  };
-
-  function safeSetText(id, text) {
-    const el = document.getElementById(id);
-    if (el && typeof text === "string") el.textContent = text;
-  }
-
-  function applyTranslations(lang) {
-    const t = translations[lang];
-    if (!t) return;
-
-    safeSetText("t-nav-home", t.navHome);
-    safeSetText("t-nav-tours", t.navTours);
-    safeSetText("t-nav-services", t.navServices);
-    safeSetText("t-nav-contact", t.navContact);
-
-    safeSetText("t-hero-title", t.heroTitle);
-    safeSetText("t-hero-p1", t.heroP1);
-    safeSetText("t-hero-p2", t.heroP2);
-    safeSetText("t-hero-btn1", t.heroBtn1);
-    safeSetText("t-hero-btn2", t.heroBtn2);
-
-    safeSetText("t-hajj-banner-title", t.hajjBannerTitle);
-    safeSetText("t-hajj-banner-sub", t.hajjBannerSub);
-    safeSetText("t-hajj-banner-badge", t.hajjBannerBadge);
-    safeSetText("t-hajj-banner-cta", t.hajjBannerCta);
-
-    safeSetText("t-omra-title", t.omraTitle);
-    safeSetText("t-products-title", t.productsTitle);
-
-    safeSetText("t-car-omra", t.carOmra);
-    safeSetText("t-car-hajj", t.carHajj);
-    safeSetText("t-car-sahara", t.carSahara);
-    safeSetText("t-car-study", t.carStudy);
-    safeSetText("t-car-services", t.carServices);
-
-    safeSetText("t-tours-title", t.toursTitle);
-
-    safeSetText("t-contact-title", t.contactTitle);
-    safeSetText("t-contact-name", t.contactName);
-    safeSetText("t-contact-firstname", t.contactFirstname);
-    safeSetText("t-contact-nationality", t.contactNationality);
-    safeSetText("t-contact-residence", t.contactResidence);
-    safeSetText("t-contact-phone", t.contactPhone);
-    safeSetText("t-contact-message", t.contactMessage);
-    safeSetText("t-contact-send", t.contactSend);
-
-    safeSetText("t-services-title", t.servicesTitle);
-    safeSetText("t-serv-telecom-title", t.servTelecomTitle);
-    safeSetText("t-serv-telecom-desc", t.servTelecomDesc);
-    safeSetText("t-serv-transfer-title", t.servTransferTitle);
-    safeSetText("t-serv-transfer-desc", t.servTransferDesc);
-    safeSetText("t-serv-luggage-title", t.servLuggageTitle);
-    safeSetText("t-serv-luggage-desc", t.servLuggageDesc);
-    safeSetText("t-serv-visa-title", t.servVisaTitle);
-    safeSetText("t-serv-visa-desc", t.servVisaDesc);
-    safeSetText("t-serv-tickets-title", t.servTicketsTitle);
-    safeSetText("t-serv-tickets-desc", t.servTicketsDesc);
-    safeSetText("t-serv-car-title", t.servCarTitle);
-    safeSetText("t-serv-car-desc", t.servCarDesc);
-    safeSetText("t-serv-hotel-title", t.servHotelTitle);
-    safeSetText("t-serv-hotel-desc", t.servHotelDesc);
-
-    // boutons "S'inscrire" Omra
-    document.querySelectorAll(".offer-cta").forEach(btn => {
-      btn.textContent = t.omraCta;
-    });
-
-    document.body.dir = (lang === "ar") ? "rtl" : "ltr";
-  }
-
-  function switchLang(lang) {
-    document.querySelectorAll('.lang-pill').forEach(pill => {
-      pill.classList.toggle('active', pill.getAttribute('data-lang') === lang);
-    });
-    applyTranslations(lang);
-  }
-
-  function showPage(page) {
-    document.querySelectorAll('.page').forEach(sec => {
-      sec.classList.toggle('active', sec.id === 'page-' + page);
-    });
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.toggle('active', link.getAttribute('data-page-link') === page);
-    });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // init
-  applyTranslations("fr");
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
