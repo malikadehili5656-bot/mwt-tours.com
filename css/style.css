@@ -49,12 +49,12 @@ body.rtl .header-inner{flex-direction:row-reverse;}
 }
 
 /* 🔥 Logo fondu */
-.logo-wrap img{
-  height:50px;
-  border-radius:10px;
-  background:transparent;
-  object-fit:contain;
-  mix-blend-mode: lighten;
+.logo-wrap img {
+  height: 50px;
+  object-fit: contain;
+  background: transparent;
+  border-radius: 4px;
+  filter: brightness(0.90);
 }
 
 .logo-text-title{
@@ -261,11 +261,10 @@ main{
   cursor:pointer;
   flex-shrink:0;
 }
-.carousel-item img{
-  border-radius:16px 16px 0 0;
-  height:120px;
-  width:100%;
-  object-fit:cover;
+.carousel-item img {
+  height: 140px !important;
+  width: 100%;
+  object-fit: cover;
 }
 .carousel-title{
   padding:.5rem .7rem .7rem;
