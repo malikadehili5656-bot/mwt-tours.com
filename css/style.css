@@ -22,10 +22,9 @@ header{
   position:fixed;
   top:0;left:0;right:0;
   z-index:30;
-  background:linear-gradient(90deg, #A6C34C, #409AD6);
+  background:linear-gradient(to bottom,rgba(0,0,0,.7),rgba(0,0,0,.3));
   color:#fff;
-  padding:.7rem 1.3rem;
-  backdrop-filter: blur(6px);
+  padding:.5rem 1rem;
 }
 .header-inner{
   max-width:1200px;
@@ -37,12 +36,11 @@ header{
   flex-wrap:wrap;
 }
 body.rtl .header-inner{flex-direction:row-reverse;}
-.logo-wrap img{
-  height:50px;
-  border-radius:10px;
-  background:transparent;
-  object-fit:contain;
-  mix-blend-mode: lighten;
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  cursor:pointer;
 }
 .logo-wrap img{
   height:50px;
@@ -286,8 +284,6 @@ main{
   width:100%;
   object-fit:cover;
   margin-bottom:.7rem;
-  #page-tours .card img{
-  height:130px !important;
 }
 .card h3{font-size:1.05rem;margin-bottom:.25rem;}
 .card p{font-size:.9rem;color:#555;}
@@ -371,6 +367,3 @@ footer{
   .hero-offer-card{min-width:200px;width:88%;}
   .carousel-item{min-width:65%;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
-}#page-tours .card img{
-  height:130px !important;
-}
