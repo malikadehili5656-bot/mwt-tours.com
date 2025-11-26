@@ -262,43 +262,47 @@ main{
 }
 .btn-small{font-size:.8rem;}
 
-/* CAROUSEL — FIX COMPLET */
-/* CAROUSEL — AUTO */
-.carousel{
-  margin-top:1.5rem;
-  overflow:hidden;
+/* ========== CAROUSEL FIX MAC + PC + MOBILE ========== */
+.carousel {
+  margin-top: 1.5rem;
+  width: 100%;
+  overflow: hidden;
 }
-.carousel-inner{
-  display:flex;
-  gap:1rem;
-  overflow-x:auto;
-  padding:0 .3rem .7rem;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
+
+.carousel-inner {
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll; /* essentiel pour Mac */
+  scroll-snap-type: x mandatory;
+  padding: 0 .3rem .7rem;
+  -webkit-overflow-scrolling: touch; /* safari mobile + desktop */
+  cursor: grab; /* safari desktop */
 }
-.carousel-inner::-webkit-scrollbar{
-  display:none;
+
+.carousel-inner:active {
+  cursor: grabbing;
 }
-.carousel-item{
-  flex:0 0 180px;
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  scroll-snap-align:start;
-  cursor:pointer;
-  overflow:hidden;
+
+.carousel-inner::-webkit-scrollbar {
+  display: none; /* enlever la barre */
 }
-.carousel-item img{
-  width:100%;
-  height:130px;
-  object-fit:cover;
-  border-radius:16px 16px 0 0;
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 180px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  scroll-snap-align: start;
+  cursor: pointer;
+  user-select: none; /* améliore le drag */
 }
-.carousel-title{
-  padding:.5rem .7rem .7rem;
-  font-size:.9rem;
-  font-weight:600;
+
+.carousel-item img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
 }
 /* CARDS (TOURS / SERVICES / CONTACT) */
 .card{
