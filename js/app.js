@@ -1,3 +1,6 @@
+// ==========================
+//  TRADUCTIONS
+// ==========================
 const translations = {
   fr: {
     't-nav-home': 'Accueil',
@@ -37,10 +40,10 @@ const translations = {
     't-car-services': 'Services de l’agence',
 
     't-tours-title': 'Tours & voyages',
-    't-tours-omra1-title': 'Omra – Viaje religioso',
-    't-tours-omra1-desc': 'Programa completo de Omra con acompañamiento y servicios esenciales.',
-    't-tours-hajj-title': 'Haj 2026',
-    't-tours-hajj-desc': 'Pré-inscriptions pour Haj 2026, accompagnement complet depuis l’Espagne.',
+    't-tours-omra1-title': 'Séjour Omra',
+    't-tours-omra1-desc': 'Informations et inscription auprès de l’agence.',
+    't-tours-hajj-title': 'Hajj 2026',
+    't-tours-hajj-desc': 'Pré-inscriptions pour Hajj 2026, accompagnement complet depuis l’Espagne.',
     't-tours-sahara-title': 'Tours du Sahara algérien',
     't-tours-sahara-desc': 'Circuits désert, oasis, culture et patrimoine pour individuels et groupes.',
     't-tours-algeria-title': 'Voyages nostalgiques en Algérie',
@@ -117,7 +120,7 @@ const translations = {
 
     't-tours-title': 'Viajes y programas',
     't-tours-omra1-title': 'Viaje Omra',
-    't-tours-omra1-desc': 'Información e inscripción en la agencia.',
+    't-tours-omra1-desc': 'Programa completo de Omra con acompañamiento y servicios esenciales.',
     't-tours-hajj-title': 'Hajj 2026',
     't-tours-hajj-desc': 'Preinscripciones para Hajj 2026, acompañamiento completo desde España.',
     't-tours-sahara-title': 'Tours por el Sáhara argelino',
@@ -195,11 +198,11 @@ const translations = {
     't-car-services': 'Agency services',
 
     't-tours-title': 'Tours & programs',
-    't-tours-omra1-title': 'Umrah – Religious journey',
-    't-tours-omra1-desc': 'Full Umrah program with guidance and essential services.',
+    't-tours-omra1-title': 'Umrah trip',
+    't-tours-omra1-desc': 'Umrah trip — information and registration at the agency.',
     't-tours-hajj-title': 'Hajj 2026',
     't-tours-hajj-desc': 'Pre-registrations for Hajj 2026, full support from Spain.',
-    't-tours-sahara-title': 'Algerian Sahara Tours',
+    't-tours-sahara-title': 'Algerian Sahara tours',
     't-tours-sahara-desc': 'Desert circuits, oases, culture and heritage for individuals and groups.',
     't-tours-algeria-title': 'Nostalgic trips to Algeria',
     't-tours-algeria-desc': 'Tailor-made programs for the diaspora, visit of hometowns.',
@@ -274,7 +277,7 @@ const translations = {
     't-car-services': 'خدمات الوكالة',
 
     't-tours-title': 'الرحلات والبرامج',
-    't-tours-omra1-title': 'عمرة — رحلة دينية',
+    't-tours-omra1-title': 'رحلة عمرة',
     't-tours-omra1-desc': 'برنامج عمرة كامل مع مرافقة وخدمات أساسية.',
     't-tours-hajj-title': 'حج 2026',
     't-tours-hajj-desc': 'تسجيلات أولية لحج 2026 مع مرافقة كاملة انطلاقاً من إسبانيا.',
@@ -316,18 +319,24 @@ const translations = {
   }
 };
 
+// ==========================
+//  FONCTIONS LANGUE / PAGES
+// ==========================
 function applyTranslations(lang) {
   const dict = translations[lang];
   if (!dict) return;
+
   Object.keys(dict).forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
+
     if (dict[id].includes('<br>')) {
       el.innerHTML = dict[id];
     } else {
       el.textContent = dict[id];
     }
   });
+
   document.body.classList.toggle('rtl', lang === 'ar');
 }
 
@@ -335,10 +344,12 @@ function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => {
     p.classList.toggle('active', p.id === 'page-' + pageId);
   });
+
   document.querySelectorAll('.nav-link').forEach(link => {
     const target = link.getAttribute('data-page-link');
     link.classList.toggle('active', target === pageId);
   });
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -346,56 +357,57 @@ function switchLang(lang) {
   document.querySelectorAll('.lang-pill').forEach(pill => {
     pill.classList.toggle('active', pill.getAttribute('data-lang') === lang);
   });
+
   const html = document.documentElement;
-  html.lang = lang === 'ar' ? 'ar' : lang;
+  html.lang = (lang === 'ar') ? 'ar' : lang;
+
   applyTranslations(lang);
 }
 
+// ==========================
+//  INIT GLOBALE
+// ==========================
 document.addEventListener('DOMContentLoaded', () => {
-  // Navigation via carrousel (clic = change de page)
-  document.querySelectorAll('.carousel-item').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-target');
-      if (target) showPage(target);
-    });
-  });
+  // Langue par défaut
+  applyTranslations('fr');
 
-  // Tous les boutons / bannières avec .hero-to-contact -> page Contact
+  // HERO → CONTACT (boutons S’inscrire + bannière Hajj)
   document.querySelectorAll('.hero-to-contact').forEach(btn => {
     btn.addEventListener('click', () => {
       showPage('contact');
     });
   });
 
-  // Langue par défaut
-  applyTranslations('fr');
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* === NAVIGATION PAR CARROUSEL === */
-  document.querySelectorAll(".carousel-item").forEach(item => {
-    item.addEventListener("click", function () {
+  // Carrousel : click = navigation vers sections
+  document.querySelectorAll('.carousel-item').forEach(item => {
+    item.addEventListener('click', function () {
       const target = this.dataset.target;
       if (target) showPage(target);
     });
   });
 
-  /* === DRAG TO SCROLL === */
-  const carousel = document.querySelector(".carousel-inner");
+  // === DRAG TO SCROLL POUR LE CARROUSEL ===
+  const carousel = document.querySelector('.carousel-inner');
   let isDown = false;
   let startX;
   let scrollLeft;
 
   if (carousel) {
-    carousel.addEventListener("mousedown", (e) => {
+    carousel.addEventListener('mousedown', (e) => {
       isDown = true;
       startX = e.pageX - carousel.offsetLeft;
       scrollLeft = carousel.scrollLeft;
     });
 
-    carousel.addEventListener("mouseleave", () => (isDown = false));
-    carousel.addEventListener("mouseup", () => (isDown = false));
+    carousel.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
 
-    carousel.addEventListener("mousemove", (e) => {
+    carousel.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - carousel.offsetLeft;
@@ -404,41 +416,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* === CAROUSEL AUTOMATIQUE === */
+  // === CARROUSEL AUTOMATIQUE (fix Desktop / Mac / Safari) ===
   const carouselInner = document.querySelector('.carousel-inner');
 
   if (carouselInner) {
-    setTimeout(() => {   // ⬅️ IMPORTANT sur Safari & Chrome Desktop
-
+    setTimeout(() => {
       const firstItem = carouselInner.querySelector('.carousel-item');
-      if (firstItem) {
+      if (!firstItem) return;
 
-        // attendre que le DOM final ait sa largeur
-        const itemWidth = firstItem.offsetWidth + 16;
-        let scrollPos = 0;
+      const itemWidth = firstItem.offsetWidth + 16; // largeur + gap
+      let scrollPos = 0;
 
-        function autoSlideCarousel() {
-          const maxScroll = carouselInner.scrollWidth - carouselInner.clientWidth;
-          scrollPos += itemWidth;
+      function autoSlideCarousel() {
+        const maxScroll = carouselInner.scrollWidth - carouselInner.clientWidth;
+        scrollPos += itemWidth;
 
-          if (scrollPos > maxScroll + 10) {
-            scrollPos = 0;
-          }
-
-          carouselInner.scrollTo({
-            left: scrollPos,
-            behavior: 'smooth'
-          });
+        if (scrollPos > maxScroll + 10) {
+          scrollPos = 0;
         }
 
-        setInterval(autoSlideCarousel, 3000);
+        carouselInner.scrollTo({
+          left: scrollPos,
+          behavior: 'smooth'
+        });
       }
 
-    }, 300); // délai pour Safari / Chrome → calcule la vraie largeur
+      setInterval(autoSlideCarousel, 3000);
+    }, 300);
   }
-
-  /* === Langue par défaut === */
-  applyTranslations('fr');
-
 });
-  
