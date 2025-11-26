@@ -1,4 +1,4 @@
-maa:root {
+:root {
   --orange: #E09C2B;
   --green: #A6C34C;
   --blue: #409AD6;
@@ -17,58 +17,36 @@ body.rtl{direction:rtl;}
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
 
-
-}
-body.rtl .header-inner{flex-direction:row-reverse;}
-.logo-wrap img{
-  height:50px;
-  border-radius:8px;
-  background:transparent;
-  object-fit:contain;
-  mix-blend-mode: lighten;
-}
-/* HEADER FIX GRADIENT + ALIGNMENT */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 30;
-
-  /* Dégradé VERT → ORANGE demandé */
-  background: linear-gradient(90deg, #A6C34C 0%, #E09C2B 100%);
-
-  /* Transparence douce */
-  opacity: 0.92;
-  backdrop-filter: blur(6px);
-
-  color: #fff;
-  padding: .7rem 1.3rem;
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:30;
+  background:linear-gradient(to bottom,rgba(0,0,0,.7),rgba(0,0,0,.3));
+  color:#fff;
+  padding:.5rem 1rem;
 }
 .header-inner{
   max-width:1200px;
   margin:0 auto;
   display:flex;
   align-items:center;
-  justify-content:space-between; /* 👈 ESSENTIEL */
+  justify-content:space-between;
   gap:1rem;
-  flex-wrap:nowrap; /* 👈 Empêche les langues de passer sous le logo */
+  flex-wrap:wrap;
 }
-.lang-switch{
-  display:flex;
-  gap:.3rem;
-  white-space:nowrap; /* 👈 Empêche les langues de passer à la ligne */
-}
+body.rtl .header-inner{flex-direction:row-reverse;}
 .logo-wrap{
   display:flex;
   align-items:center;
   gap:.6rem;
   cursor:pointer;
 }
-.logo-wrap img 
-  height: 50px;
-  width: auto;
-  object-fit: contain;
-  background: transparent;
-  border-radius: 0;
+.logo-wrap img{
+  height:50px;
+  border-radius:8px;
+  background:#fff;
+  object-fit:contain;
 }
 .logo-text-title{
   font-weight:700;
@@ -261,37 +239,35 @@ main{
   padding:.35rem .9rem;
 }
 .btn-small{font-size:.8rem;}
-const carousel = document.querySelector(".carousel-inner");
 
-let isDown = false;
-let startX;
-let scrollLeft;
-
-if (carousel) {
-    carousel.addEventListener("mousedown", (e) => {
-        isDown = true;
-        carousel.classList.add("grabbing");
-        startX = e.pageX - carousel.offsetLeft;
-        scrollLeft = carousel.scrollLeft;
-    });
-
-    carousel.addEventListener("mouseleave", () => {
-        isDown = false;
-        carousel.classList.remove("grabbing");
-    });
-
-    carousel.addEventListener("mouseup", () => {
-        isDown = false;
-        carousel.classList.remove("grabbing");
-    });
-
-    carousel.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 1.5; 
-        carousel.scrollLeft = scrollLeft - walk;
-    });
+/* CAROUSEL */
+.carousel{margin-top:1.5rem;}
+.carousel-inner{
+  display:flex;
+  gap:1rem;
+  overflow-x:auto;
+  padding-bottom:.5rem;
+}
+.carousel-item{
+  min-width:160px;
+  border:none;
+  padding:0;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  cursor:pointer;
+  flex-shrink:0;
+}
+.carousel-item img{
+  border-radius:16px 16px 0 0;
+  height:120px;
+  width:100%;
+  object-fit:cover;
+}
+.carousel-title{
+  padding:.5rem .7rem .7rem;
+  font-size:.9rem;
+  font-weight:600;
 }
 
 /* CARDS (TOURS / SERVICES / CONTACT) */
@@ -309,12 +285,6 @@ if (carousel) {
   object-fit:cover;
   margin-bottom:.7rem;
 }
-
-/* Hauteur uniforme pour les images de TOURS */
-#page-tours .card img{
-  height:150px;
-}
-
 .card h3{font-size:1.05rem;margin-bottom:.25rem;}
 .card p{font-size:.9rem;color:#555;}
 
@@ -362,29 +332,12 @@ footer{
 .footer-logo img{
   height:48px;
   border-radius:8px;
-  background:transparent;
-  object-fit:contain;
+  background:#fff;
 }
 .footer-title{font-weight:700;margin-bottom:.2rem;}
 .footer-block-title{font-weight:700;margin-bottom:.3rem;}
 .footer-line{display:flex;align-items:center;gap:.35rem;margin-bottom:.2rem;}
 .footer-link{text-decoration:underline;text-decoration-thickness:1px;}
-
-/* Réseaux sociaux */
-.footer-social-title{
-  margin-top:1rem;
-}
-.footer-socials{
-  margin-top:.3rem;
-  display:flex;
-  flex-direction:column;
-  gap:.2rem;
-}
-.footer-social-link{
-  display:inline-flex;
-  align-items:center;
-  gap:.3rem;
-}
 
 /* WHATSAPP FLOAT */
 .whatsapp-float{
@@ -399,29 +352,7 @@ footer{
   font-size:1.4rem;
   box-shadow:0 4px 12px rgba(0,0,0,.3);
 }
-.footer-socials{
-  margin-top:.7rem;
-  display:flex;
-  gap:.5rem;
-}
-.footer-social-link{
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:.9rem;
-  font-weight:700;
-  color:#fff;
-  text-decoration:none;
-}
-.footer-social-link.fb{
-  background:#1877F2;
-}
-.footer-social-link.ig{
-  background: radial-gradient(circle at 30% 30%, #feda77, #dd2a7b, #8134af, #515bd4);
-}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   header{padding:.5rem .7rem;}
@@ -436,41 +367,4 @@ footer{
   .hero-offer-card{min-width:200px;width:88%;}
   .carousel-item{min-width:65%;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
-}
-@media(max-width:650px){
-  .header-inner{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-  nav{
-    order:3;
-    width:100%;
-    justify-content:center;
-  }
-}
-/* Images harmonisées pour la page TOURS */
-#page-tours .card img{
-  height:150px;
-  width:100%;
-  object-fit:cover;
-  border-radius:14px;
-}
-.footer-social-block {
-  display: flex;
-  flex-direction: column;
-  gap: .35rem;
-  min-width: 160px; /* Force une vraie colonne */
-}
-
-.footer-social-item {
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  color: #fff;
-  text-decoration: none;
-  font-size: .9rem;
-}
-
-.footer-social-item:hover {
-  text-decoration: underline;
 }
