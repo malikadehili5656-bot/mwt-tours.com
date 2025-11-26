@@ -1,6 +1,3 @@
-// ==========================
-//  TRADUCTIONS
-// ==========================
 const translations = {
   fr: {
     't-nav-home': 'Accueil',
@@ -40,10 +37,14 @@ const translations = {
     't-car-services': 'Services de l’agence',
 
     't-tours-title': 'Tours & voyages',
-    't-tours-omra1-title': 'Séjour Omra',
-    't-tours-omra1-desc': 'Informations et inscription auprès de l’agence.',
-    't-tours-hajj-title': 'Hajj 2026',
-    't-tours-hajj-desc': 'Pré-inscriptions pour Hajj 2026, accompagnement complet depuis l’Espagne.',
+    't-tours-omra1-title': 'Omra 25 décembre — 3 janvier',
+    't-tours-omra1-desc': 'Hébergement 4*, guides francophones et arabophones, transferts inclus.',
+    't-tours-omra2-title': 'Omra 20 janvier — 3 février',
+    't-tours-omra2-desc': 'Programme équilibré entre temps libre et visites, assistance visa possible.',
+    't-tours-omra3-title': 'Omra du Ramadan',
+    't-tours-omra3-desc': 'Pré-inscription ouverte, priorité aux premiers inscrits.',
+    't-tours-hajj-title': 'Haj 2026',
+    't-tours-hajj-desc': 'Pré-inscriptions pour Haj 2026, accompagnement complet depuis l’Espagne.',
     't-tours-sahara-title': 'Tours du Sahara algérien',
     't-tours-sahara-desc': 'Circuits désert, oasis, culture et patrimoine pour individuels et groupes.',
     't-tours-algeria-title': 'Voyages nostalgiques en Algérie',
@@ -119,8 +120,12 @@ const translations = {
     't-car-services': 'Servicios de la agencia',
 
     't-tours-title': 'Viajes y programas',
-    't-tours-omra1-title': 'Viaje Omra',
-    't-tours-omra1-desc': 'Programa completo de Omra con acompañamiento y servicios esenciales.',
+    't-tours-omra1-title': 'Omra 25 de diciembre — 3 de enero',
+    't-tours-omra1-desc': 'Alojamiento 4*, guías en francés y árabe, traslados incluidos.',
+    't-tours-omra2-title': 'Omra 20 de enero — 3 de febrero',
+    't-tours-omra2-desc': 'Programa equilibrado entre tiempo libre y visitas, asistencia de visado posible.',
+    't-tours-omra3-title': 'Omra de Ramadán',
+    't-tours-omra3-desc': 'Preinscripción abierta, prioridad a los primeros inscritos.',
     't-tours-hajj-title': 'Hajj 2026',
     't-tours-hajj-desc': 'Preinscripciones para Hajj 2026, acompañamiento completo desde España.',
     't-tours-sahara-title': 'Tours por el Sáhara argelino',
@@ -198,11 +203,15 @@ const translations = {
     't-car-services': 'Agency services',
 
     't-tours-title': 'Tours & programs',
-    't-tours-omra1-title': 'Umrah trip',
-    't-tours-omra1-desc': 'Umrah trip — information and registration at the agency.',
+    't-tours-omra1-title': 'Umrah 25 December — 3 January',
+    't-tours-omra1-desc': '4* accommodation, French and Arabic-speaking guides, transfers included.',
+    't-tours-omra2-title': 'Umrah 20 January — 3 February',
+    't-tours-omra2-desc': 'Balanced program between free time and visits, visa assistance available.',
+    't-tours-omra3-title': 'Ramadan Umrah',
+    't-tours-omra3-desc': 'Pre-registration open, priority to first applicants.',
     't-tours-hajj-title': 'Hajj 2026',
     't-tours-hajj-desc': 'Pre-registrations for Hajj 2026, full support from Spain.',
-    't-tours-sahara-title': 'Algerian Sahara tours',
+    't-tours-sahara-title': 'Algerian Sahara Tours',
     't-tours-sahara-desc': 'Desert circuits, oases, culture and heritage for individuals and groups.',
     't-tours-algeria-title': 'Nostalgic trips to Algeria',
     't-tours-algeria-desc': 'Tailor-made programs for the diaspora, visit of hometowns.',
@@ -277,8 +286,12 @@ const translations = {
     't-car-services': 'خدمات الوكالة',
 
     't-tours-title': 'الرحلات والبرامج',
-    't-tours-omra1-title': 'رحلة عمرة',
-    't-tours-omra1-desc': 'برنامج عمرة كامل مع مرافقة وخدمات أساسية.',
+    't-tours-omra1-title': 'عمرة 25 ديسمبر — 3 يناير',
+    't-tours-omra1-desc': 'إقامة 4 نجوم، مرشدون بالعربية والفرنسية، مع جميع التنقلات.',
+    't-tours-omra2-title': 'عمرة 20 يناير — 3 فبراير',
+    't-tours-omra2-desc': 'برنامج متوازن بين الأوقات الحرة والزيارات، مع إمكانية المساعدة في التأشيرة.',
+    't-tours-omra3-title': 'عمرة رمضان',
+    't-tours-omra3-desc': 'فتح باب التسجيل المسبق، الأولوية للأوائل.',
     't-tours-hajj-title': 'حج 2026',
     't-tours-hajj-desc': 'تسجيلات أولية لحج 2026 مع مرافقة كاملة انطلاقاً من إسبانيا.',
     't-tours-sahara-title': 'رحلات إلى صحراء الجزائر',
@@ -319,24 +332,18 @@ const translations = {
   }
 };
 
-// ==========================
-//  FONCTIONS LANGUE / PAGES
-// ==========================
 function applyTranslations(lang) {
   const dict = translations[lang];
   if (!dict) return;
-
   Object.keys(dict).forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
-
     if (dict[id].includes('<br>')) {
       el.innerHTML = dict[id];
     } else {
       el.textContent = dict[id];
     }
   });
-
   document.body.classList.toggle('rtl', lang === 'ar');
 }
 
@@ -344,12 +351,10 @@ function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => {
     p.classList.toggle('active', p.id === 'page-' + pageId);
   });
-
   document.querySelectorAll('.nav-link').forEach(link => {
     const target = link.getAttribute('data-page-link');
     link.classList.toggle('active', target === pageId);
   });
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -357,91 +362,27 @@ function switchLang(lang) {
   document.querySelectorAll('.lang-pill').forEach(pill => {
     pill.classList.toggle('active', pill.getAttribute('data-lang') === lang);
   });
-
   const html = document.documentElement;
-  html.lang = (lang === 'ar') ? 'ar' : lang;
-
+  html.lang = lang === 'ar' ? 'ar' : lang;
   applyTranslations(lang);
 }
 
-// ==========================
-//  INIT GLOBALE
-// ==========================
 document.addEventListener('DOMContentLoaded', () => {
-  // Langue par défaut
-  applyTranslations('fr');
+  // Navigation via carrousel
+  document.querySelectorAll('.carousel-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-target');
+      if (target) showPage(target);
+    });
+  });
 
-  // HERO → CONTACT (boutons S’inscrire + bannière Hajj)
+  // Tous les boutons / bannières avec .hero-to-contact -> page Contact
   document.querySelectorAll('.hero-to-contact').forEach(btn => {
     btn.addEventListener('click', () => {
       showPage('contact');
     });
   });
 
-  // Carrousel : click = navigation vers sections
-  document.querySelectorAll('.carousel-item').forEach(item => {
-    item.addEventListener('click', function () {
-      const target = this.dataset.target;
-      if (target) showPage(target);
-    });
-  });
-
-  // === DRAG TO SCROLL POUR LE CARROUSEL ===
-  const carousel = document.querySelector('.carousel-inner');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  if (carousel) {
-    carousel.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-      isDown = false;
-    });
-
-    carousel.addEventListener('mouseup', () => {
-      isDown = false;
-    });
-
-    carousel.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      carousel.scrollLeft = scrollLeft - walk;
-    });
-  }
-
-  // === CARROUSEL AUTOMATIQUE (fix Desktop / Mac / Safari) ===
-  const carouselInner = document.querySelector('.carousel-inner');
-
-  if (carouselInner) {
-    setTimeout(() => {
-      const firstItem = carouselInner.querySelector('.carousel-item');
-      if (!firstItem) return;
-
-      const itemWidth = firstItem.offsetWidth + 16; // largeur + gap
-      let scrollPos = 0;
-
-      function autoSlideCarousel() {
-        const maxScroll = carouselInner.scrollWidth - carouselInner.clientWidth;
-        scrollPos += itemWidth;
-
-        if (scrollPos > maxScroll + 10) {
-          scrollPos = 0;
-        }
-
-        carouselInner.scrollTo({
-          left: scrollPos,
-          behavior: 'smooth'
-        });
-      }
-
-      setInterval(autoSlideCarousel, 3000);
-    }, 300);
-  }
+  // Langue par défaut
+  applyTranslations('fr');
 });
