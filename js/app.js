@@ -369,30 +369,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Langue par défaut
   applyTranslations('fr');
+document.addEventListener('DOMContentLoaded', () => {
 
-  // === CARROUSSEL AUTOMATIQUE ===
+  /* === NAVIGATION PAR CARROUSEL === */
+  document.querySelectorAll(".carousel-item").forEach(item => {
+    item.addEventListener("click", function () {
+      const target = this.dataset.target;
+      if (target) showPage(target);
+    });
+  });
+
+  /* === DRAG TO SCROLL === */
+  const carousel = document.querySelector(".carousel-inner");
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  if (carousel) {
+    carousel.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener("mouseleave", () => (isDown = false));
+    carousel.addEventListener("mouseup", () => (isDown = false));
+
+    carousel.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  /* === CAROUSEL AUTOMATIQUE === */
   const carouselInner = document.querySelector('.carousel-inner');
+
   if (carouselInner) {
-    const firstItem = carouselInner.querySelector('.carousel-item');
-    if (firstItem) {
-      const itemWidth = firstItem.offsetWidth + 16; // largeur + gap
-      let scrollPos = 0;
+    setTimeout(() => {   // ⬅️ IMPORTANT sur Safari & Chrome Desktop
 
-      function autoSlideCarousel() {
-        const maxScroll = carouselInner.scrollWidth - carouselInner.clientWidth;
-        scrollPos += itemWidth;
+      const firstItem = carouselInner.querySelector('.carousel-item');
+      if (firstItem) {
 
-        if (scrollPos > maxScroll + 10) {
-          scrollPos = 0;
+        // attendre que le DOM final ait sa largeur
+        const itemWidth = firstItem.offsetWidth + 16;
+        let scrollPos = 0;
+
+        function autoSlideCarousel() {
+          const maxScroll = carouselInner.scrollWidth - carouselInner.clientWidth;
+          scrollPos += itemWidth;
+
+          if (scrollPos > maxScroll + 10) {
+            scrollPos = 0;
+          }
+
+          carouselInner.scrollTo({
+            left: scrollPos,
+            behavior: 'smooth'
+          });
         }
 
-        carouselInner.scrollTo({
-          left: scrollPos,
-          behavior: 'smooth'
-        });
+        setInterval(autoSlideCarousel, 3000);
       }
 
-      setInterval(autoSlideCarousel, 3000); // toutes les 3s
-    }
+    }, 300); // délai pour Safari / Chrome → calcule la vraie largeur
   }
+
+  /* === Langue par défaut === */
+  applyTranslations('fr');
+
 });
+  
