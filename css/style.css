@@ -427,3 +427,12 @@ footer {
   .carousel-item{min-width:70%;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
 }
+/* ==== FIX IMAGES PAGE TOURS ==== */
+#page-tours .card img {
+  width: 100%;
+  height: 230px;               /* même hauteur pour toutes */
+  object-fit: cover;           /* crop propre, jamais déformé */
+  object-position: center;     /* centrer l’image */
+  border-radius: 14px;
+  display: block;
+}
