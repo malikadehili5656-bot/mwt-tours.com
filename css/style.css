@@ -310,10 +310,12 @@ main{
 }
 
 /* === FIX CLICK MOBILE UNIQUEMENT POUR LES PAGES CARDS === */
-#page-tours .card *,
-#page-services .card *,
-#page-home .services-grid .card * {
-  pointer-events: none;
+/* Rendre toute la carte cliquable sans bloquer les liens internes */
+#page-tours .card,
+#page-services .card,
+#page-home .hero-to-contact,
+.hero-to-contact {
+  cursor: pointer;
 }
 
 #page-tours .card,
