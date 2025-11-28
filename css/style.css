@@ -453,3 +453,35 @@ footer {
   border-radius: 14px;
   display: block;
 }
+/* === FIX IMAGES PAGE TOURS === */
+#page-tours .card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
+}
+
+/* === FIX CLIC SUR MOBILE === */
+/* On autorise le clic uniquement sur la CARD */
+#page-tours .card,
+#page-services .card,
+#page-home .offer-card {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+/* On empêche les éléments internes d'intercepter le clic */
+#page-tours .card *,
+#page-services .card * {
+  pointer-events: none;
+}
+
+/* IMPORTANT : on NE BLOQUE PAS les boutons !!! */
+.hero-offer-card *,
+.offer-card button,
+.hero-hajj-banner,
+.hero-hajj-banner * {
+  pointer-events: auto !important;
+}
