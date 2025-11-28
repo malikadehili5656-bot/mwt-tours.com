@@ -306,6 +306,20 @@ main{
   object-position:center;
   border-radius:14px;
 }
+/* === FIX CLICK MOBILE === */
+#page-tours .card,
+#page-home .card,
+#page-services .card {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+#page-tours .card *,
+#page-home .card *,
+#page-services .card * {
+  pointer-events: none; /* important pour faire passer le clic au parent */
+}
 /* GRID */
 .services-grid{
   display:grid;
