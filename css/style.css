@@ -308,37 +308,82 @@ input,textarea,select{
 }
 textarea{min-height:80px;resize:vertical;}
 
-/* ===== FOOTER ===== */
-footer{
-  background:var(--blue);
-  color:#fff;
-  margin-top:2rem;
-  padding:1.6rem 1rem;
-}
-.footer-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  flex-wrap:wrap;
-  gap:1.5rem;
-  justify-content:space-between;
-  font-size:.9rem;
-}
-.footer-logo{display:flex;gap:.7rem;}
-.footer-logo img{
-  height:48px;
-  border-radius:8px;
-  background:#fff;
-}
-.footer-title{font-weight:700;margin-bottom:.2rem;}
-.footer-block-title{font-weight:700;margin-bottom:.3rem;}
-.footer-line{
-  display:flex;
-  align-items:center;
-  gap:.35rem;
-  margin-bottom:.2rem;
+/* ===========================
+   FOOTER — VERSION PROPRE
+   =========================== */
+
+footer {
+  background: var(--blue);
+  color: #fff;
+  margin-top: 2rem;
+  padding: 1.4rem 1rem;
 }
 
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: .9rem;
+}
+
+/* ---- COLONNE GAUCHE : LOGO + INFOS ---- */
+.footer-logo {
+  display: flex;
+  gap: .8rem;
+  align-items: flex-start;
+  flex: 1 1 300px;
+}
+
+.footer-logo img {
+  height: 48px;
+  width: auto;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.footer-title {
+  font-weight: 700;
+  margin-bottom: .3rem;
+}
+
+.footer-line {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  margin-bottom: .25rem;
+}
+
+.footer-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+/* ---- COLONNES CENTRE ET DROITE ---- */
+.footer-inner > div {
+  flex: 1 1 200px;
+}
+
+.footer-block-title {
+  font-weight: 700;
+  margin-bottom: .4rem;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 850px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .footer-logo {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float{
   position:fixed;
