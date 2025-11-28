@@ -309,9 +309,19 @@ main{
   object-position:center;
 }
 
-/* === FIX CLICK MOBILE & DESKTOP === */
-.card *{
-  pointer-events:none;   /* permet au clic d'aller sur .card */
+/* === FIX CLICK MOBILE UNIQUEMENT POUR LES PAGES CARDS === */
+#page-tours .card *,
+#page-services .card *,
+#page-home .services-grid .card * {
+  pointer-events: none;
+}
+
+#page-tours .card,
+#page-services .card,
+#page-home .services-grid .card {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 /* GRID */
 .services-grid{
