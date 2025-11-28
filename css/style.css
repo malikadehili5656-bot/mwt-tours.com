@@ -300,10 +300,10 @@ main{
 
 /* === FIX IMAGES PAGE TOURS UNIQUEMENT === */
 #page-tours .card img{
-  height:200px;          /* hauteur uniforme */
+  height:200px;
   width:100%;
-  object-fit:cover;       /* coupe proprement */
-  object-position:center; 
+  object-fit:cover;
+  object-position:center;
   border-radius:14px;
 }
 /* GRID */
