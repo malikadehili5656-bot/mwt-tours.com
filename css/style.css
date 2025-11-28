@@ -306,9 +306,6 @@ main{
   object-position:center; 
   border-radius:14px;
 }
-.card h3{font-size:1.05rem;margin-bottom:.3rem;}
-.card p{font-size:.9rem;color:#555;}
-
 /* GRID */
 .services-grid{
   display:grid;
