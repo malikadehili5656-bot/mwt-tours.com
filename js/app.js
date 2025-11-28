@@ -388,12 +388,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     setInterval(autoSlide, 3000);
   }
-
-  // Cartes TOURS -> page Contact
+function activateTourCards(){
   document.querySelectorAll("#page-tours .card").forEach(card => {
-    card.style.cursor = "pointer";
     card.addEventListener("click", () => showPage("contact"));
   });
+}
+
+document.addEventListener("DOMContentLoaded", activateTourCards);
+document.addEventListener("load", activateTourCards);
+  
 
   // Langue par défaut
   applyTranslations("fr");
