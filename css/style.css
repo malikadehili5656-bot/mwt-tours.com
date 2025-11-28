@@ -229,18 +229,16 @@ main{
 }
 .btn-small{font-size:.8rem;}
 
-/* ===== CAROUSEL ===== */
-.carousel{margin-top:1.8rem;}
+/* CAROUSEL */
+.carousel{margin-top:1.5rem;}
 .carousel-inner{
   display:flex;
   gap:1rem;
   overflow-x:auto;
-  scroll-behavior:smooth;
   padding-bottom:.5rem;
 }
-.carousel-inner::-webkit-scrollbar{display:none;}
 .carousel-item{
-  min-width:170px;
+  min-width:160px;
   border:none;
   padding:0;
   background:#fff;
@@ -251,7 +249,7 @@ main{
 }
 .carousel-item img{
   border-radius:16px 16px 0 0;
-  height:130px;
+  height:120px;
   width:100%;
   object-fit:cover;
 }
@@ -260,7 +258,6 @@ main{
   font-size:.9rem;
   font-weight:600;
 }
-
 /* ===== CARDS ===== */
 .card{
   background:#fff;
