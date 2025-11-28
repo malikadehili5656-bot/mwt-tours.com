@@ -287,38 +287,31 @@ main{
   box-shadow:0 2px 10px rgba(0,0,0,.06);
   margin-bottom:1.1rem;
   cursor:pointer;
+  position:relative;
+  z-index:2;
 }
 
-/* Images par défaut (services + contact + accueil) */
+/* Images par défaut (Services + Contact + Accueil) */
 .card img{
   border-radius:14px;
   width:100%;
   height:auto;
   object-fit:cover;
+  object-position:center;
   margin-bottom:.7rem;
 }
 
-/* === FIX IMAGES PAGE TOURS UNIQUEMENT === */
+/* === IMAGES PAGE TOURS (Style A — 200px fixes) === */
 #page-tours .card img{
-  height:200px;
+  height:200px;          /* hauteur uniforme */
   width:100%;
   object-fit:cover;
   object-position:center;
-  border-radius:14px;
-}
-/* === FIX CLICK MOBILE === */
-#page-tours .card,
-#page-home .card,
-#page-services .card {
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
 }
 
-#page-tours .card *,
-#page-home .card *,
-#page-services .card * {
-  pointer-events: none; /* important pour faire passer le clic au parent */
+/* === FIX CLICK MOBILE & DESKTOP === */
+.card *{
+  pointer-events:none;   /* permet au clic d'aller sur .card */
 }
 /* GRID */
 .services-grid{
