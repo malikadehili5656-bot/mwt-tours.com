@@ -336,8 +336,7 @@ const translations = {
 };
 
 /* =============================
-   PAGES
-============================= */
+ /* === CHANGEMENT DE PAGE === */
 function showPage(pageId) {
   document.querySelectorAll(".page").forEach(p => {
     p.classList.toggle("active", p.id === "page-" + pageId);
@@ -345,9 +344,7 @@ function showPage(pageId) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-/* =============================
-   TRADUCTION
-============================= */
+/* === TRADUCTIONS === */
 function applyTranslations(lang) {
   const dict = translations[lang];
   if (!dict) return;
@@ -355,6 +352,7 @@ function applyTranslations(lang) {
   Object.keys(dict).forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
+
     if (dict[id].includes("<br>")) {
       el.innerHTML = dict[id];
     } else {
@@ -370,34 +368,51 @@ function switchLang(lang) {
   applyTranslations(lang);
 }
 
-/* =============================
-   INIT + CARROUSEL AUTO
-============================= */
-document.addEventListener("DOMContentLoaded", () => {
-  // Carrousel auto
-  const track = document.querySelector(".carousel-inner");
-  if (track) {
-    let index = 0;
-    function autoSlide() {
-      const items = document.querySelectorAll(".carousel-item");
-      if (!items.length) return;
-      const width = items[0].offsetWidth + 16;
-      index++;
-      if (index >= items.length) index = 0;
-      track.scrollTo({ left: width * index, behavior: "smooth" });
-    }
-    setInterval(autoSlide, 3000);
-  }
-function activateTourCards(){
+/* === ACTIVATION DES CARTES === */
+function activateCards() {
+
+  // 1 — Boutons & bannières vers contact
+  document.querySelectorAll(".hero-to-contact").forEach(card => {
+    card.addEventListener("click", () => showPage("contact"));
+  });
+
+  // 2 — TOUTES les cartes de la page TOURS
   document.querySelectorAll("#page-tours .card").forEach(card => {
+    card.addEventListener("click", () => showPage("contact"));
+  });
+
+  // 3 — (optionnel) cartes sur page SERVICES si tu veux aussi :
+  document.querySelectorAll("#page-services .card").forEach(card => {
     card.addEventListener("click", () => showPage("contact"));
   });
 }
 
-document.addEventListener("DOMContentLoaded", activateTourCards);
-document.addEventListener("load", activateTourCards);
-  
+/* === CARROUSEL AUTO === */
+function initCarousel() {
+  const track = document.querySelector(".carousel-inner");
+  if (!track) return;
 
+  let index = 0;
+  setInterval(() => {
+    const items = document.querySelectorAll(".carousel-item");
+    if (!items.length) return;
+
+    const width = items[0].offsetWidth + 16;
+    index = (index + 1) % items.length;
+
+    track.scrollTo({
+      left: width * index,
+      behavior: "smooth"
+    });
+  }, 3000);
+}
+
+/* === INIT === */
+document.addEventListener("DOMContentLoaded", () => {
+  applyTranslations("fr");
+  activateCards();
+  initCarousel();
+});
   // Langue par défaut
   applyTranslations("fr");
 });
