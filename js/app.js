@@ -336,7 +336,7 @@ const translations = {
 };
 
 /* =============================
- /* === CHANGEMENT DE PAGE === */
+/* === CHANGEMENT DE PAGE === */
 function showPage(pageId) {
   document.querySelectorAll(".page").forEach(p => {
     p.classList.toggle("active", p.id === "page-" + pageId);
@@ -352,13 +352,12 @@ function applyTranslations(lang) {
   Object.keys(dict).forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
-
-    if (dict[id].includes("<br>")) {
-      el.innerHTML = dict[id];
-    } else {
-      el.textContent = dict[id];
-    }
+    if (dict[id].includes("<br>")) el.innerHTML = dict[id];
+    else el.textContent = dict[id];
   });
+
+  // RTL
+  document.body.classList.toggle('rtl', lang === 'ar');
 }
 
 function switchLang(lang) {
@@ -368,36 +367,26 @@ function switchLang(lang) {
   applyTranslations(lang);
 }
 
-/* === ACTIVATION DES CARTES === */
+/* === ACTIVATION DES CARTES → CONTACT === */
 function activateCards() {
-
-  // 1 — Boutons & bannières vers contact
-  document.querySelectorAll(".hero-to-contact").forEach(card => {
-    card.addEventListener("click", () => showPage("contact"));
-  });
-
-  // 2 — TOUTES les cartes de la page TOURS
-  document.querySelectorAll("#page-tours .card").forEach(card => {
-    card.addEventListener("click", () => showPage("contact"));
-  });
-
-  // 3 — (optionnel) cartes sur page SERVICES si tu veux aussi :
-  document.querySelectorAll("#page-services .card").forEach(card => {
+  document.querySelectorAll(".hero-to-contact, #page-tours .card").forEach(card => {
     card.addEventListener("click", () => showPage("contact"));
   });
 }
 
-/* === CARROUSEL AUTO === */
+/* === CARROUSEL === */
 function initCarousel() {
   const track = document.querySelector(".carousel-inner");
   if (!track) return;
 
   let index = 0;
+
   setInterval(() => {
     const items = document.querySelectorAll(".carousel-item");
     if (!items.length) return;
 
     const width = items[0].offsetWidth + 16;
+
     index = (index + 1) % items.length;
 
     track.scrollTo({
