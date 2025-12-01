@@ -336,76 +336,6 @@ const translations = {
 };
 
 /* =============================
-/* === CHANGEMENT DE PAGE === */
-function showPage(pageId) {
-  document.querySelectorAll(".page").forEach(p => {
-    p.classList.toggle("active", p.id === "page-" + pageId);
-  });
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-/* === TRADUCTIONS === */
-function applyTranslations(lang) {
-  const dict = translations[lang];
-  if (!dict) return;
-
-  Object.keys(dict).forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (dict[id].includes("<br>")) el.innerHTML = dict[id];
-    else el.textContent = dict[id];
-  });
-
-  // RTL
-  document.body.classList.toggle('rtl', lang === 'ar');
-}
-
-function switchLang(lang) {
-  document.querySelectorAll(".lang-pill").forEach(p =>
-    p.classList.toggle("active", p.dataset.lang === lang)
-  );
-  applyTranslations(lang);
-}
-
-/* === ACTIVATION DES CARTES → CONTACT === */
-function activateCards() {
-  document.querySelectorAll(".hero-to-contact, #page-tours .card").forEach(card => {
-    card.addEventListener("click", () => showPage("contact"));
-  });
-}
-
-/* === CARROUSEL === */
-function initCarousel() {
-  const track = document.querySelector(".carousel-inner");
-  if (!track) return;
-
-  let index = 0;
-
-  setInterval(() => {
-    const items = document.querySelectorAll(".carousel-item");
-    if (!items.length) return;
-
-    const width = items[0].offsetWidth + 16;
-
-    index = (index + 1) % items.length;
-
-    track.scrollTo({
-      left: width * index,
-      behavior: "smooth"
-    });
-  }, 3000);
-}
-
-/* === INIT === */
-document.addEventListener("DOMContentLoaded", () => {
-  applyTranslations("fr");
-  activateCards();
-  initCarousel();
-});
-  // Langue par défaut
-  applyTranslations("fr");
-});
-/* =============================
    CHANGEMENT DE PAGE
 ============================= */
 function showPage(pageId) {
@@ -425,10 +355,15 @@ function applyTranslations(lang) {
   Object.keys(dict).forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
-    if (dict[id].includes("<br>")) el.innerHTML = dict[id];
-    else el.textContent = dict[id];
+
+    if (dict[id].includes("<br>")) {
+      el.innerHTML = dict[id];
+    } else {
+      el.textContent = dict[id];
+    }
   });
 
+  // Mode RTL si arabe
   document.body.classList.toggle("rtl", lang === "ar");
 }
 
@@ -440,14 +375,15 @@ function switchLang(lang) {
 }
 
 /* =============================
-   CLICS CARTES → CONTACT
+   CLICS → PAGE CONTACT
 ============================= */
 function activateCards() {
-  document.querySelectorAll(".hero-to-contact").forEach(el => {
-    el.addEventListener("click", () => showPage("contact"));
+  // Cartes classiques
+  document.querySelectorAll(".hero-to-contact, #page-tours .card").forEach(card => {
+    card.addEventListener("click", () => showPage("contact"));
   });
 
-  // Carousel redirection
+  // Cartes du carrousel
   document.querySelectorAll(".carousel-item").forEach(item => {
     const target = item.dataset.target;
     if (target) {
@@ -457,7 +393,7 @@ function activateCards() {
 }
 
 /* =============================
-   CARROUSEL
+   CARROUSEL AUTO
 ============================= */
 function initCarousel() {
   const track = document.querySelector(".carousel-inner");
@@ -480,7 +416,7 @@ function initCarousel() {
 }
 
 /* =============================
-   INIT
+   INIT GLOBALE
 ============================= */
 document.addEventListener("DOMContentLoaded", () => {
   applyTranslations("fr");
