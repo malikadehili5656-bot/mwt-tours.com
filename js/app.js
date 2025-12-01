@@ -405,3 +405,85 @@ document.addEventListener("DOMContentLoaded", () => {
   // Langue par défaut
   applyTranslations("fr");
 });
+/* =============================
+   CHANGEMENT DE PAGE
+============================= */
+function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(p => {
+    p.classList.toggle("active", p.id === "page-" + pageId);
+  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* =============================
+   TRADUCTION
+============================= */
+function applyTranslations(lang) {
+  const dict = translations[lang];
+  if (!dict) return;
+
+  Object.keys(dict).forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (dict[id].includes("<br>")) el.innerHTML = dict[id];
+    else el.textContent = dict[id];
+  });
+
+  document.body.classList.toggle("rtl", lang === "ar");
+}
+
+function switchLang(lang) {
+  document.querySelectorAll(".lang-pill").forEach(p =>
+    p.classList.toggle("active", p.dataset.lang === lang)
+  );
+  applyTranslations(lang);
+}
+
+/* =============================
+   CLICS CARTES → CONTACT
+============================= */
+function activateCards() {
+  document.querySelectorAll(".hero-to-contact").forEach(el => {
+    el.addEventListener("click", () => showPage("contact"));
+  });
+
+  // Carousel redirection
+  document.querySelectorAll(".carousel-item").forEach(item => {
+    const target = item.dataset.target;
+    if (target) {
+      item.addEventListener("click", () => showPage(target));
+    }
+  });
+}
+
+/* =============================
+   CARROUSEL
+============================= */
+function initCarousel() {
+  const track = document.querySelector(".carousel-inner");
+  if (!track) return;
+
+  let index = 0;
+
+  setInterval(() => {
+    const items = document.querySelectorAll(".carousel-item");
+    if (!items.length) return;
+
+    const width = items[0].offsetWidth + 16;
+    index = (index + 1) % items.length;
+
+    track.scrollTo({
+      left: width * index,
+      behavior: "smooth"
+    });
+  }, 3000);
+}
+
+/* =============================
+   INIT
+============================= */
+document.addEventListener("DOMContentLoaded", () => {
+  applyTranslations("fr");
+  activateCards();
+  initCarousel();
+});
