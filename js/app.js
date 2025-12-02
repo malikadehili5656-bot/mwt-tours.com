@@ -83,6 +83,11 @@ const translations = {
     't-contact-phone': 'Téléphone',
     't-contact-message': 'Message',
     't-contact-send': 'Envoyer'
+    't-contact-city': 'Ville de départ',
+    't-contact-lang': 'Langue préférée',
+    't-contact-date': 'Date estimée du voyage',
+    't-contact-type': 'Type de demande',
+    't-contact-method': 'Moyen de contact souhaité',
   },
 
   es: {
@@ -166,8 +171,12 @@ const translations = {
     't-contact-phone': 'Teléfono',
     't-contact-message': 'Mensaje',
     't-contact-send': 'Enviar'
-  },
-
+    't-contact-city': 'Ciudad de salida',
+    't-contact-lang': 'Idioma preferido',
+    't-contact-date': 'Fecha estimada del viaje',
+    't-contact-type': 'Tipo de solicitud',
+    't-contact-method': 'Método de contacto preferido',
+ },
   en: {
     't-nav-home': 'Home',
     't-nav-tours': 'Tours',
@@ -249,6 +258,11 @@ const translations = {
     't-contact-phone': 'Phone',
     't-contact-message': 'Message',
     't-contact-send': 'Send'
+    't-contact-city': 'Departure city',
+    't-contact-lang': 'Preferred language',
+    't-contact-date': 'Estimated travel date',
+    't-contact-type': 'Type of request',
+    't-contact-method': 'Preferred contact method',
   },
 
   ar: {
@@ -332,6 +346,11 @@ const translations = {
     't-contact-phone': 'رقم الهاتف',
     't-contact-message': 'رسالتك',
     't-contact-send': 'إرسال'
+    't-contact-city': 'مدينة الانطلاق',
+    't-contact-lang': 'اللغة المفضلة',
+    't-contact-date': 'تاريخ السفر المتوقع',
+    't-contact-type': 'نوع الطلب',
+    't-contact-method': 'طريقة التواصل المفضلة',
   }
 };
 
