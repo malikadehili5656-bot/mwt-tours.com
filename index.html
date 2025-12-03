@@ -12,7 +12,9 @@
 <header>
   <div class="header-inner">
     <div class="logo-wrap" onclick="showPage('home')">
-      <img src="images/logo-transparent.png" alt="MWT logo" />
+      <div class="logo-badge">
+        <img src="images/logo-transparent.png" alt="MWT logo" />
+      </div>
       <div>
         <div class="logo-text-title">MWT</div>
         <div class="logo-text-sub">Moltaqa World Travel & Tourism</div>
@@ -41,16 +43,19 @@
 <!-- ==================== PAGE ACCUEIL ==================== -->
 <section class="page active" id="page-home">
 
-  <!-- HERO (Hajj seulement) -->
+  <!-- HERO -->
   <div class="hero">
     <img src="images/omra.jpg" class="hero-image" alt="Omra & Hajj" />
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
       <div class="hero-cards-wrapper">
+
+        <!-- On enlève les 3 cartes Omra, on garde seulement le bandeau Hajj -->
         <div class="hero-hajj-banner hero-to-contact" id="hajj-banner">
           <div class="hero-hajj-text" id="t-hajj-banner-title">Inscription Hajj 2026</div>
         </div>
+
       </div>
     </div>
   </div>
@@ -89,27 +94,27 @@
     <div class="carousel">
       <div class="carousel-inner">
         <button class="carousel-item" data-target="tours">
-          <img src="images/omra.jpg" />
+          <img src="images/omra.jpg" alt="Omra" />
           <div class="carousel-title" id="t-car-omra">Omra</div>
         </button>
 
         <button class="carousel-item hero-to-contact">
-          <img src="images/hajj.jpg" />
+          <img src="images/hajj.jpg" alt="Hajj" />
           <div class="carousel-title" id="t-car-hajj">Hajj 2026</div>
         </button>
 
         <button class="carousel-item" data-target="tours">
-          <img src="images/sahara.jpg" />
+          <img src="images/sahara.jpg" alt="Sahara" />
           <div class="carousel-title" id="t-car-sahara">Sahara algérien</div>
         </button>
 
         <button class="carousel-item" data-target="tours">
-          <img src="images/study-uk.jpg" />
+          <img src="images/study-uk.jpg" alt="Études" />
           <div class="carousel-title" id="t-car-study">Études Espagne & UK</div>
         </button>
 
         <button class="carousel-item" data-target="services">
-          <img src="images/service-car.jpg" />
+          <img src="images/service-car.jpg" alt="Location de voiture" />
           <div class="carousel-title" id="t-car-services">Location de voiture</div>
         </button>
       </div>
@@ -127,153 +132,106 @@
 
     <div class="tours-grid">
 
-      <!-- OMRA → PAGE OMRA -->
+      <!-- OMRA → vers page OMRA -->
       <div class="card" onclick="showPage('omra')">
         <img src="images/omra.jpg" alt="Omra">
-        <h3 id="t-tours-omra1-title">Séjour Omra</h3>
-        <p id="t-tours-omra1-desc">Différentes formules : Confort, VIP & Économique.</p>
+        <h3 id="t-tours-omra-title">Séjour Omra</h3>
+        <p id="t-tours-omra-desc">Différentes formules : Confort, VIP & Économique.</p>
       </div>
 
-      <!-- HAJJ -->
       <div class="card hero-to-contact">
         <img src="images/hajj.jpg" alt="Hajj">
         <h3 id="t-tours-hajj-title">Hajj 2026</h3>
-        <p id="t-tours-hajj-desc">Pré-inscriptions ouvertes.</p>
+        <p id="t-tours-hajj-desc">Accompagnement complet depuis l’Espagne.</p>
       </div>
 
-      <!-- SAHARA -->
       <div class="card hero-to-contact">
         <img src="images/sahara.jpg" alt="Sahara algérien">
-        <h3 id="t-tours-sahara-title">Tours du Sahara algérien</h3>
-        <p id="t-tours-sahara-desc">Circuits désert, oasis, culture et patrimoine.</p>
+        <h3 id="t-tours-sahara-title">Sahara algérien</h3>
+        <p id="t-tours-sahara-desc">Désert, oasis, culture & patrimoine.</p>
       </div>
 
-      <!-- ALGÉRIE NOSTALGIE -->
       <div class="card hero-to-contact">
         <img src="images/algeria.jpg" alt="Algérie nostalgie">
-        <h3 id="t-tours-algeria-title">Voyages nostalgiques en Algérie</h3>
+        <h3 id="t-tours-algeria-title">Algérie nostalgie</h3>
         <p id="t-tours-algeria-desc">Programmes sur mesure pour la diaspora.</p>
       </div>
 
-      <!-- ANDALOUSIE -->
       <div class="card hero-to-contact">
         <img src="images/andalucia.jpg" alt="Andalousie">
-        <h3 id="t-tours-andalucia-title">Voyage en Andalousie — Héritage de l’Islam</h3>
-        <p id="t-tours-andalucia-desc">Cordoue, Séville, Grenade... visites guidées.</p>
+        <h3 id="t-tours-andalucia-title">Andalousie — patrimoine islamique</h3>
+        <p id="t-tours-andalucia-desc">Cordoue, Séville, Grenade… visites guidées.</p>
       </div>
 
-      <!-- ÉTUDES UK -->
       <div class="card hero-to-contact">
         <img src="images/study-uk.jpg" alt="Études UK">
         <h3 id="t-tours-uk-title">Études en Angleterre</h3>
-        <p id="t-tours-uk-desc">Conseil et inscription dans des écoles et universités.</p>
+        <p id="t-tours-uk-desc">Conseil, inscription & suivi.</p>
       </div>
 
-      <!-- ÉTUDES ESPAGNE -->
       <div class="card hero-to-contact">
         <img src="images/study-es.jpg" alt="Études Espagne">
         <h3 id="t-tours-es-title">Études en Espagne</h3>
         <p id="t-tours-es-desc">Accompagnement complet pour les étudiants.</p>
       </div>
 
-      <!-- VOYAGES HALAL → PAGE HALAL -->
-      <div class="card" onclick="showPage('halal')">
+      <div class="card hero-to-contact">
         <img src="images/halal-travel.jpg" alt="Voyages halal">
         <h3 id="t-tours-halal-title">Voyages halal</h3>
-        <p id="t-tours-halal-desc">Circuits halal-friendly : Turquie, Bosnie, Jordanie, Malaisie, Indonésie, Dubai, Andalousie...</p>
+        <p id="t-tours-halal-desc">
+          Turquie, Bosnie, Jordanie, Malaisie, Indonésie, Dubaï, Andalousie…
+        </p>
       </div>
 
     </div>
+
   </section>
 </section>
 
 
-<!-- ==================== PAGE OMRA (Confort / VIP / Économique) ==================== -->
+<!-- ==================== PAGE OMRA (3 FORMULES) ==================== -->
 <section class="page" id="page-omra">
   <section class="content-section">
+
     <h2 class="section-title" id="t-omra-pack-title">Formules Omra</h2>
+    <p class="section-subtitle" id="t-omra-pack-sub">
+      Choisissez votre formule idéale selon votre budget et votre confort.
+    </p>
 
-    <div class="tours-grid">
+    <div class="omra-grid">
 
-      <div class="card hero-to-contact">
-        <img src="images/omra-comfort.jpg" alt="Omra Confort">
+      <!-- OMRA CONFORT -->
+      <div class="omra-card hero-to-contact">
+        <img src="images/omra-confort.jpg" alt="Omra Confort">
         <h3 id="t-omra-pack-comfort-title">Omra Confort</h3>
         <p id="t-omra-pack-comfort-desc">
           Hôtels 4*, proximité des Haramain, encadrement francophone & arabophone.
         </p>
+        <button class="btn btn-primary hero-to-contact" id="t-omra-pack-cta-1">Demander un devis</button>
       </div>
 
-      <div class="card hero-to-contact">
+      <!-- OMRA VIP -->
+      <div class="omra-card hero-to-contact">
         <img src="images/omra-vip.jpg" alt="Omra VIP">
         <h3 id="t-omra-pack-vip-title">Omra VIP</h3>
         <p id="t-omra-pack-vip-desc">
-          Hôtels 5*, prestations premium, petites groupes, services personnalisés.
+          Hôtels 5*, prestations premium, petits groupes, service personnalisé.
         </p>
+        <button class="btn btn-primary hero-to-contact" id="t-omra-pack-cta-2">Demander un devis</button>
       </div>
 
-      <div class="card hero-to-contact">
-        <img src="images/omra-economy.jpg" alt="Omra Économique">
+      <!-- OMRA ÉCONOMIQUE -->
+      <div class="omra-card hero-to-contact">
+        <img src="images/omra-econo.jpg" alt="Omra économique">
         <h3 id="t-omra-pack-econ-title">Omra Économique</h3>
         <p id="t-omra-pack-econ-desc">
           Formule accessible avec encadrement complet et prestations essentielles.
         </p>
+        <button class="btn btn-primary hero-to-contact" id="t-omra-pack-cta-3">Demander un devis</button>
       </div>
 
     </div>
-  </section>
-</section>
 
-
-<!-- ==================== PAGE VOYAGES HALAL ==================== -->
-<section class="page" id="page-halal">
-  <section class="content-section">
-    <h2 class="section-title" id="t-halal-title">Voyages halal</h2>
-
-    <div class="tours-grid">
-
-      <div class="card hero-to-contact">
-        <img src="images/halal-turkey.jpg" alt="Turquie halal">
-        <h3 id="t-halal-turkey-title">Turquie Halal</h3>
-        <p id="t-halal-turkey-desc">Istanbul, Cappadoce, croisières, hôtels halal-friendly.</p>
-      </div>
-
-      <div class="card hero-to-contact">
-        <img src="images/halal-bosnia.jpg" alt="Bosnie halal">
-        <h3 id="t-halal-bosnia-title">Bosnie Halal</h3>
-        <p id="t-halal-bosnia-desc">Sarajevo, Mostar, patrimoine ottoman, séjours adaptés.</p>
-      </div>
-
-      <div class="card hero-to-contact">
-        <img src="images/halal-jordan.jpg" alt="Jordanie halal">
-        <h3 id="t-halal-jordan-title">Jordanie Halal</h3>
-        <p id="t-halal-jordan-desc">Pétra, Wadi Rum, mer Morte, circuits certifiés halal.</p>
-      </div>
-
-      <div class="card hero-to-contact">
-        <img src="images/halal-malaysia.jpg" alt="Malaisie halal">
-        <h3 id="t-halal-malaysia-title">Malaisie Halal</h3>
-        <p id="t-halal-malaysia-desc">Kuala Lumpur, îles, cuisine 100% halal.</p>
-      </div>
-
-      <div class="card hero-to-contact">
-        <img src="images/halal-indonesia.jpg" alt="Indonésie halal">
-        <h3 id="t-halal-indonesia-title">Indonésie Halal</h3>
-        <p id="t-halal-indonesia-desc">Bali, Lombok, nature & hôtels musulmans-friendly.</p>
-      </div>
-
-      <div class="card hero-to-contact">
-        <img src="images/halal-dubai.jpg" alt="Dubai halal">
-        <h3 id="t-halal-dubai-title">Dubai Halal</h3>
-        <p id="t-halal-dubai-desc">Séjours luxe & familiaux, activités désert & city tours.</p>
-      </div>
-
-      <div class="card hero-to-contact">
-        <img src="images/halal-andalucia.jpg" alt="Andalousie halal">
-        <h3 id="t-halal-andalucia-title">Andalousie Halal</h3>
-        <p id="t-halal-andalucia-desc">Cordoue, Grenade, Séville & héritage islamique.</p>
-      </div>
-
-    </div>
   </section>
 </section>
 
@@ -287,43 +245,43 @@
     <div class="services-grid">
 
       <div class="card">
-        <img src="images/service-telecom.jpg" />
+        <img src="images/service-telecom.jpg" alt="Télécom" />
         <h3 id="t-serv-telecom-title">Partenaires télécom</h3>
         <p id="t-serv-telecom-desc">Lebara, Orange, MasMovil — cartes SIM et recharges.</p>
       </div>
 
       <div class="card">
-        <img src="images/service-transfer.jpg" />
+        <img src="images/service-transfer.jpg" alt="Transfert d’argent" />
         <h3 id="t-serv-transfer-title">Transfert d’argent</h3>
         <p id="t-serv-transfer-desc">Western Union, Ria — transferts sécurisés.</p>
       </div>
 
       <div class="card">
-        <img src="images/service-luggage.jpg" />
+        <img src="images/service-luggage.jpg" alt="Garde-bagages" />
         <h3 id="t-serv-luggage-title">Garde-bagages</h3>
         <p id="t-serv-luggage-desc">Consigne sécurisée à l’agence.</p>
       </div>
 
       <div class="card">
-        <img src="images/service-visa.jpg" />
+        <img src="images/service-visa.jpg" alt="Visa" />
         <h3 id="t-serv-visa-title">Assistance visa</h3>
-        <p id="t-serv-visa-desc">Aide et accompagnement dossiers visa.</p>
+        <p id="t-serv-visa-desc">Aide et préparation de dossier.</p>
       </div>
 
       <div class="card">
-        <img src="images/service-tickets.jpg" />
+        <img src="images/service-tickets.jpg" alt="Billetterie" />
         <h3 id="t-serv-tickets-title">Billetterie complète</h3>
         <p id="t-serv-tickets-desc">Billets terrestres, maritimes et aériens.</p>
       </div>
 
       <div class="card">
-        <img src="images/service-car.jpg" />
+        <img src="images/service-car.jpg" alt="Location de voiture" />
         <h3 id="t-serv-car-title">Location de voiture</h3>
-        <p id="t-serv-car-desc">Partenaires locaux & internationaux.</p>
+        <p id="t-serv-car-desc">Organisation avec partenaires locaux & internationaux.</p>
       </div>
 
       <div class="card">
-        <img src="images/service-hotel.jpg" />
+        <img src="images/service-hotel.jpg" alt="Hébergements" />
         <h3 id="t-serv-hotel-title">Hébergements & hôtels</h3>
         <p id="t-serv-hotel-desc">Appartements, hôtels & résidences.</p>
       </div>
@@ -345,11 +303,16 @@
 
         <div class="form-group">
           <label id="t-contact-name">Nom</label>
-          <input type="text" />
+          <input type="text" required />
         </div>
 
         <div class="form-group">
           <label id="t-contact-firstname">Prénom</label>
+          <input type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-residence">Résidence</label>
           <input type="text" />
         </div>
 
@@ -360,11 +323,11 @@
 
         <div class="form-group">
           <label id="t-contact-lang">Langue préférée</label>
-          <select id="t-contact-lang-options">
-            <option data-i18n="lang-fr">Français</option>
-            <option data-i18n="lang-es">Espagnol</option>
-            <option data-i18n="lang-en">Anglais</option>
-            <option data-i18n="lang-ar">Arabe</option>
+          <select>
+            <option>Français</option>
+            <option>Espagnol</option>
+            <option>Anglais</option>
+            <option>Arabe</option>
           </select>
         </div>
 
@@ -375,21 +338,21 @@
 
         <div class="form-group">
           <label id="t-contact-type">Type de demande</label>
-          <select id="t-contact-type-options">
-            <option data-i18n="req-omra">Omra</option>
-            <option data-i18n="req-hajj">Hajj 2026</option>
-            <option data-i18n="req-uk">Études en Angleterre</option>
-            <option data-i18n="req-es">Études en Espagne</option>
-            <option data-i18n="req-other">Autre</option>
+          <select>
+            <option>Omra</option>
+            <option>Hajj 2026</option>
+            <option>Études en Angleterre</option>
+            <option>Études en Espagne</option>
+            <option>Autre</option>
           </select>
         </div>
 
         <div class="form-group">
           <label id="t-contact-method">Moyen de contact souhaité</label>
-          <select id="t-contact-method-options">
-            <option data-i18n="method-email">Email</option>
-            <option data-i18n="method-call">Appel téléphonique</option>
-            <option data-i18n="method-whatsapp">WhatsApp</option>
+          <select>
+            <option>Email</option>
+            <option>WhatsApp</option>
+            <option>Appel</option>
           </select>
         </div>
 
@@ -409,6 +372,11 @@
     </div>
   </section>
 </section>
+
+</main>
+
+
+
 <!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="footer-inner">
@@ -465,6 +433,441 @@
       <div class="footer-block-title">Horaires</div>
       <div>Lun–Ven : 10h–14h / 17h–20h</div>
       <div>Samedi : 10h–14h30</div>
+     <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MWT - Moltaqa World Travel & Tourism</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap" onclick="showPage('home')">
+      <div class="logo-badge">
+        <img src="images/logo-transparent.png" alt="MWT logo" />
+      </div>
+      <div>
+        <div class="logo-text-title">MWT</div>
+        <div class="logo-text-sub">Moltaqa World Travel & Tourism</div>
+      </div>
+    </div>
+
+    <nav>
+      <div class="nav-link active" data-page-link="home" onclick="showPage('home')" id="t-nav-home">Accueil</div>
+      <div class="nav-link" data-page-link="tours" onclick="showPage('tours')" id="t-nav-tours">Tours</div>
+      <div class="nav-link" data-page-link="services" onclick="showPage('services')" id="t-nav-services">Services</div>
+      <div class="nav-link" data-page-link="contact" onclick="showPage('contact')" id="t-nav-contact">Contact</div>
+    </nav>
+
+    <div class="lang-switch">
+      <div class="lang-pill active" data-lang="fr" onclick="switchLang('fr')"><span class="flag">🇫🇷</span><span class="code">FR</span></div>
+      <div class="lang-pill" data-lang="es" onclick="switchLang('es')"><span class="flag">🇪🇸</span><span class="code">ES</span></div>
+      <div class="lang-pill" data-lang="en" onclick="switchLang('en')"><span class="flag">🇬🇧</span><span class="code">EN</span></div>
+      <div class="lang-pill" data-lang="ar" onclick="switchLang('ar')"><span class="flag">🇸🇦</span><span class="code">AR</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MAIN ==================== -->
+<main>
+
+<!-- ==================== PAGE ACCUEIL ==================== -->
+<section class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="images/omra.jpg" class="hero-image" alt="Omra & Hajj" />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <div class="hero-cards-wrapper">
+
+        <!-- On enlève les 3 cartes Omra, on garde seulement le bandeau Hajj -->
+        <div class="hero-hajj-banner hero-to-contact" id="hajj-banner">
+          <div class="hero-hajj-text" id="t-hajj-banner-title">Inscription Hajj 2026</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFRES OMRA -->
+  <section class="content-section">
+    <h2 class="section-title" id="t-omra-title">Offres Omra</h2>
+
+    <div class="offers-grid">
+
+      <div class="offer-card">
+        <div class="offer-title" id="t-omra1-title">Omra 25 décembre — 3 janvier</div>
+        <div class="offer-dates" id="t-omra1-dates">25/12 — 03/01</div>
+        <div class="offer-price" id="t-omra1-price">1595€</div>
+        <button class="btn btn-ghost btn-small hero-to-contact" id="t-omra1-cta">S’inscrire</button>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-title" id="t-omra2-title">Omra 20 janvier — 3 février</div>
+        <div class="offer-dates" id="t-omra2-dates">20/01 — 03/02</div>
+        <div class="offer-price" id="t-omra2-price">1395€</div>
+        <button class="btn btn-ghost btn-small hero-to-contact" id="t-omra2-cta">S’inscrire</button>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-title" id="t-omra3-title">Omra du Ramadan</div>
+        <div class="offer-dates" id="t-omra3-dates">Inscriptions ouvertes (dates à confirmer)</div>
+        <button class="btn btn-ghost btn-small hero-to-contact" id="t-omra3-cta">S’inscrire</button>
+      </div>
+
+    </div>
+
+    <h2 class="section-title" id="t-products-title">Nos produits phares</h2>
+
+    <!-- CAROUSEL -->
+    <div class="carousel">
+      <div class="carousel-inner">
+        <button class="carousel-item" data-target="tours">
+          <img src="images/omra.jpg" alt="Omra" />
+          <div class="carousel-title" id="t-car-omra">Omra</div>
+        </button>
+
+        <button class="carousel-item hero-to-contact">
+          <img src="images/hajj.jpg" alt="Hajj" />
+          <div class="carousel-title" id="t-car-hajj">Hajj 2026</div>
+        </button>
+
+        <button class="carousel-item" data-target="tours">
+          <img src="images/sahara.jpg" alt="Sahara" />
+          <div class="carousel-title" id="t-car-sahara">Sahara algérien</div>
+        </button>
+
+        <button class="carousel-item" data-target="tours">
+          <img src="images/study-uk.jpg" alt="Études" />
+          <div class="carousel-title" id="t-car-study">Études Espagne & UK</div>
+        </button>
+
+        <button class="carousel-item" data-target="services">
+          <img src="images/service-car.jpg" alt="Location de voiture" />
+          <div class="carousel-title" id="t-car-services">Location de voiture</div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+
+
+<!-- ==================== PAGE TOURS ==================== -->
+<section class="page" id="page-tours">
+  <section class="content-section">
+    <h2 class="section-title" id="t-tours-title">Tours & voyages</h2>
+
+    <div class="tours-grid">
+
+      <!-- OMRA → vers page OMRA -->
+      <div class="card" onclick="showPage('omra')">
+        <img src="images/omra.jpg" alt="Omra">
+        <h3 id="t-tours-omra-title">Séjour Omra</h3>
+        <p id="t-tours-omra-desc">Différentes formules : Confort, VIP & Économique.</p>
+      </div>
+
+      <div class="card hero-to-contact">
+        <img src="images/hajj.jpg" alt="Hajj">
+        <h3 id="t-tours-hajj-title">Hajj 2026</h3>
+        <p id="t-tours-hajj-desc">Accompagnement complet depuis l’Espagne.</p>
+      </div>
+
+      <div class="card hero-to-contact">
+        <img src="images/sahara.jpg" alt="Sahara algérien">
+        <h3 id="t-tours-sahara-title">Sahara algérien</h3>
+        <p id="t-tours-sahara-desc">Désert, oasis, culture & patrimoine.</p>
+      </div>
+
+      <div class="card hero-to-contact">
+        <img src="images/algeria.jpg" alt="Algérie nostalgie">
+        <h3 id="t-tours-algeria-title">Algérie nostalgie</h3>
+        <p id="t-tours-algeria-desc">Programmes sur mesure pour la diaspora.</p>
+      </div>
+
+      <div class="card hero-to-contact">
+        <img src="images/andalucia.jpg" alt="Andalousie">
+        <h3 id="t-tours-andalucia-title">Andalousie — patrimoine islamique</h3>
+        <p id="t-tours-andalucia-desc">Cordoue, Séville, Grenade… visites guidées.</p>
+      </div>
+
+      <div class="card hero-to-contact">
+        <img src="images/study-uk.jpg" alt="Études UK">
+        <h3 id="t-tours-uk-title">Études en Angleterre</h3>
+        <p id="t-tours-uk-desc">Conseil, inscription & suivi.</p>
+      </div>
+
+      <div class="card hero-to-contact">
+        <img src="images/study-es.jpg" alt="Études Espagne">
+        <h3 id="t-tours-es-title">Études en Espagne</h3>
+        <p id="t-tours-es-desc">Accompagnement complet pour les étudiants.</p>
+      </div>
+
+      <div class="card hero-to-contact">
+        <img src="images/halal-travel.jpg" alt="Voyages halal">
+        <h3 id="t-tours-halal-title">Voyages halal</h3>
+        <p id="t-tours-halal-desc">
+          Turquie, Bosnie, Jordanie, Malaisie, Indonésie, Dubaï, Andalousie…
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+</section>
+
+
+<!-- ==================== PAGE OMRA (3 FORMULES) ==================== -->
+<section class="page" id="page-omra">
+  <section class="content-section">
+
+    <h2 class="section-title" id="t-omra-pack-title">Formules Omra</h2>
+    <p class="section-subtitle" id="t-omra-pack-sub">
+      Choisissez votre formule idéale selon votre budget et votre confort.
+    </p>
+
+    <div class="omra-grid">
+
+      <!-- OMRA CONFORT -->
+      <div class="omra-card hero-to-contact">
+        <img src="images/omra-confort.jpg" alt="Omra Confort">
+        <h3 id="t-omra-pack-comfort-title">Omra Confort</h3>
+        <p id="t-omra-pack-comfort-desc">
+          Hôtels 4*, proximité des Haramain, encadrement francophone & arabophone.
+        </p>
+        <button class="btn btn-primary hero-to-contact" id="t-omra-pack-cta-1">Demander un devis</button>
+      </div>
+
+      <!-- OMRA VIP -->
+      <div class="omra-card hero-to-contact">
+        <img src="images/omra-vip.jpg" alt="Omra VIP">
+        <h3 id="t-omra-pack-vip-title">Omra VIP</h3>
+        <p id="t-omra-pack-vip-desc">
+          Hôtels 5*, prestations premium, petits groupes, service personnalisé.
+        </p>
+        <button class="btn btn-primary hero-to-contact" id="t-omra-pack-cta-2">Demander un devis</button>
+      </div>
+
+      <!-- OMRA ÉCONOMIQUE -->
+      <div class="omra-card hero-to-contact">
+        <img src="images/omra-econo.jpg" alt="Omra économique">
+        <h3 id="t-omra-pack-econ-title">Omra Économique</h3>
+        <p id="t-omra-pack-econ-desc">
+          Formule accessible avec encadrement complet et prestations essentielles.
+        </p>
+        <button class="btn btn-primary hero-to-contact" id="t-omra-pack-cta-3">Demander un devis</button>
+      </div>
+
+    </div>
+
+  </section>
+</section>
+
+
+
+<!-- ==================== PAGE SERVICES ==================== -->
+<section class="page" id="page-services">
+  <section class="content-section">
+    <h2 class="section-title" id="t-services-title">Services & partenaires</h2>
+
+    <div class="services-grid">
+
+      <div class="card">
+        <img src="images/service-telecom.jpg" alt="Télécom" />
+        <h3 id="t-serv-telecom-title">Partenaires télécom</h3>
+        <p id="t-serv-telecom-desc">Lebara, Orange, MasMovil — cartes SIM et recharges.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/service-transfer.jpg" alt="Transfert d’argent" />
+        <h3 id="t-serv-transfer-title">Transfert d’argent</h3>
+        <p id="t-serv-transfer-desc">Western Union, Ria — transferts sécurisés.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/service-luggage.jpg" alt="Garde-bagages" />
+        <h3 id="t-serv-luggage-title">Garde-bagages</h3>
+        <p id="t-serv-luggage-desc">Consigne sécurisée à l’agence.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/service-visa.jpg" alt="Visa" />
+        <h3 id="t-serv-visa-title">Assistance visa</h3>
+        <p id="t-serv-visa-desc">Aide et préparation de dossier.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/service-tickets.jpg" alt="Billetterie" />
+        <h3 id="t-serv-tickets-title">Billetterie complète</h3>
+        <p id="t-serv-tickets-desc">Billets terrestres, maritimes et aériens.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/service-car.jpg" alt="Location de voiture" />
+        <h3 id="t-serv-car-title">Location de voiture</h3>
+        <p id="t-serv-car-desc">Organisation avec partenaires locaux & internationaux.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/service-hotel.jpg" alt="Hébergements" />
+        <h3 id="t-serv-hotel-title">Hébergements & hôtels</h3>
+        <p id="t-serv-hotel-desc">Appartements, hôtels & résidences.</p>
+      </div>
+
+    </div>
+  </section>
+</section>
+
+
+
+<!-- ==================== PAGE CONTACT ==================== -->
+<section class="page" id="page-contact">
+  <section class="content-section">
+    <h2 class="section-title" id="t-contact-title">Contact</h2>
+
+    <div class="card">
+
+      <form onsubmit="event.preventDefault(); alert('Formulaire envoyé (démo).');">
+
+        <div class="form-group">
+          <label id="t-contact-name">Nom</label>
+          <input type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-firstname">Prénom</label>
+          <input type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-residence">Résidence</label>
+          <input type="text" />
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-city">Ville de départ</label>
+          <input type="text" />
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-lang">Langue préférée</label>
+          <select>
+            <option>Français</option>
+            <option>Espagnol</option>
+            <option>Anglais</option>
+            <option>Arabe</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-date">Date estimée du voyage</label>
+          <input type="date" />
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-type">Type de demande</label>
+          <select>
+            <option>Omra</option>
+            <option>Hajj 2026</option>
+            <option>Études en Angleterre</option>
+            <option>Études en Espagne</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-method">Moyen de contact souhaité</label>
+          <select>
+            <option>Email</option>
+            <option>WhatsApp</option>
+            <option>Appel</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-phone">WhatsApp</label>
+          <input type="text" />
+        </div>
+
+        <div class="form-group">
+          <label id="t-contact-message">Message</label>
+          <textarea></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit" id="t-contact-send">Envoyer</button>
+      </form>
+
+    </div>
+  </section>
+</section>
+
+</main>
+
+
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-inner">
+
+    <!-- COLONNE GAUCHE -->
+    <div class="footer-logo">
+     <img src="images/logo-transparent.png" alt="MWT logo" />
+      <div>
+        <div class="footer-title">MWT - Moltaqa World Travel &amp; Tourism</div>
+
+        <div class="footer-line">
+          <span class="icon">📍</span>
+          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante"
+             target="_blank"
+             class="footer-link">
+            Calle Italia 9, 03003 Alicante
+          </a>
+        </div>
+
+        <div class="footer-line">
+          <span class="icon">🧾</span>
+          <span>CIF : B42572768</span>
+        </div>
+
+        <div class="footer-line">
+          <span class="icon">🏢</span>
+          <span>Numéro d’agence : CV-Mm-2212-A</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLONNE CONTACT -->
+    <div>
+      <div class="footer-block-title">Contact</div>
+      <div class="footer-line">
+        <span class="icon">📞</span>
+        <a href="tel:865556666" class="footer-link">865556666</a>
+      </div>
+      <div class="footer-line">
+        <span class="icon">📱</span>
+        <a href="https://wa.me/34600672423"
+           target="_blank"
+           class="footer-link">WhatsApp : 600672423</a>
+      </div>
+      <div class="footer-line">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@mwt-world.com"
+           class="footer-link">info@mwt-tours.com</a>
+      </div>
+    </div>
+
+    <!-- COLONNE HORAIRES -->
+    <div>
+      <div class="footer-block-title">Horaires</div>
+      <div>Lun–Ven : 10h–14h / 17h–20h</div>
+            <div>Samedi : 10h–14h30</div>
       <div>Dimanche : Fermé</div>
     </div>
 
@@ -477,3 +880,4 @@
 <script src="js/app.js"></script>
 </body>
 </html>
+     
