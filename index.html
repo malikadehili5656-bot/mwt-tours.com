@@ -345,16 +345,11 @@
 
         <div class="form-group">
           <label id="t-contact-name">Nom</label>
-          <input type="text" required />
+          <input type="text" />
         </div>
 
         <div class="form-group">
           <label id="t-contact-firstname">Prénom</label>
-          <input type="text" required />
-        </div>
-
-        <div class="form-group">
-          <label id="t-contact-residence">Résidence</label>
           <input type="text" />
         </div>
 
@@ -365,11 +360,11 @@
 
         <div class="form-group">
           <label id="t-contact-lang">Langue préférée</label>
-          <select>
-            <option>Français</option>
-            <option>Espagnol</option>
-            <option>Anglais</option>
-            <option>Arabe</option>
+          <select id="t-contact-lang-options">
+            <option data-i18n="lang-fr">Français</option>
+            <option data-i18n="lang-es">Espagnol</option>
+            <option data-i18n="lang-en">Anglais</option>
+            <option data-i18n="lang-ar">Arabe</option>
           </select>
         </div>
 
@@ -380,22 +375,21 @@
 
         <div class="form-group">
           <label id="t-contact-type">Type de demande</label>
-          <select>
-            <option>Omra</option>
-            <option>Hajj 2026</option>
-            <option>Études en Angleterre</option>
-            <option>Études en Espagne</option>
-            <option>Autre</option>
+          <select id="t-contact-type-options">
+            <option data-i18n="req-omra">Omra</option>
+            <option data-i18n="req-hajj">Hajj 2026</option>
+            <option data-i18n="req-uk">Études en Angleterre</option>
+            <option data-i18n="req-es">Études en Espagne</option>
+            <option data-i18n="req-other">Autre</option>
           </select>
         </div>
 
         <div class="form-group">
           <label id="t-contact-method">Moyen de contact souhaité</label>
-          <select>
-            <option>Email</option>
-            <option>WhatsApp</option>
-            <option>Téléphone</option>
-            <option>Appel</option>
+          <select id="t-contact-method-options">
+            <option data-i18n="method-email">Email</option>
+            <option data-i18n="method-call">Appel téléphonique</option>
+            <option data-i18n="method-whatsapp">WhatsApp</option>
           </select>
         </div>
 
@@ -415,11 +409,6 @@
     </div>
   </section>
 </section>
-
-</main>
-
-
-
 <!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="footer-inner">
