@@ -20,168 +20,96 @@ const translations = {
     't-hajj-banner-title': 'Inscription Hajj 2026',
 
     't-omra-title': 'Offres Omra',
+    't-omra1-title': 'Omra 25 décembre — 3 janvier',
+    't-omra1-dates': '25/12 — 03/01',
+    't-omra1-price': '1595€',
+    't-omra1-cta': 'S’inscrire',
+    't-omra2-title': 'Omra 20 janvier — 3 février',
+    't-omra2-dates': '20/01 — 03/02',
+    't-omra2-price': '1395€',
+    't-omra2-cta': 'S’inscrire',
+    't-omra3-title': 'Omra du Ramadan',
+    't-omra3-dates': 'Inscriptions ouvertes (dates à confirmer)',
+    't-omra3-cta': 'S’inscrire',
+
     't-products-title': 'Nos produits phares',
     't-car-omra': 'Omra',
     't-car-hajj': 'Hajj 2026',
     't-car-sahara': 'Sahara algérien',
     't-car-study': 'Études Espagne & UK',
-    't-car-services': 'Services de l’agence',
+    't-car-services': 'Location de voiture',
 
     't-tours-title': 'Tours & voyages',
+    't-tours-omra1-title': 'Séjour Omra',
+    't-tours-omra1-desc': 'Différentes formules : Confort, VIP & Économique.',
+    't-tours-hajj-title': 'Hajj 2026',
+    't-tours-hajj-desc': 'Pré-inscriptions pour Hajj 2026, accompagnement complet depuis l’Espagne.',
+    't-tours-sahara-title': 'Tours du Sahara algérien',
+    't-tours-sahara-desc': 'Circuits désert, oasis, culture et patrimoine pour individuels et groupes.',
+    't-tours-algeria-title': 'Voyages nostalgiques en Algérie',
+    't-tours-algeria-desc': 'Programmes sur mesure pour la diaspora, visite des villes d’origine.',
+    't-tours-andalucia-title': 'Voyage en Andalousie — Héritage de l’Islam',
+    't-tours-andalucia-desc': 'Cordoue, Séville, Grenade... visites guidées des sites historiques.',
+    't-tours-uk-title': 'Études en Angleterre',
+    't-tours-uk-desc': 'Conseil et inscription dans des écoles et universités partenaires.',
+    't-tours-es-title': 'Études en Espagne',
+    't-tours-es-desc': 'Accompagnement pour les démarches d’inscription, logement et intégration.',
+    't-tours-halal-title': 'Voyages halal',
+    't-tours-halal-desc': 'Circuits halal-friendly : Turquie, Bosnie, Jordanie, Malaisie, Indonésie, Dubai, Andalousie...',
+
+    // Omra packs
+    't-omra-pack-title': 'Formules Omra',
+    't-omra-pack-comfort-title': 'Omra Confort',
+    't-omra-pack-comfort-desc': 'Hôtels 4*, proximité des Haramain, encadrement francophone & arabophone.',
+    't-omra-pack-vip-title': 'Omra VIP',
+    't-omra-pack-vip-desc': 'Hôtels 5*, prestations premium, petits groupes, services personnalisés.',
+    't-omra-pack-econ-title': 'Omra Économique',
+    't-omra-pack-econ-desc': 'Formule accessible avec encadrement complet et prestations essentielles.',
+
+    // Voyages halal page
+    't-halal-title': 'Voyages halal',
+    't-halal-turkey-title': 'Turquie Halal',
+    't-halal-turkey-desc': 'Istanbul, Cappadoce, croisières, hôtels halal-friendly.',
+    't-halal-bosnia-title': 'Bosnie Halal',
+        't-halal-bosnia-desc': 'Sarajevo, Mostar, patrimoine ottoman, séjours adaptés.',
+    't-halal-jordan-title': 'Jordanie Halal',
+    't-halal-jordan-desc': 'Pétra, Wadi Rum, mer Morte, circuits certifiés halal.',
+    't-halal-malaysia-title': 'Malaisie Halal',
+    't-halal-malaysia-desc': 'Kuala Lumpur, îles, cuisine 100% halal.',
+    't-halal-indonesia-title': 'Indonésie Halal',
+    't-halal-indonesia-desc': 'Bali, Lombok, nature & hôtels musulmans-friendly.',
+    't-halal-dubai-title': 'Dubai Halal',
+    't-halal-dubai-desc': 'Séjours luxe & familiaux, activités désert & city tours.',
+    't-halal-andalucia-title': 'Andalousie Halal',
+    't-halal-andalucia-desc': 'Cordoue, Grenade, Séville & héritage islamique.',
 
     't-services-title': 'Services & partenaires',
+    't-serv-telecom-title': 'Partenaires télécom',
+    't-serv-telecom-desc': 'Lebara, Orange, MasMovil — cartes SIM, recharges et offres pour vos voyages.',
+    't-serv-transfer-title': 'Transfert d’argent',
+    't-serv-transfer-desc': 'Western Union, Ria — transferts sécurisés vers le monde entier.',
+    't-serv-luggage-title': 'Garde-bagages',
+    't-serv-luggage-desc': 'Service sécurisé de consigne de bagages à l’agence.',
+    't-serv-visa-title': 'Assistance visa',
+    't-serv-visa-desc': 'Aide, conseils et préparation de dossier pour vos demandes de visa.',
+    't-serv-tickets-title': 'Billetterie complète',
+    't-serv-tickets-desc': 'Billets terrestres, maritimes et aériens, multi-compagnies.',
+    't-serv-car-title': 'Location de voiture',
+    't-serv-car-desc': 'Organisation de location de voiture avec nos partenaires locaux et internationaux.',
+    't-serv-hotel-title': 'Hébergement & hôtels',
+    't-serv-hotel-desc': 'Réservation d’hôtels et d’appartements adaptés à vos besoins et à votre budget.',
 
     't-contact-title': 'Contact',
     't-contact-name': 'Nom',
     't-contact-firstname': 'Prénom',
     't-contact-nationality': 'Nationalité',
     't-contact-residence': 'Résidence',
-    't-contact-phone': 'Téléphone',
-    't-contact-message': 'Message',
-    't-contact-send': 'Envoyer',
     't-contact-city': 'Ville de départ',
     't-contact-lang': 'Langue préférée',
     't-contact-date': 'Date estimée du voyage',
     't-contact-type': 'Type de demande',
-    't-contact-method': 'Moyen de contact souhaité'
-  },
-
-  es: {
-    't-nav-home': 'Inicio',
-    't-nav-tours': 'Viajes',
-    't-nav-services': 'Servicios',
-    't-nav-contact': 'Contacto',
-
-    't-contact-title': 'Contacto',
-    't-contact-name': 'Nombre',
-    't-contact-firstname': 'Apellido',
-    't-contact-nationality': 'Nacionalidad',
-    't-contact-residence': 'Residencia',
-    't-contact-phone': 'Teléfono',
-    't-contact-message': 'Mensaje',
-    't-contact-send': 'Enviar',
-    't-contact-city': 'Ciudad de salida',
-    't-contact-lang': 'Idioma preferido',
-    't-contact-date': 'Fecha estimada del viaje',
-    't-contact-type': 'Tipo de solicitud',
-    't-contact-method': 'Método de contacto preferido'
-  },
-
-  en: {
-    't-nav-home': 'Home',
-    't-nav-tours': 'Tours',
-    't-nav-services': 'Services',
-    't-nav-contact': 'Contact',
-
-    't-contact-title': 'Contact',
-    't-contact-name': 'Last name',
-    't-contact-firstname': 'First name',
-    't-contact-nationality': 'Nationality',
-    't-contact-residence': 'Residence',
-    't-contact-phone': 'Phone',
+    't-contact-method': 'Moyen de contact souhaité',
+    't-contact-phone': 'WhatsApp',
     't-contact-message': 'Message',
-    't-contact-send': 'Send',
-    't-contact-city': 'Departure city',
-    't-contact-lang': 'Preferred language',
-    't-contact-date': 'Estimated travel date',
-    't-contact-type': 'Type of request',
-    't-contact-method': 'Preferred contact method'
+    't-contact-send': 'Envoyer'
   },
-
-  ar: {
-    't-nav-home': 'الرئيسية',
-    't-nav-tours': 'الرحلات',
-    't-nav-services': 'الخدمات',
-    't-nav-contact': 'اتصل بنا',
-
-    't-contact-title': 'اتصل بنا',
-    't-contact-name': 'الاسم',
-    't-contact-firstname': 'اللقب',
-    't-contact-nationality': 'الجنسية',
-    't-contact-residence': 'بلد الإقامة',
-    't-contact-phone': 'رقم الهاتف',
-    't-contact-message': 'رسالتك',
-    't-contact-send': 'إرسال',
-    't-contact-city': 'مدينة الانطلاق',
-    't-contact-lang': 'اللغة المفضلة',
-    't-contact-date': 'تاريخ السفر المتوقع',
-    't-contact-type': 'نوع الطلب',
-    't-contact-method': 'طريقة التواصل المفضلة'
-  }
-};
-
-/* =============================
-   CHANGEMENT DE PAGE
-============================= */
-function showPage(pageId) {
-  document.querySelectorAll(".page").forEach(p => {
-    p.classList.toggle("active", p.id === "page-" + pageId);
-  });
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-/* =============================
-   TRADUCTION
-============================= */
-function applyTranslations(lang) {
-  const dict = translations[lang];
-  if (!dict) return;
-
-  Object.keys(dict).forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    if (dict[id].includes("<br>")) el.innerHTML = dict[id];
-    else el.textContent = dict[id];
-  });
-
-  document.body.classList.toggle("rtl", lang === "ar");
-}
-
-function switchLang(lang) {
-  document.querySelectorAll(".lang-pill").forEach(p =>
-    p.classList.toggle("active", p.dataset.lang === lang)
-  );
-  applyTranslations(lang);
-}
-
-/* =============================
-   CLICS → CONTACT
-============================= */
-function activateCards() {
-  document.querySelectorAll(".hero-to-contact, #page-tours .card").forEach(card => {
-    card.addEventListener("click", () => showPage("contact"));
-  });
-}
-
-/* =============================
-   CARROUSEL
-============================= */
-function initCarousel() {
-  const track = document.querySelector(".carousel-inner");
-  if (!track) return;
-
-  let index = 0;
-
-  setInterval(() => {
-    const items = document.querySelectorAll(".carousel-item");
-    if (!items.length) return;
-
-    const width = items[0].offsetWidth + 16;
-    index = (index + 1) % items.length;
-
-    track.scrollTo({
-      left: width * index,
-      behavior: "smooth"
-    });
-  }, 3000);
-}
-
-/* =============================
-   INIT
-============================= */
-document.addEventListener("DOMContentLoaded", () => {
-  applyTranslations("fr");
-  activateCards();
-  initCarousel();
-});
