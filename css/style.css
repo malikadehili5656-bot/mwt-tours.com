@@ -470,44 +470,46 @@ footer {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* Conteneur du logo */
+/* =============================
+   LOGO OPTIMISÉ
+============================= */
+
 .logo-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   cursor: pointer;
 }
 
-/* Badge du logo avec le fond dégradé (Style C) */
+/* Badge du logo avec dégradé */
 .logo-badge {
   background: linear-gradient(135deg, #ffffff 0%, #ffb066 100%);
-  padding: 10px;
-  border-radius: 16px;
+  padding: 12px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Logo plus grand (Style A ajusté) */
+/* LOGO PLUS GRAND */
 .logo-badge img {
-  width: 75px;       /* tu peux augmenter à 80 si tu veux */
+  width: 90px;     /* Agrandi uniquement le logo */
   height: auto;
   display: block;
 }
 
-/* Texte du logo */
+/* Texte du logo (réduit pour laisser le logo dominer) */
 .logo-text-title {
-  font-size: 22px;
+  font-size: 18px;       /* réduit (avant 22px) */
   font-weight: 700;
   color: #333;
 }
 
 .logo-text-sub {
-  font-size: 12px;
+  font-size: 11px;       /* réduit (avant 12px) */
   color: #777;
-  margin-top: -2px;
+  margin-top: -3px;
 }
-
 /* =============================
    NAVIGATION
 ============================= */
