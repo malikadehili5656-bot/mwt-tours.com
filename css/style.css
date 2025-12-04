@@ -454,3 +454,113 @@ footer {
   .hero{height:280px;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
 }
+/* =============================
+   HEADER & LOGO
+============================= */
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Conteneur du logo */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+/* Badge du logo avec le fond dégradé (Style C) */
+.logo-badge {
+  background: linear-gradient(135deg, #ffffff 0%, #ffb066 100%);
+  padding: 10px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo plus grand (Style A ajusté) */
+.logo-badge img {
+  width: 75px;       /* tu peux augmenter à 80 si tu veux */
+  height: auto;
+  display: block;
+}
+
+/* Texte du logo */
+.logo-text-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+}
+
+.logo-text-sub {
+  font-size: 12px;
+  color: #777;
+  margin-top: -2px;
+}
+
+/* =============================
+   NAVIGATION
+============================= */
+
+nav {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-link {
+  font-size: 15px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #444;
+  transition: 0.2s;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #ff9040;
+  background: rgba(255,144,64,0.08);
+}
+
+/* =============================
+   LANG SWITCH
+============================= */
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-pill {
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  background: #f2f2f2;
+  transition: 0.2s;
+}
+
+.lang-pill.active {
+  background: #ff9040;
+  color: #fff;
+}
+
+/* Flags */
+.flag {
+  margin-right: 4px;
+}
+
+/* =============================
+   FIN DU HEADER
+============================= */
