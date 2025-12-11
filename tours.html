@@ -2,13 +2,15 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Tours & voyages - MWT</title>
+  <title>MWT - Voyages & Circuits</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/app.js" defer></script>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="logo-wrap" onclick="window.location.href='index.html'">
@@ -21,13 +23,14 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="main-nav">
       <a href="index.html" class="nav-link" id="t-nav-home">Accueil</a>
       <a href="tours.html" class="nav-link active" id="t-nav-tours">Voyages</a>
       <a href="services.html" class="nav-link" id="t-nav-services">Services</a>
       <a href="visas.html" class="nav-link" id="t-nav-visas">Visas</a>
       <a href="etudes.html" class="nav-link" id="t-nav-etudes">Études</a>
       <a href="omra.html" class="nav-link" id="t-nav-omra">Omra</a>
+      <a href="sport.html" class="nav-link" id="t-nav-sport">Événements sportifs</a>
       <a href="contact.html" class="nav-link" id="t-nav-contact">Contact</a>
     </nav>
 
@@ -40,66 +43,218 @@
   </div>
 </header>
 
-<main class="content-section">
-  <h2 class="section-title" id="t-tours-title">Tours & voyages</h2>
+<main>
 
-  <div class="tours-grid">
+  <!-- HERO TOURS -->
+  <section class="hero">
+    <img src="images/tours-hero.jpg" class="hero-image" alt="Voyages & circuits" />
+    <div class="hero-overlay"></div>
 
-    <a class="card" href="omra.html">
-      <img src="images/omra.jpg" alt="Omra" />
-      <h3 id="t-tours-omra-title">Séjour Omra</h3>
-      <p id="t-tours-omra-desc">Différentes formules : Confort, VIP & Économique.</p>
-    </a>
+    <div class="hero-inner">
+      <div class="hero-inner-card">
 
-    <a class="card" href="contact.html">
-      <img src="images/hajj.jpg" alt="Hajj 2026" />
-      <h3 id="t-tours-hajj-title">Hajj 2026</h3>
-      <p id="t-tours-hajj-desc">Accompagnement complet depuis l’Espagne.</p>
-    </a>
+        <div class="hero-kicker" id="t-tours-hero-kicker">
+          Séjours • Circuits • Expériences
+        </div>
 
-    <div class="card">
-      <img src="images/sahara.jpg" alt="Sahara" />
-      <h3 id="t-tours-sahara-title">Sahara algérien</h3>
-      <p id="t-tours-sahara-desc">Désert, oasis, culture & patrimoine.</p>
+        <h1 class="hero-title" id="t-tours-hero-title">
+          Découvrez nos voyages & circuits avec MWT
+        </h1>
+
+        <p class="hero-subtitle" id="t-tours-hero-sub">
+          Séjours en Espagne, circuits dans le Sahara, voyages sur mesure,
+          excursions et escapades. Des expériences authentiques et organisées avec soin.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="contact.html" class="btn btn-main" id="t-tours-hero-cta-main">
+            Demander un voyage sur mesure
+          </a>
+          <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost" id="t-tours-hero-cta-whatsapp">
+            💬 WhatsApp MWT
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-tours-intro-title">
+        Des voyages adaptés à chaque voyageur
+      </h2>
+
+      <p class="section-subtitle" id="t-tours-intro-sub">
+        Que vous souhaitiez une aventure dans le désert, une escapade en Europe,
+        un circuit familial ou un voyage romantique, MWT crée des expériences uniques
+        selon votre profil et votre budget.
+      </p>
+    </div>
+  </section>
+
+  <!-- BLOC 1 : SAHARA ALGÉRIEN -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-tours-sahara-title">
+        Circuits dans le Sahara algérien
+      </h2>
+      <p class="section-subtitle" id="t-tours-sahara-sub">
+        Découvrez le désert algérien : dunes immenses, silence magique, oasis et culture saharienne.
+      </p>
     </div>
 
-    <div class="card">
-      <img src="images/halal-travel.jpg" alt="Voyages halal" />
-      <h3 id="t-tours-halal-title">Voyages halal</h3>
-      <p id="t-tours-halal-desc">Turquie, Bosnie, Jordanie, Malaisie, Indonésie, Dubaï, Andalousie…</p>
+    <div class="audience-grid">
+
+      <article class="audience-card">
+        <h3 id="t-tours-sahara-card1-title">Circuit Tassili & oasis</h3>
+        <p id="t-tours-sahara-card1-desc">
+          Randonnées, couchers de soleil, nuits en bivouac et découverte des oasis.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-tours-sahara-card2-title">Aventure dunes & étoiles</h3>
+        <p id="t-tours-sahara-card2-desc">
+          Excursions dans les grandes dunes, soirées sahariennes & observation du ciel.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-tours-sahara-card3-title">Voyage culturel saharien</h3>
+        <p id="t-tours-sahara-card3-desc">
+          Villages, traditions locales et circuits adaptés pour familles.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- BLOC 2 : ESPAGNE -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-tours-spain-title">
+        Voyages & séjours en Espagne
+      </h2>
+      <p class="section-subtitle" id="t-tours-spain-sub">
+        City trips, détente, plages, culture : l’Espagne offre des destinations parfaites
+        pour tous les profils.
+      </p>
     </div>
 
-    <a class="card" href="etudes.html">
-      <img src="images/study-uk.jpg" alt="Études UK" />
-      <h3 id="t-tours-uk-title">Études en Angleterre</h3>
-      <p id="t-tours-uk-desc">Conseil, inscription & suivi.</p>
-    </a>
+    <div class="audience-grid">
 
-    <a class="card" href="etudes.html">
-      <img src="images/study-es.jpg" alt="Études Espagne" />
-      <h3 id="t-tours-es-title">Études en Espagne</h3>
-      <p id="t-tours-es-desc">Accompagnement complet pour les étudiants.</p>
-    </a>
+      <article class="audience-card">
+        <h3 id="t-tours-spain-card1-title">Alicante & Costa Blanca</h3>
+        <p id="t-tours-spain-card1-desc">
+          Plages, paysages méditerranéens, gastronomie et excursions locales.
+        </p>
+      </article>
 
-  </div>
+      <article class="audience-card">
+        <h3 id="t-tours-spain-card2-title">Barcelone</h3>
+        <p id="t-tours-spain-card2-desc">
+          Art, culture, mer, architecture moderne… une destination incontournable.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-tours-spain-card3-title">Madrid & Andalousie</h3>
+        <p id="t-tours-spain-card3-desc">
+          Séjours culturels, visites historiques, ambiance andalouse et mosquées emblématiques.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- BLOC 3 : VOYAGES SUR MESURE -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-tours-custom-title">
+        Voyages 100% personnalisés
+      </h2>
+      <p class="section-subtitle" id="t-tours-custom-sub">
+        Vous choisissez : dates, destination, style d’hébergement, activités, budget.
+        Nous organisons votre voyage sur mesure.
+      </p>
+    </div>
+
+    <div class="audience-grid">
+
+      <article class="audience-card">
+        <h3 id="t-tours-custom-card1-title">Voyages romantiques</h3>
+        <p id="t-tours-custom-card1-desc">
+          Week-ends, anniversaires, escapades couples.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-tours-custom-card2-title">Voyages en famille</h3>
+        <p id="t-tours-custom-card2-desc">
+          Programmes adaptés aux enfants et aux grands-parents.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-tours-custom-card3-title">Voyages aventure</h3>
+        <p id="t-tours-custom-card3-desc">
+          Randonnées, désert, nature et circuits sportifs.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CTA FINALE -->
+  <section class="content-section">
+    <div class="audience-card" style="max-width:720px;margin:0 auto;text-align:center;">
+
+      <h2 class="section-title" id="t-tours-cta-title">
+        Envie de voyager avec MWT ?
+      </h2>
+
+      <p id="t-tours-cta-sub">
+        Décrivez-nous votre destination, votre budget, votre style de voyage et vos dates.
+        Nous préparons une proposition sur mesure.
+      </p>
+
+      <div style="margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-main" id="t-tours-cta-btn">
+          Préparer mon voyage
+        </a>
+        <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost">
+          💬 WhatsApp MWT
+        </a>
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
       <img src="images/logo-transparent.png" alt="MWT logo" />
       <div>
         <div class="footer-title">MWT - Moltaqa World Travel &amp; Tourism</div>
+
         <div class="footer-line">
           <span class="icon">📍</span>
-          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante" target="_blank" class="footer-link">
+          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante"
+             target="_blank" class="footer-link">
             Calle Italia 9, 03003 Alicante
           </a>
         </div>
+
         <div class="footer-line">
           <span class="icon">🧾</span>
           <span>CIF : B42572768</span>
         </div>
+
         <div class="footer-line">
           <span class="icon">🏢</span>
           <span>Numéro d’agence : CV-Mm-2212-A</span>
@@ -109,9 +264,23 @@
 
     <div>
       <div class="footer-block-title">Contact</div>
-      <div class="footer-line"><span class="icon">📞</span> 865556666</div>
-      <div class="footer-line"><span class="icon">📱</span> WhatsApp : 600672423</div>
-      <div class="footer-line"><span class="icon">✉️</span> info@mwt-world.com</div>
+
+      <div class="footer-line">
+        <span class="icon">📞</span>
+        <a href="tel:865556666" class="footer-link">865556666</a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">📱</span>
+        <a href="https://wa.me/34600672423" target="_blank" class="footer-link">
+          WhatsApp : 600672423
+        </a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@mwt-world.com" class="footer-link">info@mwt-world.com</a>
+      </div>
     </div>
 
     <div>
