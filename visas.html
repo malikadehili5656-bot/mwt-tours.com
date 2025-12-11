@@ -2,13 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Visas & démarches - MWT</title>
+  <title>MWT - Services Visas & Assistance Administrative</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/app.js" defer></script>
 </head>
 <body>
 
+<!-- HEADER (identique aux autres pages) -->
 <header>
   <div class="header-inner">
     <div class="logo-wrap" onclick="window.location.href='index.html'">
@@ -21,13 +22,14 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="main-nav">
       <a href="index.html" class="nav-link" id="t-nav-home">Accueil</a>
       <a href="tours.html" class="nav-link" id="t-nav-tours">Voyages</a>
       <a href="services.html" class="nav-link" id="t-nav-services">Services</a>
       <a href="visas.html" class="nav-link active" id="t-nav-visas">Visas</a>
       <a href="etudes.html" class="nav-link" id="t-nav-etudes">Études</a>
       <a href="omra.html" class="nav-link" id="t-nav-omra">Omra</a>
+      <a href="sport.html" class="nav-link" id="t-nav-sport">Événements sportifs</a>
       <a href="contact.html" class="nav-link" id="t-nav-contact">Contact</a>
     </nav>
 
@@ -40,57 +42,206 @@
   </div>
 </header>
 
-<main class="content-section">
-  <h2 class="section-title" id="t-visas-title">Visas & démarches administratives</h2>
-  <p class="section-subtitle" id="t-visas-sub">
-    MWT accompagne les expatriés, familles, étudiants et voyageurs dans toutes leurs démarches administratives.
-  </p>
+<main>
 
-  <div class="services-grid">
+  <!-- HERO VISA -->
+  <section class="hero">
+    <img src="images/visas-hero.jpg" class="hero-image" alt="Services visas" />
+    <div class="hero-overlay"></div>
 
-    <div class="card">
-      <img src="images/service-visa.jpg" alt="">
-      <h3 id="t-visas-tourism-title">Visas tourisme & famille</h3>
-      <p id="t-visas-tourism-desc">Dossiers, rendez-vous, formulaires, préparation complète.</p>
+    <div class="hero-inner">
+      <div class="hero-inner-card">
+
+        <div class="hero-kicker" id="t-visas-hero-kicker">
+          Assistance visas & démarches
+        </div>
+
+        <h1 class="hero-title" id="t-visas-hero-title">
+          Vos démarches de visa simplifiées avec MWT
+        </h1>
+
+        <p class="hero-subtitle" id="t-visas-hero-sub">
+          Nous vous guidons étape par étape pour la préparation de votre dossier visa :
+          conseils, documents, formulaires, prise de rendez-vous et suivi.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="contact.html" class="btn btn-main" id="t-visas-hero-cta-main">
+            Expliquer ma demande de visa
+          </a>
+          <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost" id="t-visas-hero-cta-whatsapp">
+            💬 WhatsApp MWT
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO VISA -->
+  <section class="content-section">
+    <div class="section-header">
+
+      <h2 class="section-title" id="t-visas-intro-title">
+        Un accompagnement clair et fiable pour vos demandes de visa
+      </h2>
+
+      <p class="section-subtitle" id="t-visas-intro-sub">
+        Nous vous aidons à comprendre les exigences, à préparer vos justificatifs
+        et à présenter un dossier solide selon votre destination et votre situation personnelle.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- TYPES DE VISAS -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-visas-types-title">
+        Types de visas que nous accompagnons
+      </h2>
     </div>
 
-    <div class="card">
-      <img src="images/service-visa2.jpg" alt="">
-      <h3 id="t-visas-study-title">Visas études</h3>
-      <p id="t-visas-study-desc">Accompagnement pour les visas étudiants en Espagne & Royaume-Uni.</p>
+    <div class="audience-grid">
+
+      <!-- Visa Arabie Saoudite -->
+      <article class="audience-card">
+        <h3 id="t-visas-saudi-title">Visa Arabie Saoudite</h3>
+        <p id="t-visas-saudi-desc">
+          Conseils pour le visa tourisme, Umrah ou visite, selon votre nationalité et destination.
+        </p>
+        <ul>
+          <li id="t-visas-saudi-li1">Documents nécessaires selon profil.</li>
+          <li id="t-visas-saudi-li2">Assistance formulaires et création de compte.</li>
+          <li id="t-visas-saudi-li3">Support pour eVisa (si éligible).</li>
+        </ul>
+      </article>
+
+      <!-- Visa Schengen Espagne -->
+      <article class="audience-card">
+        <h3 id="t-visas-schengen-title">Visa Schengen pour l'Espagne</h3>
+        <p id="t-visas-schengen-desc">
+          Nous vous aidons à préparer un dossier conforme pour une demande de visa Schengen court séjour.
+        </p>
+        <ul>
+          <li id="t-visas-schengen-li1">Liste des justificatifs selon motif du voyage.</li>
+          <li id="t-visas-schengen-li2">Modèles de documents (hébergement, invitation...).</li>
+          <li id="t-visas-schengen-li3">Assistance prise de rendez-vous VFS/consulat.</li>
+        </ul>
+      </article>
+
+      <!-- Visa Études -->
+      <article class="audience-card">
+        <h3 id="t-visas-study-title">Visa études (Espagne & UK)</h3>
+        <p id="t-visas-study-desc">
+          Pour les étudiants et les parents : organisation complète du dossier visa selon l’université et le pays choisi.
+        </p>
+        <ul>
+          <li id="t-visas-study-li1">Guide des documents à fournir.</li>
+          <li id="t-visas-study-li2">Aide à la préparation financière.</li>
+          <li id="t-visas-study-li3">Prise de rendez-vous et préparation à l’entretien.</li>
+        </ul>
+      </article>
+
+      <!-- Autres visas -->
+      <article class="audience-card">
+        <h3 id="t-visas-other-title">Autres visas selon votre destination</h3>
+        <p id="t-visas-other-desc">
+          En fonction du pays et de votre situation, nous vous aidons à préparer un dossier complet et clair.
+        </p>
+        <ul>
+          <li id="t-visas-other-li1">Tourisme, famille, affaires.</li>
+          <li id="t-visas-other-li2">Documents et formulaires personnalisés.</li>
+          <li id="t-visas-other-li3">Support WhatsApp avant et pendant la procédure.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PROCESSUS -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-visas-steps-title">
+        Comment se déroule l’accompagnement ?
+      </h2>
     </div>
 
-    <div class="card">
-      <img src="images/service-admin.jpg" alt="">
-      <h3 id="t-visas-nie-title">NIE & empadronamiento</h3>
-      <p id="t-visas-nie-desc">Prise de rendez-vous, préparation des documents, accompagnement le jour J.</p>
-    </div>
+    <div class="audience-grid">
 
-    <div class="card">
-      <img src="images/service-paper.jpg" alt="">
-      <h3 id="t-visas-docs-title">Traduction & documents</h3>
-      <p id="t-visas-docs-desc">Aide pour la traduction et la compréhension des documents officiels.</p>
-    </div>
+      <article class="audience-card">
+        <h3 id="t-visas-step1-title">1. Analyse de votre situation</h3>
+        <p id="t-visas-step1-desc">
+          Selon votre nationalité, vos dates, votre profil et la destination.
+        </p>
+      </article>
 
-  </div>
+      <article class="audience-card">
+        <h3 id="t-visas-step2-title">2. Liste des documents</h3>
+        <p id="t-visas-step2-desc">
+          Nous vous donnons la liste exacte et personnalisée des justificatifs requis.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-visas-step3-title">3. Préparation du dossier</h3>
+        <p id="t-visas-step3-desc">
+          Organisation des documents, vérification et conseils de présentation.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-visas-step4-title">4. Rendez-vous & suivi</h3>
+        <p id="t-visas-step4-desc">
+          Assistance pour la prise de rendez-vous, et suivi si vous avez besoin d’aide après le dépôt.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="content-section">
+    <div class="audience-card" style="max-width:720px;margin:0 auto;text-align:center;">
+      <h2 id="t-visas-cta-bottom-title">Besoin d’un visa ?</h2>
+      <p id="t-visas-cta-bottom-sub">
+        Décrivez-nous votre situation (nationalité, destination, dates, motif du voyage).
+        Nous vous répondons rapidement avec les informations nécessaires.
+      </p>
+      <div style="margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-main" id="t-visas-cta-bottom-btn">
+          Expliquer ma demande
+        </a>
+        <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
       <img src="images/logo-transparent.png" alt="MWT logo" />
       <div>
         <div class="footer-title">MWT - Moltaqa World Travel &amp; Tourism</div>
+
         <div class="footer-line">
           <span class="icon">📍</span>
-          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante" target="_blank" class="footer-link">
+          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante"
+             target="_blank" class="footer-link">
             Calle Italia 9, 03003 Alicante
           </a>
         </div>
+
         <div class="footer-line">
           <span class="icon">🧾</span>
           <span>CIF : B42572768</span>
         </div>
+
         <div class="footer-line">
           <span class="icon">🏢</span>
           <span>Numéro d’agence : CV-Mm-2212-A</span>
@@ -100,9 +251,23 @@
 
     <div>
       <div class="footer-block-title">Contact</div>
-      <div class="footer-line"><span class="icon">📞</span> 865556666</div>
-      <div class="footer-line"><span class="icon">📱</span> WhatsApp : 600672423</div>
-      <div class="footer-line"><span class="icon">✉️</span> info@mwt-world.com</div>
+
+      <div class="footer-line">
+        <span class="icon">📞</span>
+        <a href="tel:865556666" class="footer-link">865556666</a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">📱</span>
+        <a href="https://wa.me/34600672423" target="_blank" class="footer-link">
+          WhatsApp : 600672423
+        </a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@mwt-world.com" class="footer-link">info@mwt-world.com</a>
+      </div>
     </div>
 
     <div>
