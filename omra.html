@@ -1,49 +1,338 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Omra - MWT</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>MWT - Omra & voyages spirituels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
   <script src="js/app.js" defer></script>
 </head>
 <body>
 
-<?php include 'header.html'; ?>
-
-<main class="content-section">
-
-  <h2 class="section-title" id="t-omra-pack-title">Formules Omra</h2>
-  <p class="section-subtitle" id="t-omra-pack-sub">
-    Choisissez la formule adaptée à votre budget.
-  </p>
-
-  <div class="omra-grid">
-
-    <div class="omra-card">
-      <img src="images/omra-confort.jpg">
-      <h3 id="t-omra-pack-comfort-title">Omra Confort</h3>
-      <p id="t-omra-pack-comfort-desc">Hôtels 4*, proximité des Haramain.</p>
-      <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+<!-- HEADER (même que index.html) -->
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap" onclick="window.location.href='index.html'">
+      <div class="logo-badge">
+        <img src="images/logo-transparent.png" alt="MWT logo" />
+      </div>
+      <div>
+        <div class="logo-text-title">MWT</div>
+        <div class="logo-text-sub">Moltaqa World Travel & Tourism</div>
+      </div>
     </div>
 
-    <div class="omra-card">
-      <img src="images/omra-vip.jpg">
-      <h3 id="t-omra-pack-vip-title">Omra VIP</h3>
-      <p id="t-omra-pack-vip-desc">Hôtels 5*, prestations premium.</p>
-      <a href="contact.html" class="btn btn-primary">Demander un devis</a>
-    </div>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link" id="t-nav-home">Accueil</a>
+      <a href="tours.html" class="nav-link" id="t-nav-tours">Voyages</a>
+      <a href="services.html" class="nav-link" id="t-nav-services">Services</a>
+      <a href="visas.html" class="nav-link" id="t-nav-visas">Visas</a>
+      <a href="etudes.html" class="nav-link" id="t-nav-etudes">Études</a>
+      <a href="omra.html" class="nav-link active" id="t-nav-omra">Omra</a>
+      <a href="sport.html" class="nav-link" id="t-nav-sport">Événements sportifs</a>
+      <a href="contact.html" class="nav-link" id="t-nav-contact">Contact</a>
+    </nav>
 
-    <div class="omra-card">
-      <img src="images/omra-econo.jpg">
-      <h3 id="t-omra-pack-econ-title">Omra Économique</h3>
-      <p id="t-omra-pack-econ-desc">Formule accessible avec encadrement.</p>
-      <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+    <div class="lang-switch">
+      <div class="lang-pill active" data-lang="fr">🇫🇷 FR</div>
+      <div class="lang-pill" data-lang="es">🇪🇸 ES</div>
+      <div class="lang-pill" data-lang="en">🇬🇧 EN</div>
+      <div class="lang-pill" data-lang="ar">🇸🇦 AR</div>
     </div>
-
   </div>
+</header>
+
+<main>
+  <!-- HERO OMRA -->
+  <section class="hero">
+    <img src="images/omra.jpg" class="hero-image" alt="Omra & Hajj" />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <div class="hero-inner-card">
+        <div class="hero-kicker" id="t-omra-hero-kicker">
+          Omra & voyages spirituels
+        </div>
+        <h1 class="hero-title" id="t-omra-hero-title">
+          Omra en groupe & sur mesure avec MWT
+        </h1>
+        <p class="hero-subtitle" id="t-omra-hero-sub">
+          Départs depuis l’Europe et l’Algérie, accompagnement francophone & arabophone,
+          formules adaptées à votre budget et à votre projet spirituel.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="contact.html" class="btn btn-main" id="t-omra-hero-cta-main">
+            Demander un devis Omra
+          </a>
+          <a href="contact.html" class="btn btn-ghost" id="t-omra-hero-cta-contact">
+            Parler à un conseiller
+          </a>
+        </div>
+
+        <div class="hero-badges">
+          <div class="hero-badge" id="t-omra-hero-badge1">
+            👨‍👩‍👧‍👦 Groupes, familles & individuels
+          </div>
+          <div class="hero-badge" id="t-omra-hero-badge2">
+            🕋 Formules Éco, Confort & Premium
+          </div>
+          <div class="hero-badge" id="t-omra-hero-badge3">
+            📄 Visa, vols & hôtels organisés
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI PARTIR AVEC MWT ? -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-omra-why-title">Pourquoi partir en Omra avec MWT&nbsp;?</h2>
+      <p class="section-subtitle" id="t-omra-why-sub">
+        Une équipe à taille humaine, basée à Alicante, qui vous accompagne avant,
+        pendant et après votre voyage pour que vous puissiez vous concentrer sur l’essentiel&nbsp;:
+        votre adoration.
+      </p>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <h3 id="t-omra-why-card1-title">Accompagnement complet</h3>
+        <p id="t-omra-why-card1-desc">
+          Conseils avant le départ, réunion d’information, guide sur place, assistance
+          pour les rituels et support en français, arabe et espagnol.
+        </p>
+      </div>
+
+      <div class="audience-card">
+        <h3 id="t-omra-why-card2-title">Organisation sérieuse & transparente</h3>
+        <p id="t-omra-why-card2-desc">
+          Partenaires sélectionnés, hôtels proches des Haram selon la formule choisie,
+          contrats clairs et informations détaillées avant la réservation.
+        </p>
+      </div>
+
+      <div class="audience-card">
+        <h3 id="t-omra-why-card3-title">Flexibilité selon votre profil</h3>
+        <p id="t-omra-why-card3-desc">
+          Omra en groupe, en famille ou sur mesure&nbsp;: nous adaptons les dates,
+          la durée et la catégorie d’hôtel à votre situation et à votre budget.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULES OMRA -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-omra-packages-title">Nos formules Omra</h2>
+      <p class="section-subtitle" id="t-omra-packages-sub">
+        Des programmes pensés pour vous offrir un excellent rapport qualité/prix,
+        tout en respectant le confort et la dimension spirituelle de votre voyage.
+      </p>
+    </div>
+
+    <div class="audience-grid">
+      <!-- ÉCO -->
+      <article class="audience-card">
+        <h3 id="t-omra-pack-eco-title">Formule Éco</h3>
+        <p id="t-omra-pack-eco-tagline">L’essentiel de l’Omra au meilleur prix.</p>
+        <ul>
+          <li id="t-omra-pack-eco-li1">Vols aller/retour (selon ville de départ).</li>
+          <li id="t-omra-pack-eco-li2">Transferts aéroport–hôtel–aéroport en groupe.</li>
+          <li id="t-omra-pack-eco-li3">Hôtels confortables en catégorie standard.</li>
+          <li id="t-omra-pack-eco-li4">Accompagnement groupe & briefing rituels.</li>
+          <li id="t-omra-pack-eco-li5">Durée adaptable selon les dates disponibles.</li>
+        </ul>
+      </article>
+
+      <!-- STANDARD -->
+      <article class="audience-card">
+        <h3 id="t-omra-pack-standard-title">Formule Standard</h3>
+        <p id="t-omra-pack-standard-tagline">Confort et proximité, idéale en famille.</p>
+        <ul>
+          <li id="t-omra-pack-standard-li1">Vols aller/retour inclus.</li>
+          <li id="t-omra-pack-standard-li2">Transferts en bus privatisé.</li>
+          <li id="t-omra-pack-standard-li3">Hôtels à distance raisonnable des Haram.</li>
+          <li id="t-omra-pack-standard-li4">Petit-déjeuner dans la majorité des hôtels.</li>
+          <li id="t-omra-pack-standard-li5">Encadrement spirituel & assistance sur place.</li>
+          <li id="t-omra-pack-standard-li6">Possibilité de chambres triples/quadruples.</li>
+        </ul>
+      </article>
+
+      <!-- CONFORT -->
+      <article class="audience-card">
+        <h3 id="t-omra-pack-comfort-title">Formule Confort</h3>
+        <p id="t-omra-pack-comfort-tagline">Plus de proximité, plus de services.</p>
+        <ul>
+          <li id="t-omra-pack-comfort-li1">Vols réguliers ou compagnies reconnues.</li>
+          <li id="t-omra-pack-comfort-li2">Hôtels de catégorie supérieure, proches des Haram.</li>
+          <li id="t-omra-pack-comfort-li3">Petit-déjeuner inclus, options demi-pension possibles.</li>
+          <li id="t-omra-pack-comfort-li4">Guide expérimenté durant tout le séjour.</li>
+          <li id="t-omra-pack-comfort-li5">Accompagnement personnalisé pour les familles.</li>
+          <li id="t-omra-pack-comfort-li6">Programme adapté aux personnes âgées.</li>
+        </ul>
+      </article>
+
+      <!-- PREMIUM / VIP -->
+      <article class="audience-card">
+        <h3 id="t-omra-pack-premium-title">Formule Premium / VIP</h3>
+        <p id="t-omra-pack-premium-tagline">Une Omra sur mesure, avec service haut de gamme.</p>
+        <ul>
+          <li id="t-omra-pack-premium-li1">Possibilité de classe affaires (selon disponibilité).</li>
+          <li id="t-omra-pack-premium-li2">Hôtels 5★ à proximité immédiate des Haram.</li>
+          <li id="t-omra-pack-premium-li3">Transferts privés, horaires flexibles.</li>
+          <li id="t-omra-pack-premium-li4">Service personnalisé avant et pendant le séjour.</li>
+          <li id="t-omra-pack-premium-li5">Options de visites & prestations sur mesure.</li>
+          <li id="t-omra-pack-premium-li6">Idéale pour couples, VIP & voyages cadeaux.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- INCLUS / NON INCLUS -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-omra-included-title">Ce qui est généralement inclus</h2>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <ul>
+          <li id="t-omra-included-li1">Vols aller/retour selon la formule choisie.</li>
+          <li id="t-omra-included-li2">Transferts collectifs ou privés aéroport–hôtels.</li>
+          <li id="t-omra-included-li3">Hébergement à La Mecque et Médine.</li>
+          <li id="t-omra-included-li4">Accompagnement religieux pendant le séjour.</li>
+          <li id="t-omra-included-li5">Support administratif et informations pratiques.</li>
+          <li id="t-omra-included-li6">Assistance MWT avant et après le voyage.</li>
+        </ul>
+      </div>
+
+      <div class="audience-card">
+        <h3 id="t-omra-notincluded-title">Ce qui peut ne pas être inclus</h3>
+        <ul>
+          <li id="t-omra-notincluded-li1">Frais de visa (selon nationalité et période).</li>
+          <li id="t-omra-notincluded-li2">Repas en dehors de ceux mentionnés au contrat.</li>
+          <li id="t-omra-notincluded-li3">Assurance voyage (fortement recommandée).</li>
+          <li id="t-omra-notincluded-li4">Dépenses personnelles et achats sur place.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉTAPES DE RÉSERVATION -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-omra-steps-title">Comment réserver votre Omra avec MWT&nbsp;?</h2>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <h3 id="t-omra-step1-title">1. Premier contact</h3>
+        <p id="t-omra-step1-desc">
+          Vous nous contactez par WhatsApp, téléphone ou via le formulaire de contact
+          en précisant vos dates, votre ville de départ et le nombre de personnes.
+        </p>
+      </div>
+
+      <div class="audience-card">
+        <h3 id="t-omra-step2-title">2. Proposition détaillée</h3>
+        <p id="t-omra-step2-desc">
+          Nous vous envoyons une proposition claire&nbsp;: formule, vols indicatifs,
+          catégorie d’hôtels, services inclus, prix et conditions de paiement.
+        </p>
+      </div>
+
+      <div class="audience-card">
+        <h3 id="t-omra-step3-title">3. Confirmation & préparation</h3>
+        <p id="t-omra-step3-desc">
+          Après validation, nous confirmons vos réservations, vous accompagnons pour les visas
+          et organisons une réunion d’information avant le départ.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINALE -->
+  <section class="content-section">
+    <div class="audience-card" style="max-width:720px;margin:0 auto;text-align:center;">
+      <h2 id="t-omra-cta-bottom-title">Prêt(e) à préparer votre Omra&nbsp;?</h2>
+      <p id="t-omra-cta-bottom-sub">
+        Envoyez-nous vos dates souhaitées, votre ville de départ et le nombre de personnes.
+        Nous vous revenons avec une proposition adaptée à votre situation.
+      </p>
+      <div style="margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-main" id="t-omra-cta-bottom-btn">
+          Envoyer ma demande Omra
+        </a>
+        <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost">
+          💬 WhatsApp MWT
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
 
-<?php include 'footer.html'; ?>
+<!-- FOOTER (même que index) -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/logo-transparent.png" alt="MWT logo" />
+      <div>
+        <div class="footer-title">MWT - Moltaqa World Travel &amp; Tourism</div>
+
+        <div class="footer-line">
+          <span class="icon">📍</span>
+          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante"
+             target="_blank" class="footer-link">
+            Calle Italia 9, 03003 Alicante
+          </a>
+        </div>
+
+        <div class="footer-line">
+          <span class="icon">🧾</span>
+          <span>CIF : B42572768</span>
+        </div>
+
+        <div class="footer-line">
+          <span class="icon">🏢</span>
+          <span>Numéro d’agence : CV-Mm-2212-A</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-block-title">Contact</div>
+
+      <div class="footer-line">
+        <span class="icon">📞</span>
+        <a href="tel:865556666" class="footer-link">865556666</a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">📱</span>
+        <a href="https://wa.me/34600672423" target="_blank" class="footer-link">
+          WhatsApp : 600672423
+        </a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@mwt-world.com" class="footer-link">info@mwt-world.com</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-block-title">Horaires</div>
+      <div>Lun–Ven : 10h–14h / 17h–20h</div>
+      <div>Samedi : 10h–14h30</div>
+      <div>Dimanche : Fermé</div>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/34600672423" target="_blank">💬</a>
 
 </body>
 </html>
