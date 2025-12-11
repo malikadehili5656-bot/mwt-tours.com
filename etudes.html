@@ -2,13 +2,15 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Omra - MWT</title>
+  <title>MWT - Études en Espagne & Royaume-Uni</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/app.js" defer></script>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="logo-wrap" onclick="window.location.href='index.html'">
@@ -21,13 +23,14 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="main-nav">
       <a href="index.html" class="nav-link" id="t-nav-home">Accueil</a>
       <a href="tours.html" class="nav-link" id="t-nav-tours">Voyages</a>
       <a href="services.html" class="nav-link" id="t-nav-services">Services</a>
       <a href="visas.html" class="nav-link" id="t-nav-visas">Visas</a>
-      <a href="etudes.html" class="nav-link" id="t-nav-etudes">Études</a>
-      <a href="omra.html" class="nav-link active" id="t-nav-omra">Omra</a>
+      <a href="etudes.html" class="nav-link active" id="t-nav-etudes">Études</a>
+      <a href="omra.html" class="nav-link" id="t-nav-omra">Omra</a>
+      <a href="sport.html" class="nav-link" id="t-nav-sport">Événements sportifs</a>
       <a href="contact.html" class="nav-link" id="t-nav-contact">Contact</a>
     </nav>
 
@@ -40,58 +43,213 @@
   </div>
 </header>
 
-<main class="content-section">
-  <h2 class="section-title" id="t-omra-pack-title">Formules Omra</h2>
-  <p class="section-subtitle" id="t-omra-pack-sub">
-    Choisissez la formule adaptée à votre budget et à votre niveau de confort.
-  </p>
+<main>
 
-  <div class="omra-grid">
-    <div class="omra-card">
-      <img src="images/omra-confort.jpg" alt="Omra Confort" />
-      <h3 id="t-omra-pack-comfort-title">Omra Confort</h3>
-      <p id="t-omra-pack-comfort-desc">
-        Hôtels 4*, proximité des Haramain, encadrement francophone & arabophone.
+  <!-- HERO ÉTUDES -->
+  <section class="hero">
+    <img src="images/etudes-hero.jpg" class="hero-image" alt="Études en Espagne et UK" />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <div class="hero-inner-card">
+        <div class="hero-kicker" id="t-study-hero-kicker">
+          Admissions • Mobilité • Accompagnement
+        </div>
+
+        <h1 class="hero-title" id="t-study-hero-title">
+          Étudier en Espagne ou au Royaume-Uni avec MWT
+        </h1>
+
+        <p class="hero-subtitle" id="t-study-hero-sub">
+          Nous accompagnons les étudiants et leurs familles dans le choix du programme,
+          les inscriptions, le visa, l’installation et le suivi.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="contact.html" class="btn btn-main" id="t-study-hero-cta-main">
+            Demander une orientation
+          </a>
+          <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost" id="t-study-hero-cta-whatsapp">
+            💬 WhatsApp MWT
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO PAGE -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 id="t-study-intro-title" class="section-title">
+        Pourquoi choisir MWT pour vos études ?
+      </h2>
+
+      <p class="section-subtitle" id="t-study-intro-sub">
+        Avec une présence à Alicante et une compréhension des besoins des parents et
+        étudiants internationaux, MWT facilite chaque étape du projet d’études.
       </p>
-      <a href="contact.html" class="btn btn-primary" id="t-omra-pack-cta-1">Demander un devis</a>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 id="t-study-dest-title" class="section-title">Destinations disponibles</h2>
     </div>
 
-    <div class="omra-card">
-      <img src="images/omra-vip.jpg" alt="Omra VIP" />
-      <h3 id="t-omra-pack-vip-title">Omra VIP</h3>
-      <p id="t-omra-pack-vip-desc">
-        Hôtels 5*, prestations premium, petits groupes, service personnalisé.
-      </p>
-      <a href="contact.html" class="btn btn-primary" id="t-omra-pack-cta-2">Demander un devis</a>
+    <div class="audience-grid">
+
+      <!-- ESPAGNE -->
+      <article class="audience-card">
+        <h3 id="t-study-spain-title">Études en Espagne</h3>
+        <p id="t-study-spain-desc">
+          Programmes universitaires, écoles privées, académies de langues et formations spécialisées.
+        </p>
+        <ul>
+          <li id="t-study-spain-li1">Universités publiques & privées.</li>
+          <li id="t-study-spain-li2">Programmes en espagnol ou en anglais.</li>
+          <li id="t-study-spain-li3">Orientation logement & installation.</li>
+        </ul>
+      </article>
+
+      <!-- UK -->
+      <article class="audience-card">
+        <h3 id="t-study-uk-title">Études au Royaume-Uni</h3>
+        <p id="t-study-uk-desc">
+          Accompagnement pour programmes académiques, écoles privées et séjours linguistiques.
+        </p>
+        <ul>
+          <li id="t-study-uk-li1">Collèges, lycées & universités.</li>
+          <li id="t-study-uk-li2">Séjours linguistiques sur mesure.</li>
+          <li id="t-study-uk-li3">Support dossier & visa étudiant.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PROCESSUS D'ACCOMPAGNEMENT -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 id="t-study-steps-title" class="section-title">
+        Comment nous vous accompagnons
+      </h2>
     </div>
 
-    <div class="omra-card">
-      <img src="images/omra-econo.jpg" alt="Omra Économique" />
-      <h3 id="t-omra-pack-econ-title">Omra Économique</h3>
-      <p id="t-omra-pack-econ-desc">
-        Formule accessible avec encadrement complet et prestations essentielles.
-      </p>
-      <a href="contact.html" class="btn btn-primary" id="t-omra-pack-cta-3">Demander un devis</a>
+    <div class="audience-grid">
+
+      <article class="audience-card">
+        <h3 id="t-study-step1-title">1. Orientation & choix du programme</h3>
+        <p id="t-study-step1-desc">
+          Nous étudions votre profil (objectif, budget, niveau, pays préféré) pour proposer
+          les meilleures options.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-study-step2-title">2. Dossier & inscriptions</h3>
+        <p id="t-study-step2-desc">
+          Aide pour remplir les formulaires, réunir les documents et soumettre les candidatures.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-study-step3-title">3. Visa & démarches</h3>
+        <p id="t-study-step3-desc">
+          Support complet pour la préparation du visa étudiant et prise de rendez-vous.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-study-step4-title">4. Installation & suivi</h3>
+        <p id="t-study-step4-desc">
+          Logement, arrivée, démarches de base : nous assistons l’étudiant et sa famille
+          pour une installation sereine.
+        </p>
+      </article>
+
     </div>
-  </div>
+  </section>
+
+  <!-- PROGRAMMES POPULAIRES -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 id="t-study-programs-title" class="section-title">
+        Programmes populaires
+      </h2>
+    </div>
+
+    <div class="audience-grid">
+      <article class="audience-card">
+        <h3 id="t-study-prog-lang-title">Séjours linguistiques</h3>
+        <p id="t-study-prog-lang-desc">
+          Courts et longs séjours en Espagne ou au Royaume-Uni pour améliorer l’anglais ou l’espagnol.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-study-prog-uni-title">Études universitaires</h3>
+        <p id="t-study-prog-uni-desc">
+          Licences, masters, écoles privées : nous aidons à choisir la voie adaptée.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-study-prog-fam-title">Accompagnement des parents</h3>
+        <p id="t-study-prog-fam-desc">
+          Assistance pour comprendre les procédures, choisir l’hébergement,
+          organiser le voyage et rassurer les familles.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA FINALE -->
+  <section class="content-section">
+    <div class="audience-card" style="max-width:720px;margin:0 auto;text-align:center;">
+      <h2 id="t-study-cta-bottom-title">
+        Besoin d’un accompagnement pour vos études ?
+      </h2>
+
+      <p id="t-study-cta-bottom-sub">
+        Dites-nous votre niveau, votre objectif, votre pays préféré et votre calendrier.
+        Nous vous guidons gratuitement dans le choix du meilleur programme.
+      </p>
+
+      <div style="margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-main" id="t-study-cta-bottom-btn">
+          Demander une orientation
+        </a>
+        <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost">
+          💬 WhatsApp MWT
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
       <img src="images/logo-transparent.png" alt="MWT logo" />
       <div>
         <div class="footer-title">MWT - Moltaqa World Travel &amp; Tourism</div>
+
         <div class="footer-line">
           <span class="icon">📍</span>
-          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante" target="_blank" class="footer-link">
+          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante"
+             target="_blank" class="footer-link">
             Calle Italia 9, 03003 Alicante
           </a>
         </div>
+
         <div class="footer-line">
           <span class="icon">🧾</span>
           <span>CIF : B42572768</span>
         </div>
+
         <div class="footer-line">
           <span class="icon">🏢</span>
           <span>Numéro d’agence : CV-Mm-2212-A</span>
@@ -101,9 +259,23 @@
 
     <div>
       <div class="footer-block-title">Contact</div>
-      <div class="footer-line"><span class="icon">📞</span> 865556666</div>
-      <div class="footer-line"><span class="icon">📱</span> WhatsApp : 600672423</div>
-      <div class="footer-line"><span class="icon">✉️</span> info@mwt-world.com</div>
+
+      <div class="footer-line">
+        <span class="icon">📞</span>
+        <a href="tel:865556666" class="footer-link">865556666</a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">📱</span>
+        <a href="https://wa.me/34600672423" target="_blank" class="footer-link">
+          WhatsApp : 600672423
+        </a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@mwt-world.com" class="footer-link">info@mwt-world.com</a>
+      </div>
     </div>
 
     <div>
