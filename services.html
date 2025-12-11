@@ -2,13 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Services - MWT</title>
+  <title>MWT - Services & accompagnement</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/app.js" defer></script>
 </head>
 <body>
 
+<!-- HEADER (identique aux autres pages, avec Services actif) -->
 <header>
   <div class="header-inner">
     <div class="logo-wrap" onclick="window.location.href='index.html'">
@@ -21,13 +22,14 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="main-nav">
       <a href="index.html" class="nav-link" id="t-nav-home">Accueil</a>
       <a href="tours.html" class="nav-link" id="t-nav-tours">Voyages</a>
       <a href="services.html" class="nav-link active" id="t-nav-services">Services</a>
       <a href="visas.html" class="nav-link" id="t-nav-visas">Visas</a>
       <a href="etudes.html" class="nav-link" id="t-nav-etudes">Études</a>
       <a href="omra.html" class="nav-link" id="t-nav-omra">Omra</a>
+      <a href="sport.html" class="nav-link" id="t-nav-sport">Événements sportifs</a>
       <a href="contact.html" class="nav-link" id="t-nav-contact">Contact</a>
     </nav>
 
@@ -40,66 +42,269 @@
   </div>
 </header>
 
-<main class="content-section">
-  <h2 class="section-title" id="t-services-title">Services & partenaires</h2>
+<main>
+  <!-- HERO SERVICES -->
+  <section class="hero">
+    <!-- tu peux mettre une image neutre type ville/office → ex: images/services-hero.jpg -->
+    <img src="images/services-hero.jpg" class="hero-image" alt="Services MWT" />
+    <div class="hero-overlay"></div>
 
-  <div class="services-grid">
+    <div class="hero-inner">
+      <div class="hero-inner-card">
+        <div class="hero-kicker" id="t-services-hero-kicker">
+          Agence de voyages & services à Alicante
+        </div>
+        <h1 class="hero-title" id="t-services-hero-title">
+          Tous vos services de voyage & installation avec MWT
+        </h1>
+        <p class="hero-subtitle" id="t-services-hero-sub">
+          Billets, transferts, location de voiture, démarches à Alicante et accompagnement
+          sur mesure pour les voyageurs, familles, étudiants et nouveaux résidents.
+        </p>
 
-    <div class="card">
-      <img src="images/service-tickets.jpg" alt="">
-      <h3 id="t-serv-tickets-title">Billetterie complète</h3>
-      <p id="t-serv-tickets-desc">Billets terrestres, maritimes et aériens pour toutes destinations.</p>
+        <div class="hero-cta-row">
+          <a href="contact.html" class="btn btn-main" id="t-services-hero-cta-main">
+            Expliquer mon besoin
+          </a>
+          <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost" id="t-services-hero-cta-whatsapp">
+            💬 WhatsApp MWT
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOC INTRO -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-services-intro-title">
+        Des services pensés pour vous faciliter la vie
+      </h2>
+      <p class="section-subtitle" id="t-services-intro-sub">
+        MWT n’est pas seulement une agence de voyages : nous vous accompagnons dans vos
+        projets de déplacement, d’installation et de mobilité entre l’Espagne, l’Algérie,
+        la France et d’autres destinations.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES PRINCIPAUX -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-services-main-title">Nos services principaux</h2>
     </div>
 
-    <div class="card">
-      <img src="images/service-car.jpg" alt="">
-      <h3 id="t-serv-car-title">Location de voiture</h3>
-      <p id="t-serv-car-desc">Partenaires locaux & internationaux pour vos déplacements.</p>
+    <div class="audience-grid">
+      <!-- Billets -->
+      <article class="audience-card">
+        <h3 id="t-services-flight-title">Billets d’avion & ferry</h3>
+        <p id="t-services-flight-desc">
+          Réservation de billets d’avion et de ferry entre l’Espagne, l’Algérie, la France
+          et d’autres destinations. Recherche des meilleurs itinéraires selon vos dates,
+          votre budget et vos contraintes.
+        </p>
+        <ul>
+          <li id="t-services-flight-li1">Aller simple, aller-retour ou multi-destinations.</li>
+          <li id="t-services-flight-li2">Possibilité de billets flexibles (selon tarif).</li>
+          <li id="t-services-flight-li3">Assistance en cas de modification ou d’annulation.</li>
+        </ul>
+      </article>
+
+      <!-- Transferts & voiture -->
+      <article class="audience-card">
+        <h3 id="t-services-transfer-title">Transferts & location de voiture</h3>
+        <p id="t-services-transfer-desc">
+          Organisation de vos transferts aéroport, gares et hébergement, ainsi que la
+          location de voiture via nos partenaires à Alicante et dans d’autres villes.
+        </p>
+        <ul>
+          <li id="t-services-transfer-li1">Transferts privés ou partagés selon vos besoins.</li>
+          <li id="t-services-transfer-li2">Location de voiture pour courts ou longs séjours.</li>
+          <li id="t-services-transfer-li3">Options avec assurance et conducteur additionnel.</li>
+        </ul>
+      </article>
+
+      <!-- Démarches / NIE / installation -->
+      <article class="audience-card">
+        <h3 id="t-services-settle-title">Installation & démarches à Alicante</h3>
+        <p id="t-services-settle-desc">
+          Accompagnement pour vos démarches de première installation à Alicante
+          (selon votre profil et dans la limite du cadre légal).
+        </p>
+        <ul>
+          <li id="t-services-settle-li1">Orientation pour le NIE et démarches de base.</li>
+          <li id="t-services-settle-li2">Aide à l’organisation de votre arrivée et logement temporaire.</li>
+          <li id="t-services-settle-li3">Contacts utiles (santé, transports, vie quotidienne).</li>
+        </ul>
+      </article>
+
+      <!-- Séjours & excursions -->
+      <article class="audience-card">
+        <h3 id="t-services-stay-title">Séjours & excursions</h3>
+        <p id="t-services-stay-desc">
+          Organisation de séjours en Espagne, en Algérie et ailleurs, ainsi que des
+          excursions locales (selon saison et disponibilité).
+        </p>
+        <ul>
+          <li id="t-services-stay-li1">Séjours en bord de mer, city trips, circuits.</li>
+          <li id="t-services-stay-li2">Excursions à la journée ou sur plusieurs jours.</li>
+          <li id="t-services-stay-li3">Programmes sur mesure pour familles ou groupes.</li>
+        </ul>
+      </article>
+
+      <!-- Omra & spiritualité -->
+      <article class="audience-card">
+        <h3 id="t-services-omra-title">Omra & voyages spirituels</h3>
+        <p id="t-services-omra-desc">
+          Programmes Omra en groupe ou sur mesure, avec accompagnement, hôtels et
+          services adaptés. Une page dédiée est disponible pour tous les détails.
+        </p>
+        <ul>
+          <li id="t-services-omra-li1">Formules Éco, Standard, Confort & Premium.</li>
+          <li id="t-services-omra-li2">Départs depuis l’Europe et l’Algérie.</li>
+          <li id="t-services-omra-li3">Encadrement religieux et assistance sur place.</li>
+        </ul>
+        <a href="omra.html" class="btn btn-ghost btn-small" id="t-services-omra-cta">
+          Voir les détails Omra
+        </a>
+      </article>
+
+      <!-- Études & jeunes -->
+      <article class="audience-card">
+        <h3 id="t-services-study-title">Accompagnement étudiants & familles</h3>
+        <p id="t-services-study-desc">
+          En lien avec nos programmes d’études, nous aidons les étudiants et leurs
+          parents à organiser les aspects pratiques du départ et de l’arrivée.
+        </p>
+        <ul>
+          <li id="t-services-study-li1">Orientation sur le choix de programme (Espagne & UK).</li>
+          <li id="t-services-study-li2">Organisation du voyage et de l’arrivée.</li>
+          <li id="t-services-study-li3">Coordination avec la page « Études » de MWT.</li>
+        </ul>
+        <a href="etudes.html" class="btn btn-ghost btn-small" id="t-services-study-cta">
+          Voir les programmes d’études
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOCUS ALICANTE -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-services-alicante-title">
+        MWT, votre point d’ancrage à Alicante
+      </h2>
+      <p class="section-subtitle" id="t-services-alicante-sub">
+        Basés à Alicante, nous comprenons les besoins des voyageurs, familles et expatriés
+        qui font le lien entre l’Espagne, l’Algérie, la France et d’autres pays.
+      </p>
     </div>
 
-    <div class="card">
-      <img src="images/service-hotel.jpg" alt="">
-      <h3 id="t-serv-hotel-title">Hébergements & hôtels</h3>
-      <p id="t-serv-hotel-desc">Appartements, hôtels & résidences sélectionnés.</p>
+    <div class="audience-grid">
+      <article class="audience-card">
+        <h3 id="t-services-alicante-card1-title">Un interlocuteur unique</h3>
+        <p id="t-services-alicante-card1-desc">
+          Une seule agence pour vos billets, vos transferts, vos séjours et certaines
+          démarches de base sur place.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-services-alicante-card2-title">Communication simple</h3>
+        <p id="t-services-alicante-card2-desc">
+          Échanges en français, arabe et espagnol selon votre préférence, via WhatsApp,
+          téléphone ou en rendez-vous sur place.
+        </p>
+      </article>
+
+      <article class="audience-card">
+        <h3 id="t-services-alicante-card3-title">Approche humaine</h3>
+        <p id="t-services-alicante-card3-desc">
+          Une équipe à taille humaine, qui prend le temps de comprendre votre situation
+          et de vous proposer des solutions adaptées.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- COMMENT ÇA MARCHE -->
+  <section class="content-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-services-steps-title">
+        Comment fonctionne notre accompagnement ?
+      </h2>
     </div>
 
-    <div class="card">
-      <img src="images/service-transfer.jpg" alt="">
-      <h3 id="t-serv-transfer-title">Transferts & excursions</h3>
-      <p id="t-serv-transfer-desc">Transferts aéroports, excursions à Alicante & en Espagne.</p>
-    </div>
+    <div class="audience-grid">
+      <article class="audience-card">
+        <h3 id="t-services-step1-title">1. Vous nous expliquez votre projet</h3>
+        <p id="t-services-step1-desc">
+          Par WhatsApp, téléphone ou via le formulaire de contact, vous décrivez
+          votre besoin : voyage, installation, études, famille, etc.
+        </p>
+      </article>
 
-    <div class="card">
-      <img src="images/service-telecom.jpg" alt="">
-      <h3 id="t-serv-telecom-title">Partenaires télécom</h3>
-      <p id="t-serv-telecom-desc">Lebara, Orange, MasMovil — cartes SIM et recharges.</p>
-    </div>
+      <article class="audience-card">
+        <h3 id="t-services-step2-title">2. Nous vous proposons des options</h3>
+        <p id="t-services-step2-desc">
+          Nous revenons vers vous avec une ou plusieurs solutions possibles, claires
+          et détaillées (dates, prix, conditions).
+        </p>
+      </article>
 
-    <div class="card">
-      <img src="images/service-luggage.jpg" alt="">
-      <h3 id="t-serv-luggage-title">Garde-bagages</h3>
-      <p id="t-serv-luggage-desc">Consigne sécurisée à l’agence.</p>
+      <article class="audience-card">
+        <h3 id="t-services-step3-title">3. Validation & suivi</h3>
+        <p id="t-services-step3-desc">
+          Dès que vous validez, nous organisons les réservations et restons disponibles
+          pour le suivi et les éventuels ajustements.
+        </p>
+      </article>
     </div>
+  </section>
 
-  </div>
+  <!-- CTA FINALE -->
+  <section class="content-section">
+    <div class="audience-card" style="max-width:720px;margin:0 auto;text-align:center;">
+      <h2 id="t-services-cta-bottom-title">
+        Vous avez un projet ou une situation particulière ?
+      </h2>
+      <p id="t-services-cta-bottom-sub">
+        Expliquez-nous simplement votre besoin (voyage, installation, famille, études…).
+        Nous vous répondons avec une proposition claire et adaptée.
+      </p>
+      <div style="margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-main" id="t-services-cta-bottom-btn">
+          Décrire mon projet à MWT
+        </a>
+        <a href="https://wa.me/34600672423" target="_blank" class="btn btn-ghost">
+          💬 Écrire sur WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
 
+<!-- FOOTER (identique aux autres pages) -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
       <img src="images/logo-transparent.png" alt="MWT logo" />
       <div>
         <div class="footer-title">MWT - Moltaqa World Travel &amp; Tourism</div>
+
         <div class="footer-line">
           <span class="icon">📍</span>
-          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante" target="_blank" class="footer-link">
+          <a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante"
+             target="_blank" class="footer-link">
             Calle Italia 9, 03003 Alicante
           </a>
         </div>
+
         <div class="footer-line">
           <span class="icon">🧾</span>
           <span>CIF : B42572768</span>
         </div>
+
         <div class="footer-line">
           <span class="icon">🏢</span>
           <span>Numéro d’agence : CV-Mm-2212-A</span>
@@ -109,9 +314,23 @@
 
     <div>
       <div class="footer-block-title">Contact</div>
-      <div class="footer-line"><span class="icon">📞</span> 865556666</div>
-      <div class="footer-line"><span class="icon">📱</span> WhatsApp : 600672423</div>
-      <div class="footer-line"><span class="icon">✉️</span> info@mwt-world.com</div>
+
+      <div class="footer-line">
+        <span class="icon">📞</span>
+        <a href="tel:865556666" class="footer-link">865556666</a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">📱</span>
+        <a href="https://wa.me/34600672423" target="_blank" class="footer-link">
+          WhatsApp : 600672423
+        </a>
+      </div>
+
+      <div class="footer-line">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@mwt-world.com" class="footer-link">info@mwt-world.com</a>
+      </div>
     </div>
 
     <div>
