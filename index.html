@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<header>
+<header class="header">
   <div class="header-inner">
     <div class="logo-wrap" onclick="window.location.href='index.html'">
       <div class="logo-badge">
@@ -21,13 +21,14 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="main-nav">
       <a href="index.html" class="nav-link active" id="t-nav-home">Accueil</a>
       <a href="tours.html" class="nav-link" id="t-nav-tours">Voyages</a>
       <a href="services.html" class="nav-link" id="t-nav-services">Services</a>
       <a href="visas.html" class="nav-link" id="t-nav-visas">Visas</a>
       <a href="etudes.html" class="nav-link" id="t-nav-etudes">Études</a>
       <a href="omra.html" class="nav-link" id="t-nav-omra">Omra</a>
+      <a href="sport.html" class="nav-link" id="t-nav-sport">Événements sportifs</a>
       <a href="contact.html" class="nav-link" id="t-nav-contact">Contact</a>
     </nav>
 
@@ -41,106 +42,143 @@
 </header>
 
 <main>
-  <!-- HERO -->
-  <section class="hero">
-    <img src="images/omra.jpg" class="hero-image" alt="Omra & Hajj" />
+  <!-- HERO STYLE HOJAJ AL BAIT -->
+  <section class="hero hero-premium">
+    <img src="images/omra.jpg" class="hero-image" alt="MWT hero" />
     <div class="hero-overlay"></div>
 
-    <div class="hero-inner">
-      <div class="hero-hajj-banner" onclick="window.location.href='contact.html'">
-        <div class="hero-hajj-text" id="t-hajj-banner-title">Inscription Hajj 2026</div>
-      </div>
-    </div>
-  </section>
+    <div class="hero-inner hero-inner-card">
+      <div class="hero-kicker" id="t-hero-kicker">Agence internationale de voyages & services</div>
+      <h1 class="hero-title" id="t-hero-title">
+        MWT – Votre passerelle vers les plus beaux voyages
+      </h1>
+      <p class="hero-subtitle" id="t-hero-subtitle">
+        Omra, Hajj 2026, séjours, études, services administratifs & événements sportifs depuis Alicante.
+      </p>
 
-  <!-- OFFRES OMRA -->
-  <section class="content-section">
-    <h2 class="section-title" id="t-omra-title">Offres Omra</h2>
-
-    <div class="offers-grid">
-      <div class="offer-card">
-        <div class="offer-title" id="t-omra1-title">Omra 25 décembre — 3 janvier</div>
-        <div class="offer-dates" id="t-omra1-dates">25/12 — 03/01</div>
-        <div class="offer-price" id="t-omra1-price">1595€</div>
-        <a href="contact.html" class="btn btn-ghost btn-small" id="t-omra1-cta">S’inscrire</a>
+      <div class="hero-cta-row">
+        <a href="omra.html" class="btn btn-main" id="t-hero-cta-omra">Découvrir l’Omra & Hajj 2026</a>
+        <a href="contact.html" class="btn btn-ghost" id="t-hero-cta-contact">Parler à un conseiller</a>
       </div>
 
-      <div class="offer-card">
-        <div class="offer-title" id="t-omra2-title">Omra 20 janvier — 3 février</div>
-        <div class="offer-dates" id="t-omra2-dates">20/01 — 03/02</div>
-        <div class="offer-price" id="t-omra2-price">1395€</div>
-        <a href="contact.html" class="btn btn-ghost btn-small" id="t-omra2-cta">S’inscrire</a>
-      </div>
-
-      <div class="offer-card">
-        <div class="offer-title" id="t-omra3-title">Omra du Ramadan</div>
-        <div class="offer-dates" id="t-omra3-dates">Inscriptions ouvertes (dates à confirmer)</div>
-        <a href="contact.html" class="btn btn-ghost btn-small" id="t-omra3-cta">S’inscrire</a>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <span>📍</span>
+          <span id="t-hero-badge1">Basée à Alicante, accompagnement international</span>
+        </div>
+        <div class="hero-badge">
+          <span>🕋</span>
+          <span id="t-hero-badge2">Spécialiste Omra & Hajj 2026</span>
+        </div>
+        <div class="hero-badge">
+          <span>🏟️</span>
+          <span id="t-hero-badge3">Packages événements sportifs & hospitalités</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- À QUI S’ADRESSE MWT ? -->
   <section class="audience-section content-section">
-    <h2 class="section-title" id="t-audience-title">À qui s’adresse MWT ?</h2>
-    <p class="section-subtitle" id="t-audience-sub">
-      Une agence internationale basée à Alicante, au service des voyageurs, familles,
-      expatriés, étudiants et touristes de toutes nationalités.
-    </p>
+    <div class="section-header">
+      <h2 class="section-title" id="t-audience-title">À qui s’adresse MWT ?</h2>
+      <p class="section-subtitle" id="t-audience-sub">
+        Une agence internationale basée à Alicante, au service des voyageurs, familles,
+        expatriés, étudiants et touristes de toutes nationalités.
+      </p>
+    </div>
 
     <div class="audience-grid">
       <div class="audience-card">
         <h3 id="t-audience-spirit-title">Voyageurs spirituels & halal</h3>
-        <p id="t-audience-spirit-desc">Omra, Hajj, voyages halal organisés avec sérieux et accompagnement premium.</p>
+        <p id="t-audience-spirit-desc">
+          Omra, Hajj, voyages halal organisés avec sérieux, encadrement et accompagnement premium.
+        </p>
       </div>
 
       <div class="audience-card">
         <h3 id="t-audience-expat-title">Expatriés & nouveaux résidents</h3>
-        <p id="t-audience-expat-desc">NIE, visas, démarches administratives, logement, installation à Alicante.</p>
+        <p id="t-audience-expat-desc">
+          NIE, visas, démarches administratives, logement, installation à Alicante & en Espagne.
+        </p>
       </div>
 
       <div class="audience-card">
         <h3 id="t-audience-tourist-title">Touristes & voyageurs internationaux</h3>
-        <p id="t-audience-tourist-desc">Billets d’avion & ferry, séjours, excursions, transferts aéroport.</p>
+        <p id="t-audience-tourist-desc">
+          Billets d’avion & ferry, séjours, excursions, transferts aéroport, circuits sur-mesure.
+        </p>
       </div>
 
       <div class="audience-card">
         <h3 id="t-audience-student-title">Étudiants & parents</h3>
-        <p id="t-audience-student-desc">Études en Espagne & UK, dossiers, visas, orientation et installation.</p>
+        <p id="t-audience-student-desc">
+          Études en Espagne & UK, dossiers, visas, orientation, logement & installation accompagnée.
+        </p>
+      </div>
+
+      <div class="audience-card">
+        <h3 id="t-audience-sport-title">Passionnés d’événements sportifs</h3>
+        <p id="t-audience-sport-desc">
+          Accès à des événements sportifs majeurs : football, Formule 1, tennis, hospitalités VIP & packages complets.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- PRODUITS PHARES -->
-  <section class="content-section">
-    <h2 class="section-title" id="t-products-title">Nos produits phares</h2>
+  <section class="content-section featured-section">
+    <div class="section-header">
+      <h2 class="section-title" id="t-products-title">Nos produits phares</h2>
+      <p class="section-subtitle" id="t-products-sub">
+        Une sélection de services et voyages signés MWT – pensés pour vos projets de vie, vos séjours
+        et vos voyages spirituels.
+      </p>
+    </div>
 
     <div class="carousel">
       <div class="carousel-inner">
 
         <a class="carousel-item" href="omra.html">
-          <img src="images/omra.jpg" alt="Omra" />
+          <div class="carousel-image-wrap">
+            <img src="images/omra.jpg" alt="Omra" />
+          </div>
           <div class="carousel-title" id="t-car-omra">Omra</div>
         </a>
 
         <a class="carousel-item" href="contact.html">
-          <img src="images/hajj.jpg" alt="Hajj" />
+          <div class="carousel-image-wrap">
+            <img src="images/hajj.jpg" alt="Hajj" />
+          </div>
           <div class="carousel-title" id="t-car-hajj">Hajj 2026</div>
         </a>
 
         <a class="carousel-item" href="tours.html">
-          <img src="images/sahara.jpg" alt="Sahara algérien" />
+          <div class="carousel-image-wrap">
+            <img src="images/sahara.jpg" alt="Sahara algérien" />
+          </div>
           <div class="carousel-title" id="t-car-sahara">Sahara algérien</div>
         </a>
 
         <a class="carousel-item" href="etudes.html">
-          <img src="images/study-uk.jpg" alt="Études" />
+          <div class="carousel-image-wrap">
+            <img src="images/study-uk.jpg" alt="Études" />
+          </div>
           <div class="carousel-title" id="t-car-study">Études Espagne & UK</div>
         </a>
 
         <a class="carousel-item" href="services.html">
-          <img src="images/service-car.jpg" alt="Location de voiture" />
+          <div class="carousel-image-wrap">
+            <img src="images/service-car.jpg" alt="Location de voiture" />
+          </div>
           <div class="carousel-title" id="t-car-services">Location de voiture</div>
+        </a>
+
+        <a class="carousel-item" href="sport.html">
+          <div class="carousel-image-wrap">
+            <img src="images/sport.jpg" alt="Événements sportifs" />
+          </div>
+          <div class="carousel-title" id="t-car-sport">Événements sportifs</div>
         </a>
 
       </div>
