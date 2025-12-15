@@ -63,10 +63,12 @@ img {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 12px 20px;
-  display: flex;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 24px;
 }
+
 
 /* Logo */
 
@@ -114,9 +116,8 @@ img {
 .main-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
-  margin-left: 40px;
-  flex: 1;
 }
 
 .nav-link {
