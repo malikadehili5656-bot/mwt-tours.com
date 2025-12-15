@@ -59,15 +59,7 @@ img {
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
 }
 
-.header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 12px 20px;
 
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-}
 
 
 /* Logo */
@@ -165,7 +157,11 @@ img {
   border-radius: var(--radius-pill);
   padding: 3px;
   border: 1px solid #e1e4f0;
+  .lang-switch {
+  justify-self: end;
 }
+
+
 
 .lang-pill {
   font-size: 0.7rem;
