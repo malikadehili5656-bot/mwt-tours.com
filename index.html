@@ -1,278 +1,271 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MWT – Moltaqa World Travel & Tourism</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MWT – Moltaqa World Travel & Tourism</title>
 
-  <style>
-    :root{
-      /* === MWT COLORS === */
-      --blue:#4f7ac2;
-      --green:#7a8f3a;
-      --orange:#c97a3a;
-      --gold:#d9b673;
+<style>
+:root{
+  --blue:#4f7ac2;
+  --green:#7a8f3a;
+  --orange:#c97a3a;
+  --dark:#0f172a;
+  --light:#f5f7fb;
+  --border:#e6e9f2;
+  --max:1200px;
+}
 
-      --bg:#ffffff;
-      --page:#f5f7fb;
-      --text:#151823;
-      --muted:#6f7484;
-      --border:#e6e9f2;
-      --shadow:0 18px 50px rgba(15,23,42,.12);
-      --max:1200px;
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--light);
+  color:#111;
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--page);
-      color:var(--text);
-    }
-    a{color:inherit;text-decoration:none}
+/* ================= HEADER ================= */
+.header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:var(--max);
+  margin:auto;
+  padding:12px 18px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+}
 
-    /* ================= HEADER ================= */
-    .header{
-      position:fixed;
-      top:0;left:0;right:0;
-      z-index:1000;
-      background:var(--bg);
-      border-bottom:1px solid var(--border);
-    }
-    .header-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 20px;
-      display:grid;
-      grid-template-columns:auto 1fr auto;
-      align-items:center;
-      gap:18px;
-    }
+/* Logo */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+.logo-box{
+  width:90px;height:56px;
+  border-radius:14px;
+  border:2px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;color:var(--blue);
+}
+.brand-name{
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#555;
+}
 
-    /* LOGO */
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-    .logo-box{
-      width:110px;
-      height:64px;
-      border-radius:18px;
-      background:#fff;
-      border:2px dashed #cfd6e6;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-      color:var(--blue);
-    }
-    .brand-name{
-      font-size:11px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-      line-height:1.2;
-      max-width:220px;
-    }
+/* Menu */
+.nav{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+}
+.nav a{
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#555;
+  font-weight:600;
+}
+.nav a.highlight{
+  color:var(--orange);
+  font-weight:800;
+}
 
-    /* MENU (MAX 5 LINKS) */
-    .nav{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-    }
-    .nav a{
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:999px;
-      font-weight:600;
-    }
-    .nav a:hover{
-      background:#eef2fa;
-      color:var(--text);
-    }
-    .nav a.highlight{
-      color:var(--text);
-      font-weight:800;
-      position:relative;
-    }
-    .nav a.highlight::after{
-      content:"";
-      position:absolute;
-      left:12px;right:12px;bottom:4px;
-      height:2px;
-      background:linear-gradient(120deg,var(--green),var(--orange));
-      border-radius:999px;
-    }
+/* Langues */
+.lang{
+  display:flex;
+  gap:6px;
+  border:1px solid var(--border);
+  padding:4px;
+  border-radius:999px;
+  background:#f1f4fb;
+}
+.lang button{
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.lang button.active{
+  background:linear-gradient(120deg,var(--green),var(--orange));
+  color:#fff;
+}
 
-    /* LANG + WHATSAPP */
-    .header-right{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .lang{
-      display:flex;
-      gap:6px;
-      padding:4px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background:#f2f5fc;
-    }
-    .lang button{
-      border:0;
-      background:transparent;
-      cursor:pointer;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color:var(--muted);
-    }
-    .lang button.active{
-      background:linear-gradient(120deg,var(--green),var(--orange));
-      color:#fff;
-    }
+/* ================= HERO / CAROUSEL ================= */
+.spacer{height:90px}
 
-    .whatsapp{
-      width:40px;height:40px;
-      border-radius:50%;
-      background:#25D366;
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      box-shadow:0 10px 24px rgba(0,0,0,.2);
-    }
+.hero{
+  max-width:var(--max);
+  margin:30px auto;
+  padding:0 18px;
+}
+.hero-slide{
+  border-radius:28px;
+  padding:40px;
+  background:
+    linear-gradient(120deg,rgba(79,122,194,.85),rgba(122,143,58,.85)),
+    linear-gradient(120deg,#000,#000);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
 
-    /* SPACER HEADER */
-    .spacer{height:96px}
+/* badge */
+.hero-badge{
+  font-size:12px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  opacity:.9;
+}
 
-    /* ================= HERO / CARROUSEL ================= */
-    .hero{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 20px;
-    }
+/* title */
+.hero h1{
+  margin:12px 0 14px;
+  font-size:40px;
+  line-height:1.15;
+}
 
-    .carousel{
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:
-        radial-gradient(900px 380px at 20% 25%, rgba(217,182,115,.22), transparent 60%),
-        linear-gradient(120deg, rgba(79,122,194,.22), rgba(122,143,58,.18)),
-        linear-gradient(120deg, rgba(0,0,0,.65), rgba(0,0,0,.25));
-      min-height:420px;
-      display:flex;
-      align-items:center;
-    }
+/* points */
+.hero-points{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  margin:18px 0 26px;
+}
+.point{
+  background:rgba(255,255,255,.15);
+  border-radius:14px;
+  padding:12px 14px;
+  font-size:14px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
 
-    .slide{
-      padding:42px;
-      max-width:720px;
-      color:#fff;
-    }
-    .slide .kicker{
-      font-size:12px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:10px;
-    }
-    .slide h1{
-      font-size:42px;
-      line-height:1.1;
-      margin:0 0 14px;
-    }
-    .slide p{
-      font-size:16px;
-      line-height:1.6;
-      max-width:560px;
-      opacity:.95;
-      margin-bottom:22px;
-    }
+/* CTA */
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.btn{
+  padding:12px 22px;
+  border-radius:999px;
+  font-weight:800;
+  text-decoration:none;
+  border:0;
+}
+.btn.primary{
+  background:var(--orange);
+  color:#fff;
+}
+.btn.secondary{
+  background:rgba(255,255,255,.2);
+  color:#fff;
+}
 
-    .slide-cta{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:14px 28px;
-      border-radius:999px;
-      background:linear-gradient(120deg,var(--orange),var(--gold));
-      color:#fff;
-      font-weight:800;
-      box-shadow:0 14px 30px rgba(201,122,58,.35);
-    }
+/* ================= WHATSAPP FLOAT ================= */
+.whatsapp{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  z-index:9999;
+}
+.whatsapp a{
+  width:56px;height:56px;
+  background:#25d366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
 
-    @media(max-width:980px){
-      .nav{display:none}
-      .slide h1{font-size:32px}
-      .carousel{min-height:360px}
-    }
-  </style>
+@media(max-width:900px){
+  .nav{display:none}
+  .hero h1{font-size:30px}
+}
+</style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="header-inner">
-
-    <!-- LOGO -->
     <a href="index.html" class="brand">
       <div class="logo-box">MWT</div>
-      <div class="brand-name">
-        Moltaqa World Travel<br>& Tourism
-      </div>
+      <div class="brand-name">Moltaqa World Travel & Tourism</div>
     </a>
 
-    <!-- MENU -->
     <nav class="nav">
       <a href="index.html">Accueil</a>
       <a href="hajj.html" class="highlight">Hajj 2026</a>
-      <a href="#services">Services</a>
+      <a href="services.html">Services</a>
       <a href="umrah.html">Omra</a>
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- LANG + WHATSAPP -->
-    <div class="header-right">
-      <div class="lang">
-        <button class="active">FR</button>
-        <button>EN</button>
-        <button>ES</button>
-        <button>AR</button>
-      </div>
-      <a class="whatsapp" href="https://wa.me/34600672423" target="_blank">💬</a>
+    <div class="lang">
+      <button class="active">🇫🇷 FR</button>
+      <button>🇬🇧 EN</button>
+      <button>🇪🇸 ES</button>
+      <button>🇸🇦 AR</button>
     </div>
-
   </div>
 </header>
 
 <div class="spacer"></div>
 
-<!-- ================= HERO / CARROUSEL ================= -->
+<!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="carousel">
+  <div class="hero-slide">
+    <div class="hero-badge">Hajj Packages</div>
+    <h1>Hajj 2026<br>Accompagnement officiel & sécurisé</h1>
 
-    <!-- SLIDE 1 : HAJJ 2026 -->
-    <div class="slide">
-      <div class="kicker">Hajj Packages</div>
-      <h1>Hajj 2026<br>Accompagnement officiel & sécurisé</h1>
-      <p>
-        Vols, visa Nusuk, hébergements à Makkah & Médine,
-        camps Mina & Arafat, transport et guide agréé.
-        Une organisation complète, claire et conforme.
-      </p>
-      <a href="hajj.html" class="slide-cta">
-        Découvrir Hajj 2026
-      </a>
+    <div class="hero-points">
+      <div class="point">🛂 Visa Hajj officiel (Nusuk)</div>
+      <div class="point">✈️ Vols aller-retour organisés</div>
+      <div class="point">🏨 Hôtels Makkah & Médine</div>
+      <div class="point">⛺ Camps Mina & Arafat</div>
+      <div class="point">🚌 Transport inter-sites</div>
+      <div class="point">🧭 Guide agréé & encadrement</div>
     </div>
 
+    <div class="hero-actions">
+      <a href="hajj.html" class="btn primary">Découvrir Hajj 2026</a>
+      <a href="contact.html" class="btn secondary">Demande d’information</a>
+    </div>
   </div>
 </section>
+
+<!-- WhatsApp -->
+<div class="whatsapp">
+  <a href="https://wa.me/34600672423" target="_blank">💬</a>
+</div>
+
+</body>
+</html>
