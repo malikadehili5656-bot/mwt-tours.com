@@ -1,1207 +1,278 @@
 <!doctype html>
 <html lang="fr" dir="ltr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MWT – Moltaqa World Travel & Tourism</title>
 
   <style>
     :root{
+      /* === MWT COLORS === */
+      --blue:#4f7ac2;
+      --green:#7a8f3a;
+      --orange:#c97a3a;
+      --gold:#d9b673;
+
       --bg:#ffffff;
       --page:#f5f7fb;
       --text:#151823;
       --muted:#6f7484;
       --border:#e6e9f2;
-
-      --gold:#d9b673;
-      --orange:#c97a3a;
-      --green:#7a8f3a;
-      --blue:#4f7ac2;
-
-      --shadow: 0 14px 40px rgba(15,23,42,.10);
-      --max:1180px;
-
-      --footerBlue:#1e4f9a;    /* bleu footer */
-      --footerBlue2:#163c78;
-      --footerText:#eaf1ff;
-      --footerMuted:rgba(234,241,255,.78);
+      --shadow:0 18px 50px rgba(15,23,42,.12);
+      --max:1200px;
     }
 
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
-    a{color:inherit}
-    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
-    .spacer{height:84px}
-
-    /* HEADER (EXACT contact style) */
-    .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--border)}
-    .header-inner{display:grid;grid-template-columns:max-content 1fr max-content;align-items:center;gap:14px;padding:12px 18px;max-width:var(--max);margin:0 auto}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-    .logo-box{width:86px;height:56px;border-radius:14px;border:2px dashed #cfd6e6;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .brand-name{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.15;max-width:240px}
-
-    .nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-    .nav a{text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-radius:999px}
-    .nav a:hover{background:#eef2fa;color:var(--text)}
-    .nav a.active{color:var(--text);font-weight:700}
-    .nav a.highlight{font-weight:800;color:var(--text);position:relative}
-    .nav a.highlight::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2px;background:linear-gradient(120deg,var(--green),var(--orange));border-radius:999px}
-
-    .lang{display:flex;gap:6px;align-items:center;padding:4px;border:1px solid var(--border);background:#f2f5fc;border-radius:999px}
-    .lang button{border:0;background:transparent;cursor:pointer;padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;white-space:nowrap}
-    .lang button.active{background:linear-gradient(120deg,var(--green),var(--orange));color:#fff}
-
-    /* GLOBAL SECTIONS (same system as contact) */
-    .section{padding:26px 0}
-    .section h1{margin:0 0 10px;font-size:28px}
-    .section h2{margin:0 0 10px;font-size:22px}
-    .lead{margin:0 0 16px;color:var(--muted);line-height:1.6}
-
-    /* Page hero (reusable) */
-    .page-hero{
-      margin-top:16px;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);
-      background:
-        radial-gradient(1000px 420px at 20% 25%, rgba(217,182,115,.22), transparent 60%),
-        linear-gradient(120deg, rgba(122,143,58,.18), rgba(79,122,194,.10)),
-        linear-gradient(120deg, rgba(0,0,0,.55), rgba(0,0,0,.12));
-      padding:26px;
-    }
-    .hero-card{
-      width:min(980px, 100%);
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(217,182,115,.35);
-      border-radius:22px;
-      padding:18px 18px 16px;
-      backdrop-filter: blur(10px);
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--page);
       color:var(--text);
     }
-    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin:0 0 6px}
-    .hero-title{margin:0 0 8px;font-size:30px;line-height:1.15;letter-spacing:-.02em}
-    .hero-desc{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.6}
-    .cta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    a{color:inherit;text-decoration:none}
 
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;border:1px solid var(--border);padding:10px 16px;text-decoration:none;font-weight:700;font-size:14px;cursor:pointer}
-    .btn.primary{border:0;color:#fff;background:linear-gradient(120deg,var(--orange),var(--gold));box-shadow:0 12px 24px rgba(201,122,58,.22)}
-    .btn.ghost{background:transparent;color:var(--text)}
-    .btn.ghost:hover{background:#f3f6ff}
-
-    /* Layout helpers */
-    .grid-3{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:12px}
-    .grid-2{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px}
-    .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:0 10px 22px rgba(15,23,42,.05)}
-    .card h3{margin:0 0 6px;font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
-
-    /* Full-width highlight (Ramadan box) */
-    .full-width{grid-column:1/-1}
-    .ramadan{
-      background:
-        radial-gradient(600px 280px at 15% 20%, rgba(217,182,115,.25), transparent 60%),
-        linear-gradient(120deg, rgba(122,143,58,.16), rgba(79,122,194,.10)),
-        #fff;
-      border:1px solid rgba(217,182,115,.45);
+    /* ================= HEADER ================= */
+    .header{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:1000;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
     }
-    .ramadan .tag{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 12px;border-radius:999px;
-      background:rgba(201,122,58,.10);
-      border:1px solid rgba(201,122,58,.22);
-      font-weight:900;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);
+    .header-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 20px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:18px;
+    }
+
+    /* LOGO */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .logo-box{
+      width:110px;
+      height:64px;
+      border-radius:18px;
+      background:#fff;
+      border:2px dashed #cfd6e6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      color:var(--blue);
+    }
+    .brand-name{
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      line-height:1.2;
+      max-width:220px;
+    }
+
+    /* MENU (MAX 5 LINKS) */
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
+    .nav a{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      font-weight:600;
+    }
+    .nav a:hover{
+      background:#eef2fa;
+      color:var(--text);
+    }
+    .nav a.highlight{
+      color:var(--text);
+      font-weight:800;
+      position:relative;
+    }
+    .nav a.highlight::after{
+      content:"";
+      position:absolute;
+      left:12px;right:12px;bottom:4px;
+      height:2px;
+      background:linear-gradient(120deg,var(--green),var(--orange));
+      border-radius:999px;
+    }
+
+    /* LANG + WHATSAPP */
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .lang{
+      display:flex;
+      gap:6px;
+      padding:4px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#f2f5fc;
+    }
+    .lang button{
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .lang button.active{
+      background:linear-gradient(120deg,var(--green),var(--orange));
+      color:#fff;
+    }
+
+    .whatsapp{
+      width:40px;height:40px;
+      border-radius:50%;
+      background:#25D366;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      box-shadow:0 10px 24px rgba(0,0,0,.2);
+    }
+
+    /* SPACER HEADER */
+    .spacer{height:96px}
+
+    /* ================= HERO / CARROUSEL ================= */
+    .hero{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    .carousel{
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:
+        radial-gradient(900px 380px at 20% 25%, rgba(217,182,115,.22), transparent 60%),
+        linear-gradient(120deg, rgba(79,122,194,.22), rgba(122,143,58,.18)),
+        linear-gradient(120deg, rgba(0,0,0,.65), rgba(0,0,0,.25));
+      min-height:420px;
+      display:flex;
+      align-items:center;
+    }
+
+    .slide{
+      padding:42px;
+      max-width:720px;
+      color:#fff;
+    }
+    .slide .kicker{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--gold);
       margin-bottom:10px;
     }
-
-    /* One-page routing: show one section at a time */
-    .page{display:none}
-    .page.active{display:block}
-
-    /* FOOTER (blue structured like screenshot) */
-    footer{margin-top:10px;background:linear-gradient(180deg,var(--footerBlue),var(--footerBlue2));color:var(--footerText)}
-    .footer-inner{
-      display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:18px;
-      padding:24px 18px;max-width:var(--max);margin:0 auto
+    .slide h1{
+      font-size:42px;
+      line-height:1.1;
+      margin:0 0 14px;
     }
-    .foot-brand{display:flex;gap:12px;align-items:flex-start}
-    .foot-logo{
-      width:56px;height:56px;border-radius:14px;background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.18);
-      display:flex;align-items:center;justify-content:center;font-weight:900;
-    }
-    .foot-title{font-weight:950;margin:0 0 6px;letter-spacing:.02em}
-    .foot-p{margin:0;color:var(--footerMuted);font-size:14px;line-height:1.55}
-    .foot-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-    .foot-list a{color:var(--footerText);text-decoration:none}
-    .foot-list a:hover{text-decoration:underline}
-    .foot-meta{color:var(--footerMuted);font-size:13px;line-height:1.55;margin-top:8px}
-    .copyright{
-      border-top:1px solid rgba(234,241,255,.18);
-      padding:12px 18px;color:var(--footerMuted);font-size:13px;
-      max-width:var(--max);margin:0 auto
+    .slide p{
+      font-size:16px;
+      line-height:1.6;
+      max-width:560px;
+      opacity:.95;
+      margin-bottom:22px;
     }
 
-    @media (max-width: 980px){
+    .slide-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 28px;
+      border-radius:999px;
+      background:linear-gradient(120deg,var(--orange),var(--gold));
+      color:#fff;
+      font-weight:800;
+      box-shadow:0 14px 30px rgba(201,122,58,.35);
+    }
+
+    @media(max-width:980px){
       .nav{display:none}
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .footer-inner{grid-template-columns:1fr}
-      .hero-title{font-size:26px}
+      .slide h1{font-size:32px}
+      .carousel{min-height:360px}
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="header" role="banner">
-    <div class="header-inner">
-      <a class="brand" href="#home" aria-label="MWT Home">
-        <div class="logo-box" aria-label="Logo placeholder">
-          <!-- <img src="images/logo.png" alt="MWT logo"> -->
-        </div>
-        <div class="brand-name" data-i18n="brand.name">Moltaqa World Travel & Tourism</div>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="header-inner">
+
+    <!-- LOGO -->
+    <a href="index.html" class="brand">
+      <div class="logo-box">MWT</div>
+      <div class="brand-name">
+        Moltaqa World Travel<br>& Tourism
+      </div>
+    </a>
+
+    <!-- MENU -->
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="hajj.html" class="highlight">Hajj 2026</a>
+      <a href="#services">Services</a>
+      <a href="umrah.html">Omra</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- LANG + WHATSAPP -->
+    <div class="header-right">
+      <div class="lang">
+        <button class="active">FR</button>
+        <button>EN</button>
+        <button>ES</button>
+        <button>AR</button>
+      </div>
+      <a class="whatsapp" href="https://wa.me/34600672423" target="_blank">💬</a>
+    </div>
+
+  </div>
+</header>
+
+<div class="spacer"></div>
+
+<!-- ================= HERO / CARROUSEL ================= -->
+<section class="hero">
+  <div class="carousel">
+
+    <!-- SLIDE 1 : HAJJ 2026 -->
+    <div class="slide">
+      <div class="kicker">Hajj Packages</div>
+      <h1>Hajj 2026<br>Accompagnement officiel & sécurisé</h1>
+      <p>
+        Vols, visa Nusuk, hébergements à Makkah & Médine,
+        camps Mina & Arafat, transport et guide agréé.
+        Une organisation complète, claire et conforme.
+      </p>
+      <a href="hajj.html" class="slide-cta">
+        Découvrir Hajj 2026
       </a>
-
-      <!-- ONE PAGE NAV (hash) -->
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#home" data-route="home" data-i18n="nav.home" class="active">Accueil</a>
-        <a href="#algerie" data-route="algerie" data-i18n="nav.algerie">Algérie</a>
-        <a href="#sahara" data-route="sahara" data-i18n="nav.sahara">Sahara</a>
-        <a href="#heritage-espagne" data-route="heritage-espagne" data-i18n="nav.heritage">Heritage Espagne</a>
-        <a href="#etudes-espagne" data-route="etudes-espagne" data-i18n="nav.studiesES">Études Espagne</a>
-        <a href="#etudes-uk" data-route="etudes-uk" data-i18n="nav.studiesUK">Études UK</a>
-        <a href="#flights" data-route="flights" data-i18n="nav.flights">Flights</a>
-        <a href="#hotels" data-route="hotels" data-i18n="nav.hotels">Hotels</a>
-        <a href="#car-rental" data-route="car-rental" data-i18n="nav.car">Car Rental</a>
-        <a href="#visa" data-route="visa" data-i18n="nav.visa">Visa</a>
-        <a href="#hajj" data-route="hajj" data-i18n="nav.hajj" class="highlight">Hajj 2026</a>
-        <a href="#umrah" data-route="umrah" data-i18n="nav.umrah">Omra</a>
-        <a href="#sport-events" data-route="sport-events" data-i18n="nav.sports">Événements sportifs</a>
-        <a href="#contact" data-route="contact" data-i18n="nav.contact">Contact</a>
-      </nav>
-
-      <div class="lang" aria-label="Languages">
-        <button type="button" class="lang-btn active" data-lang="fr">🇫🇷 <span>FR</span></button>
-        <button type="button" class="lang-btn" data-lang="en">🇬🇧 <span>EN</span></button>
-        <button type="button" class="lang-btn" data-lang="es">🇪🇸 <span>ES</span></button>
-        <button type="button" class="lang-btn" data-lang="ar">🇸🇦 <span>AR</span></button>
-      </div>
-    </div>
-  </header>
-
-  <div class="spacer"></div>
-
-  <main>
-    <!-- HOME (simple placeholder; on enrichit en PARTIE 2/3/4) -->
-    <section id="home" class="page active">
-      <div class="section">
-        <div class="container">
-          <div class="page-hero">
-            <div class="hero-card">
-              <p class="kicker" data-i18n="home.kicker">Premium travel & services</p>
-              <h1 class="hero-title" data-i18n="home.title">MWT – Moltaqa World Travel & Tourism</h1>
-              <p class="hero-desc" data-i18n="home.subtitle">
-                Hajj, Omra, visas, vols, hôtels, études et voyages sur mesure.
-              </p>
-              <div class="cta-row">
-                <a class="btn primary" href="#contact" data-route-link="contact" data-i18n="home.cta1">Demander un devis</a>
-                <a class="btn ghost" href="#visa" data-route-link="visa" data-i18n="home.cta2">Visa Services</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="section">
-            <h2 data-i18n="home.quick.title">Accès rapide</h2>
-            <p class="lead" data-i18n="home.quick.lead">Choisis une catégorie pour commencer.</p>
-
-            <div class="grid-3">
-              <div class="card">
-                <h3 data-i18n="home.q1.t">Hajj 2026</h3>
-                <p data-i18n="home.q1.p">Infos packs, inscription, départ, accompagnement.</p>
-                <p style="margin-top:10px"><a class="btn ghost" href="#hajj" data-route-link="hajj" data-i18n="home.q.more">Voir</a></p>
-              </div>
-              <div class="card">
-                <h3 data-i18n="home.q2.t">Omra</h3>
-                <p data-i18n="home.q2.p">Programmes, hôtels, transferts et options sur mesure.</p>
-                <p style="margin-top:10px"><a class="btn ghost" href="#umrah" data-route-link="umrah" data-i18n="home.q.more">Voir</a></p>
-              </div>
-              <div class="card">
-                <h3 data-i18n="home.q3.t">Visa Services</h3>
-                <p data-i18n="home.q3.p">Assistance dossier, suivi, conseil et formalités.</p>
-                <p style="margin-top:10px"><a class="btn ghost" href="#visa" data-route-link="visa" data-i18n="home.q.more">Voir</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGES (placeholders — on injecte les pages COMPLÈTES en PARTIE 2/3/4) -->
-    <section id="algerie" class="page"><div class="section"><div class="container"><h1 data-i18n="algerie.title">Algérie</h1><p class="lead" data-i18n="algerie.lead">Contenu en PARTIE 2/3/4</p></div></div></section>
-    <section id="car-rental" class="page"><div class="section"><div class="container"><h1 data-i18n="car.title">Location de voiture</h1><p class="lead" data-i18n="car.lead">Contenu en PARTIE 2/3/4</p></div></div></section>
-    <section id="contact" class="page"><div class="section"><div class="container"><h1 data-i18n="contact.title">Contactez MWT</h1><p class="lead" data-i18n="contact.lead">Contact complet en PARTIE 4</p></div></div></section>
-    <section id="etudes-espagne" class="page"><div class="section"><div class="container"><h1 data-i18n="studiesES.title">Études en Espagne</h1><p class="lead" data-i18n="studiesES.lead">Contenu en PARTIE 3</p></div></div></section>
-    <section id="etudes-uk" class="page"><div class="section"><div class="container"><h1 data-i18n="studiesUK.title">Études au Royaume-Uni</h1><p class="lead" data-i18n="studiesUK.lead">Contenu en PARTIE 3</p></div></div></section>
-    <section id="flights" class="page"><div class="section"><div class="container"><h1 data-i18n="flights.title">Flights & Transport</h1><p class="lead" data-i18n="flights.lead">Contenu en PARTIE 3</p></div></div></section>
-    <section id="hajj" class="page"><div class="section"><div class="container"><h1 data-i18n="hajj.title">Hajj 2026</h1><p class="lead" data-i18n="hajj.lead">Contenu en PARTIE 4</p></div></div></section>
-    <section id="heritage-espagne" class="page"><div class="section"><div class="container"><h1 data-i18n="heritage.title">Retour aux racines – Espagne</h1><p class="lead" data-i18n="heritage.lead">Contenu en PARTIE 2</p></div></div></section>
-    <section id="hotels" class="page"><div class="section"><div class="container"><h1 data-i18n="hotels.title">Hotels</h1><p class="lead" data-i18n="hotels.lead">Contenu en PARTIE 3</p></div></div></section>
-    <section id="sahara" class="page"><div class="section"><div class="container"><h1 data-i18n="sahara.title">Sahara</h1><p class="lead" data-i18n="sahara.lead">Contenu en PARTIE 2</p></div></div></section>
-    <section id="sport-events" class="page"><div class="section"><div class="container"><h1 data-i18n="sports.title">Événements sportifs</h1><p class="lead" data-i18n="sports.lead">Contenu en PARTIE 4</p></div></div></section>
-
-    <!-- UMRAH page placeholder with RAMADAN FULL WIDTH already reserved -->
-    <section id="umrah" class="page">
-      <div class="section">
-        <div class="container">
-          <h1 data-i18n="umrah.title">Omra</h1>
-          <p class="lead" data-i18n="umrah.lead">Contenu complet en PARTIE 4 (avec Omra Ramadan mise en avant)</p>
-
-          <div class="grid-2" style="margin-top:14px">
-            <div class="card ramadan full-width">
-              <div class="tag">⭐ <span data-i18n="umrah.ramadan.tag">Mise en avant</span></div>
-              <h3 data-i18n="umrah.ramadan.title">Omra Ramadan</h3>
-              <p data-i18n="umrah.ramadan.p">Cette carte prendra toute la largeur, avec un contenu premium (PARTIE 4).</p>
-            </div>
-            <div class="card"><h3 data-i18n="umrah.box1.t">Programmes Omra</h3><p data-i18n="umrah.box1.p">À compléter en PARTIE 4</p></div>
-            <div class="card"><h3 data-i18n="umrah.box2.t">Hôtels & transferts</h3><p data-i18n="umrah.box2.p">À compléter en PARTIE 4</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="visa" class="page"><div class="section"><div class="container"><h1 data-i18n="visa.title">Visa Services</h1><p class="lead" data-i18n="visa.lead">Contenu en PARTIE 4</p></div></div></section>
-  </main>
-
-  <!-- FOOTER BLEU -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="foot-brand">
-          <div class="foot-logo">MWT</div>
-          <div>
-            <p class="foot-title" data-i18n="foot.brand">MWT – Moltaqa World Travel & Tourism</p>
-            <p class="foot-p" data-i18n="foot.desc">
-              Omra, Hajj 2026, voyages, études à l’étranger, services visa & réservations.
-            </p>
-            <div class="foot-meta">
-              <div>📍 <span data-i18n="foot.addrLine">Calle Italia 9, 03003 Alicante</span></div>
-              <div><span data-i18n="foot.cif">CIF</span> : <strong>B42572768</strong></div>
-              <div><span data-i18n="foot.agency">Numéro d’agence</span> : <strong>CV-Mm-2212-A</strong></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <p class="foot-title" data-i18n="foot.links">Liens</p>
-        <ul class="foot-list">
-          <li><a href="#hajj" data-route-link="hajj" data-i18n="nav.hajj">Hajj 2026</a></li>
-          <li><a href="#umrah" data-route-link="umrah" data-i18n="nav.umrah">Omra</a></li>
-          <li><a href="#visa" data-route-link="visa" data-i18n="nav.visa">Visa</a></li>
-          <li><a href="#contact" data-route-link="contact" data-i18n="nav.contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="foot-title" data-i18n="foot.contact">Contact</p>
-        <ul class="foot-list">
-          <li><a href="tel:+34865556666">📞 <span data-i18n="foot.phoneFix">865 556 666</span></a></li>
-          <li><a href="https://wa.me/34600672423" target="_blank" rel="noopener">💬 <span data-i18n="foot.wa">WhatsApp : 600 672 423</span></a></li>
-          <li><a href="mailto:info@mwt-world.com">✉️ <span data-i18n="foot.email">info@mwt-world.com</span></a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="foot-title" data-i18n="foot.hours">Horaires</p>
-        <ul class="foot-list">
-          <li><span data-i18n="foot.h1">Lun–Ven : 10h–14h / 17h–20h</span></li>
-          <li><span data-i18n="foot.h2">Samedi : 10h–14h30</span></li>
-          <li><span data-i18n="foot.h3">Dimanche : Fermé</span></li>
-        </ul>
-      </div>
     </div>
 
-    <div class="copyright">
-      <span data-i18n="foot.copy">© 2026 MWT – Tous droits réservés</span>
-    </div>
-  </footer>
-
-  <script>
-    /* =========================
-       i18n BASE (PART 1)
-       On enrichit avec toutes les clés de chaque page dans PART 2/3/4
-    ========================= */
-    const i18n = {
-      fr:{
-        "brand.name":"Moltaqa World Travel & Tourism",
-
-        "nav.home":"Accueil",
-        "nav.algerie":"Algérie",
-        "nav.sahara":"Sahara",
-        "nav.heritage":"Retour aux racines",
-        "nav.studiesES":"Études ES",
-        "nav.studiesUK":"Études UK",
-        "nav.flights":"Flights",
-        "nav.hotels":"Hotels",
-        "nav.car":"Location voiture",
-        "nav.visa":"Visa",
-        "nav.hajj":"Hajj 2026",
-        "nav.umrah":"Omra",
-        "nav.sports":"Événements sportifs",
-        "nav.contact":"Contact",
-
-        "home.kicker":"Premium travel & services",
-        "home.title":"MWT – Moltaqa World Travel & Tourism",
-        "home.subtitle":"Hajj, Omra, visas, vols, hôtels, études et voyages sur mesure.",
-        "home.cta1":"Demander un devis",
-        "home.cta2":"Visa Services",
-        "home.quick.title":"Accès rapide",
-        "home.quick.lead":"Choisis une catégorie pour commencer.",
-        "home.q1.t":"Hajj 2026","home.q1.p":"Infos packs, inscription, départ, accompagnement.",
-        "home.q2.t":"Omra","home.q2.p":"Programmes, hôtels, transferts et options sur mesure.",
-        "home.q3.t":"Visa Services","home.q3.p":"Assistance dossier, suivi, conseil et formalités.",
-        "home.q.more":"Voir",
-
-        "algerie.title":"Voyages Algérie (Diaspora)","algerie.lead":"Contenu en PARTIE 2/3/4",
-        "sahara.title":"Sahara","sahara.lead":"Contenu en PARTIE 2",
-        "heritage.title":"Retour aux racines – Espagne","heritage.lead":"Contenu en PARTIE 2",
-        "car.title":"Location de voiture","car.lead":"Contenu en PARTIE 2/3/4",
-        "studiesES.title":"Études en Espagne","studiesES.lead":"Contenu en PARTIE 3",
-        "studiesUK.title":"Études au Royaume-Uni","studiesUK.lead":"Contenu en PARTIE 3",
-        "flights.title":"Flights & Transport","flights.lead":"Contenu en PARTIE 3",
-        "hotels.title":"Hotels","hotels.lead":"Contenu en PARTIE 3",
-        "hajj.title":"Hajj 2026","hajj.lead":"Contenu en PARTIE 4",
-        "sports.title":"Événements sportifs","sports.lead":"Contenu en PARTIE 4",
-        "umrah.title":"Omra","umrah.lead":"Contenu complet en PARTIE 4 (avec Omra Ramadan mise en avant)",
-        "umrah.ramadan.tag":"Mise en avant",
-        "umrah.ramadan.title":"Omra Ramadan",
-        "umrah.ramadan.p":"Cette carte prendra toute la largeur, avec un contenu premium (PARTIE 4).",
-        "umrah.box1.t":"Programmes Omra","umrah.box1.p":"À compléter en PARTIE 4",
-        "umrah.box2.t":"Hôtels & transferts","umrah.box2.p":"À compléter en PARTIE 4",
-        "visa.title":"Visa Services","visa.lead":"Contenu en PARTIE 4",
-
-        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
-        "foot.desc":"Omra, Hajj 2026, voyages, études à l’étranger, services visa & réservations.",
-        "foot.addrLine":"Calle Italia 9, 03003 Alicante",
-        "foot.cif":"CIF",
-        "foot.agency":"Numéro d’agence",
-        "foot.links":"Liens",
-        "foot.contact":"Contact",
-        "foot.phoneFix":"865 556 666",
-        "foot.wa":"WhatsApp : 600 672 423",
-        "foot.email":"info@mwt-world.com",
-        "foot.hours":"Horaires",
-        "foot.h1":"Lun–Ven : 10h–14h / 17h–20h",
-        "foot.h2":"Samedi : 10h–14h30",
-        "foot.h3":"Dimanche : Fermé",
-        "foot.copy":"© 2026 MWT – Tous droits réservés"
-      },
-
-      en:{
-        "brand.name":"Moltaqa World Travel & Tourism",
-
-        "nav.home":"Home",
-        "nav.algerie":"Algeria",
-        "nav.sahara":"Sahara",
-        "nav.heritage":"Heritage",
-        "nav.studiesES":"Studies ES",
-        "nav.studiesUK":"Studies UK",
-        "nav.flights":"Flights",
-        "nav.hotels":"Hotels",
-        "nav.car":"Car Rental",
-        "nav.visa":"Visa",
-        "nav.hajj":"Hajj 2026",
-        "nav.umrah":"Umrah",
-        "nav.sports":"Sports Events",
-        "nav.contact":"Contact",
-
-        "home.kicker":"Premium travel & services",
-        "home.title":"MWT – Moltaqa World Travel & Tourism",
-        "home.subtitle":"Hajj, Umrah, visas, flights, hotels, studies & tailored trips.",
-        "home.cta1":"Request a quote",
-        "home.cta2":"Visa Services",
-        "home.quick.title":"Quick access",
-        "home.quick.lead":"Pick a category to start.",
-        "home.q1.t":"Hajj 2026","home.q1.p":"Packages, registration, departure, support.",
-        "home.q2.t":"Umrah","home.q2.p":"Programs, hotels, transfers, tailored options.",
-        "home.q3.t":"Visa Services","home.q3.p":"File support, tracking, advice & formalities.",
-        "home.q.more":"View",
-
-        "algerie.title":"Algeria Trips (Diaspora)","algerie.lead":"Content in PART 2/3/4",
-        "sahara.title":"Sahara","sahara.lead":"Content in PART 2",
-        "heritage.title":"Back to Roots – Spain","heritage.lead":"Content in PART 2",
-        "car.title":"Car Rental","car.lead":"Content in PART 2/3/4",
-        "studiesES.title":"Study in Spain","studiesES.lead":"Content in PART 3",
-        "studiesUK.title":"Study in the UK","studiesUK.lead":"Content in PART 3",
-        "flights.title":"Flights & Transport","flights.lead":"Content in PART 3",
-        "hotels.title":"Hotels","hotels.lead":"Content in PART 3",
-        "hajj.title":"Hajj 2026","hajj.lead":"Content in PART 4",
-        "sports.title":"Sports Events","sports.lead":"Content in PART 4",
-        "umrah.title":"Umrah","umrah.lead":"Full content in PART 4 (Ramadan Umrah highlighted)",
-        "umrah.ramadan.tag":"Highlight",
-        "umrah.ramadan.title":"Ramadan Umrah",
-        "umrah.ramadan.p":"This card will be full-width with premium content (PART 4).",
-        "umrah.box1.t":"Umrah Programs","umrah.box1.p":"To complete in PART 4",
-        "umrah.box2.t":"Hotels & transfers","umrah.box2.p":"To complete in PART 4",
-        "visa.title":"Visa Services","visa.lead":"Content in PART 4",
-
-        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
-        "foot.desc":"Umrah, Hajj 2026, trips, study abroad, visa services & bookings.",
-        "foot.addrLine":"Calle Italia 9, 03003 Alicante",
-        "foot.cif":"Tax ID",
-        "foot.agency":"Agency number",
-        "foot.links":"Links",
-        "foot.contact":"Contact",
-        "foot.phoneFix":"865 556 666",
-        "foot.wa":"WhatsApp: 600 672 423",
-        "foot.email":"info@mwt-world.com",
-        "foot.hours":"Hours",
-        "foot.h1":"Mon–Fri: 10am–2pm / 5pm–8pm",
-        "foot.h2":"Saturday: 10am–2:30pm",
-        "foot.h3":"Sunday: Closed",
-        "foot.copy":"© 2026 MWT – All rights reserved"
-      },
-
-      es:{
-        "brand.name":"Moltaqa World Travel & Tourism",
-
-        "nav.home":"Inicio",
-        "nav.algerie":"Argelia",
-        "nav.sahara":"Sáhara",
-        "nav.heritage":"Raíces",
-        "nav.studiesES":"Estudios ES",
-        "nav.studiesUK":"Estudios UK",
-        "nav.flights":"Vuelos",
-        "nav.hotels":"Hoteles",
-        "nav.car":"Alquiler coche",
-        "nav.visa":"Visado",
-        "nav.hajj":"Hajj 2026",
-        "nav.umrah":"Omra",
-        "nav.sports":"Eventos deportivos",
-        "nav.contact":"Contacto",
-
-        "home.kicker":"Viajes & servicios premium",
-        "home.title":"MWT – Moltaqa World Travel & Tourism",
-        "home.subtitle":"Hajj, Omra, visados, vuelos, hoteles, estudios y viajes a medida.",
-        "home.cta1":"Solicitar presupuesto",
-        "home.cta2":"Servicios de visado",
-        "home.quick.title":"Acceso rápido",
-        "home.quick.lead":"Elige una categoría para empezar.",
-        "home.q1.t":"Hajj 2026","home.q1.p":"Packs, inscripción, salida, acompañamiento.",
-        "home.q2.t":"Omra","home.q2.p":"Programas, hoteles, traslados y opciones a medida.",
-        "home.q3.t":"Servicios de visado","home.q3.p":"Soporte de expediente, seguimiento, asesoría.",
-        "home.q.more":"Ver",
-
-        "algerie.title":"Viajes a Argelia (Diáspora)","algerie.lead":"Contenido en PARTE 2/3/4",
-        "sahara.title":"Sáhara","sahara.lead":"Contenido en PARTE 2",
-        "heritage.title":"Vuelta a las raíces – España","heritage.lead":"Contenido en PARTE 2",
-        "car.title":"Alquiler de coche","car.lead":"Contenido en PARTE 2/3/4",
-        "studiesES.title":"Estudiar en España","studiesES.lead":"Contenido en PARTE 3",
-        "studiesUK.title":"Estudiar en Reino Unido","studiesUK.lead":"Contenido en PARTE 3",
-        "flights.title":"Vuelos y transporte","flights.lead":"Contenido en PARTE 3",
-        "hotels.title":"Hoteles","hotels.lead":"Contenido en PARTE 3",
-        "hajj.title":"Hajj 2026","hajj.lead":"Contenido en PARTE 4",
-        "sports.title":"Eventos deportivos","sports.lead":"Contenido en PARTE 4",
-        "umrah.title":"Omra","umrah.lead":"Contenido completo en PARTE 4 (Omra Ramadán destacada)",
-        "umrah.ramadan.tag":"Destacado",
-        "umrah.ramadan.title":"Omra Ramadán",
-        "umrah.ramadan.p":"Esta tarjeta será de ancho completo con contenido premium (PARTE 4).",
-        "umrah.box1.t":"Programas Omra","umrah.box1.p":"Para completar en PARTE 4",
-        "umrah.box2.t":"Hoteles y traslados","umrah.box2.p":"Para completar en PARTE 4",
-        "visa.title":"Servicios de visado","visa.lead":"Contenido en PARTE 4",
-
-        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
-        "foot.desc":"Omra, Hajj 2026, viajes, estudios en el extranjero, visados y reservas.",
-        "foot.addrLine":"Calle Italia 9, 03003 Alicante",
-        "foot.cif":"CIF",
-        "foot.agency":"Número de agencia",
-        "foot.links":"Enlaces",
-        "foot.contact":"Contacto",
-        "foot.phoneFix":"865 556 666",
-        "foot.wa":"WhatsApp: 600 672 423",
-        "foot.email":"info@mwt-world.com",
-        "foot.hours":"Horario",
-        "foot.h1":"Lun–Vie: 10–14 / 17–20",
-        "foot.h2":"Sábado: 10–14:30",
-        "foot.h3":"Domingo: Cerrado",
-        "foot.copy":"© 2026 MWT – Todos los derechos reservados"
-      },
-
-      ar:{
-        "brand.name":"ملتقى وورلد ترافل & تورزم",
-
-        "nav.home":"الرئيسية",
-        "nav.algerie":"الجزائر",
-        "nav.sahara":"الصحراء",
-        "nav.heritage":"الجذور",
-        "nav.studiesES":"دراسة إسبانيا",
-        "nav.studiesUK":"دراسة بريطانيا",
-        "nav.flights":"الرحلات",
-        "nav.hotels":"فنادق",
-        "nav.car":"كراء سيارة",
-        "nav.visa":"تأشيرة",
-        "nav.hajj":"حج 2026",
-        "nav.umrah":"عمرة",
-        "nav.sports":"فعاليات رياضية",
-        "nav.contact":"تواصل",
-
-        "home.kicker":"سفر وخدمات بريميوم",
-        "home.title":"MWT – Moltaqa World Travel & Tourism",
-        "home.subtitle":"حج، عمرة، تأشيرات، رحلات، فنادق، دراسة، ورحلات حسب الطلب.",
-        "home.cta1":"طلب عرض سعر",
-        "home.cta2":"خدمات التأشيرة",
-        "home.quick.title":"وصول سريع",
-        "home.quick.lead":"اختر فئة للبدء.",
-        "home.q1.t":"حج 2026","home.q1.p":"باقات، تسجيل، مدينة الانطلاق، مرافقة.",
-        "home.q2.t":"عمرة","home.q2.p":"برامج، فنادق، تحويلات وخيارات حسب الطلب.",
-        "home.q3.t":"خدمات التأشيرة","home.q3.p":"دعم الملف، متابعة وإرشاد.",
-        "home.q.more":"عرض",
-
-        "algerie.title":"رحلات الجزائر (الجالية)","algerie.lead":"المحتوى في الجزء 2/3/4",
-        "sahara.title":"الصحراء","sahara.lead":"المحتوى في الجزء 2",
-        "heritage.title":"العودة إلى الجذور – إسبانيا","heritage.lead":"المحتوى في الجزء 2",
-        "car.title":"كراء سيارة","car.lead":"المحتوى في الجزء 2/3/4",
-        "studiesES.title":"الدراسة في إسبانيا","studiesES.lead":"المحتوى في الجزء 3",
-        "studiesUK.title":"الدراسة في بريطانيا","studiesUK.lead":"المحتوى في الجزء 3",
-        "flights.title":"الرحلات والنقل","flights.lead":"المحتوى في الجزء 3",
-        "hotels.title":"فنادق","hotels.lead":"المحتوى في الجزء 3",
-        "hajj.title":"حج 2026","hajj.lead":"المحتوى في الجزء 4",
-        "sports.title":"فعاليات رياضية","sports.lead":"المحتوى في الجزء 4",
-        "umrah.title":"عمرة","umrah.lead":"المحتوى الكامل في الجزء 4 (عمرة رمضان مميزة)",
-        "umrah.ramadan.tag":"مميز",
-        "umrah.ramadan.title":"عمرة رمضان",
-        "umrah.ramadan.p":"هذه البطاقة ستكون بعرض كامل مع محتوى بريميوم (الجزء 4).",
-        "umrah.box1.t":"برامج العمرة","umrah.box1.p":"يُستكمل في الجزء 4",
-        "umrah.box2.t":"فنادق وتحويلات","umrah.box2.p":"يُستكمل في الجزء 4",
-        "visa.title":"خدمات التأشيرة","visa.lead":"المحتوى في الجزء 4",
-
-        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
-        "foot.desc":"عمرة، حج 2026، رحلات، دراسة بالخارج، خدمات التأشيرة والحجوزات.",
-        "foot.addrLine":"Calle Italia 9, 03003 Alicante",
-        "foot.cif":"رقم ضريبي",
-        "foot.agency":"رقم الوكالة",
-        "foot.links":"روابط",
-        "foot.contact":"تواصل",
-        "foot.phoneFix":"865 556 666",
-        "foot.wa":"واتساب: 600 672 423",
-        "foot.email":"info@mwt-world.com",
-        "foot.hours":"الأوقات",
-        "foot.h1":"الإثنين–الجمعة: 10–14 / 17–20",
-        "foot.h2":"السبت: 10–14:30",
-        "foot.h3":"الأحد: مغلق",
-        "foot.copy":"© 2026 MWT – جميع الحقوق محفوظة"
-      }
-    };
-
-    function applyLang(lang){
-      document.documentElement.lang = lang === "ar" ? "ar" : lang;
-      document.documentElement.dir  = lang === "ar" ? "rtl" : "ltr";
-
-      document.querySelectorAll(".lang-btn").forEach(b=>{
-        b.classList.toggle("active", b.dataset.lang === lang);
-      });
-
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        const val = (i18n[lang] && i18n[lang][key]) || (i18n.fr[key]) || null;
-        if(val) el.textContent = val;
-      });
-
-      localStorage.setItem("mwt_lang", lang);
-    }
-
-    /* =========================
-       One-page routing (hash)
-    ========================= */
-    function setActiveNav(route){
-      document.querySelectorAll(".nav a").forEach(a=>{
-        a.classList.toggle("active", a.dataset.route === route);
-      });
-    }
-
-    function showPage(route){
-      const id = route || "home";
-      document.querySelectorAll(".page").forEach(p=>{
-        p.classList.toggle("active", p.id === id);
-      });
-      setActiveNav(id);
-      window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
-    }
-
-    function routeFromHash(){
-      const raw = (location.hash || "#home").replace("#","");
-      const route = raw.trim() || "home";
-      showPage(route);
-    }
-
-    // language buttons
-    document.querySelectorAll(".lang-btn").forEach(btn=>{
-      btn.addEventListener("click", ()=>applyLang(btn.dataset.lang));
-    });
-
-    // route links (optional helper)
-    document.querySelectorAll("[data-route-link]").forEach(a=>{
-      a.addEventListener("click", (e)=>{
-        // let hash change handle routing
-      });
-    });
-
-    window.addEventListener("hashchange", routeFromHash);
-
-    // init
-    const savedLang = localStorage.getItem("mwt_lang") || "fr";
-    applyLang(savedLang);
-    routeFromHash();
-  </script>
-
-  <!-- PART 1 END -->
-</body>
-</html>
-<!-- =========================
-     PARTIE 2/4 – PAGES CONTENT
-     Algérie · Sahara · Heritage
-========================== -->
-
-<!-- ================= ALGÉRIE ================= -->
-<section id="algerie" class="page">
-  <div class="section">
-    <div class="container">
-
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="algerie.kicker">Voyages nostalgiques</p>
-          <h1 class="hero-title" data-i18n="algerie.title">Algérie – Retrouver ses racines</h1>
-          <p class="hero-desc" data-i18n="algerie.subtitle">
-            Des voyages pensés pour la diaspora : familles, souvenirs, villages, traditions et émotions.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="#contact" data-route-link="contact" data-i18n="algerie.cta1">Demander un programme</a>
-            <a class="btn ghost" href="#flights" data-route-link="flights" data-i18n="algerie.cta2">Voir vols</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- INTRO -->
-      <div class="section">
-        <h2 data-i18n="algerie.intro.title">Une autre manière de voyager</h2>
-        <p class="lead" data-i18n="algerie.intro.lead">
-          Ce ne sont pas de simples vacances. Ce sont des retours, des retrouvailles, des émotions.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 data-i18n="algerie.box1.t">Diaspora & familles</h3>
-            <p data-i18n="algerie.box1.p">
-              Voyages adaptés aux familles vivant à l’étranger, avec assistance complète et sérénité.
-            </p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="algerie.box2.t">Villages & origines</h3>
-            <p data-i18n="algerie.box2.p">
-              Organisation de trajets vers les villages d’origine, même les plus reculés.
-            </p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="algerie.box3.t">Souvenirs & traditions</h3>
-            <p data-i18n="algerie.box3.p">
-              Mariages, fêtes familiales, visites culturelles et religieuses.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- SERVICES -->
-      <div class="section">
-        <h2 data-i18n="algerie.services.title">Services inclus</h2>
-        <p class="lead" data-i18n="algerie.services.lead">
-          Une prise en charge complète, avant, pendant et après votre voyage.
-        </p>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3 data-i18n="algerie.s1.t">✈️ Vols & bagages</h3>
-            <p data-i18n="algerie.s1.p">Billets flexibles, assistance bagages, options famille.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="algerie.s2.t">🚌 Transports internes</h3>
-            <p data-i18n="algerie.s2.p">Chauffeur privé ou transport organisé sur place.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="algerie.s3.t">🏠 Hébergement</h3>
-            <p data-i18n="algerie.s3.p">Hôtels, maisons familiales ou logements temporaires.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="algerie.s4.t">📞 Assistance locale</h3>
-            <p data-i18n="algerie.s4.p">Support téléphonique et accompagnement sur place.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
   </div>
 </section>
-
-<!-- ================= SAHARA ================= -->
-<section id="sahara" class="page">
-  <div class="section">
-    <div class="container">
-
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="sahara.kicker">Immersion totale</p>
-          <h1 class="hero-title" data-i18n="sahara.title">Sahara – L’expérience authentique</h1>
-          <p class="hero-desc" data-i18n="sahara.subtitle">
-            Silence, immensité, étoiles, traditions touarègues et paysages intemporels.
-          </p>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 data-i18n="sahara.exp.title">Une aventure hors du temps</h2>
-        <p class="lead" data-i18n="sahara.exp.lead">
-          Le Sahara algérien est une expérience spirituelle, humaine et sensorielle.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 data-i18n="sahara.box1.t">Désert & dunes</h3>
-            <p data-i18n="sahara.box1.p">Randonnées, couchers de soleil, bivouacs.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="sahara.box2.t">Culture touarègue</h3>
-            <p data-i18n="sahara.box2.p">Musique, artisanat, gastronomie et traditions.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="sahara.box3.t">Sécurité & encadrement</h3>
-            <p data-i18n="sahara.box3.p">Groupes encadrés par des guides expérimentés.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= HERITAGE ESPAGNE ================= -->
-<section id="heritage-espagne" class="page">
-  <div class="section">
-    <div class="container">
-
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="heritage.kicker">Mémoire & histoire</p>
-          <h1 class="hero-title" data-i18n="heritage.title">Heritage Espagne</h1>
-          <p class="hero-desc" data-i18n="heritage.subtitle">
-            Redécouvrir l’héritage andalou, musulman et méditerranéen.
-          </p>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 data-i18n="heritage.intro.title">Sur les traces d’Al-Andalus</h2>
-        <p class="lead" data-i18n="heritage.intro.lead">
-          Des circuits culturels et spirituels à travers l’Espagne historique.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 data-i18n="heritage.box1.t">Grenade & Alhambra</h3>
-            <p data-i18n="heritage.box1.p">Architecture, histoire et symbolique.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="heritage.box2.t">Cordoue</h3>
-            <p data-i18n="heritage.box2.p">Mosquée-cathédrale et héritage savant.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="heritage.box3.t">Séville & Tolède</h3>
-            <p data-i18n="heritage.box3.p">Villes de coexistence et de mémoire.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== FIN PARTIE 2 ===== -->
-<!-- =========================
-     PARTIE 3/4 – PAGES CONTENT
-     Études · Flights · Hotels · Car Rental
-========================== -->
-
-<!-- ================= ÉTUDES ESPAGNE ================= -->
-<section id="studies-es" class="page">
-  <div class="section">
-    <div class="container">
-
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="studiesES.kicker">Étudier à l’étranger</p>
-          <h1 class="hero-title" data-i18n="studiesES.title">Études en Espagne</h1>
-          <p class="hero-desc" data-i18n="studiesES.subtitle">
-            Universités, écoles privées, langues, visas et installation complète.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="#contact" data-route-link="contact" data-i18n="studiesES.cta">
-              Demander un accompagnement
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 data-i18n="studiesES.offer.title">Nos solutions</h2>
-        <p class="lead" data-i18n="studiesES.offer.lead">
-          Un accompagnement humain, administratif et académique.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 data-i18n="studiesES.box1.t">Universités & écoles</h3>
-            <p data-i18n="studiesES.box1.p">Public, privé, business schools, formations certifiées.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="studiesES.box2.t">Visa étudiant</h3>
-            <p data-i18n="studiesES.box2.p">Dossier, rendez-vous, suivi et renouvellement.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="studiesES.box3.t">Installation</h3>
-            <p data-i18n="studiesES.box3.p">Logement, NIE, banque, assurance, téléphone.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= ÉTUDES UK ================= -->
-<section id="studies-uk" class="page">
-  <div class="section">
-    <div class="container">
-
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="studiesUK.kicker">UK Education</p>
-          <h1 class="hero-title" data-i18n="studiesUK.title">Études au Royaume-Uni</h1>
-          <p class="hero-desc" data-i18n="studiesUK.subtitle">
-            Langue anglaise, universités, collèges et visa étudiant UK.
-          </p>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 data-i18n="studiesUK.why.title">Pourquoi le Royaume-Uni ?</h2>
-        <p class="lead" data-i18n="studiesUK.why.lead">
-          Un système académique reconnu mondialement.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 data-i18n="studiesUK.box1.t">Écoles de langue</h3>
-            <p data-i18n="studiesUK.box1.p">IELTS, Cambridge, immersion complète.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="studiesUK.box2.t">Universités</h3>
-            <p data-i18n="studiesUK.box2.p">Bachelor, Master, programmes spécialisés.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="studiesUK.box3.t">Visa UK</h3>
-            <p data-i18n="studiesUK.box3.p">Student Visa, documents et suivi.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= FLIGHTS ================= -->
-<section id="flights" class="page">
-  <div class="section">
-    <div class="container">
-
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="flights.kicker">Tous types de trajets</p>
-          <h1 class="hero-title" data-i18n="flights.title">Flights & Transport</h1>
-          <p class="hero-desc" data-i18n="flights.subtitle">
-            Aérien, maritime et terrestre — Europe, Afrique, Moyen-Orient.
-          </p>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 data-i18n="flights.services.title">Nos services transport</h2>
-        <p class="lead" data-i18n="flights.services.lead">
-          Solutions flexibles adaptées à chaque profil.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 data-i18n="flights.box1.t">✈️ Vols</h3>
-            <p data-i18n="flights.box1.p">Aller-retour, multi-destinations, bagages.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="flights.box2.t">🚢 Maritime</h3>
-            <p data-i18n="flights.box2.p">Algérie – Espagne avec véhicule.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="flights.box3.t">🚌 Terrestre</h3>
-            <p data-i18n="flights.box3.p">Transferts privés et groupes.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= HOTELS ================= -->
-<section id="hotels" class="page">
-  <div class="section">
-    <div class="container">
-
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="hotels.kicker">Séjours sur mesure</p>
-          <h1 class="hero-title" data-i18n="hotels.title">Hotels & Hébergements</h1>
-          <p class="hero-desc" data-i18n="hotels.subtitle">
-            Loisirs, affaires, Omra, Hajj, études ou événements.
-          </p>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 data-i18n="hotels.types.title">Types d’hébergement</h2>
-        <p class="lead" data-i18n="hotels.types.lead">
-          Nous adaptons le logement à votre objectif.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 data-i18n="hotels.box1.t">Hôtels</h3>
-            <p data-i18n="hotels.box1.p">3★ à 5★, centres-villes et sites religieux.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="hotels.box2.t">Appartements</h3>
-            <p data-i18n="hotels.box2.p">Courte ou longue durée.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="hotels.box3.t">Groupes</h3>
-            <p data-i18n="hotels.box3.p">Pèlerinages, écoles, événements.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= CAR RENTAL ================= -->
-<section id="car-rental" class="page">
-  <div class="section">
-    <div class="container">
-
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="car.kicker">Mobilité totale</p>
-          <h1 class="hero-title" data-i18n="car.title">Car Rental</h1>
-          <p class="hero-desc" data-i18n="car.subtitle">
-            Location courte et longue durée, tourisme ou professionnel.
-          </p>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 data-i18n="car.options.title">Options disponibles</h2>
-        <p class="lead" data-i18n="car.options.lead">
-          Des solutions simples et fiables.
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3 data-i18n="car.box1.t">Citadines</h3>
-            <p data-i18n="car.box1.p">Ville, économique, facile.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="car.box2.t">Familiales</h3>
-            <p data-i18n="car.box2.p">Confort et espace.</p>
-          </div>
-          <div class="card">
-            <h3 data-i18n="car.box3.t">Premium</h3>
-            <p data-i18n="car.box3.p">Affaires et occasions spéciales.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== FIN PARTIE 3 ===== -->
-<!-- =========================
-     PARTIE 4/4 – PAGES CONTENT
-========================== -->
-
-<!-- ================= HAJJ ================= -->
-<section id="hajj" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="hajj.kicker">Pèlerinage officiel</p>
-          <h1 class="hero-title" data-i18n="hajj.title">Hajj 2026</h1>
-          <p class="hero-desc" data-i18n="hajj.subtitle">
-            Organisation complète, accompagnement spirituel et logistique.
-          </p>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 data-i18n="hajj.services.title">Nos engagements</h2>
-        <div class="grid-3">
-          <div class="card"><h3 data-i18n="hajj.b1.t">Encadrement</h3><p data-i18n="hajj.b1.p">Guides expérimentés et accompagnateurs.</p></div>
-          <div class="card"><h3 data-i18n="hajj.b2.t">Logistique</h3><p data-i18n="hajj.b2.p">Hôtels, transports, camps officiels.</p></div>
-          <div class="card"><h3 data-i18n="hajj.b3.t">Conformité</h3><p data-i18n="hajj.b3.p">Procédures Nusuk & autorités.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= UMRAH RAMADAN – FULL WIDTH ================= -->
-<section id="umrah-ramadan" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="page-hero" style="padding:36px">
-        <div class="hero-card" style="width:100%">
-          <p class="kicker" data-i18n="umrahR.kicker">Spécial Ramadan</p>
-          <h1 class="hero-title" data-i18n="umrahR.title">Omra Ramadan</h1>
-          <p class="hero-desc" data-i18n="umrahR.subtitle">
-            Une expérience spirituelle unique pendant le mois sacré.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="#contact" data-route-link="contact" data-i18n="umrahR.cta">
-              Réserver maintenant
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= UMRAH CLASSIQUE ================= -->
-<section id="umrah" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="umrah.kicker">Toute l’année</p>
-          <h1 class="hero-title" data-i18n="umrah.title">Omra</h1>
-          <p class="hero-desc" data-i18n="umrah.subtitle">
-            Programmes flexibles, départs réguliers.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SPORTS EVENTS ================= -->
-<section id="sports" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="sports.kicker">Voyages événementiels</p>
-          <h1 class="hero-title" data-i18n="sports.title">Sports Events</h1>
-          <p class="hero-desc" data-i18n="sports.subtitle">
-            Matchs, compétitions, packages complets.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-3 section">
-        <div class="card"><h3 data-i18n="sports.b1.t">Football</h3><p data-i18n="sports.b1.p">Europe & international.</p></div>
-        <div class="card"><h3 data-i18n="sports.b2.t">Formule 1</h3><p data-i18n="sports.b2.p">Billets + hôtels.</p></div>
-        <div class="card"><h3 data-i18n="sports.b3.t">Groupes</h3><p data-i18n="sports.b3.p">Clubs & supporters.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= VISA ================= -->
-<section id="visa" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="visa.kicker">Assistance administrative</p>
-          <h1 class="hero-title" data-i18n="visa.title">Visa Services</h1>
-          <p class="hero-desc" data-i18n="visa.subtitle">
-            Tourisme, études, Omra, affaires.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-3 section">
-        <div class="card"><h3 data-i18n="visa.b1.t">Schengen</h3><p data-i18n="visa.b1.p">Espagne, France, Europe.</p></div>
-        <div class="card"><h3 data-i18n="visa.b2.t">UK</h3><p data-i18n="visa.b2.p">Tourisme & études.</p></div>
-        <div class="card"><h3 data-i18n="visa.b3.t">Arabie Saoudite</h3><p data-i18n="visa.b3.p">Omra & Hajj.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SAHARA ================= -->
-<section id="sahara" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="sahara.kicker">Aventure & culture</p>
-          <h1 class="hero-title" data-i18n="sahara.title">Sahara Experience</h1>
-          <p class="hero-desc" data-i18n="sahara.subtitle">
-            Désert, traditions, immersion authentique.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= ALGÉRIE – DIASPORA ================= -->
-<section id="algeria" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="dz.kicker">Voyages nostalgiques</p>
-          <h1 class="hero-title" data-i18n="dz.title">Algérie & Diaspora</h1>
-          <p class="hero-desc" data-i18n="dz.subtitle">
-            Retrouver ses racines, sa famille, sa terre.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= HERITAGE ESPAGNE ================= -->
-<section id="heritage-es" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="page-hero">
-        <div class="hero-card">
-          <p class="kicker" data-i18n="heritage.kicker">Histoire & mémoire</p>
-          <h1 class="hero-title" data-i18n="heritage.title">Heritage Espagne</h1>
-          <p class="hero-desc" data-i18n="heritage.subtitle">
-            Al-Andalus, routes culturelles, patrimoine.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FIN PARTIE 4 ===== -->
