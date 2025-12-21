@@ -13,7 +13,7 @@
       --muted:#6f7484;
       --border:#e6e9f2;
 
-      /* ✅ COULEURS MWT OFFICIELLES */
+      /* COULEURS MWT */
       --green:#a8c64a;
       --blue:#3fa0d8;
       --blue2:#2e8ec4;
@@ -21,99 +21,154 @@
 
       --shadow:0 14px 40px rgba(15,23,42,.10);
       --max:1180px;
+      --radius:22px;
     }
 
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
     a{text-decoration:none;color:inherit}
     .container{max-width:var(--max);margin:0 auto;padding:0 18px}
-    .spacer{height:84px}
+    .spacer{height:90px}
 
     /* HEADER */
-    .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--border)}
-    .header-inner{display:grid;grid-template-columns:max-content 1fr max-content;align-items:center;gap:14px;padding:12px 18px;max-width:var(--max);margin:0 auto}
+    .header{
+      position:fixed;top:0;left:0;right:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+      z-index:1000;
+    }
+    .header-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 18px;
+      display:grid;
+      grid-template-columns:max-content 1fr max-content;
+      align-items:center;
+      gap:16px;
+    }
     .brand{display:flex;align-items:center;gap:12px}
-    .logo-box{width:96px;height:60px;border-radius:16px;border:2px dashed #cfd6e6;background:#fff}
-    .brand-name{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .logo-box{
+      width:96px;height:60px;
+      border-radius:16px;
+      border:2px dashed #cfd6e6;
+      background:#fff;
+    }
+    .brand-name{
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
 
     .nav{display:flex;justify-content:center;gap:18px}
-    .nav a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .nav a{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
     .nav a.active{font-weight:800;color:var(--text)}
 
-    .lang{display:flex;gap:6px;padding:4px;border:1px solid var(--border);background:#f2f5fc;border-radius:999px}
-    .lang button{border:0;background:transparent;padding:6px 10px;border-radius:999px;cursor:pointer;font-size:12px;color:var(--muted)}
-    .lang button.active{background:linear-gradient(120deg,var(--green),var(--orange));color:#fff}
-
-    /* SECTIONS */
-    .section{padding:64px 0}
-    .lead{color:var(--muted);max-width:760px}
+    .lang{
+      display:flex;gap:6px;
+      padding:4px;
+      border:1px solid var(--border);
+      background:#f2f5fc;
+      border-radius:999px;
+    }
+    .lang button{
+      border:0;background:transparent;
+      padding:6px 10px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .lang button.active{
+      background:linear-gradient(120deg,var(--green),var(--orange));
+      color:#fff;
+    }
 
     /* HERO */
     .hero{
       border-radius:28px;
-      padding:56px;
+      padding:64px;
       background:
         linear-gradient(120deg,rgba(63,160,216,.35),rgba(168,198,74,.25)),
         linear-gradient(120deg,rgba(0,0,0,.55),rgba(0,0,0,.15));
       color:#fff;
       box-shadow:var(--shadow);
     }
-    .hero h1{margin:0 0 10px;font-size:36px}
-    .hero p{margin:0 0 18px;opacity:.95}
-    .hero .btn{background:linear-gradient(120deg,var(--orange),var(--green))}
-
+    .hero h1{margin:0 0 10px;font-size:38px}
+    .hero p{margin:0 0 18px;max-width:760px}
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:14px 32px;
+      padding:14px 36px;
       border-radius:999px;
       border:0;
       font-weight:700;
-      color:#fff;
       cursor:pointer;
+      color:#fff;
+      background:linear-gradient(120deg,var(--orange),var(--green));
     }
 
     /* PACKAGES */
-    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+    .section{padding:72px 0}
+    .packages{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:40px;
+    }
     .package{
       background:#fff;
       border:1px solid var(--border);
-      border-radius:22px;
-      padding:26px;
-      box-shadow:var(--shadow)
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
     }
     .package h3{margin:0 0 6px}
     .package span{color:var(--green);font-weight:700}
-    .package ul{margin:12px 0 0;padding-left:18px;color:#444}
+    .package ul{margin:14px 0 0;padding-left:18px;color:#444}
 
     /* FORM */
     .form-box{
-      margin-top:42px;
+      margin-top:40px;
       background:#fff;
       border:1px solid var(--border);
-      border-radius:22px;
+      border-radius:var(--radius);
       padding:36px;
-      box-shadow:var(--shadow)
+      box-shadow:var(--shadow);
     }
-    form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    form{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
     input,select{
       width:100%;
       padding:12px 14px;
       border-radius:12px;
-      border:1px solid var(--border)
+      border:1px solid var(--border);
     }
+    label{font-size:13px;color:var(--muted)}
     .full{grid-column:1/-1}
 
     /* FOOTER */
-    footer{background:#fff;border-top:1px solid var(--border);margin-top:60px}
+    footer{
+      background:#fff;
+      border-top:1px solid var(--border);
+      margin-top:60px;
+    }
     .footer-inner{
       max-width:var(--max);
       margin:0 auto;
-      padding:26px 18px;
+      padding:28px 18px;
       display:grid;
       grid-template-columns:2fr 1fr 1fr;
-      gap:18px
+      gap:20px;
     }
     .foot-title{font-weight:900}
     .foot-p{font-size:14px;color:var(--muted)}
@@ -123,7 +178,7 @@
       max-width:var(--max);
       margin:0 auto;
       font-size:13px;
-      color:var(--muted)
+      color:var(--muted);
     }
 
     @media(max-width:900px){
@@ -165,16 +220,19 @@
 
 <main>
 
+<!-- HERO -->
 <section class="section">
   <div class="container">
     <div class="hero">
       <h1 data-i18n="hajj.title"></h1>
       <p data-i18n="hajj.subtitle"></p>
-      <button class="btn" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})" data-i18n="hajj.cta"></button>
+      <button class="btn" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})"
+        data-i18n="hajj.cta"></button>
     </div>
   </div>
 </section>
 
+<!-- PACKAGES -->
 <section class="section">
   <div class="container">
     <h2 data-i18n="hajj.packages"></h2>
@@ -196,9 +254,9 @@
         <span data-i18n="hajj.standard.tag"></span>
         <ul>
           <li data-i18n="hajj.point1"></li>
-          <li data-i18n="hajj.point2"></li>
           <li data-i18n="hajj.point5"></li>
           <li data-i18n="hajj.point6"></li>
+          <li data-i18n="hajj.point4"></li>
         </ul>
       </div>
 
@@ -215,28 +273,51 @@
   </div>
 </section>
 
+<!-- FORM -->
 <section class="section" id="form">
   <div class="container">
     <h2 data-i18n="form.title"></h2>
 
     <div class="form-box">
-      <form>
-        <input class="full" type="text" data-i18n-placeholder="form.lastname">
-        <input class="full" type="text" data-i18n-placeholder="form.firstname">
-        <input type="text" data-i18n-placeholder="form.nationality">
-        <input type="text" data-i18n-placeholder="form.residence">
-        <input type="email" data-i18n-placeholder="form.email">
-        <input type="tel" data-i18n-placeholder="form.phone">
+      <form enctype="multipart/form-data">
+        <input class="full" type="text" data-i18n-placeholder="form.lastname" required>
+        <input class="full" type="text" data-i18n-placeholder="form.firstname" required>
 
-        <select class="full">
-          <option data-i18n="form.package"></option>
+        <input type="text" data-i18n-placeholder="form.nationality" required>
+        <input type="text" data-i18n-placeholder="form.residence">
+
+        <input type="email" data-i18n-placeholder="form.email" required>
+        <input type="tel" data-i18n-placeholder="form.phone" required>
+
+        <select class="full" required>
+          <option value="" data-i18n="form.package"></option>
           <option data-i18n="hajj.eco"></option>
           <option data-i18n="hajj.standard"></option>
           <option data-i18n="hajj.luxury"></option>
         </select>
 
+        <div class="full">
+          <label data-i18n="form.passport"></label>
+          <input type="file" accept=".pdf" required>
+        </div>
+
+        <div class="full">
+          <label data-i18n="form.residence.recto"></label>
+          <input type="file" accept=".jpg,.jpeg,.png">
+        </div>
+
+        <div class="full">
+          <label data-i18n="form.residence.verso"></label>
+          <input type="file" accept=".jpg,.jpeg,.png">
+        </div>
+
+        <div class="full">
+          <label data-i18n="form.photo"></label>
+          <input type="file" accept=".jpg,.jpeg,.png" required>
+        </div>
+
         <div class="full" style="text-align:center">
-          <button class="btn" type="button" data-i18n="form.submit"></button>
+          <button class="btn" type="submit" data-i18n="form.submit"></button>
         </div>
       </form>
     </div>
@@ -250,14 +331,17 @@
     <div>
       <div class="foot-title" data-i18n="brand.name"></div>
       <p class="foot-p" data-i18n="foot.desc"></p>
+      <p class="foot-p">CIF : B-12345678</p>
     </div>
     <div>
       <div class="foot-title" data-i18n="foot.links"></div>
       <p class="foot-p"><a href="hajj.html" data-i18n="nav.hajj"></a></p>
       <p class="foot-p"><a href="omra-ramadan.html" data-i18n="nav.omra"></a></p>
+      <p class="foot-p"><a href="contact.html" data-i18n="nav.contact"></a></p>
     </div>
     <div>
       <div class="foot-title" data-i18n="foot.contact"></div>
+      <p class="foot-p">📍 Calle Italia 9, Alicante</p>
       <p class="foot-p">📞 +34 600 672 423</p>
       <p class="foot-p">✉️ hajomra@mwt-tours.com</p>
     </div>
@@ -294,6 +378,10 @@ fr:{
 "form.email":"Email",
 "form.phone":"WhatsApp",
 "form.package":"Forfait souhaité",
+"form.passport":"Upload passeport (PDF si UE)",
+"form.residence.recto":"Carte de résidence – Recto",
+"form.residence.verso":"Carte de résidence – Verso",
+"form.photo":"Photo d’identité (JPG)",
 "form.submit":"Envoyer la demande",
 "foot.desc":"Organisation Hajj & Omra – 39 ans d’expérience",
 "foot.links":"Liens",
@@ -327,6 +415,10 @@ en:{
 "form.email":"Email",
 "form.phone":"WhatsApp",
 "form.package":"Desired package",
+"form.passport":"Upload passport (PDF if EU)",
+"form.residence.recto":"Residence card – front",
+"form.residence.verso":"Residence card – back",
+"form.photo":"ID photo (JPG)",
 "form.submit":"Send request",
 "foot.desc":"Hajj & Umrah organization – 39 years of experience",
 "foot.links":"Links",
@@ -360,6 +452,10 @@ es:{
 "form.email":"Email",
 "form.phone":"WhatsApp",
 "form.package":"Paquete deseado",
+"form.passport":"Subir pasaporte (PDF si UE)",
+"form.residence.recto":"Tarjeta de residencia – Anverso",
+"form.residence.verso":"Tarjeta de residencia – Reverso",
+"form.photo":"Foto de identidad (JPG)",
 "form.submit":"Enviar solicitud",
 "foot.desc":"Organización Hajj y Omra – 39 años de experiencia",
 "foot.links":"Enlaces",
@@ -383,7 +479,7 @@ ar:{
 "hajj.point5":"فنادق مريحة",
 "hajj.point6":"نقل منظم",
 "hajj.point7":"فنادق 5 نجوم",
-"hajj.point8":"خدمات VIP",
+"hajj.point8":"خدمات كبار الشخصيات",
 "hajj.point9":"إشراف مميز",
 "form.title":"نموذج التسجيل لحج 2026",
 "form.lastname":"اللقب",
@@ -393,6 +489,10 @@ ar:{
 "form.email":"البريد الإلكتروني",
 "form.phone":"واتساب",
 "form.package":"الباقة المطلوبة",
+"form.passport":"تحميل جواز السفر (PDF إن كان أوروبي)",
+"form.residence.recto":"بطاقة الإقامة – الوجه الأمامي",
+"form.residence.verso":"بطاقة الإقامة – الوجه الخلفي",
+"form.photo":"صورة شخصية (JPG)",
 "form.submit":"إرسال الطلب",
 "foot.desc":"تنظيم الحج والعمرة – خبرة 39 سنة",
 "foot.links":"روابط",
