@@ -1,156 +1,884 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MWT – Hajj 2026 & Omra Ramadhan</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MWT – Hajj 2026 & Omra Ramadan</title>
 
-<style>
-:root{
-  --mwt-green:#a8c64a;
-  --mwt-blue:#3fa0d8;
-  --mwt-blue-dark:#2e8ec4;
-  --text:#151823;
-  --muted:#6f7484;
-  --border:#e6e9f2;
-  --bg:#ffffff;
-  --page:#f7f9fc;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
-a{text-decoration:none;color:inherit}
-.container{max-width:1180px;margin:0 auto;padding:0 18px}
-.spacer{height:92px}
+  <style>
+    :root{
+      --bg:#ffffff;
+      --page:#f5f7fb;
+      --text:#151823;
+      --muted:#6f7484;
+      --border:#e6e9f2;
 
-/* HEADER */
-header{position:fixed;top:0;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);z-index:1000}
-.header-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding:14px 18px;max-width:1180px;margin:auto}
-.logo{display:flex;align-items:center;gap:14px}
-.logo-box{width:110px;height:64px;border-radius:16px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--mwt-blue)}
-nav{display:flex;justify-content:center;gap:20px}
-nav a{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-nav a.active{color:var(--text);font-weight:700}
-.lang{display:flex;gap:6px}
-.lang button{border:1px solid var(--border);background:#f2f5fc;border-radius:999px;padding:6px 10px;font-size:12px;cursor:pointer}
+      /* MWT (exact tones you gave) */
+      --mwt-green:#a8c64a;
+      --mwt-blue:#2e8ec4;
+      --mwt-blue2:#3fa0d8;
+      --mwt-orange:#b67347;
 
-/* HERO */
-.hero{margin-top:18px;border-radius:26px;padding:40px;background:
-linear-gradient(120deg,rgba(46,142,196,.25),rgba(168,198,74,.25)),
-#222;color:#fff}
-.hero h1{margin:0 0 14px;font-size:34px}
-.hero-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:20px 0}
-.point{background:rgba(255,255,255,.12);padding:14px;border-radius:14px;font-size:14px}
+      --shadow: 0 14px 40px rgba(15,23,42,.10);
+      --max:1180px;
+      --radius:26px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--page);
+      color:var(--text)
+    }
+    a{color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .spacer{height:84px}
 
-/* CTA */
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-.btn{padding:14px 26px;border-radius:999px;font-weight:700}
-.btn.primary{background:linear-gradient(120deg,var(--mwt-green),var(--mwt-blue));color:#fff}
-.btn.ghost{border:1px solid #fff;color:#fff}
+    /* HEADER (shared style like your Contact page) */
+    .header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:var(--bg);
+      border-bottom:1px solid var(--border);
+    }
+    .header-inner{
+      display:grid;
+      grid-template-columns:max-content 1fr max-content;
+      align-items:center;
+      gap:14px;
+      padding:12px 18px;
+      max-width:var(--max);
+      margin:0 auto;
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo-box{
+      width:96px;height:62px;border-radius:16px;
+      border:2px dashed #cfd6e6;background:#fff;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+    }
+    .brand-name{
+      font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--muted);line-height:1.15;max-width:260px
+    }
 
-/* WHY US */
-.section{padding:60px 0}
-.section h2{text-align:center;margin-bottom:10px}
-.section p{text-align:center;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:40px}
-.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;text-align:center}
+    /* Menu MAX 4 liens */
+    .nav{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+    .nav a{
+      text-decoration:none;
+      font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--muted);
+      padding:6px 10px;border-radius:999px
+    }
+    .nav a:hover{background:#eef2fa;color:var(--text)}
+    .nav a.active{color:var(--text);font-weight:800}
+    .nav a.highlight{
+      font-weight:900;color:var(--text);position:relative
+    }
+    .nav a.highlight::after{
+      content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;
+      background:linear-gradient(120deg,var(--mwt-green),var(--mwt-orange));
+      border-radius:999px
+    }
 
-/* WHATSAPP */
-.whatsapp{position:fixed;bottom:18px;right:18px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 12px 30px rgba(0,0,0,.25);animation:pulse 2s infinite;z-index:999}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+    /* Lang flags */
+    .lang{
+      display:flex;gap:6px;align-items:center;
+      padding:4px;border:1px solid var(--border);
+      background:#f2f5fc;border-radius:999px
+    }
+    .lang button{
+      border:0;background:transparent;cursor:pointer;
+      padding:6px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+      display:flex;gap:6px;align-items:center;white-space:nowrap
+    }
+    .lang button.active{
+      background:linear-gradient(120deg,var(--mwt-green),var(--mwt-orange));
+      color:#fff
+    }
 
-/* FOOTER */
-footer{background:#0e2340;color:#fff;margin-top:40px}
-.footer-inner{max-width:1180px;margin:auto;padding:30px 18px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
-footer a{color:#fff;font-size:14px}
-.footer-bottom{text-align:center;padding:14px;border-top:1px solid rgba(255,255,255,.2);font-size:13px}
-</style>
+    /* SECTIONS */
+    .section{padding:28px 0}
+    .section h2{margin:0 0 10px;font-size:22px}
+    .lead{margin:0 0 16px;color:var(--muted);line-height:1.6}
+
+    /* HERO / CAROUSEL WRAP */
+    .hero-wrap{
+      margin-top:16px;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      position:relative;
+      background:#0b1220;
+    }
+    .slides{position:relative;height:520px}
+    .slide{
+      position:absolute;inset:0;
+      opacity:0;pointer-events:none;
+      transition:opacity .5s ease;
+      display:grid;
+      align-items:end;
+    }
+    .slide.active{opacity:1;pointer-events:auto}
+
+    /* Placeholder images (replace later) */
+    .slide::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        radial-gradient(1200px 520px at 20% 18%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(120deg, rgba(168,198,74,.20), rgba(63,160,216,.16)),
+        linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.15));
+      z-index:0;
+    }
+    /* Different vibe per slide */
+    .slide[data-variant="hajj"]::before{
+      background:
+        radial-gradient(1200px 520px at 20% 18%, rgba(182,115,71,.22), transparent 60%),
+        linear-gradient(120deg, rgba(46,142,196,.16), rgba(168,198,74,.14)),
+        linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.15));
+    }
+    .slide[data-variant="omra"]::before{
+      background:
+        radial-gradient(1200px 520px at 20% 18%, rgba(63,160,216,.22), transparent 60%),
+        linear-gradient(120deg, rgba(168,198,74,.14), rgba(182,115,71,.14)),
+        linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.15));
+    }
+
+    .slide-inner{
+      position:relative;z-index:1;
+      padding:26px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:end;
+    }
+
+    .hero-card{
+      width:min(720px, 100%);
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(182,115,71,.22);
+      border-radius:22px;
+      padding:18px 18px 16px;
+      backdrop-filter: blur(10px);
+      color:var(--text);
+    }
+    .kicker{
+      font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--mwt-green);
+      margin:0 0 6px
+    }
+    .hero-title{
+      margin:0 0 10px;
+      font-size:34px;line-height:1.10;letter-spacing:-.02em
+    }
+    .hero-sub{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;line-height:1.6
+    }
+
+    /* Bullet grid (exact request: points not sentences) */
+    .bullets{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:10px;
+      margin:0 0 14px;
+      padding:0;
+      list-style:none;
+    }
+    .bullets li{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:10px 10px;
+      display:flex;gap:10px;align-items:center;
+      box-shadow:0 10px 22px rgba(15,23,42,.05)
+    }
+    .b-ico{
+      width:38px;height:38px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(120deg, rgba(168,198,74,.22), rgba(182,115,71,.18));
+      border:1px solid rgba(182,115,71,.18);
+      flex:0 0 auto;
+      font-size:18px
+    }
+    .b-txt{font-weight:800;font-size:13px;color:var(--text);line-height:1.25}
+
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      padding:10px 16px;
+      text-decoration:none;
+      font-weight:900;font-size:14px;
+      cursor:pointer
+    }
+    .btn.primary{
+      border:0;color:#fff;
+      background:linear-gradient(120deg,var(--mwt-orange), #d9b673);
+      box-shadow:0 12px 24px rgba(182,115,71,.22)
+    }
+    .btn.ghost{background:transparent;color:var(--text)}
+    .btn.ghost:hover{background:#f3f6ff}
+
+    /* Badge "à partir de 5000€" on slide */
+    .price-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(46,142,196,.18);
+      font-weight:900;
+      color:var(--text);
+      box-shadow:0 10px 22px rgba(15,23,42,.06);
+      width:max-content;
+      justify-self:end;
+    }
+    .price-dot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(120deg,var(--mwt-green),var(--mwt-orange));
+    }
+
+    /* carousel controls */
+    .carousel-controls{
+      position:absolute;
+      left:16px;right:16px;bottom:16px;
+      display:flex;align-items:center;justify-content:space-between;
+      z-index:3;
+      pointer-events:none;
+    }
+    .arrow{
+      pointer-events:auto;
+      width:44px;height:44px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(0,0,0,.35);
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
+      backdrop-filter: blur(8px);
+    }
+    .arrow:hover{background:rgba(0,0,0,.50)}
+    .dots{
+      pointer-events:auto;
+      display:flex;gap:8px;align-items:center;justify-content:center;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:rgba(255,255,255,.35);
+      border:1px solid rgba(255,255,255,.25);
+      cursor:pointer;
+    }
+    .dot.active{
+      background:linear-gradient(120deg,var(--mwt-green),var(--mwt-orange));
+      border-color:transparent;
+    }
+
+    /* WHY CHOOSE US */
+    .why{
+      margin-top:18px;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:
+        radial-gradient(900px 340px at 20% 20%, rgba(168,198,74,.16), transparent 60%),
+        radial-gradient(900px 340px at 85% 40%, rgba(46,142,196,.14), transparent 60%),
+        #ffffff;
+      border:1px solid var(--border);
+    }
+    .why-inner{padding:22px}
+    .why-title{margin:0 0 6px;font-size:24px}
+    .why-sub{margin:0 0 18px;color:var(--muted);line-height:1.6}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .card{
+      background:#fff;border:1px solid var(--border);
+      border-radius:18px;padding:16px;
+      box-shadow:0 10px 22px rgba(15,23,42,.05)
+    }
+    .icon-row{display:flex;gap:10px;align-items:center;margin:0 0 8px}
+    .badge{
+      width:44px;height:44px;border-radius:16px;
+      background:#f2f5fc;border:1px solid #e5e9f6;
+      display:flex;align-items:center;justify-content:center;
+      font-size:18px;flex:0 0 auto
+    }
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+
+    /* FOOTER (simple now; you said footer later — but keep structure) */
+    footer{margin-top:18px;border-top:1px solid var(--border);background:#fff}
+    .footer-inner{
+      display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;
+      padding:22px 18px;max-width:var(--max);margin:0 auto
+    }
+    .foot-title{font-weight:900;margin:0 0 6px}
+    .foot-p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    .foot-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .foot-list a{color:var(--muted);text-decoration:none}
+    .foot-list a:hover{color:var(--text)}
+    .copyright{
+      border-top:1px solid var(--border);
+      padding:12px 18px;color:var(--muted);font-size:13px;
+      max-width:var(--max);margin:0 auto
+    }
+
+    /* Floating WhatsApp */
+    .wa-float{
+      position:fixed;
+      right:18px; bottom:18px;
+      width:58px; height:58px;
+      border-radius:999px;
+      background:linear-gradient(120deg, #25D366, #1ebe5b);
+      box-shadow:0 16px 34px rgba(0,0,0,.22);
+      display:flex;align-items:center;justify-content:center;
+      z-index:2000;
+      text-decoration:none;
+      animation: waPulse 2.2s infinite;
+    }
+    .wa-float span{font-size:26px;filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
+    @keyframes waPulse{
+      0%{transform:translateY(0) scale(1)}
+      50%{transform:translateY(-2px) scale(1.03)}
+      100%{transform:translateY(0) scale(1)}
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .nav{display:none}
+      .slides{height:560px}
+      .slide-inner{grid-template-columns:1fr}
+      .price-badge{justify-self:start}
+      .grid-3{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+      .hero-title{font-size:28px}
+      .bullets{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 
 <body>
+  <!-- WhatsApp floating -->
+  <a class="wa-float" href="https://wa.me/34600672423" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span>💬</span>
+  </a>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="logo">
-      <div class="logo-box">MWT</div>
-      <strong>Moltaqa World Travel & Tourism</strong>
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="MWT Home">
+        <div class="logo-box" aria-label="Logo placeholder">
+          <!-- <img src="images/logo.png" alt="MWT logo" style="width:100%;height:100%;object-fit:contain;"> -->
+          <strong style="color:var(--mwt-blue);letter-spacing:.06em">MWT</strong>
+        </div>
+        <div class="brand-name" data-i18n="brand.name">Moltaqa World Travel & Tourism</div>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="active" data-i18n="nav.home">Accueil</a>
+        <a href="hajj-2026.html" class="highlight" data-i18n="nav.hajj">Hajj 2026</a>
+        <a href="omra-ramadan.html" data-i18n="nav.omraR">Omra Ramadan</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang" aria-label="Languages">
+        <button type="button" class="lang-btn active" data-lang="fr">🇫🇷 <span>FR</span></button>
+        <button type="button" class="lang-btn" data-lang="en">🇬🇧 <span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="es">🇪🇸 <span>ES</span></button>
+        <button type="button" class="lang-btn" data-lang="ar">🇸🇦 <span>AR</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="spacer"></div>
+
+  <main>
+    <!-- CAROUSEL HERO -->
+    <section class="section">
+      <div class="container">
+        <div class="hero-wrap" aria-label="MWT hero carousel">
+          <div class="slides">
+            <!-- Slide 1: HAJJ -->
+            <article class="slide active" data-slide="0" data-variant="hajj" aria-label="Hajj 2026 slide">
+              <div class="slide-inner">
+                <div class="hero-card">
+                  <p class="kicker" data-i18n="hero.kicker.hajj">Hajj Packages</p>
+                  <h1 class="hero-title" data-i18n="hero.title.hajj">Hajj 2026</h1>
+                  <p class="hero-sub" data-i18n="hero.sub.hajj">
+                    Accompagnement officiel & sécurisé. Organisation complète, claire et conforme.
+                  </p>
+
+                  <ul class="bullets" aria-label="Hajj highlights">
+                    <li><div class="b-ico">✈️</div><div class="b-txt" data-i18n="hero.b1">Vols</div></li>
+                    <li><div class="b-ico">🛂</div><div class="b-txt" data-i18n="hero.b2">Visa Nusuk</div></li>
+                    <li><div class="b-ico">🏨</div><div class="b-txt" data-i18n="hero.b3">Hôtels</div></li>
+                    <li><div class="b-ico">🚌</div><div class="b-txt" data-i18n="hero.b4">Mina & Arafat</div></li>
+                    <li><div class="b-ico">🧭</div><div class="b-txt" data-i18n="hero.b5">Guide agréé</div></li>
+                    <li><div class="b-ico">✨</div><div class="b-txt" data-i18n="hero.b6">Et plus</div></li>
+                  </ul>
+
+                  <div class="cta-row">
+                    <a class="btn primary" href="hajj-2026.html" data-i18n="hero.cta.hajj">Inscription Hajj 2026</a>
+                    <a class="btn ghost" href="contact.html" data-i18n="hero.cta.contact">Nous contacter</a>
+                  </div>
+                </div>
+
+                <div class="price-badge" aria-label="Hajj starting price">
+                  <span class="price-dot" aria-hidden="true"></span>
+                  <span data-i18n="hero.price.from">À partir de</span>
+                  <strong>5000€</strong>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2: OMRA RAMADAN -->
+            <article class="slide" data-slide="1" data-variant="omra" aria-label="Omra Ramadan slide">
+              <div class="slide-inner">
+                <div class="hero-card">
+                  <p class="kicker" data-i18n="hero.kicker.omra">Omra Packages</p>
+                  <h1 class="hero-title" data-i18n="hero.title.omra">Omra Ramadan</h1>
+                  <p class="hero-sub" data-i18n="hero.sub.omra">
+                    Vivez une Omra spirituelle durant le mois béni, avec organisation claire et accompagnement.
+                  </p>
+
+                  <ul class="bullets" aria-label="Omra highlights">
+                    <li><div class="b-ico">✈️</div><div class="b-txt" data-i18n="omra.b1">Vols</div></li>
+                    <li><div class="b-ico">🏨</div><div class="b-txt" data-i18n="omra.b2">Hôtels</div></li>
+                    <li><div class="b-ico">🛂</div><div class="b-txt" data-i18n="omra.b3">Visa</div></li>
+                    <li><div class="b-ico">🚌</div><div class="b-txt" data-i18n="omra.b4">Transferts</div></li>
+                    <li><div class="b-ico">🧭</div><div class="b-txt" data-i18n="omra.b5">Guide</div></li>
+                    <li><div class="b-ico">🤍</div><div class="b-txt" data-i18n="omra.b6">Support</div></li>
+                  </ul>
+
+                  <div class="cta-row">
+                    <a class="btn primary" href="omra-ramadan.html" data-i18n="hero.cta.omra">Voir Omra Ramadan</a>
+                    <a class="btn ghost" href="contact.html" data-i18n="hero.cta.contact">Nous contacter</a>
+                  </div>
+                </div>
+
+                <div class="price-badge" aria-label="Omra note">
+                  <span class="price-dot" aria-hidden="true"></span>
+                  <span data-i18n="omra.badge">Inscriptions ouvertes</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="carousel-controls" aria-label="Carousel controls">
+            <button class="arrow" type="button" id="prevBtn" aria-label="Previous slide">‹</button>
+            <div class="dots" aria-label="Slide dots">
+              <button class="dot active" type="button" data-dot="0" aria-label="Go to slide 1"></button>
+              <button class="dot" type="button" data-dot="1" aria-label="Go to slide 2"></button>
+            </div>
+            <button class="arrow" type="button" id="nextBtn" aria-label="Next slide">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US (below carousel) -->
+    <section class="section">
+      <div class="container">
+        <div class="why" aria-label="Why choose MWT">
+          <div class="why-inner">
+            <h2 class="why-title" data-i18n="why.title">Why Choose Our Services</h2>
+            <p class="why-sub" data-i18n="why.sub">
+              Discover the exceptional features that make us the preferred choice for your spiritual journey.
+            </p>
+
+            <div class="grid-3" role="list">
+              <div class="card" role="listitem">
+                <div class="icon-row">
+                  <div class="badge">🔒</div>
+                  <h3 data-i18n="why.c1.t">Secure & Trusted</h3>
+                </div>
+                <p data-i18n="why.c1.p">Organisation fiable et conforme, avec communication claire.</p>
+              </div>
+
+              <div class="card" role="listitem">
+                <div class="icon-row">
+                  <div class="badge">⚡</div>
+                  <h3 data-i18n="why.c2.t">Fast Processing</h3>
+                </div>
+                <p data-i18n="why.c2.p">Dossiers suivis et accompagnement administratif optimisé.</p>
+              </div>
+
+              <div class="card" role="listitem">
+                <div class="icon-row">
+                  <div class="badge">🤝</div>
+                  <h3 data-i18n="why.c3.t">With You Throughout</h3>
+                </div>
+                <p data-i18n="why.c3.p">Support avant, pendant et après votre voyage spirituel.</p>
+              </div>
+
+              <div class="card" role="listitem">
+                <div class="icon-row">
+                  <div class="badge">🕰️</div>
+                  <h3 data-i18n="why.c4.t">39 Years Experience</h3>
+                </div>
+                <p data-i18n="why.c4.p">39 ans d’expertise dans l’organisation Hajj & Omra.</p>
+              </div>
+
+              <div class="card" role="listitem">
+                <div class="icon-row">
+                  <div class="badge">⭐</div>
+                  <h3 data-i18n="why.c5.t">Premium Quality</h3>
+                </div>
+                <p data-i18n="why.c5.p">Sélection d’options premium & encadrement professionnel.</p>
+              </div>
+
+              <div class="card" role="listitem">
+                <div class="icon-row">
+                  <div class="badge">🎯</div>
+                  <h3 data-i18n="why.c6.t">Personalized Service</h3>
+                </div>
+                <p data-i18n="why.c6.p">Une prise en charge personnalisée selon votre profil.</p>
+              </div>
+            </div>
+
+            <p class="lead" style="margin-top:14px" data-i18n="why.bottom">
+              Embarquez sereinement : une équipe dédiée, une organisation maîtrisée, et un accompagnement humain.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (placeholder structure; you said we'll refine after pages) -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="foot-title" data-i18n="foot.brand">MWT – Moltaqa World Travel & Tourism</p>
+        <p class="foot-p" data-i18n="foot.desc">
+          Hajj 2026 & Omra Ramadan — organisation premium, accompagnement et suivi.
+        </p>
+      </div>
+
+      <div>
+        <p class="foot-title" data-i18n="foot.links">Liens</p>
+        <ul class="foot-list">
+          <li><a href="hajj-2026.html" data-i18n="nav.hajj">Hajj 2026</a></li>
+          <li><a href="omra-ramadan.html" data-i18n="nav.omraR">Omra Ramadan</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="foot-title" data-i18n="foot.contact">Contact</p>
+        <ul class="foot-list">
+          <li><a href="tel:+34600672423">📞 <span data-i18n="foot.phone">+34 600 672 423</span></a></li>
+          <li><a href="mailto:hajomra@mwt-tours.com">✉️ <span>hajomra@mwt-tours.com</span></a></li>
+          <li><a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante" target="_blank" rel="noopener">📍 <span data-i18n="foot.addr">Calle Italia 9, 03003 Alicante</span></a></li>
+        </ul>
+      </div>
     </div>
 
-    <nav>
-      <a class="active" href="index.html">Accueil</a>
-      <a href="hajj-2026.html">Hajj 2026</a>
-      <a href="omra-ramadhan.html">Omra Ramadhan</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-    <div class="lang">
-      <button>🇫🇷 FR</button>
-      <button>🇬🇧 EN</button>
-      <button>🇪🇸 ES</button>
-      <button>🇸🇦 AR</button>
+    <div class="copyright">
+      <span data-i18n="foot.copy">© 2026 MWT – Tous droits réservés</span>
     </div>
-  </div>
-</header>
+  </footer>
 
-<div class="spacer"></div>
+  <script>
+    /* =========================
+       i18n (FR/EN/ES/AR)
+       ========================= */
+    const i18n = {
+      fr:{
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Accueil",
+        "nav.hajj":"Hajj 2026",
+        "nav.omraR":"Omra Ramadan",
+        "nav.contact":"Contact",
 
-<main class="container">
+        "hero.kicker.hajj":"Hajj Packages",
+        "hero.title.hajj":"Hajj 2026",
+        "hero.sub.hajj":"Accompagnement officiel & sécurisé. Organisation complète, claire et conforme.",
+        "hero.b1":"Vols",
+        "hero.b2":"Visa Nusuk",
+        "hero.b3":"Hôtels",
+        "hero.b4":"Mina & Arafat",
+        "hero.b5":"Guide agréé",
+        "hero.b6":"Et plus",
+        "hero.cta.hajj":"Inscription Hajj 2026",
+        "hero.cta.omra":"Voir Omra Ramadan",
+        "hero.cta.contact":"Nous contacter",
+        "hero.price.from":"À partir de",
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Hajj 2026 – Accompagnement officiel & sécurisé</h1>
+        "hero.kicker.omra":"Omra Packages",
+        "hero.title.omra":"Omra Ramadan",
+        "hero.sub.omra":"Vivez une Omra spirituelle durant le mois béni, avec organisation claire et accompagnement.",
+        "omra.b1":"Vols",
+        "omra.b2":"Hôtels",
+        "omra.b3":"Visa",
+        "omra.b4":"Transferts",
+        "omra.b5":"Guide",
+        "omra.b6":"Support",
+        "omra.badge":"Inscriptions ouvertes",
 
-    <div class="hero-points">
-      <div class="point">✈️ Vols internationaux</div>
-      <div class="point">🛂 Visa Nusuk officiel</div>
-      <div class="point">🏨 Hôtels Makkah & Madinah</div>
-      <div class="point">🚌 Transport Mina & Arafat</div>
-      <div class="point">🧭 Guide agréé</div>
-    </div>
+        "why.title":"Pourquoi nous choisir",
+        "why.sub":"Découvrez ce qui fait de MWT le choix préféré pour votre voyage spirituel.",
+        "why.c1.t":"Sécurisé & fiable",
+        "why.c1.p":"Organisation conforme, communication claire et suivi sérieux.",
+        "why.c2.t":"Traitement rapide",
+        "why.c2.p":"Dossiers suivis et accompagnement administratif optimisé.",
+        "why.c3.t":"Avec vous tout du long",
+        "why.c3.p":"Support avant, pendant et après votre voyage.",
+        "why.c4.t":"39 ans d’expérience",
+        "why.c4.p":"39 ans d’expertise dans l’organisation Hajj & Omra.",
+        "why.c5.t":"Qualité premium",
+        "why.c5.p":"Sélection d’options premium & encadrement professionnel.",
+        "why.c6.t":"Service personnalisé",
+        "why.c6.p":"Une prise en charge adaptée à votre profil.",
+        "why.bottom":"Embarquez sereinement : une équipe dédiée, une organisation maîtrisée, et un accompagnement humain.",
 
-    <div class="cta-row">
-      <a class="btn primary" href="hajj-2026.html">Découvrir Hajj 2026</a>
-      <a class="btn ghost" href="omra-ramadhan.html">Voir Omra Ramadhan</a>
-    </div>
-  </section>
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Hajj 2026 & Omra Ramadan — organisation premium, accompagnement et suivi.",
+        "foot.links":"Liens",
+        "foot.contact":"Contact",
+        "foot.phone":"+34 600 672 423",
+        "foot.addr":"Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – Tous droits réservés"
+      },
 
-  <!-- WHY US -->
-  <section class="section">
-    <h2>Pourquoi choisir MWT</h2>
-    <p>39 ans d’expérience dans l’organisation de voyages spirituels</p>
+      en:{
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Home",
+        "nav.hajj":"Hajj 2026",
+        "nav.omraR":"Ramadan Umrah",
+        "nav.contact":"Contact",
 
-    <div class="grid">
-      <div class="card">🔒 Agence fiable & reconnue</div>
-      <div class="card">⏱ Traitement rapide des dossiers</div>
-      <div class="card">🤲 Accompagnement spirituel</div>
-      <div class="card">🌍 Organisation internationale</div>
-      <div class="card">📞 Support avant / pendant / après</div>
-      <div class="card">⭐ Services premium</div>
-    </div>
-  </section>
+        "hero.kicker.hajj":"Hajj Packages",
+        "hero.title.hajj":"Hajj 2026",
+        "hero.sub.hajj":"Official & secure guidance. Complete, clear and compliant organization.",
+        "hero.b1":"Flights",
+        "hero.b2":"Nusuk Visa",
+        "hero.b3":"Hotels",
+        "hero.b4":"Mina & Arafat",
+        "hero.b5":"Licensed Guide",
+        "hero.b6":"And more",
+        "hero.cta.hajj":"Hajj 2026 Registration",
+        "hero.cta.omra":"View Ramadan Umrah",
+        "hero.cta.contact":"Contact us",
+        "hero.price.from":"From",
 
-</main>
+        "hero.kicker.omra":"Umrah Packages",
+        "hero.title.omra":"Ramadan Umrah",
+        "hero.sub.omra":"Experience a spiritual Umrah during the blessed month, with clear organization and support.",
+        "omra.b1":"Flights",
+        "omra.b2":"Hotels",
+        "omra.b3":"Visa",
+        "omra.b4":"Transfers",
+        "omra.b5":"Guide",
+        "omra.b6":"Support",
+        "omra.badge":"Registration open",
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <strong>MWT – Moltaqa World Travel & Tourism</strong>
-      <p>CIF : B42572768<br>Licence agence : CV-MM-2212-A</p>
-    </div>
-    <div>
-      <a href="hajj-2026.html">Hajj 2026</a><br>
-      <a href="omra-ramadhan.html">Omra Ramadhan</a>
-    </div>
-    <div>
-      <a href="contact.html">Contact</a><br>
-      Alicante – Espagne
-    </div>
-  </div>
-  <div class="footer-bottom">© 2026 MWT – Tous droits réservés</div>
-</footer>
+        "why.title":"Why Choose Our Services",
+        "why.sub":"Discover the exceptional features that make us the preferred choice for your spiritual journey.",
+        "why.c1.t":"Secure & Trusted",
+        "why.c1.p":"Reliable, compliant organization with clear communication.",
+        "why.c2.t":"Fast Processing",
+        "why.c2.p":"Optimized file support and follow-up.",
+        "why.c3.t":"With You Throughout",
+        "why.c3.p":"Support before, during and after your trip.",
+        "why.c4.t":"39 Years Experience",
+        "why.c4.p":"39 years of expertise in Hajj & Umrah organization.",
+        "why.c5.t":"Premium Quality",
+        "why.c5.p":"Handpicked options & professional supervision.",
+        "why.c6.t":"Personalized Service",
+        "why.c6.p":"Tailored support based on your profile.",
+        "why.bottom":"Travel with confidence: dedicated team, strong organization, and human support.",
 
-<a class="whatsapp" href="https://wa.me/34600672423" target="_blank">💬</a>
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Hajj 2026 & Ramadan Umrah — premium organization, guidance and follow-up.",
+        "foot.links":"Links",
+        "foot.contact":"Contact",
+        "foot.phone":"+34 600 672 423",
+        "foot.addr":"Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – All rights reserved"
+      },
 
+      es:{
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Inicio",
+        "nav.hajj":"Hajj 2026",
+        "nav.omraR":"Omra Ramadán",
+        "nav.contact":"Contacto",
+
+        "hero.kicker.hajj":"Paquetes Hajj",
+        "hero.title.hajj":"Hajj 2026",
+        "hero.sub.hajj":"Acompañamiento oficial y seguro. Organización completa, clara y conforme.",
+        "hero.b1":"Vuelos",
+        "hero.b2":"Visado Nusuk",
+        "hero.b3":"Hoteles",
+        "hero.b4":"Mina y Arafat",
+        "hero.b5":"Guía acreditado",
+        "hero.b6":"Y más",
+        "hero.cta.hajj":"Inscripción Hajj 2026",
+        "hero.cta.omra":"Ver Omra Ramadán",
+        "hero.cta.contact":"Contáctanos",
+        "hero.price.from":"Desde",
+
+        "hero.kicker.omra":"Paquetes Omra",
+        "hero.title.omra":"Omra Ramadán",
+        "hero.sub.omra":"Vive una Omra espiritual durante el mes bendito, con organización clara y acompañamiento.",
+        "omra.b1":"Vuelos",
+        "omra.b2":"Hoteles",
+        "omra.b3":"Visado",
+        "omra.b4":"Traslados",
+        "omra.b5":"Guía",
+        "omra.b6":"Soporte",
+        "omra.badge":"Inscripción abierta",
+
+        "why.title":"Por qué elegirnos",
+        "why.sub":"Descubre lo que hace de MWT la opción preferida para tu viaje espiritual.",
+        "why.c1.t":"Seguro y fiable",
+        "why.c1.p":"Organización conforme y comunicación clara.",
+        "why.c2.t":"Tramitación rápida",
+        "why.c2.p":"Soporte y seguimiento optimizados.",
+        "why.c3.t":"Contigo en todo momento",
+        "why.c3.p":"Apoyo antes, durante y después del viaje.",
+        "why.c4.t":"39 años de experiencia",
+        "why.c4.p":"39 años de experiencia en organización Hajj y Omra.",
+        "why.c5.t":"Calidad premium",
+        "why.c5.p":"Opciones seleccionadas y supervisión profesional.",
+        "why.c6.t":"Servicio personalizado",
+        "why.c6.p":"Atención adaptada a tu perfil.",
+        "why.bottom":"Viaja con confianza: equipo dedicado, organización sólida y apoyo humano.",
+
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Hajj 2026 y Omra Ramadán — organización premium, guía y seguimiento.",
+        "foot.links":"Enlaces",
+        "foot.contact":"Contacto",
+        "foot.phone":"+34 600 672 423",
+        "foot.addr":"Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – Todos los derechos reservados"
+      },
+
+      ar:{
+        "brand.name":"ملتقى وورلد ترافل & تورزم",
+        "nav.home":"الرئيسية",
+        "nav.hajj":"حج 2026",
+        "nav.omraR":"عمرة رمضان",
+        "nav.contact":"تواصل",
+
+        "hero.kicker.hajj":"باقات الحج",
+        "hero.title.hajj":"حج 2026",
+        "hero.sub.hajj":"مرافقة رسمية وآمنة. تنظيم كامل وواضح ومتوافق.",
+        "hero.b1":"الرحلات",
+        "hero.b2":"تأشيرة نسك",
+        "hero.b3":"فنادق",
+        "hero.b4":"منى وعرفات",
+        "hero.b5":"مرشد معتمد",
+        "hero.b6":"والمزيد",
+        "hero.cta.hajj":"التسجيل لحج 2026",
+        "hero.cta.omra":"عرض عمرة رمضان",
+        "hero.cta.contact":"تواصل معنا",
+        "hero.price.from":"ابتداءً من",
+
+        "hero.kicker.omra":"باقات العمرة",
+        "hero.title.omra":"عمرة رمضان",
+        "hero.sub.omra":"عِش عمرة روحانية في الشهر المبارك مع تنظيم واضح ومرافقة.",
+        "omra.b1":"الرحلات",
+        "omra.b2":"فنادق",
+        "omra.b3":"تأشيرة",
+        "omra.b4":"تنقلات",
+        "omra.b5":"مرشد",
+        "omra.b6":"دعم",
+        "omra.badge":"التسجيل مفتوح",
+
+        "why.title":"لماذا تختارنا",
+        "why.sub":"اكتشف المميزات التي تجعلنا الخيار المفضل لرحلتك الروحانية.",
+        "why.c1.t":"آمن وموثوق",
+        "why.c1.p":"تنظيم مطابق ومع تواصل واضح ومتابعة جدية.",
+        "why.c2.t":"إجراءات سريعة",
+        "why.c2.p":"دعم ملفك ومتابعته بشكل مُحسّن.",
+        "why.c3.t":"معك طوال الرحلة",
+        "why.c3.p":"دعم قبل وأثناء وبعد الرحلة.",
+        "why.c4.t":"39 سنة خبرة",
+        "why.c4.p":"39 سنة خبرة في تنظيم الحج والعمرة.",
+        "why.c5.t":"جودة ممتازة",
+        "why.c5.p":"خيارات منتقاة وإشراف احترافي.",
+        "why.c6.t":"خدمة مخصصة",
+        "why.c6.p":"مرافقة حسب احتياجاتك.",
+        "why.bottom":"سافر بثقة: فريق مخصص، تنظيم قوي، ودعم إنساني.",
+
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"حج 2026 وعمرة رمضان — تنظيم مميز ومرافقة ومتابعة.",
+        "foot.links":"روابط",
+        "foot.contact":"تواصل",
+        "foot.phone":"+34 600 672 423",
+        "foot.addr":"Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – جميع الحقوق محفوظة"
+      }
+    };
+
+    function applyLang(lang){
+      document.documentElement.lang = lang === "ar" ? "ar" : lang;
+      document.documentElement.dir  = lang === "ar" ? "rtl" : "ltr";
+
+      document.querySelectorAll(".lang-btn").forEach(b=>{
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        const val = (i18n[lang] && i18n[lang][key]) || (i18n.fr[key]) || null;
+        if(val) el.textContent = val;
+      });
+
+      localStorage.setItem("mwt_lang", lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=>applyLang(btn.dataset.lang));
+    });
+
+    applyLang(localStorage.getItem("mwt_lang") || "fr");
+
+    /* =========================
+       Carousel (3–4 sec auto)
+       ========================= */
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const dots = Array.from(document.querySelectorAll(".dot"));
+    let idx = 0;
+    let timer = null;
+    const INTERVAL_MS = 3800;
+
+    function showSlide(i){
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s, n)=>s.classList.toggle("active", n === idx));
+      dots.forEach((d, n)=>d.classList.toggle("active", n === idx));
+    }
+    function next(){ showSlide(idx + 1); }
+    function prev(){ showSlide(idx - 1); }
+
+    function start(){
+      stop();
+      timer = setInterval(next, INTERVAL_MS);
+    }
+    function stop(){
+      if(timer) clearInterval(timer);
+      timer = null;
+    }
+
+    document.getElementById("nextBtn").addEventListener("click", ()=>{ next(); start(); });
+    document.getElementById("prevBtn").addEventListener("click", ()=>{ prev(); start(); });
+
+    dots.forEach(d=>{
+      d.addEventListener("click", ()=>{
+        showSlide(parseInt(d.dataset.dot,10));
+        start();
+      });
+    });
+
+    // Pause on hover (desktop)
+    const hero = document.querySelector(".hero-wrap");
+    hero.addEventListener("mouseenter", stop);
+    hero.addEventListener("mouseleave", start);
+
+    start();
+  </script>
 </body>
 </html>
