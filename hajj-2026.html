@@ -194,6 +194,202 @@
     </div>
   </section>
 
+ <!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MWT – Hajj 2026 | Inscription officielle</title>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --page:#f5f7fb;
+      --text:#151823;
+      --muted:#6f7484;
+      --border:#e6e9f2;
+
+      /* Couleurs MWT validées */
+      --green:#a8c64a;
+      --blue:#2e8ec4;
+      --blue2:#3fa0d8;
+      --orange:#b67347;
+
+      --shadow:0 16px 40px rgba(15,23,42,.12);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
+    a{color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .spacer{height:84px}
+
+    /* ===== HEADER (IDENTIQUE INDEX) ===== */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:#fff;border-bottom:1px solid var(--border)
+    }
+    .header-inner{
+      max-width:var(--max);margin:0 auto;
+      display:grid;grid-template-columns:max-content 1fr max-content;
+      align-items:center;gap:14px;padding:12px 18px
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo{
+      width:100px;height:56px;border-radius:16px;
+      border:2px dashed #cfd6e6;background:#fff;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;color:var(--blue)
+    }
+    nav{display:flex;justify-content:center;gap:14px}
+    nav a{text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    nav a.active{font-weight:900;color:var(--text)}
+    nav a.highlight{font-weight:900;color:var(--text)}
+    .langs{display:flex;gap:6px;border:1px solid var(--border);background:#f2f5fc;border-radius:999px;padding:4px}
+    .langs button{
+      border:0;background:transparent;padding:6px 10px;border-radius:999px;
+      font-size:12px;cursor:pointer;color:var(--muted)
+    }
+    .langs button.active{background:linear-gradient(120deg,var(--green),var(--blue));color:#fff}
+
+    /* ===== HERO HAJJ ===== */
+    .hero{
+      margin-top:20px;
+      border-radius:28px;
+      overflow:hidden;
+      position:relative;
+      background:#111;
+      box-shadow:var(--shadow);
+      min-height:520px;
+      display:flex;align-items:flex-end;
+    }
+    .hero-bg{
+      position:absolute;inset:0;
+      background:url("images/placeholder-hajj.jpg") center/cover no-repeat;
+    }
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(0deg,rgba(0,0,0,.65),rgba(0,0,0,.25));
+    }
+    .hero-content{
+      position:relative;
+      padding:28px;
+      color:#fff;
+      max-width:820px;
+    }
+    .hero h1{margin:0 0 10px;font-size:36px}
+    .hero p{margin:0 0 16px;color:rgba(255,255,255,.85);line-height:1.6}
+    .hero ul{
+      list-style:none;padding:0;margin:0 0 18px;
+      display:grid;grid-template-columns:repeat(2,1fr);gap:10px
+    }
+    .hero li{
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:14px;padding:10px 14px;font-weight:700
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 20px;border-radius:999px;
+      background:linear-gradient(120deg,var(--orange),var(--green));
+      color:#fff;font-weight:900;text-decoration:none
+    }
+
+    /* ===== FORMULAIRE ===== */
+    .form-section{padding:36px 0}
+    .form-box{
+      background:#fff;border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:26px;border:1px solid var(--border)
+    }
+    .form-box h2{margin:0 0 8px}
+    .form-box p{margin:0 0 20px;color:var(--muted)}
+
+    form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    form label{font-size:13px;font-weight:700}
+    form input,form select{
+      width:100%;padding:10px 12px;border-radius:12px;
+      border:1px solid var(--border)
+    }
+    .full{grid-column:1/-1}
+    .submit{
+      margin-top:10px;
+      border:0;border-radius:999px;
+      padding:14px;
+      font-weight:900;
+      background:linear-gradient(120deg,var(--green),var(--blue));
+      color:#fff;
+      cursor:pointer
+    }
+
+    /* ===== FOOTER ===== */
+    footer{margin-top:40px;background:#fff;border-top:1px solid var(--border)}
+    .footer-inner{
+      max-width:var(--max);margin:0 auto;
+      display:grid;grid-template-columns:2fr 1fr 1fr;
+      gap:20px;padding:24px 18px
+    }
+    footer p,footer a{color:var(--muted);font-size:14px;text-decoration:none}
+    .copyright{
+      border-top:1px solid var(--border);
+      padding:12px 18px;font-size:13px;color:var(--muted);
+      max-width:var(--max);margin:0 auto
+    }
+
+    @media(max-width:900px){
+      nav{display:none}
+      form{grid-template-columns:1fr}
+      .hero ul{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <div class="logo">MWT</div>
+    </a>
+
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="hajj-2026.html" class="highlight active">Hajj 2026</a>
+      <a href="omra-ramadan.html">Omra Ramadan</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="langs">
+      <button class="active">FR</button>
+      <button>EN</button>
+      <button>ES</button>
+      <button>AR</button>
+    </div>
+  </div>
+</header>
+
+<div class="spacer"></div>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Hajj 2026</h1>
+      <p>Accompagnement officiel, organisation claire et encadrée pour accomplir votre pèlerinage en toute sérénité.</p>
+      <ul>
+        <li>✈️ Vols</li>
+        <li>🪪 Procédure Nusuk</li>
+        <li>🏨 Hôtels</li>
+        <li>🧭 Guide agréé</li>
+      </ul>
+      <a href="#inscription" class="btn">S’inscrire au Hajj 2026</a>
+    </div>
+  </section>
+
   <!-- FORMULAIRE -->
   <section id="inscription" class="form-section">
     <div class="form-box">
@@ -289,4 +485,3 @@
 
 </body>
 </html>
-
