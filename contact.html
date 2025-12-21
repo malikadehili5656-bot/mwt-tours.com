@@ -1,1 +1,259 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MWT – Contact</title>
 
+  <style>
+    :root{
+      --bg:#ffffff;
+      --page:#f5f7fb;
+      --text:#151823;
+      --muted:#6f7484;
+      --border:#e6e9f2;
+
+      /* COULEURS MWT */
+      --green:#a8c64a;
+      --blue:#3fa0d8;
+      --blue2:#2e8ec4;
+      --orange:#b67347;
+
+      --shadow:0 14px 40px rgba(15,23,42,.10);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .spacer{height:84px}
+
+    /* HEADER */
+    .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--border)}
+    .header-inner{display:grid;grid-template-columns:max-content 1fr max-content;align-items:center;gap:14px;padding:12px 18px;max-width:var(--max);margin:0 auto}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-box{width:96px;height:60px;border-radius:16px;border:2px dashed #cfd6e6;background:#fff}
+    .brand-name{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+    .nav{display:flex;justify-content:center;gap:18px}
+    .nav a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .nav a.active{font-weight:800;color:var(--text)}
+
+    .lang{display:flex;gap:6px;padding:4px;border:1px solid var(--border);background:#f2f5fc;border-radius:999px}
+    .lang button{border:0;background:transparent;padding:6px 10px;border-radius:999px;cursor:pointer;font-size:12px;color:var(--muted)}
+    .lang button.active{background:linear-gradient(120deg,var(--green),var(--orange));color:#fff}
+
+    /* SECTIONS */
+    .section{padding:64px 0}
+    .lead{color:var(--muted);max-width:760px}
+
+    /* HERO */
+    .hero{
+      border-radius:28px;
+      padding:56px;
+      background:
+        linear-gradient(120deg,rgba(63,160,216,.35),rgba(168,198,74,.25)),
+        linear-gradient(120deg,rgba(0,0,0,.55),rgba(0,0,0,.15));
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+    .hero h1{margin:0 0 10px;font-size:36px}
+    .hero p{margin:0;opacity:.95}
+
+    /* FORM */
+    .form-box{
+      margin-top:42px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:36px;
+      box-shadow:var(--shadow)
+    }
+    form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    input,select,textarea{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--border)
+    }
+    textarea{min-height:120px}
+    .full{grid-column:1/-1}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 32px;
+      border-radius:999px;
+      border:0;
+      font-weight:700;
+      color:#fff;
+      cursor:pointer;
+      background:linear-gradient(120deg,var(--orange),var(--green));
+    }
+
+    /* FOOTER */
+    footer{background:#fff;border-top:1px solid var(--border);margin-top:60px}
+    .footer-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:26px 18px;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:18px
+    }
+    .foot-title{font-weight:900}
+    .foot-p{font-size:14px;color:var(--muted)}
+    .copyright{
+      border-top:1px solid var(--border);
+      padding:12px 18px;
+      max-width:var(--max);
+      margin:0 auto;
+      font-size:13px;
+      color:var(--muted)
+    }
+
+    @media(max-width:900px){
+      .nav{display:none}
+      form{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+      .hero{padding:36px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <div class="logo-box"></div>
+      <div class="brand-name" data-i18n="brand.name"></div>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home"></a>
+      <a href="hajj.html" data-i18n="nav.hajj"></a>
+      <a href="omra-ramadan.html" data-i18n="nav.omra"></a>
+      <a href="contact.html" class="active" data-i18n="nav.contact"></a>
+    </nav>
+
+    <div class="lang">
+      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
+      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+      <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
+      <button class="lang-btn" data-lang="ar">🇸🇦 AR</button>
+    </div>
+  </div>
+</header>
+
+<div class="spacer"></div>
+
+<main>
+
+<section class="section">
+  <div class="container">
+    <div class="hero">
+      <h1 data-i18n="contact.title"></h1>
+      <p data-i18n="contact.subtitle"></p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="form-box">
+      <form>
+        <input type="text" data-i18n-placeholder="form.lastname">
+        <input type="text" data-i18n-placeholder="form.firstname">
+        <input type="email" data-i18n-placeholder="form.email">
+        <input type="tel" data-i18n-placeholder="form.phone">
+
+        <select class="full">
+          <option data-i18n="form.subject"></option>
+          <option data-i18n="subject.hajj"></option>
+          <option data-i18n="subject.omra"></option>
+          <option data-i18n="subject.other"></option>
+        </select>
+
+        <textarea class="full" data-i18n-placeholder="form.message"></textarea>
+
+        <div class="full" style="text-align:center">
+          <button class="btn" type="button" data-i18n="form.submit"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="foot-title" data-i18n="brand.name"></div>
+      <p class="foot-p" data-i18n="foot.desc"></p>
+    </div>
+    <div>
+      <div class="foot-title" data-i18n="foot.links"></div>
+      <p class="foot-p"><a href="hajj.html" data-i18n="nav.hajj"></a></p>
+      <p class="foot-p"><a href="omra-ramadan.html" data-i18n="nav.omra"></a></p>
+    </div>
+    <div>
+      <div class="foot-title" data-i18n="foot.contact"></div>
+      <p class="foot-p">📞 +34 600 672 423</p>
+      <p class="foot-p">✉️ hajomra@mwt-tours.com</p>
+    </div>
+  </div>
+  <div class="copyright" data-i18n="foot.copy"></div>
+</footer>
+
+<script>
+const i18n = {
+fr:{
+"brand.name":"Moltaqa World Travel & Tourism",
+"nav.home":"Accueil","nav.hajj":"Hajj 2026","nav.omra":"Omra Ramadan","nav.contact":"Contact",
+"contact.title":"Contactez-nous",
+"contact.subtitle":"Une question, un projet de Hajj ou d’Omra ? Notre équipe vous répond rapidement.",
+"form.lastname":"Nom","form.firstname":"Prénom",
+"form.email":"Email","form.phone":"WhatsApp",
+"form.subject":"Sujet de votre demande",
+"subject.hajj":"Hajj 2026",
+"subject.omra":"Omra Ramadan",
+"subject.other":"Autre demande",
+"form.message":"Votre message",
+"form.submit":"Envoyer le message",
+"foot.desc":"Organisation Hajj & Omra – 39 ans d’expérience",
+"foot.links":"Liens",
+"foot.contact":"Contact",
+"foot.copy":"© 2026 MWT – Tous droits réservés"
+}
+};
+
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+  document.querySelectorAll(".lang-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang === lang);
+  });
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    el.textContent = i18n[lang]?.[el.dataset.i18n] || i18n.fr[el.dataset.i18n];
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+    el.placeholder = i18n[lang]?.[el.dataset.i18nPlaceholder] || i18n.fr[el.dataset.i18nPlaceholder];
+  });
+
+  localStorage.setItem("mwt_lang", lang);
+}
+document.querySelectorAll(".lang-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>applyLang(btn.dataset.lang));
+});
+applyLang(localStorage.getItem("mwt_lang") || "fr");
+</script>
+
+</body>
+</html>
