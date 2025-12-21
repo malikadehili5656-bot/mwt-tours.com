@@ -21,211 +21,99 @@
 
       --shadow:0 14px 40px rgba(15,23,42,.10);
       --max:1180px;
-      --radius:22px;
     }
 
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
     a{text-decoration:none;color:inherit}
     .container{max-width:var(--max);margin:0 auto;padding:0 18px}
-    .spacer{height:90px}
+    .spacer{height:84px}
 
     /* HEADER */
-    .header{
-      position:fixed;top:0;left:0;right:0;
-      background:var(--bg);
-      border-bottom:1px solid var(--border);
-      z-index:1000;
-    }
-    .header-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:12px 18px;
-      display:grid;
-      grid-template-columns:max-content 1fr max-content;
-      align-items:center;
-      gap:16px;
-    }
+    .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--border)}
+    .header-inner{display:grid;grid-template-columns:max-content 1fr max-content;align-items:center;gap:14px;padding:12px 18px;max-width:var(--max);margin:0 auto}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo-box{
-      width:96px;height:60px;
-      border-radius:16px;
-      border:2px dashed #cfd6e6;
-      background:#fff;
-    }
-    .brand-name{
-      font-size:11px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
+    .logo-box{width:96px;height:60px;border-radius:16px;border:2px dashed #cfd6e6;background:#fff}
+    .brand-name{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
     .nav{display:flex;justify-content:center;gap:18px}
-    .nav a{
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
+    .nav a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
     .nav a.active{font-weight:800;color:var(--text)}
 
-    .lang{
-      display:flex;gap:6px;
-      padding:4px;
-      border:1px solid var(--border);
-      background:#f2f5fc;
-      border-radius:999px;
-    }
-    .lang button{
-      border:0;background:transparent;
-      padding:6px 10px;
-      border-radius:999px;
-      cursor:pointer;
-      font-size:12px;
-      color:var(--muted);
-      white-space:nowrap;
-    }
-    .lang button.active{
-      background:linear-gradient(120deg,var(--green),var(--orange));
-      color:#fff;
-    }
+    .lang{display:flex;gap:6px;padding:4px;border:1px solid var(--border);background:#f2f5fc;border-radius:999px}
+    .lang button{border:0;background:transparent;padding:6px 10px;border-radius:999px;cursor:pointer;font-size:12px;color:var(--muted)}
+    .lang button.active{background:linear-gradient(120deg,var(--green),var(--orange));color:#fff}
 
     /* SECTIONS */
-    .section{padding:72px 0}
+    .section{padding:64px 0}
+    .lead{color:var(--muted);max-width:760px}
 
     /* HERO */
     .hero{
       border-radius:28px;
-      padding:64px;
+      padding:56px;
       background:
         linear-gradient(120deg,rgba(63,160,216,.35),rgba(168,198,74,.25)),
         linear-gradient(120deg,rgba(0,0,0,.55),rgba(0,0,0,.15));
       color:#fff;
       box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
     }
-    /* placeholder "image" overlay (on remplacera par image plus tard) */
-    .hero::after{
-      content:"";
-      position:absolute;inset:0;
-      background:
-        radial-gradient(800px 280px at 15% 30%, rgba(182,115,71,.25), transparent 60%),
-        radial-gradient(700px 260px at 85% 20%, rgba(63,160,216,.20), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-content{position:relative;z-index:1}
-    .hero h1{margin:0 0 10px;font-size:38px}
-    .hero p{margin:0 0 18px;max-width:760px;opacity:.96}
+    .hero h1{margin:0 0 10px;font-size:36px}
+    .hero p{margin:0 0 18px;opacity:.95}
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:14px 36px;
+      padding:14px 32px;
       border-radius:999px;
       border:0;
       font-weight:700;
-      cursor:pointer;
       color:#fff;
+      cursor:pointer;
       background:linear-gradient(120deg,var(--orange),var(--green));
     }
-    .btn.secondary{
-      background:transparent;
-      border:1px solid rgba(255,255,255,.55);
-    }
-
-    /* QUICK ICONS (placeholder) */
-    .quick-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;
-      margin-top:22px;
-    }
-    .qcard{
-      border-radius:18px;
-      padding:14px 14px;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(10px);
-      display:flex;gap:10px;align-items:center;
-    }
-    .qicon{
-      width:42px;height:42px;border-radius:14px;
-      background:rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.22);
-      display:flex;align-items:center;justify-content:center;
-      font-size:18px;
-      flex:0 0 auto;
-    }
-    .qtext{line-height:1.2}
-    .qtitle{font-weight:900}
-    .qsub{font-size:13px;opacity:.92}
 
     /* PACKAGES */
-    .packages{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-      margin-top:40px;
-    }
+    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
     .package{
       background:#fff;
       border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:var(--shadow);
-    }
-    .package .imgph{
-      height:150px;border-radius:18px;
-      border:1px dashed #d7deef;
-      background:
-        linear-gradient(120deg, rgba(63,160,216,.18), rgba(168,198,74,.16)),
-        #fff;
-      margin-bottom:14px;
+      border-radius:22px;
+      padding:26px;
+      box-shadow:var(--shadow)
     }
     .package h3{margin:0 0 6px}
-    .package span{color:var(--green);font-weight:800}
-    .package ul{margin:14px 0 0;padding-left:18px;color:#444}
-    .package .cta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn.small{padding:12px 18px;font-size:14px}
+    .package span{color:var(--green);font-weight:700}
+    .package ul{margin:12px 0 0;padding-left:18px;color:#444}
 
     /* FORM */
     .form-box{
-      margin-top:40px;
+      margin-top:42px;
       background:#fff;
       border:1px solid var(--border);
-      border-radius:var(--radius);
+      border-radius:22px;
       padding:36px;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow)
     }
-    form{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:16px;
-    }
+    form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
     input,select{
       width:100%;
       padding:12px 14px;
       border-radius:12px;
-      border:1px solid var(--border);
+      border:1px solid var(--border)
     }
-    label{font-size:13px;color:var(--muted)}
     .full{grid-column:1/-1}
 
     /* FOOTER */
-    footer{
-      background:#fff;
-      border-top:1px solid var(--border);
-      margin-top:60px;
-    }
+    footer{background:#fff;border-top:1px solid var(--border);margin-top:60px}
     .footer-inner{
       max-width:var(--max);
       margin:0 auto;
-      padding:28px 18px;
+      padding:26px 18px;
       display:grid;
       grid-template-columns:2fr 1fr 1fr;
-      gap:20px;
+      gap:18px
     }
     .foot-title{font-weight:900}
     .foot-p{font-size:14px;color:var(--muted)}
@@ -235,7 +123,7 @@
       max-width:var(--max);
       margin:0 auto;
       font-size:13px;
-      color:var(--muted);
+      color:var(--muted)
     }
 
     @media(max-width:900px){
@@ -244,10 +132,6 @@
       form{grid-template-columns:1fr}
       .footer-inner{grid-template-columns:1fr}
       .hero{padding:36px}
-      .quick-grid{grid-template-columns:1fr 1fr}
-    }
-    @media(max-width:520px){
-      .quick-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -285,104 +169,51 @@
 <section class="section">
   <div class="container">
     <div class="hero">
-      <div class="hero-content">
-        <h1 data-i18n="umrah.title"></h1>
-        <p data-i18n="umrah.subtitle"></p>
-
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-          <button class="btn" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})" data-i18n="umrah.cta1"></button>
-          <button class="btn secondary" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})" data-i18n="umrah.cta2"></button>
-        </div>
-
-        <!-- mini-cases (Nusuk / Flights / Hotels / Guide) -->
-        <div class="quick-grid" aria-label="Highlights">
-          <div class="qcard">
-            <div class="qicon">🛂</div>
-            <div class="qtext">
-              <div class="qtitle" data-i18n="umrah.quick.nusuk.t"></div>
-              <div class="qsub" data-i18n="umrah.quick.nusuk.p"></div>
-            </div>
-          </div>
-
-          <div class="qcard">
-            <div class="qicon">✈️</div>
-            <div class="qtext">
-              <div class="qtitle" data-i18n="umrah.quick.flights.t"></div>
-              <div class="qsub" data-i18n="umrah.quick.flights.p"></div>
-            </div>
-          </div>
-
-          <div class="qcard">
-            <div class="qicon">🏨</div>
-            <div class="qtext">
-              <div class="qtitle" data-i18n="umrah.quick.hotels.t"></div>
-              <div class="qsub" data-i18n="umrah.quick.hotels.p"></div>
-            </div>
-          </div>
-
-          <div class="qcard">
-            <div class="qicon">🧭</div>
-            <div class="qtext">
-              <div class="qtitle" data-i18n="umrah.quick.guide.t"></div>
-              <div class="qsub" data-i18n="umrah.quick.guide.p"></div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <h1 data-i18n="omra.title"></h1>
+      <p data-i18n="omra.subtitle"></p>
+      <button class="btn" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})"
+        data-i18n="omra.cta"></button>
     </div>
   </div>
 </section>
 
 <!-- PACKAGES -->
-<section class="section" id="packages">
+<section class="section">
   <div class="container">
-    <h2 data-i18n="umrah.packages"></h2>
+    <h2 data-i18n="omra.packages"></h2>
 
     <div class="packages">
       <div class="package">
-        <div class="imgph" aria-label="Image placeholder"></div>
-        <h3 data-i18n="umrah.p1.t"></h3>
-        <span data-i18n="umrah.p1.tag"></span>
+        <h3 data-i18n="omra.basic"></h3>
+        <span data-i18n="omra.basic.tag"></span>
         <ul>
-          <li data-i18n="umrah.p1.a"></li>
-          <li data-i18n="umrah.p1.b"></li>
-          <li data-i18n="umrah.p1.c"></li>
-          <li data-i18n="umrah.p1.d"></li>
+          <li data-i18n="omra.point.visa"></li>
+          <li data-i18n="omra.point.flight"></li>
+          <li data-i18n="omra.point.hotel"></li>
+          <li data-i18n="omra.point.guide"></li>
         </ul>
-        <div class="cta">
-          <button class="btn small" onclick="prefill('umrah_p1')" data-i18n="umrah.p1.cta"></button>
-        </div>
       </div>
 
       <div class="package">
-        <div class="imgph" aria-label="Image placeholder"></div>
-        <h3 data-i18n="umrah.p2.t"></h3>
-        <span data-i18n="umrah.p2.tag"></span>
+        <h3 data-i18n="omra.comfort"></h3>
+        <span data-i18n="omra.comfort.tag"></span>
         <ul>
-          <li data-i18n="umrah.p2.a"></li>
-          <li data-i18n="umrah.p2.b"></li>
-          <li data-i18n="umrah.p2.c"></li>
-          <li data-i18n="umrah.p2.d"></li>
+          <li data-i18n="omra.point.visa"></li>
+          <li data-i18n="omra.point.flight"></li>
+          <li data-i18n="omra.point.hotel"></li>
+          <li data-i18n="omra.point.guide"></li>
         </ul>
-        <div class="cta">
-          <button class="btn small" onclick="prefill('umrah_p2')" data-i18n="umrah.p2.cta"></button>
-        </div>
       </div>
 
       <div class="package">
-        <div class="imgph" aria-label="Image placeholder"></div>
-        <h3 data-i18n="umrah.p3.t"></h3>
-        <span data-i18n="umrah.p3.tag"></span>
+        <h3 data-i18n="omra.premium"></h3>
+        <span data-i18n="omra.premium.tag"></span>
         <ul>
-          <li data-i18n="umrah.p3.a"></li>
-          <li data-i18n="umrah.p3.b"></li>
-          <li data-i18n="umrah.p3.c"></li>
-          <li data-i18n="umrah.p3.d"></li>
+          <li data-i18n="omra.point.visa"></li>
+          <li data-i18n="omra.point.flight"></li>
+          <li data-i18n="omra.point.hotel"></li>
+          <li data-i18n="omra.point.guide"></li>
         </ul>
-        <div class="cta">
-          <button class="btn small" onclick="prefill('umrah_p3')" data-i18n="umrah.p3.cta"></button>
-        </div>
       </div>
     </div>
   </div>
@@ -391,50 +222,26 @@
 <!-- FORM -->
 <section class="section" id="form">
   <div class="container">
-    <h2 data-i18n="form.title.umrah"></h2>
+    <h2 data-i18n="form.title"></h2>
 
     <div class="form-box">
-      <form enctype="multipart/form-data">
-        <input class="full" id="lastName" type="text" data-i18n-placeholder="form.lastname" required>
-        <input class="full" id="firstName" type="text" data-i18n-placeholder="form.firstname" required>
+      <form>
+        <input class="full" type="text" data-i18n-placeholder="form.lastname">
+        <input class="full" type="text" data-i18n-placeholder="form.firstname">
+        <input type="text" data-i18n-placeholder="form.nationality">
+        <input type="text" data-i18n-placeholder="form.residence">
+        <input type="email" data-i18n-placeholder="form.email">
+        <input type="tel" data-i18n-placeholder="form.phone">
 
-        <input id="nationality" type="text" data-i18n-placeholder="form.nationality" required>
-        <input id="residence" type="text" data-i18n-placeholder="form.residence">
-
-        <input id="email" type="email" data-i18n-placeholder="form.email" required>
-        <input id="phone" type="tel" data-i18n-placeholder="form.phone" required>
-
-        <select id="packageSelect" class="full" required>
-          <option value="" data-i18n="form.package.umrah"></option>
-          <option value="umrah_p1" data-i18n="umrah.p1.t"></option>
-          <option value="umrah_p2" data-i18n="umrah.p2.t"></option>
-          <option value="umrah_p3" data-i18n="umrah.p3.t"></option>
+        <select class="full">
+          <option data-i18n="form.package"></option>
+          <option data-i18n="omra.basic"></option>
+          <option data-i18n="omra.comfort"></option>
+          <option data-i18n="omra.premium"></option>
         </select>
 
-        <input class="full" type="number" min="1" value="1" data-i18n-placeholder="form.people" required>
-
-        <div class="full">
-          <label data-i18n="form.passport"></label>
-          <input type="file" accept=".pdf" required>
-        </div>
-
-        <div class="full">
-          <label data-i18n="form.residence.recto"></label>
-          <input type="file" accept=".jpg,.jpeg,.png">
-        </div>
-
-        <div class="full">
-          <label data-i18n="form.residence.verso"></label>
-          <input type="file" accept=".jpg,.jpeg,.png">
-        </div>
-
-        <div class="full">
-          <label data-i18n="form.photo"></label>
-          <input type="file" accept=".jpg,.jpeg,.png" required>
-        </div>
-
         <div class="full" style="text-align:center">
-          <button class="btn" type="submit" data-i18n="form.submit"></button>
+          <button class="btn" type="button" data-i18n="form.submit"></button>
         </div>
       </form>
     </div>
@@ -448,17 +255,14 @@
     <div>
       <div class="foot-title" data-i18n="brand.name"></div>
       <p class="foot-p" data-i18n="foot.desc"></p>
-      <p class="foot-p">CIF : B-12345678</p>
     </div>
     <div>
       <div class="foot-title" data-i18n="foot.links"></div>
       <p class="foot-p"><a href="hajj.html" data-i18n="nav.hajj"></a></p>
       <p class="foot-p"><a href="omra-ramadan.html" data-i18n="nav.omra"></a></p>
-      <p class="foot-p"><a href="contact.html" data-i18n="nav.contact"></a></p>
     </div>
     <div>
       <div class="foot-title" data-i18n="foot.contact"></div>
-      <p class="foot-p">📍 Calle Italia 9, Alicante</p>
       <p class="foot-p">📞 +34 600 672 423</p>
       <p class="foot-p">✉️ hajomra@mwt-tours.com</p>
     </div>
@@ -467,297 +271,64 @@
 </footer>
 
 <script>
-  /* i18n */
-  const i18n = {
-    fr:{
-      "brand.name":"Moltaqa World Travel & Tourism",
-      "nav.home":"Accueil","nav.hajj":"Hajj 2026","nav.omra":"Omra Ramadan","nav.contact":"Contact",
+/* i18n – OMRA SANS NUSUK */
+const i18n = {
+fr:{
+"brand.name":"Moltaqa World Travel & Tourism",
+"nav.home":"Accueil","nav.hajj":"Hajj 2026","nav.omra":"Omra Ramadan","nav.contact":"Contact",
 
-      "umrah.title":"Omra Ramadan",
-      "umrah.subtitle":"Une Omra spirituelle, organisée et premium — procédure Nusuk, vols, hôtels, guide.",
-      "umrah.cta1":"Voir les offres",
-      "umrah.cta2":"S’inscrire",
+"omra.title":"Omra Ramadan",
+"omra.subtitle":"Accompagnement complet pour votre Omra pendant le mois de Ramadan",
+"omra.cta":"S’inscrire",
 
-      "umrah.quick.nusuk.t":"Nusuk",
-      "umrah.quick.nusuk.p":"Procédure & visa",
-      "umrah.quick.flights.t":"Vols",
-      "umrah.quick.flights.p":"Aller-retour",
-      "umrah.quick.hotels.t":"Hôtels",
-      "umrah.quick.hotels.p":"Options proches",
-      "umrah.quick.guide.t":"Guide",
-      "umrah.quick.guide.p":"Accompagnement",
+"omra.packages":"Packages Omra",
+"omra.basic":"Omra Essentielle","omra.basic.tag":"Simple & organisée",
+"omra.comfort":"Omra Confort","omra.comfort.tag":"Équilibre & sérénité",
+"omra.premium":"Omra Premium","omra.premium.tag":"Hôtels sélectionnés",
 
-      "umrah.packages":"Offres Omra Ramadan",
-      "umrah.p1.t":"Omra Éco",
-      "umrah.p1.tag":"Essentiel & bien encadré",
-      "umrah.p1.a":"Procédure Nusuk / visa",
-      "umrah.p1.b":"Vols aller-retour",
-      "umrah.p1.c":"Hébergement (standard)",
-      "umrah.p1.d":"Guide & assistance",
-      "umrah.p1.cta":"Choisir & s’inscrire",
+"omra.point.visa":"Visa Omra inclus",
+"omra.point.flight":"Vols internationaux",
+"omra.point.hotel":"Hébergement organisé",
+"omra.point.guide":"Guide accompagnateur",
 
-      "umrah.p2.t":"Omra Confort",
-      "umrah.p2.tag":"Confort & sérénité",
-      "umrah.p2.a":"Procédure Nusuk / visa",
-      "umrah.p2.b":"Vols + bagages",
-      "umrah.p2.c":"Hôtels confort",
-      "umrah.p2.d":"Transferts organisés",
-      "umrah.p2.cta":"Choisir & s’inscrire",
+"form.title":"Formulaire d’inscription Omra",
+"form.lastname":"Nom","form.firstname":"Prénom",
+"form.nationality":"Nationalité",
+"form.residence":"Résidence (si différente)",
+"form.email":"Email","form.phone":"WhatsApp",
+"form.package":"Forfait souhaité",
+"form.submit":"Envoyer la demande",
 
-      "umrah.p3.t":"Omra Premium",
-      "umrah.p3.tag":"Expérience haut de gamme",
-      "umrah.p3.a":"Procédure Nusuk / visa",
-      "umrah.p3.b":"Vols premium (selon dispo)",
-      "umrah.p3.c":"Hôtels premium",
-      "umrah.p3.d":"Assistance premium",
-      "umrah.p3.cta":"Choisir & s’inscrire",
+"foot.desc":"Organisation Hajj & Omra – 39 ans d’expérience",
+"foot.links":"Liens",
+"foot.contact":"Contact",
+"foot.copy":"© 2026 MWT – Tous droits réservés"
+}
+};
 
-      "form.title.umrah":"Formulaire d’inscription – Omra Ramadan",
-      "form.lastname":"Nom",
-      "form.firstname":"Prénom",
-      "form.nationality":"Nationalité",
-      "form.residence":"Résidence (si différente)",
-      "form.email":"Email",
-      "form.phone":"WhatsApp",
-      "form.people":"Nombre de personnes",
-      "form.package.umrah":"Offre souhaitée",
-      "form.passport":"Upload passeport (PDF si UE)",
-      "form.residence.recto":"Carte de résidence – Recto",
-      "form.residence.verso":"Carte de résidence – Verso",
-      "form.photo":"Photo d’identité (JPG)",
-      "form.submit":"Envoyer la demande",
+/* logique langues identique */
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
-      "foot.desc":"Organisation Hajj & Omra – 39 ans d’expérience",
-      "foot.links":"Liens",
-      "foot.contact":"Contact",
-      "foot.copy":"© 2026 MWT – Tous droits réservés"
-    },
-
-    en:{
-      "brand.name":"Moltaqa World Travel & Tourism",
-      "nav.home":"Home","nav.hajj":"Hajj 2026","nav.omra":"Ramadan Umrah","nav.contact":"Contact",
-
-      "umrah.title":"Ramadan Umrah",
-      "umrah.subtitle":"A spiritual, organized and premium Umrah — Nusuk procedure, flights, hotels, guide.",
-      "umrah.cta1":"View offers",
-      "umrah.cta2":"Register",
-
-      "umrah.quick.nusuk.t":"Nusuk",
-      "umrah.quick.nusuk.p":"Procedure & visa",
-      "umrah.quick.flights.t":"Flights",
-      "umrah.quick.flights.p":"Round trip",
-      "umrah.quick.hotels.t":"Hotels",
-      "umrah.quick.hotels.p":"Close options",
-      "umrah.quick.guide.t":"Guide",
-      "umrah.quick.guide.p":"Support",
-
-      "umrah.packages":"Ramadan Umrah Offers",
-      "umrah.p1.t":"Economy Umrah",
-      "umrah.p1.tag":"Essential & well guided",
-      "umrah.p1.a":"Nusuk procedure / visa",
-      "umrah.p1.b":"Round-trip flights",
-      "umrah.p1.c":"Accommodation (standard)",
-      "umrah.p1.d":"Guide & assistance",
-      "umrah.p1.cta":"Select & register",
-
-      "umrah.p2.t":"Comfort Umrah",
-      "umrah.p2.tag":"Comfort & serenity",
-      "umrah.p2.a":"Nusuk procedure / visa",
-      "umrah.p2.b":"Flights + luggage",
-      "umrah.p2.c":"Comfort hotels",
-      "umrah.p2.d":"Organized transfers",
-      "umrah.p2.cta":"Select & register",
-
-      "umrah.p3.t":"Premium Umrah",
-      "umrah.p3.tag":"High-end experience",
-      "umrah.p3.a":"Nusuk procedure / visa",
-      "umrah.p3.b":"Premium flights (subject to availability)",
-      "umrah.p3.c":"Premium hotels",
-      "umrah.p3.d":"Premium assistance",
-      "umrah.p3.cta":"Select & register",
-
-      "form.title.umrah":"Registration Form – Ramadan Umrah",
-      "form.lastname":"Last name",
-      "form.firstname":"First name",
-      "form.nationality":"Nationality",
-      "form.residence":"Residence (if different)",
-      "form.email":"Email",
-      "form.phone":"WhatsApp",
-      "form.people":"Number of people",
-      "form.package.umrah":"Desired offer",
-      "form.passport":"Upload passport (PDF if EU)",
-      "form.residence.recto":"Residence card – front",
-      "form.residence.verso":"Residence card – back",
-      "form.photo":"ID photo (JPG)",
-      "form.submit":"Send request",
-
-      "foot.desc":"Hajj & Umrah organization – 39 years of experience",
-      "foot.links":"Links",
-      "foot.contact":"Contact",
-      "foot.copy":"© 2026 MWT – All rights reserved"
-    },
-
-    es:{
-      "brand.name":"Moltaqa World Travel & Tourism",
-      "nav.home":"Inicio","nav.hajj":"Hajj 2026","nav.omra":"Omra Ramadán","nav.contact":"Contacto",
-
-      "umrah.title":"Omra Ramadán",
-      "umrah.subtitle":"Una Omra espiritual, organizada y premium — procedimiento Nusuk, vuelos, hoteles, guía.",
-      "umrah.cta1":"Ver ofertas",
-      "umrah.cta2":"Inscribirse",
-
-      "umrah.quick.nusuk.t":"Nusuk",
-      "umrah.quick.nusuk.p":"Trámite y visado",
-      "umrah.quick.flights.t":"Vuelos",
-      "umrah.quick.flights.p":"Ida y vuelta",
-      "umrah.quick.hotels.t":"Hoteles",
-      "umrah.quick.hotels.p":"Opciones cercanas",
-      "umrah.quick.guide.t":"Guía",
-      "umrah.quick.guide.p":"Acompañamiento",
-
-      "umrah.packages":"Ofertas Omra Ramadán",
-      "umrah.p1.t":"Omra Económica",
-      "umrah.p1.tag":"Esencial y bien organizada",
-      "umrah.p1.a":"Procedimiento Nusuk / visado",
-      "umrah.p1.b":"Vuelos ida y vuelta",
-      "umrah.p1.c":"Alojamiento (estándar)",
-      "umrah.p1.d":"Guía y asistencia",
-      "umrah.p1.cta":"Elegir e inscribirse",
-
-      "umrah.p2.t":"Omra Confort",
-      "umrah.p2.tag":"Confort y serenidad",
-      "umrah.p2.a":"Procedimiento Nusuk / visado",
-      "umrah.p2.b":"Vuelos + equipaje",
-      "umrah.p2.c":"Hoteles confort",
-      "umrah.p2.d":"Traslados organizados",
-      "umrah.p2.cta":"Elegir e inscribirse",
-
-      "umrah.p3.t":"Omra Premium",
-      "umrah.p3.tag":"Experiencia de alta gama",
-      "umrah.p3.a":"Procedimiento Nusuk / visado",
-      "umrah.p3.b":"Vuelos premium (según disponibilidad)",
-      "umrah.p3.c":"Hoteles premium",
-      "umrah.p3.d":"Asistencia premium",
-      "umrah.p3.cta":"Elegir e inscribirse",
-
-      "form.title.umrah":"Formulario de inscripción – Omra Ramadán",
-      "form.lastname":"Apellido",
-      "form.firstname":"Nombre",
-      "form.nationality":"Nacionalidad",
-      "form.residence":"Residencia (si es distinta)",
-      "form.email":"Email",
-      "form.phone":"WhatsApp",
-      "form.people":"Número de personas",
-      "form.package.umrah":"Oferta deseada",
-      "form.passport":"Subir pasaporte (PDF si UE)",
-      "form.residence.recto":"Tarjeta de residencia – Anverso",
-      "form.residence.verso":"Tarjeta de residencia – Reverso",
-      "form.photo":"Foto de identidad (JPG)",
-      "form.submit":"Enviar solicitud",
-
-      "foot.desc":"Organización Hajj y Omra – 39 años de experiencia",
-      "foot.links":"Enlaces",
-      "foot.contact":"Contacto",
-      "foot.copy":"© 2026 MWT – Todos los derechos reservados"
-    },
-
-    ar:{
-      "brand.name":"ملتقى وورلد ترافل & تورزم",
-      "nav.home":"الرئيسية","nav.hajj":"حج 2026","nav.omra":"عمرة رمضان","nav.contact":"تواصل",
-
-      "umrah.title":"عمرة رمضان",
-      "umrah.subtitle":"عمرة روحانية ومنظمة وبشكل راقٍ — نسك، رحلات، فنادق، دليل.",
-      "umrah.cta1":"عرض الباقات",
-      "umrah.cta2":"التسجيل",
-
-      "umrah.quick.nusuk.t":"نُسُك",
-      "umrah.quick.nusuk.p":"إجراءات وتأشيرة",
-      "umrah.quick.flights.t":"رحلات",
-      "umrah.quick.flights.p":"ذهاب وعودة",
-      "umrah.quick.hotels.t":"فنادق",
-      "umrah.quick.hotels.p":"خيارات قريبة",
-      "umrah.quick.guide.t":"دليل",
-      "umrah.quick.guide.p":"مرافقة",
-
-      "umrah.packages":"باقات عمرة رمضان",
-      "umrah.p1.t":"عمرة اقتصادية",
-      "umrah.p1.tag":"أساسي ومنظم",
-      "umrah.p1.a":"إجراءات نسك / تأشيرة",
-      "umrah.p1.b":"رحلات ذهاب وعودة",
-      "umrah.p1.c":"سكن (قياسي)",
-      "umrah.p1.d":"دليل ومساعدة",
-      "umrah.p1.cta":"اختيار والتسجيل",
-
-      "umrah.p2.t":"عمرة مريحة",
-      "umrah.p2.tag":"راحة وطمأنينة",
-      "umrah.p2.a":"إجراءات نسك / تأشيرة",
-      "umrah.p2.b":"رحلات + أمتعة",
-      "umrah.p2.c":"فنادق مريحة",
-      "umrah.p2.d":"تنقلات منظمة",
-      "umrah.p2.cta":"اختيار والتسجيل",
-
-      "umrah.p3.t":"عمرة بريميوم",
-      "umrah.p3.tag":"تجربة راقية",
-      "umrah.p3.a":"إجراءات نسك / تأشيرة",
-      "umrah.p3.b":"رحلات راقية (حسب التوفر)",
-      "umrah.p3.c":"فنادق راقية",
-      "umrah.p3.d":"مساعدة بريميوم",
-      "umrah.p3.cta":"اختيار والتسجيل",
-
-      "form.title.umrah":"نموذج التسجيل – عمرة رمضان",
-      "form.lastname":"اللقب",
-      "form.firstname":"الاسم",
-      "form.nationality":"الجنسية",
-      "form.residence":"الإقامة (إن اختلفت)",
-      "form.email":"البريد الإلكتروني",
-      "form.phone":"واتساب",
-      "form.people":"عدد الأشخاص",
-      "form.package.umrah":"الباقة المطلوبة",
-      "form.passport":"تحميل جواز السفر (PDF إن كان أوروبي)",
-      "form.residence.recto":"بطاقة الإقامة – الوجه الأمامي",
-      "form.residence.verso":"بطاقة الإقامة – الوجه الخلفي",
-      "form.photo":"صورة شخصية (JPG)",
-      "form.submit":"إرسال الطلب",
-
-      "foot.desc":"تنظيم الحج والعمرة – خبرة 39 سنة",
-      "foot.links":"روابط",
-      "foot.contact":"تواصل",
-      "foot.copy":"© 2026 MWT – جميع الحقوق محفوظة"
-    }
-  };
-
-  function applyLang(lang){
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-
-    document.querySelectorAll(".lang-btn").forEach(b=>{
-      b.classList.toggle("active", b.dataset.lang === lang);
-    });
-
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      el.textContent = (i18n[lang] && i18n[lang][el.dataset.i18n]) || i18n.fr[el.dataset.i18n] || "";
-    });
-
-    document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
-      el.placeholder = (i18n[lang] && i18n[lang][el.dataset.i18nPlaceholder]) || i18n.fr[el.dataset.i18nPlaceholder] || "";
-    });
-
-    localStorage.setItem("mwt_lang", lang);
-  }
-
-  document.querySelectorAll(".lang-btn").forEach(btn=>{
-    btn.addEventListener("click",()=>applyLang(btn.dataset.lang));
+  document.querySelectorAll(".lang-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang === lang);
   });
 
-  function prefill(pkg){
-    const select = document.getElementById("packageSelect");
-    if(select){
-      select.value = pkg;
-      document.getElementById("form").scrollIntoView({behavior:"smooth"});
-    }
-  }
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    el.textContent = i18n[lang]?.[el.dataset.i18n] || i18n.fr[el.dataset.i18n];
+  });
 
-  applyLang(localStorage.getItem("mwt_lang") || "fr");
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+    el.placeholder = i18n[lang]?.[el.dataset.i18nPlaceholder] || i18n.fr[el.dataset.i18nPlaceholder];
+  });
+
+  localStorage.setItem("mwt_lang", lang);
+}
+document.querySelectorAll(".lang-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>applyLang(btn.dataset.lang));
+});
+applyLang(localStorage.getItem("mwt_lang") || "fr");
 </script>
 
 </body>
