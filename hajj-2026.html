@@ -274,52 +274,64 @@
 </section>
 
 <!-- FORM -->
-<section class="section" id="form">
-  <div class="container">
-    <h2 data-i18n="form.title"></h2>
+<form 
+  action="https://formspree.io/f/xojakepg"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <!-- Meta -->
+  <input type="hidden" name="_subject" value="Nouvelle inscription Hajj 2026 – MWT">
+  <input type="hidden" name="_template" value="table">
 
-    <div class="form-box">
-      <form enctype="multipart/form-data">
-        <input class="full" type="text" data-i18n-placeholder="form.lastname" required>
-        <input class="full" type="text" data-i18n-placeholder="form.firstname" required>
+  <input class="full" type="text" name="lastname"
+    data-i18n-placeholder="form.lastname" required>
 
-        <input type="text" data-i18n-placeholder="form.nationality" required>
-        <input type="text" data-i18n-placeholder="form.residence">
+  <input class="full" type="text" name="firstname"
+    data-i18n-placeholder="form.firstname" required>
 
-        <input type="email" data-i18n-placeholder="form.email" required>
-        <input type="tel" data-i18n-placeholder="form.phone" required>
+  <input type="text" name="nationality"
+    data-i18n-placeholder="form.nationality" required>
 
-        <select class="full" required>
-          <option value="" data-i18n="form.package"></option>
-          <option data-i18n="hajj.eco"></option>
-          <option data-i18n="hajj.standard"></option>
-          <option data-i18n="hajj.luxury"></option>
-        </select>
+  <input type="text" name="residence"
+    data-i18n-placeholder="form.residence">
 
-        <div class="full">
-          <label data-i18n="form.passport"></label>
-          <input type="file" accept=".pdf" required>
-        </div>
+  <input type="email" name="email"
+    data-i18n-placeholder="form.email" required>
 
-        <div class="full">
-          <label data-i18n="form.residence.recto"></label>
-          <input type="file" accept=".jpg,.jpeg,.png">
-        </div>
+  <input type="tel" name="whatsapp"
+    data-i18n-placeholder="form.phone" required>
 
-        <div class="full">
-          <label data-i18n="form.residence.verso"></label>
-          <input type="file" accept=".jpg,.jpeg,.png">
-        </div>
+  <select class="full" name="package" required>
+    <option value="" data-i18n="form.package"></option>
+    <option value="Hajj Eco" data-i18n="hajj.eco"></option>
+    <option value="Hajj Confort" data-i18n="hajj.standard"></option>
+    <option value="Hajj 5 étoiles" data-i18n="hajj.luxury"></option>
+  </select>
 
-        <div class="full">
-          <label data-i18n="form.photo"></label>
-          <input type="file" accept=".jpg,.jpeg,.png" required>
-        </div>
+  <div class="full">
+    <label data-i18n="form.passport"></label>
+    <input type="file" name="passport" accept=".pdf" required>
+  </div>
 
-        <div class="full" style="text-align:center">
-          <button class="btn" type="submit" data-i18n="form.submit"></button>
-        </div>
-      </form>
+  <div class="full">
+    <label data-i18n="form.residence.recto"></label>
+    <input type="file" name="residence_recto" accept=".jpg,.jpeg,.png">
+  </div>
+
+  <div class="full">
+    <label data-i18n="form.residence.verso"></label>
+    <input type="file" name="residence_verso" accept=".jpg,.jpeg,.png">
+  </div>
+
+  <div class="full">
+    <label data-i18n="form.photo"></label>
+    <input type="file" name="photo" accept=".jpg,.jpeg,.png" required>
+  </div>
+
+  <div class="full" style="text-align:center">
+    <button class="btn" type="submit" data-i18n="form.submit"></button>
+  </div>
+</form>
     </div>
   </div>
 </section>
