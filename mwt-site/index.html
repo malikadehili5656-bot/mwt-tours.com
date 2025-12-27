@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MWT – Moltaqa World Travel & Tourism</title>
+
+  <!-- ✅ STYLE MINIMAL INCLUS ICI pour éviter "tout casse" -->
+  <style>
+    :root{
+      --bg:#ffffff;
+      --page:#f5f7fb;
+      --text:#151823;
+      --muted:#6f7484;
+      --border:#e6e9f2;
+      --gold:#d9b673;
+      --orange:#c97a3a;
+      --green:#7a8f3a;
+      --blue:#4f7ac2;
+      --radius:18px;
+      --shadow: 0 14px 40px rgba(15,23,42,.10);
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
+    a{color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .spacer{height:84px}
+
+    /* HEADER */
+    .header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:var(--bg);border-bottom:1px solid var(--border);
+    }
+    .header-inner{
+      display:grid;grid-template-columns:max-content 1fr max-content;
+      align-items:center;gap:14px;
+      padding:12px 18px;
+      max-width:var(--max);margin:0 auto;
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo-box{
+      width:86px;height:56px;border-radius:14px;
+      border:2px dashed #cfd6e6;background:#fff;
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+      flex:0 0 auto;
+    }
+    .logo-box img{width:100%;height:100%;object-fit:contain;display:block}
+    .brand-text{display:flex;flex-direction:column;gap:4px}
+    .brand-name{
+      font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--muted);line-height:1.15;
+      max-width:240px;
+    }
+
+    .nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    .nav a{
+      text-decoration:none;font-size:12px;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--muted);padding:6px 8px;
+      border-radius:999px;
+    }
+    .nav a:hover{background:#eef2fa;color:var(--text)}
+    .nav a.active{color:var(--text);font-weight:700}
+    .nav a.highlight{
+      font-weight:800;color:var(--text);
+      position:relative;
+    }
+    .nav a.highlight::after{
+      content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2px;
+      background:linear-gradient(120deg,var(--green),var(--orange));
+      border-radius:999px;
+    }
+
+    .lang{
+      display:flex;gap:6px;align-items:center;
+      padding:4px;border:1px solid var(--border);
+      background:#f2f5fc;border-radius:999px;
+    }
+    .lang button{
+      border:0;background:transparent;cursor:pointer;
+      padding:6px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+      display:flex;gap:6px;align-items:center;
+      white-space:nowrap;
+    }
+    .lang button.active{
+      background:linear-gradient(120deg,var(--green),var(--orange));
+      color:#fff;
+    }
+
+    /* HERO / CAROUSEL */
+    .hero{padding:22px 0 0}
+    .carousel{
+      position:relative;border-radius:26px;overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#0f172a;
+      min-height:360px;
+    }
+    .slides{display:flex;transition:transform .45s ease}
+    .slide{
+      min-width:100%;
+      position:relative;
+      display:flex;align-items:flex-end;
+      padding:26px;
+      min-height:360px;
+      background:
+        radial-gradient(1200px 500px at 20% 30%, rgba(217,182,115,.18), transparent 60%),
+        linear-gradient(120deg, rgba(0,0,0,.50), rgba(0,0,0,.10));
+    }
+    /* placeholder “image” par slide (tu remplaceras plus tard) */
+    .slide[data-bg="hajj"]{ background:
+      linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.18)),
+      radial-gradient(900px 420px at 30% 30%, rgba(217,182,115,.20), transparent 60%),
+      linear-gradient(90deg, rgba(79,122,194,.15), rgba(201,122,58,.08));
+    }
+    .slide[data-bg="omra"]{ background:
+      linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.18)),
+      radial-gradient(900px 420px at 30% 30%, rgba(217,182,115,.18), transparent 60%),
+      linear-gradient(90deg, rgba(122,143,58,.12), rgba(201,122,58,.10));
+    }
+    .slide[data-bg="sahara"]{ background:
+      linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.18)),
+      radial-gradient(900px 420px at 30% 30%, rgba(217,182,115,.20), transparent 60%),
+      linear-gradient(90deg, rgba(201,122,58,.12), rgba(79,122,194,.10));
+    }
+    .slide[data-bg="algerie"]{ background:
+      linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.18)),
+      radial-gradient(900px 420px at 30% 30%, rgba(217,182,115,.20), transparent 60%),
+      linear-gradient(90deg, rgba(79,122,194,.10), rgba(122,143,58,.10));
+    }
+    .slide[data-bg="heritage"]{ background:
+      linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.18)),
+      radial-gradient(900px 420px at 30% 30%, rgba(217,182,115,.18), transparent 60%),
+      linear-gradient(90deg, rgba(122,143,58,.12), rgba(79,122,194,.12));
+    }
+    .slide[data-bg="studies"]{ background:
+      linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.18)),
+      radial-gradient(900px 420px at 30% 30%, rgba(217,182,115,.18), transparent 60%),
+      linear-gradient(90deg, rgba(79,122,194,.16), rgba(217,182,115,.10));
+    }
+    .slide[data-bg="sports"]{ background:
+      linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.18)),
+      radial-gradient(900px 420px at 30% 30%, rgba(217,182,115,.18), transparent 60%),
+      linear-gradient(90deg, rgba(122,143,58,.12), rgba(201,122,58,.12));
+    }
+
+    .slide-card{
+      width:min(760px, 100%);
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(217,182,115,.35);
+      border-radius:22px;
+      padding:18px 18px 16px;
+      backdrop-filter: blur(10px);
+    }
+    .slide-kicker{
+      font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--green);margin:0 0 6px;
+    }
+    .slide-title{
+      margin:0 0 8px;font-size:30px;line-height:1.15;
+      letter-spacing:-.02em;
+    }
+    .slide-desc{
+      margin:0 0 14px;color:var(--muted);font-size:14px;
+    }
+
+    .icon-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:10px 14px;
+      margin:12px 0 14px;
+    }
+    .icon-item{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;
+      background:#f6f8ff;border:1px solid var(--border);
+      border-radius:14px;
+      font-size:14px;color:#1f2937;
+    }
+    .ico{
+      width:34px;height:34px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:#eef2fa;border:1px solid #e7ebf7;
+      font-size:16px;
+    }
+
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:8px;border-radius:999px;border:1px solid var(--border);
+      padding:10px 16px;text-decoration:none;font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+    }
+    .btn.primary{
+      border:0;color:#fff;
+      background:linear-gradient(120deg,var(--orange),var(--gold));
+      box-shadow:0 12px 24px rgba(201,122,58,.22);
+    }
+    .btn.ghost{background:transparent;color:var(--text)}
+    .btn.ghost:hover{background:#f3f6ff}
+
+    .controls{
+      position:absolute;inset:auto 14px 14px auto;
+      display:flex;gap:8px;z-index:10;
+    }
+    .ctrl{
+      width:40px;height:40px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.25);
+      color:#fff;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      backdrop-filter: blur(10px);
+    }
+    .dots{
+      position:absolute;left:14px;bottom:14px;display:flex;gap:8px;z-index:10;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.55);
+      background:rgba(255,255,255,.22);cursor:pointer;
+    }
+    .dot.active{background:#fff}
+
+    /* SERVICES CARDS */
+    .section{padding:26px 0}
+    .section h2{margin:0 0 10px;font-size:22px}
+    .section p.lead{margin:0 0 16px;color:var(--muted)}
+    .services{
+      display:grid;grid-template-columns:repeat(6, minmax(0,1fr));
+      gap:12px;
+    }
+    .svc{
+      background:#fff;border:1px solid var(--border);border-radius:18px;
+      padding:14px;box-shadow:0 10px 22px rgba(15,23,42,.05);
+      text-decoration:none;
+      display:flex;flex-direction:column;gap:6px;
+      min-height:110px;
+    }
+    .svc .top{display:flex;gap:10px;align-items:center}
+    .svc .badge{
+      width:42px;height:42px;border-radius:16px;
+      background:#f2f5fc;border:1px solid #e5e9f6;
+      display:flex;align-items:center;justify-content:center;
+      font-size:18px;
+    }
+    .svc .title{font-weight:800}
+    .svc .sub{font-size:13px;color:var(--muted)}
+    .svc:hover{transform:translateY(-1px)}
+    .svc{transition:transform .15s ease}
+
+    /* WHY US */
+    .why{
+      display:grid;grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:12px;
+    }
+    .why-card{
+      background:#fff;border:1px solid var(--border);border-radius:18px;
+      padding:16px;box-shadow:0 10px 22px rgba(15,23,42,.05);
+    }
+    .why-card h3{margin:0 0 6px;font-size:16px}
+    .why-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+
+    /* FOOTER */
+    footer{
+      margin-top:10px;border-top:1px solid var(--border);
+      background:#fff;
+    }
+    .footer-inner{
+      display:grid;grid-template-columns:2fr 1fr 1fr;
+      gap:18px;padding:22px 18px;
+      max-width:var(--max);margin:0 auto;
+    }
+    .foot-title{font-weight:900;margin:0 0 6px}
+    .foot-p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    .foot-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .foot-list a{color:var(--muted);text-decoration:none}
+    .foot-list a:hover{color:var(--text)}
+    .copyright{
+      border-top:1px solid var(--border);
+      padding:12px 18px;color:var(--muted);font-size:13px;
+      max-width:var(--max);margin:0 auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .nav{display:none}
+      .services{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .why{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+      .slide-title{font-size:26px}
+      .icon-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="MWT Home">
+        <div class="logo-box" aria-label="Logo placeholder">
+          <!-- Remplace par ton logo plus tard -->
+          <!-- <img src="images/logo.png" alt="MWT logo"> -->
+        </div>
+        <div class="brand-text">
+          <div class="brand-name" data-i18n="brand.name">Moltaqa World Travel & Tourism</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="active" data-i18n="nav.home">Accueil</a>
+        <a href="hajj.html" class="highlight" data-i18n="nav.hajj">Hajj 2026</a>
+        <a href="umrah.html" data-i18n="nav.omra">Omra</a>
+        <a href="flights.html" data-i18n="nav.flights">Flights</a>
+        <a href="hotels.html" data-i18n="nav.hotels">Hotels</a>
+        <a href="visa.html" data-i18n="nav.visa">Visa</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang" aria-label="Languages">
+        <button type="button" class="lang-btn active" data-lang="fr">🇫🇷 <span>FR</span></button>
+        <button type="button" class="lang-btn" data-lang="en">🇬🇧 <span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="es">🇪🇸 <span>ES</span></button>
+        <button type="button" class="lang-btn" data-lang="ar">🇸🇦 <span>AR</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="spacer"></div>
+
+  <main>
+    <!-- HERO / CAROUSEL -->
+    <section class="hero">
+      <div class="container">
+        <div class="carousel" id="heroCarousel" aria-roledescription="carousel">
+          <div class="slides" id="slides">
+
+            <!-- 1 HAJJ -->
+            <article class="slide" data-bg="hajj" data-href="hajj.html" aria-label="Hajj 2026 slide">
+              <div class="slide-card">
+                <p class="slide-kicker" data-i18n="hero.kicker">Agence internationale de voyages & services</p>
+                <h1 class="slide-title" data-i18n="hero.hajj.title">Hajj 2026</h1>
+                <p class="slide-desc" data-i18n="hero.hajj.desc">
+                  Organisation officielle et sécurisée – accompagnement complet pour les pèlerins européens.
+                </p>
+
+                <!-- ✅ icônes comme demandé -->
+                <div class="icon-grid" aria-label="Hajj key services">
+                  <div class="icon-item"><span class="ico">✈️</span><span data-i18n="hero.hajj.flight">Flight</span></div>
+                  <div class="icon-item"><span class="ico">🏨</span><span data-i18n="hero.hajj.hotels">Hotels</span></div>
+                  <div class="icon-item"><span class="ico">🛂</span><span data-i18n="hero.hajj.visa">Visa</span></div>
+                  <div class="icon-item"><span class="ico">🧭</span><span data-i18n="hero.hajj.guide">Guide</span></div>
+                </div>
+
+                <div class="cta-row">
+                  <a class="btn primary" href="hajj.html" data-i18n="cta.register">S’inscrire</a>
+                  <a class="btn ghost" href="hajj.html" data-i18n="cta.view">Voir l’offre</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2 OMRA RAMADAN -->
+            <article class="slide" data-bg="omra" data-href="umrah.html" aria-label="Omra Ramadan slide">
+              <div class="slide-card">
+                <p class="slide-kicker" data-i18n="hero.kicker">Agence internationale de voyages & services</p>
+                <h2 class="slide-title" data-i18n="hero.omra.title">Omra Ramadan</h2>
+                <p class="slide-desc" data-i18n="hero.omra.desc">
+                  Vivez une Omra spirituelle durant le mois béni, avec organisation claire et accompagnement.
+                </p>
+                <div class="cta-row">
+                  <a class="btn primary" href="umrah.html" data-i18n="cta.reserve">Réserver</a>
+                  <a class="btn ghost" href="umrah.html" data-i18n="cta.view">Voir l’offre</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3 SAHARA -->
+            <article class="slide" data-bg="sahara" data-href="sahara.html" aria-label="Sahara slide">
+              <div class="slide-card">
+                <p class="slide-kicker" data-i18n="hero.kicker">Agence internationale de voyages & services</p>
+                <h2 class="slide-title" data-i18n="hero.sahara.title">Voyage Sahara</h2>
+                <p class="slide-desc" data-i18n="hero.sahara.desc">
+                  Ghardaïa, Djanet, Tassili, Hoggar, Timimoun – immersion authentique.
+                </p>
+                <div class="cta-row">
+                  <a class="btn primary" href="sahara.html" data-i18n="cta.discover">Découvrir</a>
+                  <a class="btn ghost" href="sahara.html" data-i18n="cta.quote">Demander un devis</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4 NOSTALGIE ALGERIE -->
+            <article class="slide" data-bg="algerie" data-href="algerie.html" aria-label="Nostalgie Algeria slide">
+              <div class="slide-card">
+                <p class="slide-kicker" data-i18n="hero.kicker">Agence internationale de voyages & services</p>
+                <h2 class="slide-title" data-i18n="hero.algerie.title">Voyages Nostalgie Algérie</h2>
+                <p class="slide-desc" data-i18n="hero.algerie.desc">
+                  Pour la diaspora : émotions, racines, souvenirs… en toute sérénité.
+                </p>
+                <div class="cta-row">
+                  <a class="btn primary" href="algerie.html" data-i18n="cta.discover">Découvrir</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5 HERITAGE ESPAGNE -->
+            <article class="slide" data-bg="heritage" data-href="heritage-espagne.html" aria-label="Heritage Spain slide">
+              <div class="slide-card">
+                <p class="slide-kicker" data-i18n="hero.kicker">Agence internationale de voyages & services</p>
+                <h2 class="slide-title" data-i18n="hero.heritage.title">Héritage Islamique – Espagne</h2>
+                <p class="slide-desc" data-i18n="hero.heritage.desc">
+                  Grenade, Cordoue, Séville – mémoire, histoire et beauté.
+                </p>
+                <div class="cta-row">
+                  <a class="btn primary" href="heritage-espagne.html" data-i18n="cta.discover">Découvrir</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6 ETUDES -->
+            <article class="slide" data-bg="studies" data-href="etudes-espagne.html" aria-label="Studies slide">
+              <div class="slide-card">
+                <p class="slide-kicker" data-i18n="hero.kicker">Agence internationale de voyages & services</p>
+                <h2 class="slide-title" data-i18n="hero.studies.title">Études à l’étranger</h2>
+                <p class="slide-desc" data-i18n="hero.studies.desc">
+                  Espagne & Angleterre – accompagnement complet (admission, logement, démarches).
+                </p>
+                <div class="cta-row">
+                  <a class="btn primary" href="etudes-espagne.html" data-i18n="cta.learn">En savoir plus</a>
+                  <a class="btn ghost" href="etudes-uk.html" data-i18n="cta.uk">Études UK</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 7 SPORTS -->
+            <article class="slide" data-bg="sports" data-href="sport-events.html" aria-label="Sports events slide">
+              <div class="slide-card">
+                <p class="slide-kicker" data-i18n="hero.kicker">Agence internationale de voyages & services</p>
+                <h2 class="slide-title" data-i18n="hero.sports.title">Événements Sportifs</h2>
+                <p class="slide-desc" data-i18n="hero.sports.desc">
+                  Coupe du Monde 2026 + grands événements : billets, hôtel, assistance.
+                </p>
+                <div class="cta-row">
+                  <a class="btn primary" href="sport-events.html" data-i18n="cta.availability">Demander disponibilité</a>
+                  <a class="btn ghost" href="sport-events.html" data-i18n="cta.contact">Contacter l’agence</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="dots" id="dots" aria-label="Carousel pagination"></div>
+          <div class="controls" aria-label="Carousel controls">
+            <button class="ctrl" id="prevBtn" aria-label="Previous">‹</button>
+            <button class="ctrl" id="nextBtn" aria-label="Next">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES CASES -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="services.title">Nos services</h2>
+        <p class="lead" data-i18n="services.lead">Choisissez votre service principal. Chaque page contient un formulaire simple.</p>
+
+        <div class="services" role="list">
+          <a class="svc" href="umrah.html" role="listitem">
+            <div class="top">
+              <div class="badge">🕋</div>
+              <div>
+                <div class="title" data-i18n="svc.umrah.title">Umrah</div>
+                <div class="sub" data-i18n="svc.umrah.sub">Umrah Packages</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="svc" href="hajj.html" role="listitem">
+            <div class="top">
+              <div class="badge">🕋</div>
+              <div>
+                <div class="title" data-i18n="svc.hajj.title">Hajj</div>
+                <div class="sub" data-i18n="svc.hajj.sub">HAJJ</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="svc" href="flights.html" role="listitem">
+            <div class="top">
+              <div class="badge">✈️</div>
+              <div>
+                <div class="title" data-i18n="svc.flights.title">Flights</div>
+                <div class="sub" data-i18n="svc.flights.sub">Flight</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="svc" href="hotels.html" role="listitem">
+            <div class="top">
+              <div class="badge">🏨</div>
+              <div>
+                <div class="title" data-i18n="svc.hotels.title">Hotels</div>
+                <div class="sub" data-i18n="svc.hotels.sub">Hotel Booking</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="svc" href="visa.html" role="listitem">
+            <div class="top">
+              <div class="badge">🛂</div>
+              <div>
+                <div class="title" data-i18n="svc.visa.title">Visa</div>
+                <div class="sub" data-i18n="svc.visa.sub">Visa Services</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="svc" href="car-rental.html" role="listitem">
+            <div class="top">
+              <div class="badge">🚗</div>
+              <div>
+                <div class="title" data-i18n="svc.car.title">Location de voiture</div>
+                <div class="sub" data-i18n="svc.car.sub">Car Rental</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="why.title">Pourquoi nous choisir</h2>
+        <p class="lead" data-i18n="why.lead">Clair, humain, organisé — pour voyager l’esprit tranquille.</p>
+
+        <div class="why">
+          <div class="why-card">
+            <h3 data-i18n="why.1.t">Organisation premium</h3>
+            <p data-i18n="why.1.p">Des parcours simples, des offres lisibles, un accompagnement avant, pendant et après.</p>
+          </div>
+          <div class="why-card">
+            <h3 data-i18n="why.2.t">Accompagnement multilingue</h3>
+            <p data-i18n="why.2.p">FR / EN / ES / AR : vous choisissez la langue de contact qui vous convient.</p>
+          </div>
+          <div class="why-card">
+            <h3 data-i18n="why.3.t">Basé à Alicante</h3>
+            <p data-i18n="why.3.p">Une agence proche, réactive, orientée solutions — pour familles, voyageurs et diaspora.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="foot-title" data-i18n="foot.brand">MWT – Moltaqa World Travel & Tourism</p>
+        <p class="foot-p" data-i18n="foot.desc">
+          Omra, Hajj 2026, voyages, études à l’étranger, services visa & réservations.
+        </p>
+      </div>
+
+      <div>
+        <p class="foot-title" data-i18n="foot.links">Liens</p>
+        <ul class="foot-list">
+          <li><a href="hajj.html" data-i18n="nav.hajj">Hajj 2026</a></li>
+          <li><a href="umrah.html" data-i18n="nav.omra">Omra</a></li>
+          <li><a href="visa.html" data-i18n="nav.visa">Visa</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="foot-title" data-i18n="foot.contact">Contact</p>
+        <ul class="foot-list">
+          <li><a href="#" data-i18n="foot.phone">📞 +34 600 672 423</a></li>
+          <li><a href="#" data-i18n="foot.email">✉️ info@mwt-world.com</a></li>
+          <li><a href="#" data-i18n="foot.addr">📍 Calle Italia 9, 03003 Alicante</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <span data-i18n="foot.copy">© 2026 MWT – Tous droits réservés</span>
+    </div>
+  </footer>
+
+  <!-- ✅ JS MINIMAL ICI (carousel + langue) -->
+  <script>
+    const i18n = {
+      fr: {
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Accueil","nav.hajj":"Hajj 2026","nav.omra":"Omra","nav.visa":"Visa","nav.flights":"Flights","nav.hotels":"Hotels","nav.contact":"Contact",
+        "hero.kicker":"Agence internationale de voyages & services",
+        "hero.hajj.title":"Hajj 2026",
+        "hero.hajj.desc":"Organisation officielle et sécurisée – accompagnement complet pour les pèlerins européens.",
+        "hero.hajj.flight":"Flight","hero.hajj.hotels":"Hotels","hero.hajj.visa":"Visa","hero.hajj.guide":"Guide",
+        "hero.omra.title":"Omra Ramadan",
+        "hero.omra.desc":"Vivez une Omra spirituelle durant le mois béni, avec organisation claire et accompagnement.",
+        "hero.sahara.title":"Voyage Sahara",
+        "hero.sahara.desc":"Ghardaïa, Djanet, Tassili, Hoggar, Timimoun – immersion authentique.",
+        "hero.algerie.title":"Voyages Nostalgie Algérie",
+        "hero.algerie.desc":"Pour la diaspora : émotions, racines, souvenirs… en toute sérénité.",
+        "hero.heritage.title":"Héritage Islamique – Espagne",
+        "hero.heritage.desc":"Grenade, Cordoue, Séville – mémoire, histoire et beauté.",
+        "hero.studies.title":"Études à l’étranger",
+        "hero.studies.desc":"Espagne & Angleterre – accompagnement complet (admission, logement, démarches).",
+        "hero.sports.title":"Événements Sportifs",
+        "hero.sports.desc":"Coupe du Monde 2026 + grands événements : billets, hôtel, assistance.",
+        "cta.register":"S’inscrire","cta.view":"Voir l’offre","cta.reserve":"Réserver","cta.discover":"Découvrir","cta.quote":"Demander un devis",
+        "cta.learn":"En savoir plus","cta.uk":"Études UK","cta.availability":"Demander disponibilité","cta.contact":"Contacter l’agence",
+        "services.title":"Nos services",
+        "services.lead":"Choisissez votre service principal. Chaque page contient un formulaire simple.",
+        "svc.umrah.title":"Umrah","svc.umrah.sub":"Umrah Packages",
+        "svc.hajj.title":"Hajj","svc.hajj.sub":"HAJJ",
+        "svc.flights.title":"Flights","svc.flights.sub":"Flight",
+        "svc.hotels.title":"Hotels","svc.hotels.sub":"Hotel Booking",
+        "svc.visa.title":"Visa","svc.visa.sub":"Visa Services",
+        "svc.car.title":"Location de voiture","svc.car.sub":"Car Rental",
+        "why.title":"Pourquoi nous choisir",
+        "why.lead":"Clair, humain, organisé — pour voyager l’esprit tranquille.",
+        "why.1.t":"Organisation premium","why.1.p":"Des parcours simples, des offres lisibles, un accompagnement avant, pendant et après.",
+        "why.2.t":"Accompagnement multilingue","why.2.p":"FR / EN / ES / AR : vous choisissez la langue de contact qui vous convient.",
+        "why.3.t":"Basé à Alicante","why.3.p":"Une agence proche, réactive, orientée solutions — pour familles, voyageurs et diaspora.",
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Omra, Hajj 2026, voyages, études à l’étranger, services visa & réservations.",
+        "foot.links":"Liens",
+        "foot.contact":"Contact",
+        "foot.phone":"📞 +34 600 672 423",
+        "foot.email":"✉️ info@mwt-world.com",
+        "foot.addr":"📍 Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – Tous droits réservés"
+      },
+      en: {
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Home","nav.hajj":"Hajj 2026","nav.omra":"Umrah","nav.visa":"Visa","nav.flights":"Flights","nav.hotels":"Hotels","nav.contact":"Contact",
+        "hero.kicker":"International travel & services agency",
+        "hero.hajj.title":"Hajj 2026",
+        "hero.hajj.desc":"Official, secure organization — full support for European pilgrims.",
+        "hero.hajj.flight":"Flight","hero.hajj.hotels":"Hotels","hero.hajj.visa":"Visa","hero.hajj.guide":"Guide",
+        "hero.omra.title":"Umrah Ramadan",
+        "hero.omra.desc":"Experience a spiritual Umrah during the blessed month, with clear planning and guidance.",
+        "hero.sahara.title":"Sahara Journey",
+        "hero.sahara.desc":"Ghardaïa, Djanet, Tassili, Hoggar, Timimoun — authentic immersion.",
+        "hero.algerie.title":"Algeria Nostalgia Trips",
+        "hero.algerie.desc":"For the diaspora: roots, emotions, memories — with peace of mind.",
+        "hero.heritage.title":"Islamic Heritage – Spain",
+        "hero.heritage.desc":"Granada, Córdoba, Seville — history, heritage, beauty.",
+        "hero.studies.title":"Study Abroad",
+        "hero.studies.desc":"Spain & UK — full support (admission, housing, paperwork).",
+        "hero.sports.title":"Sports Events",
+        "hero.sports.desc":"World Cup 2026 + major events: tickets, hotels, assistance.",
+        "cta.register":"Register","cta.view":"View offer","cta.reserve":"Book","cta.discover":"Discover","cta.quote":"Request a quote",
+        "cta.learn":"Learn more","cta.uk":"Study in the UK","cta.availability":"Check availability","cta.contact":"Contact the agency",
+        "services.title":"Our services",
+        "services.lead":"Choose your main service. Each page includes a simple form.",
+        "svc.umrah.title":"Umrah","svc.umrah.sub":"Umrah Packages",
+        "svc.hajj.title":"Hajj","svc.hajj.sub":"HAJJ",
+        "svc.flights.title":"Flights","svc.flights.sub":"Flight",
+        "svc.hotels.title":"Hotels","svc.hotels.sub":"Hotel Booking",
+        "svc.visa.title":"Visa","svc.visa.sub":"Visa Services",
+        "svc.car.title":"Car rental","svc.car.sub":"Car Rental",
+        "why.title":"Why choose us",
+        "why.lead":"Clear, human, organized — travel with peace of mind.",
+        "why.1.t":"Premium organization","why.1.p":"Simple journeys, clear offers, support before, during and after.",
+        "why.2.t":"Multilingual support","why.2.p":"FR / EN / ES / AR: choose your preferred contact language.",
+        "why.3.t":"Based in Alicante","why.3.p":"A responsive, solutions-first agency — for families, travelers and diaspora.",
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Umrah, Hajj 2026, trips, study abroad, visa services & bookings.",
+        "foot.links":"Links",
+        "foot.contact":"Contact",
+        "foot.phone":"📞 +34 600 672 423",
+        "foot.email":"✉️ info@mwt-world.com",
+        "foot.addr":"📍 Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – All rights reserved"
+      },
+      es: {
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Inicio","nav.hajj":"Hajj 2026","nav.omra":"Omra","nav.visa":"Visado","nav.flights":"Vuelos","nav.hotels":"Hoteles","nav.contact":"Contacto",
+        "hero.kicker":"Agencia internacional de viajes y servicios",
+        "hero.hajj.title":"Hajj 2026",
+        "hero.hajj.desc":"Organización oficial y segura — acompañamiento completo para peregrinos europeos.",
+        "hero.hajj.flight":"Vuelo","hero.hajj.hotels":"Hoteles","hero.hajj.visa":"Visado","hero.hajj.guide":"Guía",
+        "hero.omra.title":"Omra Ramadán",
+        "hero.omra.desc":"Vive una Omra espiritual durante el mes bendito con organización clara y acompañamiento.",
+        "hero.sahara.title":"Viaje al Sahara",
+        "hero.sahara.desc":"Ghardaïa, Djanet, Tassili, Hoggar, Timimoun — inmersión auténtica.",
+        "hero.algerie.title":"Viajes Nostalgia Argelia",
+        "hero.algerie.desc":"Para la diáspora: raíces, emociones, recuerdos… con tranquilidad.",
+        "hero.heritage.title":"Herencia Islámica – España",
+        "hero.heritage.desc":"Granada, Córdoba, Sevilla — memoria, historia y belleza.",
+        "hero.studies.title":"Estudios en el extranjero",
+        "hero.studies.desc":"España y Reino Unido — acompañamiento completo (admisión, alojamiento, trámites).",
+        "hero.sports.title":"Eventos Deportivos",
+        "hero.sports.desc":"Mundial 2026 + grandes eventos: entradas, hotel, asistencia.",
+        "cta.register":"Inscribirme","cta.view":"Ver oferta","cta.reserve":"Reservar","cta.discover":"Descubrir","cta.quote":"Pedir presupuesto",
+        "cta.learn":"Más información","cta.uk":"Estudios UK","cta.availability":"Consultar disponibilidad","cta.contact":"Contactar agencia",
+        "services.title":"Nuestros servicios",
+        "services.lead":"Elige tu servicio principal. Cada página incluye un formulario simple.",
+        "svc.umrah.title":"Omra","svc.umrah.sub":"Paquetes Omra",
+        "svc.hajj.title":"Hajj","svc.hajj.sub":"HAJJ",
+        "svc.flights.title":"Vuelos","svc.flights.sub":"Vuelo",
+        "svc.hotels.title":"Hoteles","svc.hotels.sub":"Reserva de hotel",
+        "svc.visa.title":"Visado","svc.visa.sub":"Servicios de visado",
+        "svc.car.title":"Alquiler de coche","svc.car.sub":"Rent a car",
+        "why.title":"Por qué elegirnos",
+        "why.lead":"Claro, humano y organizado — viaja con tranquilidad.",
+        "why.1.t":"Organización premium","why.1.p":"Procesos simples, ofertas claras y acompañamiento antes, durante y después.",
+        "why.2.t":"Atención multilingüe","why.2.p":"FR / EN / ES / AR: elige tu idioma de contacto.",
+        "why.3.t":"Con base en Alicante","why.3.p":"Agencia cercana y reactiva — para familias, viajeros y diáspora.",
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Omra, Hajj 2026, viajes, estudios en el extranjero, visados y reservas.",
+        "foot.links":"Enlaces",
+        "foot.contact":"Contacto",
+        "foot.phone":"📞 +34 600 672 423",
+        "foot.email":"✉️ info@mwt-world.com",
+        "foot.addr":"📍 Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – Todos los derechos reservados"
+      },
+      ar: {
+        "brand.name":"ملتقى وورلد ترافل & تورزم",
+        "nav.home":"الرئيسية","nav.hajj":"حج 2026","nav.omra":"عمرة","nav.visa":"تأشيرة","nav.flights":"رحلات","nav.hotels":"فنادق","nav.contact":"تواصل",
+        "hero.kicker":"وكالة سفر وخدمات دولية",
+        "hero.hajj.title":"حج 2026",
+        "hero.hajj.desc":"تنظيم رسمي وآمن — مرافقة كاملة للحجاج من أوروبا.",
+        "hero.hajj.flight":"تذاكر","hero.hajj.hotels":"فنادق","hero.hajj.visa":"تأشيرة","hero.hajj.guide":"مرشد",
+        "hero.omra.title":"عمرة رمضان",
+        "hero.omra.desc":"عمرة روحانية في الشهر المبارك مع تنظيم واضح ومرافقة.",
+        "hero.sahara.title":"رحلة الصحراء",
+        "hero.sahara.desc":"غرداية، جانت، الطاسيلي، الهقار، تيميمون — تجربة أصيلة.",
+        "hero.algerie.title":"رحلات حنين الجزائر",
+        "hero.algerie.desc":"للجالية: جذور وذكريات ومشاعر… براحة بال.",
+        "hero.heritage.title":"التراث الإسلامي – إسبانيا",
+        "hero.heritage.desc":"غرناطة، قرطبة، إشبيلية — تاريخ وجمال وذاكرة.",
+        "hero.studies.title":"الدراسة بالخارج",
+        "hero.studies.desc":"إسبانيا وبريطانيا — مرافقة كاملة (قبول، سكن، إجراءات).",
+        "hero.sports.title":"فعاليات رياضية",
+        "hero.sports.desc":"كأس العالم 2026 + أهم الفعاليات: تذاكر، فنادق، مساعدة.",
+        "cta.register":"سجّل الآن","cta.view":"عرض التفاصيل","cta.reserve":"احجز","cta.discover":"اكتشف","cta.quote":"اطلب عرض سعر",
+        "cta.learn":"اعرف أكثر","cta.uk":"الدراسة في بريطانيا","cta.availability":"استعلام عن التوفر","cta.contact":"تواصل مع الوكالة",
+        "services.title":"خدماتنا",
+        "services.lead":"اختر خدمتك الأساسية. كل صفحة تحتوي على نموذج بسيط.",
+        "svc.umrah.title":"عمرة","svc.umrah.sub":"باقات العمرة",
+        "svc.hajj.title":"حج","svc.hajj.sub":"الحج",
+        "svc.flights.title":"رحلات","svc.flights.sub":"تذاكر",
+        "svc.hotels.title":"فنادق","svc.hotels.sub":"حجز فندق",
+        "svc.visa.title":"تأشيرة","svc.visa.sub":"خدمات التأشيرة",
+        "svc.car.title":"كراء سيارة","svc.car.sub":"تأجير سيارات",
+        "why.title":"لماذا تختارنا",
+        "why.lead":"واضح، إنساني، منظم — لتسافر براحة بال.",
+        "why.1.t":"تنظيم ممتاز","why.1.p":"مسارات سهلة وعروض واضحة ومرافقة قبل وأثناء وبعد.",
+        "why.2.t":"مرافقة متعددة اللغات","why.2.p":"FR / EN / ES / AR: اختر لغة التواصل المناسبة لك.",
+        "why.3.t":"مقرنا أليكانتي","why.3.p":"وكالة قريبة وسريعة الاستجابة — للعائلات والمسافرين والجالية.",
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"عمرة، حج 2026، رحلات، دراسة بالخارج، خدمات التأشيرة والحجوزات.",
+        "foot.links":"روابط",
+        "foot.contact":"تواصل",
+        "foot.phone":"📞 +34 600 672 423",
+        "foot.email":"✉️ info@mwt-world.com",
+        "foot.addr":"📍 Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – جميع الحقوق محفوظة"
+      }
+    };
+
+    function applyLang(lang){
+      document.documentElement.lang = lang === "ar" ? "ar" : lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+      // active pill
+      document.querySelectorAll(".lang-btn").forEach(b=>{
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+
+      // translate
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        const val = (i18n[lang] && i18n[lang][key]) || (i18n.fr[key]) || null;
+        if(val) el.textContent = val;
+      });
+
+      localStorage.setItem("mwt_lang", lang);
+    }
+
+    // CAROUSEL
+    const slidesWrap = document.getElementById("slides");
+    const slideEls = Array.from(document.querySelectorAll(".slide"));
+    const dotsWrap = document.getElementById("dots");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let idx = 0;
+    let timer = null;
+
+    function renderDots(){
+      dotsWrap.innerHTML = "";
+      slideEls.forEach((_,i)=>{
+        const d = document.createElement("button");
+        d.className = "dot" + (i===idx ? " active":"");
+        d.setAttribute("aria-label","Go to slide "+(i+1));
+        d.addEventListener("click", ()=>goTo(i,true));
+        dotsWrap.appendChild(d);
+      });
+    }
+
+    function goTo(i, reset=false){
+      idx = (i + slideEls.length) % slideEls.length;
+      slidesWrap.style.transform = `translateX(${-idx*100}%)`;
+      renderDots();
+      if(reset) restart();
+    }
+
+    function restart(){
+      if(timer) clearInterval(timer);
+      timer = setInterval(()=>goTo(idx+1,false), 3000);
+    }
+
+    prevBtn.addEventListener("click", ()=>goTo(idx-1,true));
+    nextBtn.addEventListener("click", ()=>goTo(idx+1,true));
+
+    // swipe mobile
+    let startX = null;
+    slidesWrap.addEventListener("touchstart", (e)=>{ startX = e.touches[0].clientX; }, {passive:true});
+    slidesWrap.addEventListener("touchend", (e)=>{
+      if(startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if(Math.abs(dx) > 50){
+        if(dx < 0) goTo(idx+1,true);
+        else goTo(idx-1,true);
+      }
+      startX = null;
+    }, {passive:true});
+
+    // click slide -> page
+    slideEls.forEach(sl=>{
+      sl.style.cursor = "pointer";
+      sl.addEventListener("click",(e)=>{
+        // éviter d'ouvrir si on clique sur un bouton
+        if(e.target.closest("a,button")) return;
+        const href = sl.dataset.href;
+        if(href) window.location.href = href;
+      });
+    });
+
+    // LANG buttons
+    document.querySelectorAll(".lang-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=>applyLang(btn.dataset.lang));
+    });
+
+    // init
+    const saved = localStorage.getItem("mwt_lang") || "fr";
+    applyLang(saved);
+    goTo(0,false);
+    restart();
+  </script>
+</body>
+</html>
+

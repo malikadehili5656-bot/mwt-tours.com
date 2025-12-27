@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MWT – Retour aux racines | Algérie</title>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --page:#f5f7fb;
+      --text:#151823;
+      --muted:#6f7484;
+      --border:#e6e9f2;
+      --gold:#d9b673;
+      --orange:#c97a3a;
+      --green:#7a8f3a;
+      --blue:#4f7ac2;
+      --shadow: 0 14px 40px rgba(15,23,42,.10);
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
+    a{color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .spacer{height:84px}
+
+    /* HEADER */
+    .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--border)}
+    .header-inner{display:grid;grid-template-columns:max-content 1fr max-content;align-items:center;gap:14px;padding:12px 18px;max-width:var(--max);margin:0 auto}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo-box{width:86px;height:56px;border-radius:14px;border:2px dashed #cfd6e6;background:#fff;display:flex;align-items:center;justify-content:center}
+    .brand-name{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.15}
+    .nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    .nav a{text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-radius:999px}
+    .nav a.active{color:var(--text);font-weight:700}
+
+    .lang{display:flex;gap:6px;align-items:center;padding:4px;border:1px solid var(--border);background:#f2f5fc;border-radius:999px}
+    .lang button{border:0;background:transparent;cursor:pointer;padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .lang button.active{background:linear-gradient(120deg,var(--green),var(--orange));color:#fff}
+
+    .section{padding:26px 0}
+    .lead{color:var(--muted);line-height:1.6}
+
+    .page-hero{
+      margin-top:16px;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);
+      background:
+        radial-gradient(1000px 420px at 20% 25%, rgba(217,182,115,.22), transparent 60%),
+        linear-gradient(120deg, rgba(122,143,58,.18), rgba(79,122,194,.10)),
+        linear-gradient(120deg, rgba(0,0,0,.55), rgba(0,0,0,.12));
+      padding:26px;
+    }
+    .hero-card{
+      background:rgba(255,255,255,.92);
+      border-radius:22px;
+      padding:20px;
+      max-width:920px;
+    }
+    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+    .hero-title{font-size:30px;margin:6px 0}
+    .hero-desc{color:var(--muted)}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px}
+
+    @media(max-width:980px){
+      .grid-3{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+  </style>
+</head>
+
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <div class="logo-box"></div>
+      <div class="brand-name" data-i18n="brand.name">Moltaqa World Travel & Tourism</div>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Accueil</a>
+      <a href="algerie.html" class="active" data-i18n="nav.algerie">Algérie</a>
+      <a href="hajj.html" data-i18n="nav.hajj">Hajj</a>
+      <a href="umrah.html" data-i18n="nav.omra">Omra</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="lang">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+  </div>
+</header>
+
+<div class="spacer"></div>
+
+<main>
+<section class="section">
+  <div class="container">
+    <div class="page-hero">
+      <div class="hero-card">
+        <p class="kicker" data-i18n="algerie.kicker">Retour aux racines</p>
+        <h1 class="hero-title" data-i18n="algerie.title">Voyages nostalgiques en Algérie</h1>
+        <p class="hero-desc" data-i18n="algerie.subtitle">
+          Des séjours pensés pour la diaspora algérienne : mémoire, famille, traditions et émotions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 data-i18n="algerie.why.title">Pourquoi voyager en Algérie avec MWT ?</h2>
+    <p class="lead" data-i18n="algerie.why.lead">
+      Parce que ce n’est pas un simple voyage, c’est un retour.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3 data-i18n="algerie.card1.t">Reconnecter avec la famille</h3>
+        <p data-i18n="algerie.card1.p">Temps, liberté et accompagnement pour retrouver les siens.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="algerie.card2.t">Redécouvrir le pays</h3>
+        <p data-i18n="algerie.card2.p">Villages, villes, mer, désert et patrimoine.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="algerie.card3.t">Voyager sans stress</h3>
+        <p data-i18n="algerie.card3.p">Organisation complète, assistance locale et respect culturel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2 data-i18n="algerie.exp.title">Expériences proposées</h2>
+    <p class="lead" data-i18n="algerie.exp.lead">
+      Des expériences authentiques, humaines et émotionnelles.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3 data-i18n="algerie.exp1.t">Séjours familiaux</h3>
+        <p data-i18n="algerie.exp1.p">
+          Voyage libre pour passer du temps avec la famille, avec assistance locale si besoin.
+        </p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="algerie.exp2.t">Voyages mémoire</h3>
+        <p data-i18n="algerie.exp2.p">
+          Retour dans le village natal, lieux d’enfance, racines familiales.
+        </p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="algerie.exp3.t">Découverte culturelle</h3>
+        <p data-i18n="algerie.exp3.p">
+          Casbah, Constantine, Oran, Ghardaïa, traditions et gastronomie.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 data-i18n="algerie.practical.title">Services inclus</h2>
+    <p class="lead" data-i18n="algerie.practical.lead">
+      Nous nous adaptons à votre histoire et à votre rythme.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3 data-i18n="algerie.inc1.t">Vols & transport</h3>
+        <p data-i18n="algerie.inc1.p">Billets, correspondances, transferts si nécessaires.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="algerie.inc2.t">Hébergement</h3>
+        <p data-i18n="algerie.inc2.p">Chez la famille ou hôtels selon votre choix.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="algerie.inc3.t">Assistance locale</h3>
+        <p data-i18n="algerie.inc3.p">Présence et aide en cas de besoin sur place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 data-i18n="algerie.cta.title">Parlons de votre voyage</h2>
+    <p class="lead" data-i18n="algerie.cta.lead">
+      Chaque retour est unique. Expliquez-nous le vôtre.
+    </p>
+
+    <a href="contact.html" class="btn primary" data-i18n="algerie.cta.btn">
+      Faire une demande personnalisée
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="foot-title" data-i18n="foot.brand">MWT – Moltaqa World Travel & Tourism</p>
+      <p class="foot-p" data-i18n="foot.desc">
+        Voyages émotionnels, retours aux racines, Hajj, Omra et services complets.
+      </p>
+    </div>
+
+    <div>
+      <p class="foot-title" data-i18n="foot.links">Liens</p>
+      <ul class="foot-list">
+        <li><a href="algerie.html" data-i18n="nav.algerie">Algérie</a></li>
+        <li><a href="hajj.html" data-i18n="nav.hajj">Hajj</a></li>
+        <li><a href="umrah.html" data-i18n="nav.omra">Omra</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="foot-title" data-i18n="foot.contact">Contact</p>
+      <ul class="foot-list">
+        <li>📞 +34 600 672 423</li>
+        <li>✉️ info@mwt-world.com</li>
+        <li>📍 Alicante – Espagne</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 MWT – Tous droits réservés
+  </div>
+</footer>
+
+<script>
+const i18n = {
+  fr:{
+    "brand.name":"Moltaqa World Travel & Tourism",
+    "nav.home":"Accueil",
+    "nav.algerie":"Algérie",
+    "nav.hajj":"Hajj",
+    "nav.omra":"Omra",
+    "nav.contact":"Contact",
+
+    "algerie.kicker":"Retour aux racines",
+    "algerie.title":"Voyages nostalgiques en Algérie",
+    "algerie.subtitle":"Des séjours pensés pour la diaspora algérienne.",
+    "algerie.why.title":"Pourquoi voyager en Algérie avec MWT ?",
+    "algerie.why.lead":"Parce que ce n’est pas un simple voyage, c’est un retour.",
+
+    "algerie.card1.t":"Reconnecter avec la famille",
+    "algerie.card1.p":"Temps, liberté et accompagnement.",
+    "algerie.card2.t":"Redécouvrir le pays",
+    "algerie.card2.p":"Villes, villages, patrimoine.",
+    "algerie.card3.t":"Voyager sans stress",
+    "algerie.card3.p":"Organisation et assistance.",
+
+    "algerie.exp.title":"Expériences proposées",
+    "algerie.exp.lead":"Authentiques et humaines.",
+    "algerie.exp1.t":"Séjours familiaux",
+    "algerie.exp1.p":"Temps libre et assistance.",
+    "algerie.exp2.t":"Voyages mémoire",
+    "algerie.exp2.p":"Retour aux racines.",
+    "algerie.exp3.t":"Découverte culturelle",
+    "algerie.exp3.p":"Histoire et traditions.",
+
+    "algerie.practical.title":"Services inclus",
+    "algerie.practical.lead":"Un accompagnement souple.",
+    "algerie.inc1.t":"Vols & transport",
+    "algerie.inc1.p":"Organisation complète.",
+    "algerie.inc2.t":"Hébergement",
+    "algerie.inc2.p":"Famille ou hôtel.",
+    "algerie.inc3.t":"Assistance locale",
+    "algerie.inc3.p":"Soutien sur place.",
+
+    "algerie.cta.title":"Parlons de votre voyage",
+    "algerie.cta.lead":"Expliquez-nous votre projet.",
+    "algerie.cta.btn":"Faire une demande personnalisée"
+  },
+
+  en:{
+    "brand.name":"Moltaqa World Travel & Tourism",
+    "nav.home":"Home",
+    "nav.algerie":"Algeria",
+    "nav.hajj":"Hajj",
+    "nav.omra":"Umrah",
+    "nav.contact":"Contact",
+
+    "algerie.kicker":"Back to roots",
+    "algerie.title":"Nostalgic trips to Algeria",
+    "algerie.subtitle":"Trips designed for the Algerian diaspora.",
+    "algerie.why.title":"Why travel with MWT?",
+    "algerie.why.lead":"It’s not just a trip, it’s a return."
+  },
+
+  es:{
+    "brand.name":"Moltaqa World Travel & Tourism",
+    "nav.home":"Inicio",
+    "nav.algerie":"Argelia",
+    "nav.hajj":"Hajj",
+    "nav.omra":"Omra",
+    "nav.contact":"Contacto",
+
+    "algerie.kicker":"Vuelta a las raíces",
+    "algerie.title":"Viajes nostálgicos a Argelia",
+    "algerie.subtitle":"Viajes pensados para la diáspora argelina."
+  },
+
+  ar:{
+    "brand.name":"ملتقى وورلد ترافل والسياحة",
+    "nav.home":"الرئيسية",
+    "nav.algerie":"الجزائر",
+    "nav.hajj":"الحج",
+    "nav.omra":"العمرة",
+    "nav.contact":"تواصل",
+
+    "algerie.kicker":"العودة إلى الجذور",
+    "algerie.title":"رحلات حنين إلى الجزائر",
+    "algerie.subtitle":"رحلات مخصصة للجالية الجزائرية."
+  }
+};
+
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.querySelectorAll(".lang-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang === lang);
+  });
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(i18n[lang] && i18n[lang][k]) el.textContent = i18n[lang][k];
+  });
+  localStorage.setItem("mwt_lang", lang);
+}
+
+document.querySelectorAll(".lang-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>applyLang(btn.dataset.lang));
+});
+
+applyLang(localStorage.getItem("mwt_lang") || "fr");
+</script>
+
+</body>
+</html>
