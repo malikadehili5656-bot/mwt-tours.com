@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MWT – Contact</title>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --page:#f5f7fb;
+      --text:#151823;
+      --muted:#6f7484;
+      --border:#e6e9f2;
+      --gold:#d9b673;
+      --orange:#c97a3a;
+      --green:#7a8f3a;
+      --blue:#4f7ac2;
+      --shadow: 0 14px 40px rgba(15,23,42,.10);
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--page);color:var(--text)}
+    a{color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .spacer{height:84px}
+
+    /* HEADER (same as Visa) */
+    .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--border)}
+    .header-inner{display:grid;grid-template-columns:max-content 1fr max-content;align-items:center;gap:14px;padding:12px 18px;max-width:var(--max);margin:0 auto}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo-box{width:86px;height:56px;border-radius:14px;border:2px dashed #cfd6e6;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .brand-name{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.15;max-width:240px}
+    .nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    .nav a{text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-radius:999px}
+    .nav a:hover{background:#eef2fa;color:var(--text)}
+    .nav a.active{color:var(--text);font-weight:700}
+    .nav a.highlight{font-weight:800;color:var(--text);position:relative}
+    .nav a.highlight::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2px;background:linear-gradient(120deg,var(--green),var(--orange));border-radius:999px}
+
+    .lang{display:flex;gap:6px;align-items:center;padding:4px;border:1px solid var(--border);background:#f2f5fc;border-radius:999px}
+    .lang button{border:0;background:transparent;cursor:pointer;padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;white-space:nowrap}
+    .lang button.active{background:linear-gradient(120deg,var(--green),var(--orange));color:#fff}
+
+    /* PAGE SECTIONS */
+    .section{padding:26px 0}
+    .section h2{margin:0 0 10px;font-size:22px}
+    .lead{margin:0 0 16px;color:var(--muted);line-height:1.6}
+
+    /* HERO (page) */
+    .page-hero{
+      margin-top:16px;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);
+      background:
+        radial-gradient(1000px 420px at 20% 25%, rgba(217,182,115,.22), transparent 60%),
+        linear-gradient(120deg, rgba(122,143,58,.18), rgba(79,122,194,.10)),
+        linear-gradient(120deg, rgba(0,0,0,.55), rgba(0,0,0,.12));
+      padding:26px;
+    }
+    .hero-card{
+      width:min(920px, 100%);
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(217,182,115,.35);
+      border-radius:22px;
+      padding:18px 18px 16px;
+      backdrop-filter: blur(10px);
+      color:var(--text);
+    }
+    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin:0 0 6px}
+    .hero-title{margin:0 0 8px;font-size:30px;line-height:1.15;letter-spacing:-.02em}
+    .hero-desc{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.6}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;border:1px solid var(--border);padding:10px 16px;text-decoration:none;font-weight:700;font-size:14px;cursor:pointer}
+    .btn.primary{border:0;color:#fff;background:linear-gradient(120deg,var(--orange),var(--gold));box-shadow:0 12px 24px rgba(201,122,58,.22)}
+    .btn.ghost{background:transparent;color:var(--text)}
+    .btn.ghost:hover{background:#f3f6ff}
+
+    /* grids/cards */
+    .grid-3{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:12px}
+    .grid-2{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:0 10px 22px rgba(15,23,42,.05)}
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+    .icon-row{display:flex;gap:10px;align-items:center;margin:0 0 8px}
+    .badge{width:44px;height:44px;border-radius:16px;background:#f2f5fc;border:1px solid #e5e9f6;display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 auto}
+
+    /* form */
+    .form-wrap{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:0 10px 22px rgba(15,23,42,.05)}
+    form{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px}
+    label{font-size:12px;color:var(--muted);display:block;margin-bottom:6px}
+    input, select, textarea{
+      width:100%;border:1px solid var(--border);border-radius:14px;padding:10px 12px;font:inherit;background:#fff;outline:none
+    }
+    textarea{min-height:120px;resize:vertical;grid-column:1/-1}
+    .form-actions{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .hint{font-size:13px;color:var(--muted);margin:0}
+
+    .quick{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:10px
+    }
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:10px 12px;border-radius:999px;
+      background:#f6f8ff;border:1px solid var(--border);
+      font-weight:700;font-size:13px;text-decoration:none;
+    }
+
+    /* footer */
+    footer{margin-top:10px;border-top:1px solid var(--border);background:#fff}
+    .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;padding:22px 18px;max-width:var(--max);margin:0 auto}
+    .foot-title{font-weight:900;margin:0 0 6px}
+    .foot-p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    .foot-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .foot-list a{color:var(--muted);text-decoration:none}
+    .foot-list a:hover{color:var(--text)}
+    .copyright{border-top:1px solid var(--border);padding:12px 18px;color:var(--muted);font-size:13px;max-width:var(--max);margin:0 auto}
+
+    @media (max-width: 980px){
+      .nav{display:none}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+      .hero-title{font-size:26px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="MWT Home">
+        <div class="logo-box" aria-label="Logo placeholder">
+          <!-- <img src="images/logo.png" alt="MWT logo"> -->
+        </div>
+        <div class="brand-name" data-i18n="brand.name">Moltaqa World Travel & Tourism</div>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="hajj.html" class="highlight" data-i18n="nav.hajj">Hajj 2026</a>
+        <a href="umrah.html" data-i18n="nav.omra">Omra</a>
+        <a href="flights.html" data-i18n="nav.flights">Flights</a>
+        <a href="hotels.html" data-i18n="nav.hotels">Hotels</a>
+        <a href="visa.html" data-i18n="nav.visa">Visa</a>
+        <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang" aria-label="Languages">
+        <button type="button" class="lang-btn active" data-lang="fr">🇫🇷 <span>FR</span></button>
+        <button type="button" class="lang-btn" data-lang="en">🇬🇧 <span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="es">🇪🇸 <span>ES</span></button>
+        <button type="button" class="lang-btn" data-lang="ar">🇸🇦 <span>AR</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="spacer"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="section">
+      <div class="container">
+        <div class="page-hero" aria-label="Contact hero">
+          <div class="hero-card">
+            <p class="kicker" data-i18n="contact.kicker">Nous répondons rapidement</p>
+            <h1 class="hero-title" data-i18n="contact.title">Contactez MWT</h1>
+            <p class="hero-desc" data-i18n="contact.subtitle">
+              Une demande Hajj, Omra, visa, vols, hôtels, études ou autre service ? Écrivez-nous.
+            </p>
+
+            <div class="cta-row">
+              <a class="btn primary" href="#contactForm" data-i18n="contact.cta">Envoyer une demande</a>
+              <a class="btn ghost" href="visa.html" data-i18n="contact.cta2">Voir Visa Services</a>
+            </div>
+
+            <div class="quick" aria-label="Quick contact">
+              <a class="pill" href="tel:+34600672423">📞 <span data-i18n="contact.quick.phone">Appeler</span></a>
+              <a class="pill" href="mailto:info@mwt-world.com">✉️ <span data-i18n="contact.quick.email">Email</span></a>
+              <a class="pill" href="https://wa.me/34600672423" target="_blank" rel="noopener">💬 <span data-i18n="contact.quick.wa">WhatsApp</span></a>
+              <a class="pill" href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante" target="_blank" rel="noopener">📍 <span data-i18n="contact.quick.map">Itinéraire</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT INFO / HOURS -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="contact.info.title">Informations</h2>
+        <p class="lead" data-i18n="contact.info.lead">Adresse, horaires et canaux officiels.</p>
+
+        <div class="grid-3" role="list">
+          <div class="card" role="listitem">
+            <div class="icon-row">
+              <div class="badge">📍</div>
+              <h3 data-i18n="contact.card1.t">Adresse</h3>
+            </div>
+            <p data-i18n="contact.card1.p">Calle Italia 9, 03003 Alicante, Espagne</p>
+          </div>
+
+          <div class="card" role="listitem">
+            <div class="icon-row">
+              <div class="badge">⏰</div>
+              <h3 data-i18n="contact.card2.t">Horaires</h3>
+            </div>
+            <p data-i18n="contact.card2.p">Lun–Ven : 10h–14h / 17h–20h • Sam : 10h–14h30 • Dim : fermé</p>
+          </div>
+
+          <div class="card" role="listitem">
+            <div class="icon-row">
+              <div class="badge">✅</div>
+              <h3 data-i18n="contact.card3.t">Réponse rapide</h3>
+            </div>
+            <p data-i18n="contact.card3.p">WhatsApp & email. Nous confirmons la réception et revenons vers vous.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES REQUEST TYPES -->
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="contact.services.title">Type de demande</h2>
+        <p class="lead" data-i18n="contact.services.lead">Choisissez un service pour orienter votre demande.</p>
+
+        <div class="grid-2" role="list">
+          <div class="card" role="listitem">
+            <h3 data-i18n="contact.s1.t">Hajj & Omra</h3>
+            <p data-i18n="contact.s1.p">Inscription, informations packs, dates, ville de départ, accompagnement.</p>
+          </div>
+          <div class="card" role="listitem">
+            <h3 data-i18n="contact.s2.t">Visa Services</h3>
+            <p data-i18n="contact.s2.p">Tourisme, Omra, études, affaires — assistance dossier et suivi.</p>
+          </div>
+          <div class="card" role="listitem">
+            <h3 data-i18n="contact.s3.t">Flights & Transport</h3>
+            <p data-i18n="contact.s3.p">Aérien, maritime, terrestre — devis rapide selon disponibilité.</p>
+          </div>
+          <div class="card" role="listitem">
+            <h3 data-i18n="contact.s4.t">Hotels & Car Rental</h3>
+            <p data-i18n="contact.s4.p">Hôtels, transferts, location de voiture — options sur mesure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="section" id="contactForm">
+      <div class="container">
+        <h2 data-i18n="contact.form.title">Envoyer une demande</h2>
+        <p class="lead" data-i18n="contact.form.lead">Remplissez ce formulaire. Nous vous recontactons rapidement.</p>
+
+        <div class="form-wrap">
+          <form>
+            <div>
+              <label for="fullName" data-i18n="form.name.label">Nom & Prénom</label>
+              <input id="fullName" name="fullName" type="text" placeholder="Ex: Sarah Ben Ali" data-i18n-placeholder="form.name.ph" />
+            </div>
+
+            <div>
+              <label for="phone" data-i18n="form.phone.label">WhatsApp / Téléphone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+34 600 000 000" data-i18n-placeholder="form.phone.ph" />
+            </div>
+
+            <div>
+              <label for="email" data-i18n="form.email.label">Email</label>
+              <input id="email" name="email" type="email" placeholder="ex: info@email.com" data-i18n-placeholder="form.email.ph" />
+            </div>
+
+            <div>
+              <label for="service" data-i18n="contact.form.service.label">Service demandé</label>
+              <select id="service" name="service">
+                <option value="" data-i18n="contact.form.service.choose">Choisir…</option>
+                <option value="hajj" data-i18n="contact.form.service.hajj">Hajj 2026</option>
+                <option value="umrah" data-i18n="contact.form.service.umrah">Omra</option>
+                <option value="visa" data-i18n="contact.form.service.visa">Visa Services</option>
+                <option value="flights" data-i18n="contact.form.service.flights">Flights / Transport</option>
+                <option value="hotels" data-i18n="contact.form.service.hotels">Hotels</option>
+                <option value="car" data-i18n="contact.form.service.car">Car Rental</option>
+                <option value="studies" data-i18n="contact.form.service.studies">Études</option>
+                <option value="sports" data-i18n="contact.form.service.sports">Sports Events</option>
+                <option value="other" data-i18n="contact.form.service.other">Autre</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="langPref" data-i18n="contact.form.lang.label">Langue préférée</label>
+              <select id="langPref" name="langPref">
+                <option value="fr" data-i18n="contact.form.lang.fr">Français</option>
+                <option value="en" data-i18n="contact.form.lang.en">English</option>
+                <option value="es" data-i18n="contact.form.lang.es">Español</option>
+                <option value="ar" data-i18n="contact.form.lang.ar">العربية</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="city" data-i18n="contact.form.city.label">Ville de départ (optionnel)</label>
+              <input id="city" name="city" type="text" placeholder="Ex: Alicante, Paris..." data-i18n-placeholder="contact.form.city.ph" />
+            </div>
+
+            <textarea id="message" name="message" placeholder="Décrivez votre demande…" data-i18n-placeholder="form.msg.ph"></textarea>
+
+            <div class="form-actions">
+              <button class="btn primary" type="button" data-i18n="contact.form.submit">Envoyer la demande</button>
+              <p class="hint" data-i18n="contact.form.hint">Astuce : indiquez vos dates souhaitées, nombre de voyageurs, destination.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="foot-title" data-i18n="foot.brand">MWT – Moltaqa World Travel & Tourism</p>
+        <p class="foot-p" data-i18n="foot.desc">
+          Omra, Hajj 2026, voyages, études à l’étranger, services visa & réservations.
+        </p>
+      </div>
+
+      <div>
+        <p class="foot-title" data-i18n="foot.links">Liens</p>
+        <ul class="foot-list">
+          <li><a href="hajj.html" data-i18n="nav.hajj">Hajj 2026</a></li>
+          <li><a href="umrah.html" data-i18n="nav.omra">Omra</a></li>
+          <li><a href="visa.html" data-i18n="nav.visa">Visa</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="foot-title" data-i18n="foot.contact">Contact</p>
+        <ul class="foot-list">
+          <li><a href="tel:+34600672423" data-i18n="foot.phone">📞 +34 600 672 423</a></li>
+          <li><a href="mailto:info@mwt-world.com" data-i18n="foot.email">✉️ info@mwt-world.com</a></li>
+          <li><a href="https://www.google.com/maps?q=Calle+Italia+9,+03003,+Alicante" target="_blank" rel="noopener" data-i18n="foot.addr">📍 Calle Italia 9, 03003 Alicante</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <span data-i18n="foot.copy">© 2026 MWT – Tous droits réservés</span>
+    </div>
+  </footer>
+
+  <script>
+    const i18n = {
+      fr:{
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Accueil","nav.hajj":"Hajj 2026","nav.omra":"Omra","nav.visa":"Visa","nav.flights":"Flights","nav.hotels":"Hotels","nav.contact":"Contact",
+
+        "contact.kicker":"Nous répondons rapidement",
+        "contact.title":"Contactez MWT",
+        "contact.subtitle":"Une demande Hajj, Omra, visa, vols, hôtels, études ou autre service ? Écrivez-nous.",
+        "contact.cta":"Envoyer une demande",
+        "contact.cta2":"Voir Visa Services",
+        "contact.quick.phone":"Appeler",
+        "contact.quick.email":"Email",
+        "contact.quick.wa":"WhatsApp",
+        "contact.quick.map":"Itinéraire",
+
+        "contact.info.title":"Informations",
+        "contact.info.lead":"Adresse, horaires et canaux officiels.",
+        "contact.card1.t":"Adresse",
+        "contact.card1.p":"Calle Italia 9, 03003 Alicante, Espagne",
+        "contact.card2.t":"Horaires",
+        "contact.card2.p":"Lun–Ven : 10h–14h / 17h–20h • Sam : 10h–14h30 • Dim : fermé",
+        "contact.card3.t":"Réponse rapide",
+        "contact.card3.p":"WhatsApp & email. Nous confirmons la réception et revenons vers vous.",
+
+        "contact.services.title":"Type de demande",
+        "contact.services.lead":"Choisissez un service pour orienter votre demande.",
+        "contact.s1.t":"Hajj & Omra",
+        "contact.s1.p":"Inscription, informations packs, dates, ville de départ, accompagnement.",
+        "contact.s2.t":"Visa Services",
+        "contact.s2.p":"Tourisme, Omra, études, affaires — assistance dossier et suivi.",
+        "contact.s3.t":"Flights & Transport",
+        "contact.s3.p":"Aérien, maritime, terrestre — devis rapide selon disponibilité.",
+        "contact.s4.t":"Hotels & Car Rental",
+        "contact.s4.p":"Hôtels, transferts, location de voiture — options sur mesure.",
+
+        "contact.form.title":"Envoyer une demande",
+        "contact.form.lead":"Remplissez ce formulaire. Nous vous recontactons rapidement.",
+        "contact.form.service.label":"Service demandé",
+        "contact.form.service.choose":"Choisir…",
+        "contact.form.service.hajj":"Hajj 2026",
+        "contact.form.service.umrah":"Omra",
+        "contact.form.service.visa":"Visa Services",
+        "contact.form.service.flights":"Flights / Transport",
+        "contact.form.service.hotels":"Hotels",
+        "contact.form.service.car":"Car Rental",
+        "contact.form.service.studies":"Études",
+        "contact.form.service.sports":"Sports Events",
+        "contact.form.service.other":"Autre",
+
+        "contact.form.lang.label":"Langue préférée",
+        "contact.form.lang.fr":"Français",
+        "contact.form.lang.en":"English",
+        "contact.form.lang.es":"Español",
+        "contact.form.lang.ar":"العربية",
+
+        "contact.form.city.label":"Ville de départ (optionnel)",
+        "contact.form.city.ph":"Ex: Alicante, Paris...",
+        "contact.form.submit":"Envoyer la demande",
+        "contact.form.hint":"Astuce : indiquez vos dates souhaitées, nombre de voyageurs, destination.",
+
+        "form.name.label":"Nom & Prénom",
+        "form.phone.label":"WhatsApp / Téléphone",
+        "form.email.label":"Email",
+        "form.name.ph":"Ex: Sarah Ben Ali",
+        "form.phone.ph":"+34 600 000 000",
+        "form.email.ph":"ex: info@email.com",
+        "form.msg.ph":"Décrivez votre demande…",
+
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Omra, Hajj 2026, voyages, études à l’étranger, services visa & réservations.",
+        "foot.links":"Liens",
+        "foot.contact":"Contact",
+        "foot.phone":"📞 +34 600 672 423",
+        "foot.email":"✉️ info@mwt-world.com",
+        "foot.addr":"📍 Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – Tous droits réservés"
+      },
+
+      en:{
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Home","nav.hajj":"Hajj 2026","nav.omra":"Umrah","nav.visa":"Visa","nav.flights":"Flights","nav.hotels":"Hotels","nav.contact":"Contact",
+
+        "contact.kicker":"We reply fast",
+        "contact.title":"Contact MWT",
+        "contact.subtitle":"Hajj, Umrah, visa, flights, hotels, studies or any service — message us.",
+        "contact.cta":"Send a request",
+        "contact.cta2":"View Visa Services",
+        "contact.quick.phone":"Call",
+        "contact.quick.email":"Email",
+        "contact.quick.wa":"WhatsApp",
+        "contact.quick.map":"Directions",
+
+        "contact.info.title":"Information",
+        "contact.info.lead":"Address, hours and official channels.",
+        "contact.card1.t":"Address",
+        "contact.card1.p":"Calle Italia 9, 03003 Alicante, Spain",
+        "contact.card2.t":"Hours",
+        "contact.card2.p":"Mon–Fri: 10am–2pm / 5pm–8pm • Sat: 10am–2:30pm • Sun: closed",
+        "contact.card3.t":"Fast response",
+        "contact.card3.p":"WhatsApp & email. We confirm receipt and get back to you.",
+
+        "contact.services.title":"Request type",
+        "contact.services.lead":"Pick a service to route your request.",
+        "contact.s1.t":"Hajj & Umrah",
+        "contact.s1.p":"Registration, packages, dates, departure city, support.",
+        "contact.s2.t":"Visa Services",
+        "contact.s2.p":"Tourism, Umrah, studies, business — file support & tracking.",
+        "contact.s3.t":"Flights & Transport",
+        "contact.s3.p":"Air, sea, land — quick quote depending on availability.",
+        "contact.s4.t":"Hotels & Car Rental",
+        "contact.s4.p":"Hotels, transfers, car rental — tailored options.",
+
+        "contact.form.title":"Send a request",
+        "contact.form.lead":"Fill the form — we’ll contact you quickly.",
+        "contact.form.service.label":"Requested service",
+        "contact.form.service.choose":"Choose…",
+        "contact.form.service.hajj":"Hajj 2026",
+        "contact.form.service.umrah":"Umrah",
+        "contact.form.service.visa":"Visa Services",
+        "contact.form.service.flights":"Flights / Transport",
+        "contact.form.service.hotels":"Hotels",
+        "contact.form.service.car":"Car Rental",
+        "contact.form.service.studies":"Studies",
+        "contact.form.service.sports":"Sports Events",
+        "contact.form.service.other":"Other",
+
+        "contact.form.lang.label":"Preferred language",
+        "contact.form.lang.fr":"French",
+        "contact.form.lang.en":"English",
+        "contact.form.lang.es":"Spanish",
+        "contact.form.lang.ar":"Arabic",
+
+        "contact.form.city.label":"Departure city (optional)",
+        "contact.form.city.ph":"e.g., Alicante, Paris...",
+        "contact.form.submit":"Send request",
+        "contact.form.hint":"Tip: add your desired dates, travelers count, destination.",
+
+        "form.name.label":"Full name",
+        "form.phone.label":"WhatsApp / Phone",
+        "form.email.label":"Email",
+        "form.name.ph":"e.g., Sarah Ben Ali",
+        "form.phone.ph":"+34 600 000 000",
+        "form.email.ph":"e.g., info@email.com",
+        "form.msg.ph":"Describe your request…",
+
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Umrah, Hajj 2026, trips, study abroad, visa services & bookings.",
+        "foot.links":"Links",
+        "foot.contact":"Contact",
+        "foot.phone":"📞 +34 600 672 423",
+        "foot.email":"✉️ info@mwt-world.com",
+        "foot.addr":"📍 Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – All rights reserved"
+      },
+
+      es:{
+        "brand.name":"Moltaqa World Travel & Tourism",
+        "nav.home":"Inicio","nav.hajj":"Hajj 2026","nav.omra":"Omra","nav.visa":"Visado","nav.flights":"Vuelos","nav.hotels":"Hoteles","nav.contact":"Contacto",
+
+        "contact.kicker":"Respondemos rápido",
+        "contact.title":"Contacta con MWT",
+        "contact.subtitle":"Hajj, Omra, visado, vuelos, hoteles, estudios u otro servicio — escríbenos.",
+        "contact.cta":"Enviar solicitud",
+        "contact.cta2":"Ver Visa Services",
+        "contact.quick.phone":"Llamar",
+        "contact.quick.email":"Email",
+        "contact.quick.wa":"WhatsApp",
+        "contact.quick.map":"Ruta",
+
+        "contact.info.title":"Información",
+        "contact.info.lead":"Dirección, horarios y canales oficiales.",
+        "contact.card1.t":"Dirección",
+        "contact.card1.p":"Calle Italia 9, 03003 Alicante, España",
+        "contact.card2.t":"Horarios",
+        "contact.card2.p":"Lun–Vie: 10–14 / 17–20 • Sáb: 10–14:30 • Dom: cerrado",
+        "contact.card3.t":"Respuesta rápida",
+        "contact.card3.p":"WhatsApp y email. Confirmamos recepción y te respondemos.",
+
+        "contact.services.title":"Tipo de solicitud",
+        "contact.services.lead":"Elige un servicio para orientar tu solicitud.",
+        "contact.s1.t":"Hajj y Omra",
+        "contact.s1.p":"Inscripción, packs, fechas, ciudad de salida, acompañamiento.",
+        "contact.s2.t":"Servicios de visado",
+        "contact.s2.p":"Turismo, Omra, estudios, negocios — soporte y seguimiento.",
+        "contact.s3.t":"Vuelos y transporte",
+        "contact.s3.p":"Aéreo, marítimo, terrestre — presupuesto según disponibilidad.",
+        "contact.s4.t":"Hoteles y alquiler de coche",
+        "contact.s4.p":"Hoteles, traslados, alquiler de coche — opciones a medida.",
+
+        "contact.form.title":"Enviar una solicitud",
+        "contact.form.lead":"Rellena el formulario — te contactamos rápidamente.",
+        "contact.form.service.label":"Servicio solicitado",
+        "contact.form.service.choose":"Elegir…",
+        "contact.form.service.hajj":"Hajj 2026",
+        "contact.form.service.umrah":"Omra",
+        "contact.form.service.visa":"Servicios de visado",
+        "contact.form.service.flights":"Vuelos / Transporte",
+        "contact.form.service.hotels":"Hoteles",
+        "contact.form.service.car":"Alquiler de coche",
+        "contact.form.service.studies":"Estudios",
+        "contact.form.service.sports":"Eventos deportivos",
+        "contact.form.service.other":"Otro",
+
+        "contact.form.lang.label":"Idioma preferido",
+        "contact.form.lang.fr":"Francés",
+        "contact.form.lang.en":"Inglés",
+        "contact.form.lang.es":"Español",
+        "contact.form.lang.ar":"Árabe",
+
+        "contact.form.city.label":"Ciudad de salida (opcional)",
+        "contact.form.city.ph":"Ej.: Alicante, París...",
+        "contact.form.submit":"Enviar solicitud",
+        "contact.form.hint":"Consejo: indica fechas deseadas, número de viajeros, destino.",
+
+        "form.name.label":"Nombre y apellidos",
+        "form.phone.label":"WhatsApp / Teléfono",
+        "form.email.label":"Email",
+        "form.name.ph":"Ej.: Sarah Ben Ali",
+        "form.phone.ph":"+34 600 000 000",
+        "form.email.ph":"Ej.: info@email.com",
+        "form.msg.ph":"Describe tu solicitud…",
+
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"Omra, Hajj 2026, viajes, estudios en el extranjero, visados y reservas.",
+        "foot.links":"Enlaces",
+        "foot.contact":"Contacto",
+        "foot.phone":"📞 +34 600 672 423",
+        "foot.email":"✉️ info@mwt-world.com",
+        "foot.addr":"📍 Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – Todos los derechos reservados"
+      },
+
+      ar:{
+        "brand.name":"ملتقى وورلد ترافل & تورزم",
+        "nav.home":"الرئيسية","nav.hajj":"حج 2026","nav.omra":"عمرة","nav.visa":"تأشيرة","nav.flights":"رحلات","nav.hotels":"فنادق","nav.contact":"تواصل",
+
+        "contact.kicker":"نرد بسرعة",
+        "contact.title":"تواصل مع MWT",
+        "contact.subtitle":"حج، عمرة، تأشيرة، رحلات، فنادق، دراسة أو أي خدمة — اكتب لنا.",
+        "contact.cta":"إرسال طلب",
+        "contact.cta2":"عرض خدمات التأشيرة",
+        "contact.quick.phone":"اتصال",
+        "contact.quick.email":"بريد",
+        "contact.quick.wa":"واتساب",
+        "contact.quick.map":"الاتجاهات",
+
+        "contact.info.title":"معلومات",
+        "contact.info.lead":"العنوان، الأوقات والقنوات الرسمية.",
+        "contact.card1.t":"العنوان",
+        "contact.card1.p":"Calle Italia 9, 03003 Alicante, Spain",
+        "contact.card2.t":"الأوقات",
+        "contact.card2.p":"الإثنين–الجمعة: 10–14 / 17–20 • السبت: 10–14:30 • الأحد: مغلق",
+        "contact.card3.t":"رد سريع",
+        "contact.card3.p":"واتساب وبريد. نؤكد الاستلام ثم نرد عليك.",
+
+        "contact.services.title":"نوع الطلب",
+        "contact.services.lead":"اختر الخدمة لتوجيه طلبك.",
+        "contact.s1.t":"الحج والعمرة",
+        "contact.s1.p":"التسجيل، الباقات، التواريخ، مدينة الانطلاق، المرافقة.",
+        "contact.s2.t":"خدمات التأشيرة",
+        "contact.s2.p":"سياحة، عمرة، دراسة، أعمال — دعم ومتابعة.",
+        "contact.s3.t":"الرحلات والنقل",
+        "contact.s3.p":"جوي، بحري، بري — عرض سعر حسب التوفر.",
+        "contact.s4.t":"فنادق وكراء سيارة",
+        "contact.s4.p":"فنادق، تحويلات، كراء سيارة — خيارات حسب الطلب.",
+
+        "contact.form.title":"إرسال طلب",
+        "contact.form.lead":"املأ النموذج — سنتواصل معك بسرعة.",
+        "contact.form.service.label":"الخدمة المطلوبة",
+        "contact.form.service.choose":"اختر…",
+        "contact.form.service.hajj":"حج 2026",
+        "contact.form.service.umrah":"عمرة",
+        "contact.form.service.visa":"خدمات التأشيرة",
+        "contact.form.service.flights":"رحلات / نقل",
+        "contact.form.service.hotels":"فنادق",
+        "contact.form.service.car":"كراء سيارة",
+        "contact.form.service.studies":"الدراسة",
+        "contact.form.service.sports":"فعاليات رياضية",
+        "contact.form.service.other":"أخرى",
+
+        "contact.form.lang.label":"لغة التواصل",
+        "contact.form.lang.fr":"الفرنسية",
+        "contact.form.lang.en":"الإنجليزية",
+        "contact.form.lang.es":"الإسبانية",
+        "contact.form.lang.ar":"العربية",
+
+        "contact.form.city.label":"مدينة الانطلاق (اختياري)",
+        "contact.form.city.ph":"مثال: Alicante, Paris...",
+        "contact.form.submit":"إرسال الطلب",
+        "contact.form.hint":"نصيحة: اذكر التواريخ، عدد المسافرين، الوجهة.",
+
+        "form.name.label":"الاسم واللقب",
+        "form.phone.label":"واتساب / هاتف",
+        "form.email.label":"البريد الإلكتروني",
+        "form.name.ph":"مثال: سارة بن علي",
+        "form.phone.ph":"+34 600 000 000",
+        "form.email.ph":"مثال: info@email.com",
+        "form.msg.ph":"اكتب طلبك…",
+
+        "foot.brand":"MWT – Moltaqa World Travel & Tourism",
+        "foot.desc":"عمرة، حج 2026، رحلات، دراسة بالخارج، خدمات التأشيرة والحجوزات.",
+        "foot.links":"روابط",
+        "foot.contact":"تواصل",
+        "foot.phone":"📞 +34 600 672 423",
+        "foot.email":"✉️ info@mwt-world.com",
+        "foot.addr":"📍 Calle Italia 9, 03003 Alicante",
+        "foot.copy":"© 2026 MWT – جميع الحقوق محفوظة"
+      }
+    };
+
+    function applyLang(lang){
+      document.documentElement.lang = lang === "ar" ? "ar" : lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+      document.querySelectorAll(".lang-btn").forEach(b=>{
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        const val = (i18n[lang] && i18n[lang][key]) || (i18n.fr[key]) || null;
+        if(val) el.textContent = val;
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
+        const key = el.getAttribute("data-i18n-placeholder");
+        const val = (i18n[lang] && i18n[lang][key]) || (i18n.fr[key]) || null;
+        if(val) el.setAttribute("placeholder", val);
+      });
+
+      localStorage.setItem("mwt_lang", lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=>applyLang(btn.dataset.lang));
+    });
+
+    const saved = localStorage.getItem("mwt_lang") || "fr";
+    applyLang(saved);
+  </script>
+</body>
+</html>
