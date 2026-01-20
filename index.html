@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MWT – Website Under Maintenance</title>
+
   <style>
     :root{
       --green:#2F7D32;
@@ -13,68 +14,81 @@
       --border:#ececec;
       --bg:#ffffff;
     }
+
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
       background:var(--bg);
       color:var(--text);
     }
+
     .container{
-      max-width:880px;
+      max-width:900px;
       margin:0 auto;
       padding:50px 16px;
       text-align:center;
     }
-    .logo{
-      margin-bottom:20px;
-    }
+
     .logo img{
       max-width:180px;
-      height:auto;
+      margin-bottom:24px;
     }
+
+    .icon{
+      margin:20px auto;
+      width:120px;
+      height:120px;
+    }
+
     h1{
       font-size:30px;
-      margin:10px 0;
+      margin:16px 0 10px;
     }
+
     p{
       color:var(--muted);
       line-height:1.6;
-      margin-bottom:24px;
+      margin-bottom:30px;
     }
+
     .grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
       text-align:left;
-      margin-top:24px;
     }
+
     .lang{
       border:1px solid var(--border);
       border-radius:14px;
-      padding:14px;
+      padding:16px;
       background:#fafafa;
     }
-    .lang h3{
-      margin:0 0 6px 0;
-      color:var(--green);
-      font-size:14px;
+
+    .flag{
+      font-size:26px;
+      margin-bottom:8px;
     }
+
     .lang p{
       margin:0;
       font-size:14px;
       color:#222;
+      line-height:1.5;
     }
+
     .rtl{
       direction:rtl;
       text-align:right;
     }
+
     .contact{
       margin-top:30px;
       padding-top:18px;
       border-top:1px solid var(--border);
       font-size:14px;
-      color:#333;
     }
+
     .cta{
       display:inline-block;
       margin-top:14px;
@@ -85,6 +99,7 @@
       text-decoration:none;
       font-weight:700;
     }
+
     @media(max-width:700px){
       .grid{grid-template-columns:1fr;}
       h1{font-size:26px;}
@@ -93,6 +108,7 @@
 </head>
 
 <body>
+
   <div class="container">
 
     <!-- LOGO -->
@@ -100,32 +116,45 @@
       <img src="logo.png" alt="MWT – Moltaqa World Travel">
     </div>
 
+    <!-- MAINTENANCE ICON -->
+    <div class="icon">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" stroke="#2F7D32" stroke-width="3"/>
+        <path d="M20 44l6-6 4 4 10-10" stroke="#C9A44C" stroke-width="3" stroke-linecap="round"/>
+        <path d="M22 22h20" stroke="#2F7D32" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="3" fill="#2F7D32"/>
+      </svg>
+    </div>
+
     <h1>Website Under Maintenance</h1>
     <p>
-      Our website is currently being updated.  
+      Our website is currently being updated.<br>
       We will be back online shortly. Thank you for your understanding.
     </p>
 
+    <!-- FLAGS ONLY -->
     <div class="grid">
-      <div class="lang">
-        <h3>English</h3>
-        <p>The website is currently under maintenance. Please check back soon.</p>
-      </div>
 
       <div class="lang">
-        <h3>Français</h3>
+        <div class="flag">🇫🇷</div>
         <p>Le site est actuellement en cours de maintenance. Merci de revenir prochainement.</p>
       </div>
 
       <div class="lang">
-        <h3>Español</h3>
+        <div class="flag">🇬🇧</div>
+        <p>The website is currently under maintenance. Please check back soon.</p>
+      </div>
+
+      <div class="lang">
+        <div class="flag">🇪🇸</div>
         <p>El sitio web está en mantenimiento. Volveremos pronto.</p>
       </div>
 
       <div class="lang rtl" lang="ar">
-        <h3>العربية</h3>
+        <div class="flag">🇸🇦</div>
         <p>الموقع قيد التحديث حاليًا. سنعود قريبًا إن شاء الله.</p>
       </div>
+
     </div>
 
     <div class="contact">
@@ -140,5 +169,6 @@
     </div>
 
   </div>
+
 </body>
 </html>
