@@ -17,43 +17,43 @@
     }
 
     *{box-sizing:border-box;}
+
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
       background:var(--bg);
       color:var(--text);
     }
-<img 
-  src="/images/logo.png"
-  alt="MWT – Moltaqa World Travel"
-  style="
-    display:block;
-    max-width:200px;
-    width:100%;
-    height:auto;
-    margin:20px auto;
-  "
->
-    .container{
+
+    .page{
       max-width:920px;
       margin:0 auto;
-      padding:44px 16px 54px;
+      padding:28px 18px 50px;
+    }
+
+    /* HEADER */
+    .header{
+      display:flex;
+      justify-content:flex-start;
+      align-items:center;
+      margin-bottom:30px;
+    }
+
+    .header img{
+      max-width:170px;
+      height:auto;
+      display:block;
+    }
+
+    /* MAIN */
+    .main{
       text-align:center;
     }
 
-    /* LOGO */
-    .logo img{
-      max-width:180px;
-      height:auto;
-      display:block;
-      margin:0 auto 14px;
-    }
-
-    /* ICON */
     .icon{
       width:88px;
       height:88px;
-      margin:8px auto 18px;
+      margin:10px auto 18px;
     }
     .icon svg{
       width:100%;
@@ -64,41 +64,44 @@
     h1{
       font-size:30px;
       margin:0 0 10px;
-      letter-spacing:0.2px;
     }
+
     .subtitle{
-      margin:0 auto 22px;
       max-width:640px;
+      margin:0 auto 26px;
       color:var(--muted);
       line-height:1.6;
       font-size:15px;
     }
 
-    /* LANG BOXES */
+    /* LANG CARDS */
     .grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
-      margin-top:18px;
       text-align:left;
+      margin-top:20px;
     }
+
     .lang{
       border:1px solid var(--border);
       border-radius:14px;
       padding:16px;
       background:var(--card);
     }
+
     .flag{
       font-size:26px;
-      line-height:1;
       margin-bottom:10px;
     }
+
     .lang p{
       margin:0;
       font-size:14px;
-      color:#222;
       line-height:1.55;
+      color:#222;
     }
+
     .rtl{
       direction:rtl;
       text-align:right;
@@ -106,13 +109,13 @@
 
     /* CONTACT */
     .contact{
-      margin-top:26px;
+      margin-top:30px;
       padding-top:18px;
       border-top:1px solid var(--border);
       font-size:14px;
-      color:#333;
       line-height:1.6;
     }
+
     .cta{
       display:inline-block;
       margin-top:12px;
@@ -124,74 +127,79 @@
       font-weight:700;
     }
 
-    @media (max-width:720px){
+    @media(max-width:720px){
       h1{font-size:26px;}
       .grid{grid-template-columns:1fr;}
-      .container{padding:34px 14px 44px;}
     }
   </style>
 </head>
 
 <body>
-  <main class="container" role="main" aria-live="polite">
 
-   <!-- LOGO -->
-<div class="logo">
-  <img class="site-logo" src="images/logo.png" alt="MWT – Moltaqa World Travel">
-</div>
+  <div class="page">
 
-    <!-- Maintenance icon (SVG) -->
-    <div class="icon" aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="32" r="30" stroke="#2F7D32" stroke-width="3"/>
-        <path d="M20 44l6-6 4 4 10-10" stroke="#C9A44C" stroke-width="3" stroke-linecap="round"/>
-        <path d="M22 22h20" stroke="#2F7D32" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="32" cy="32" r="3" fill="#2F7D32"/>
-      </svg>
-    </div>
+    <!-- HEADER : LOGO LEFT -->
+    <header class="header">
+      <img src="images/logo.png" alt="MWT – Moltaqa World Travel">
+    </header>
 
-    <h1>Website Under Maintenance</h1>
-    <p class="subtitle">
-      Our website is currently being updated. We will be back online shortly.
-      Thank you for your understanding.
-    </p>
+    <!-- MAIN CONTENT -->
+    <section class="main">
 
-    <!-- FLAGS ONLY -->
-    <section class="grid" aria-label="Maintenance message in multiple languages">
-
-      <div class="lang">
-        <div class="flag">🇬🇧</div>
-        <p>The website is currently under maintenance. Please check back soon.</p>
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="30" stroke="#2F7D32" stroke-width="3"/>
+          <path d="M20 44l6-6 4 4 10-10" stroke="#C9A44C" stroke-width="3" stroke-linecap="round"/>
+          <path d="M22 22h20" stroke="#2F7D32" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="3" fill="#2F7D32"/>
+        </svg>
       </div>
 
-      <div class="lang">
-        <div class="flag">🇫🇷</div>
-        <p>Le site est actuellement en cours de maintenance. Merci de revenir prochainement.</p>
+      <h1>Website Under Maintenance</h1>
+
+      <p class="subtitle">
+        Our website is currently being updated.
+        We will be back online shortly. Thank you for your understanding.
+      </p>
+
+      <div class="grid">
+
+        <div class="lang">
+          <div class="flag">🇬🇧</div>
+          <p>The website is currently under maintenance. Please check back soon.</p>
+        </div>
+
+        <div class="lang">
+          <div class="flag">🇫🇷</div>
+          <p>Le site est actuellement en cours de maintenance. Merci de revenir prochainement.</p>
+        </div>
+
+        <div class="lang">
+          <div class="flag">🇪🇸</div>
+          <p>El sitio web está en mantenimiento. Volveremos pronto.</p>
+        </div>
+
+        <div class="lang rtl" lang="ar">
+          <div class="flag">🇸🇦</div>
+          <p>الموقع قيد التحديث حاليًا. سنعود قريبًا إن شاء الله.</p>
+        </div>
+
       </div>
 
-      <div class="lang">
-        <div class="flag">🇪🇸</div>
-        <p>El sitio web está en mantenimiento. Volveremos pronto.</p>
-      </div>
+      <div class="contact">
+        <strong>Contact</strong><br>
+        WhatsApp: +34 600 672 423<br>
+        Email: info@mwt-tours.com<br>
+        Alicante – Calle Italia, 9, 03003<br>
 
-      <div class="lang rtl" lang="ar">
-        <div class="flag">🇸🇦</div>
-        <p>الموقع قيد التحديث حاليًا. سنعود قريبًا إن شاء الله.</p>
+        <a class="cta" href="https://wa.me/34600672423" target="_blank">
+          Contact on WhatsApp
+        </a>
       </div>
 
     </section>
 
-    <div class="contact">
-      <strong>Contact</strong><br>
-      WhatsApp: +34 600 672 423<br>
-      Email: info@mwt-tours.com<br>
-      Alicante – Calle Italia, 9, 03003<br>
+  </div>
 
-      <a class="cta" href="https://wa.me/34600672423" target="_blank" rel="noopener">
-        Contact on WhatsApp
-      </a>
-    </div>
-
-  </main>
 </body>
 </html>
