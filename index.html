@@ -13,8 +13,10 @@
       --muted:#6b6b6b;
       --border:#ececec;
       --bg:#ffffff;
+      --card:#fafafa;
     }
 
+    *{box-sizing:border-box;}
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
@@ -23,75 +25,87 @@
     }
 
     .container{
-      max-width:900px;
+      max-width:920px;
       margin:0 auto;
-      padding:50px 16px;
+      padding:44px 16px 54px;
       text-align:center;
     }
 
-    .logo{
+    /* LOGO */
+    .logo img{
       max-width:180px;
-      margin-bottom:24px;
+      height:auto;
+      display:block;
+      margin:0 auto 14px;
     }
 
+    /* ICON */
     .icon{
-      margin:20px auto;
-      width:120px;
-      height:120px;
+      width:88px;
+      height:88px;
+      margin:8px auto 18px;
+    }
+    .icon svg{
+      width:100%;
+      height:100%;
+      display:block;
     }
 
     h1{
       font-size:30px;
-      margin:16px 0 10px;
+      margin:0 0 10px;
+      letter-spacing:0.2px;
     }
-
-    p{
+    .subtitle{
+      margin:0 auto 22px;
+      max-width:640px;
       color:var(--muted);
       line-height:1.6;
-      margin-bottom:30px;
+      font-size:15px;
     }
 
+    /* LANG BOXES */
     .grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
+      margin-top:18px;
       text-align:left;
     }
-
     .lang{
       border:1px solid var(--border);
       border-radius:14px;
       padding:16px;
-      background:#fafafa;
+      background:var(--card);
     }
-
     .flag{
       font-size:26px;
-      margin-bottom:8px;
+      line-height:1;
+      margin-bottom:10px;
     }
-
     .lang p{
       margin:0;
       font-size:14px;
       color:#222;
-      line-height:1.5;
+      line-height:1.55;
     }
-
     .rtl{
       direction:rtl;
       text-align:right;
     }
 
+    /* CONTACT */
     .contact{
-      margin-top:30px;
+      margin-top:26px;
       padding-top:18px;
       border-top:1px solid var(--border);
       font-size:14px;
+      color:#333;
+      line-height:1.6;
     }
-
     .cta{
       display:inline-block;
-      margin-top:14px;
+      margin-top:12px;
       padding:12px 18px;
       background:var(--green);
       color:#fff;
@@ -100,24 +114,24 @@
       font-weight:700;
     }
 
-    @media(max-width:700px){
-      .grid{grid-template-columns:1fr;}
+    @media (max-width:720px){
       h1{font-size:26px;}
+      .grid{grid-template-columns:1fr;}
+      .container{padding:34px 14px 44px;}
     }
   </style>
 </head>
 
 <body>
+  <main class="container" role="main" aria-live="polite">
 
-  <div class="container">
-
-    <!-- LOGO -->
+    <!-- LOGO (make sure this file exists: /images/logo.png) -->
     <div class="logo">
-      <img src="logo.png" alt="MWT – Moltaqa World Travel">
+      <img src="images/logo.png" alt="MWT – Moltaqa World Travel">
     </div>
 
-    <!-- MAINTENANCE ICON -->
-    <div class="icon">
+    <!-- Maintenance icon (SVG) -->
+    <div class="icon" aria-hidden="true">
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="32" cy="32" r="30" stroke="#2F7D32" stroke-width="3"/>
         <path d="M20 44l6-6 4 4 10-10" stroke="#C9A44C" stroke-width="3" stroke-linecap="round"/>
@@ -127,22 +141,22 @@
     </div>
 
     <h1>Website Under Maintenance</h1>
-    <p>
-      Our website is currently being updated.<br>
-      We will be back online shortly. Thank you for your understanding.
+    <p class="subtitle">
+      Our website is currently being updated. We will be back online shortly.
+      Thank you for your understanding.
     </p>
 
     <!-- FLAGS ONLY -->
-    <div class="grid">
-
-      <div class="lang">
-        <div class="flag">🇫🇷</div>
-        <p>Le site est actuellement en cours de maintenance. Merci de revenir prochainement.</p>
-      </div>
+    <section class="grid" aria-label="Maintenance message in multiple languages">
 
       <div class="lang">
         <div class="flag">🇬🇧</div>
         <p>The website is currently under maintenance. Please check back soon.</p>
+      </div>
+
+      <div class="lang">
+        <div class="flag">🇫🇷</div>
+        <p>Le site est actuellement en cours de maintenance. Merci de revenir prochainement.</p>
       </div>
 
       <div class="lang">
@@ -155,20 +169,19 @@
         <p>الموقع قيد التحديث حاليًا. سنعود قريبًا إن شاء الله.</p>
       </div>
 
-    </div>
+    </section>
 
     <div class="contact">
       <strong>Contact</strong><br>
       WhatsApp: +34 600 672 423<br>
       Email: info@mwt-tours.com<br>
-      Alicante – Calle Italia, 9, 03003
-      <br>
-      <a class="cta" href="https://wa.me/34600672423" target="_blank">
+      Alicante – Calle Italia, 9, 03003<br>
+
+      <a class="cta" href="https://wa.me/34600672423" target="_blank" rel="noopener">
         Contact on WhatsApp
       </a>
     </div>
 
-  </div>
-
+  </main>
 </body>
 </html>
