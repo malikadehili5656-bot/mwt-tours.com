@@ -1,8 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Page temporarily unavailable</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MWT – Hajj Packages Coming Soon</title>
+  <style>
+    :root{
+      --green:#2F7D32;
+      --gold:#C9A44C;
+      --text:#1f1f1f;
+      --muted:#6b6b6b;
+      --border:#ececec;
+      --bg:#ffffff;
+    }
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      padding:40px 16px;
+      text-align:center;
+    }
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      font-weight:700;
+      color:var(--green);
+      margin-bottom:16px;
+    }
+    h1{
+      font-size:30px;
+      margin:10px 0;
+    }
+    p{
+      color:var(--muted);
+      line-height:1.6;
+      margin-bottom:24px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      text-align:left;
+      margin-top:20px;
+    }
+    .lang{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px;
+      background:#fafafa;
+    }
+    .lang h3{
+      margin:0 0 8px 0;
+      color:var(--green);
+      font-size:14px;
+    }
+    .lang p{
+      margin:0;
+      font-size:14px;
+      color:#222;
+    }
+    .rtl{
+      direction:rtl;
+      text-align:right;
+    }
+    .contact{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+    }
+    .cta{
+      display:inline-block;
+      margin-top:12px;
+      padding:12px 18px;
+      background:var(--green);
+      color:#fff;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+    }
+    @media(max-width:700px){
+      .grid{grid-template-columns:1fr;}
+      h1{font-size:26px;}
+    }
+  </style>
 </head>
-<body></body>
+
+<body>
+  <div class="container">
+    <div class="badge">MWT – Moltaqa World Travel</div>
+
+    <h1>Hajj Packages – Coming Soon</h1>
+    <p>
+      Our website is currently under update.  
+      Hajj 2026 packages are being prepared and will be published soon.
+    </p>
+
+    <div class="grid">
+      <div class="lang">
+        <h3>Français</h3>
+        <p><strong>Site en cours de mise à jour.</strong> Les packs Hajj 2026 sont en préparation et seront publiés prochainement.</p>
+      </div>
+
+      <div class="lang">
+        <h3>English</h3>
+        <p><strong>Website under update.</strong> Hajj 2026 packages are currently being prepared.</p>
+      </div>
+
+      <div class="lang">
+        <h3>Español</h3>
+        <p><strong>Sitio en actualización.</strong> Los paquetes Hajj 2026 están en preparación.</p>
+      </div>
+
+      <div class="lang rtl" lang="ar">
+        <h3>العربية</h3>
+        <p><strong>الموقع قيد التحديث.</strong> باقات حج 2026 قيد التحضير وسيتم نشرها قريبًا بإذن الله.</p>
+      </div>
+    </div>
+
+    <div class="contact">
+      <p><strong>Contact</strong></p>
+      <p>WhatsApp: +34 600 672 423<br>
+      Email: info@mwt-tours.com<br>
+      Alicante – Calle Italia, 9, 03003</p>
+
+      <a class="cta" href="https://wa.me/34600672423" target="_blank">
+        Contact on WhatsApp
+      </a>
+    </div>
+  </div>
+</body>
 </html>
